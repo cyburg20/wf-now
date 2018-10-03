@@ -7,10 +7,10 @@ const updateJob = async (job) => {
     try {
         //create a connection to the database.
         const pool = new Pool({
-            database: 'dpf',
-            host: '10.128.2.247',
-            user: 'dpf',
-            password: 'dpf',
+            database: 'name',
+            host: 'localhost',
+            user: 'name',
+            password: 'name',
             port: 7128,//port
             max: 20, // set pool max size to 20
             min: 10, // set min pool size to 4
