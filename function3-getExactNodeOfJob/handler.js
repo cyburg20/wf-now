@@ -32,7 +32,7 @@ module.exports = (context, callback) => {
             const procName = job.processpath.split(":")[0];
             job.processpath = ` ${procName}: ${position}`;
 
-            callback(JSON.stringify(jobxml));
+            callback( null, JSON.stringify(jobxml));
 
         }));
 
