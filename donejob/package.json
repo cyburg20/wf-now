@@ -1,0 +1,25 @@
+{
+    "name": "donejob",
+    "version": "1.0.0",
+    "description": " submit the job as done to the database",
+    "main": "index.js",
+    "keywords": [],
+    "author": {
+        "name": "Benard obhade",
+        "email": "benard.obhade@sealsystems.de"
+    },
+    "license": "ISC",
+    "dependencies": {
+        "find": "0.2.9",
+        "get-stdin": "6.0.0",
+        "http": "0.0.0",
+        "os": "0.1.1",
+        "pg": "7.5.0",
+        "pg-pool": "2.0.3",
+        "promise": "8.0.1",
+        "readable-stream": "3.0.2",
+        "request": "2.85.0",
+        "request-promise-native": "1.0.5",
+        "xml-js": "1.6.7"
+    }
+}

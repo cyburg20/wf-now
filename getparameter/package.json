@@ -1,0 +1,20 @@
+{
+    "name": "getparameter",
+    "version": "1.0.0",
+    "description": "get parameter required from the database",
+    "main": "index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "dependencies": {
+      "get-stdin": "6.0.0",
+      "http": "0.0.0",
+      "os": "0.1.1",
+      "pg": "7.5.0",
+      "pg-pool": "2.0.3",
+      "request": "2.88.0"
+    },
+    "author": "Obhade benard",
+    "license": "ISC"
+  }
+  

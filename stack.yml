@@ -1,0 +1,105 @@
+provider:
+  name: faas
+  gateway: http://127.0.0.1:8080
+
+functions:
+  wf-director:
+    lang: Dockerfile
+    handler: ./wf-director
+    image: ibo1986/wf-director:latest
+    environment:
+      fprocess: "node index.js"
+      gateway_url: http://gateway:8080/function/
+      combine_output: false
+      write_debug: true
+      exec_timeout: 1000s
+    labels:
+      topic: newjob
+              
+  getjob:
+    lang: Dockerfile
+    handler: ./getjob
+    image: ibo1986/getjob:latest
+    environment:
+      fprocess: "node index.js"
+      content_type: application/json
+      combine_output: false
+      write_debug: true
+ 
+  getxml:
+    lang: Dockerfile
+    handler: ./getxml
+    image: ibo1986/getxml:latest
+    environment:
+      fprocess: "node index.js"
+      content_type: application/json
+      combine_output: false
+      write_debug: true
+  
+  setpositionandpath:
+    lang: Dockerfile
+    handler: ./setpositionandpath
+    image: ibo1986/setpositionandpath:latest
+    environment:
+      fprocess: "node index.js"
+      content_type: application/json
+      combine_output: false
+      write_debug: true
+ 
+  wunode:
+    lang: Dockerfile
+    handler: ./wunode
+    image: ibo1986/wunode:latest
+    environment:
+      fprocess: "node index.js"
+      content_type: application/json
+      combine_output: false
+      write_debug: true
+   
+  updatejob:
+    lang: Dockerfile
+    handler: ./updatejob
+    image: ibo1986/updatejob:latest
+    environment:
+      fprocess: "node index.js"
+      content_type: application/json
+      combine_output: false
+      write_debug: true
+   
+  modify:
+    lang: Dockerfile
+    handler: ./modify
+    image: ibo1986/modify:latest
+    environment:
+      fprocess: "node index.js"
+      content_type: application/json
+      combine_output: false
+      write_debug: true
+  
+  donejob:
+    lang: Dockerfile
+    handler: ./donejob
+    image: ibo1986/donejob:latest
+    environment:
+      fprocess: "node index.js"
+      content_type: application/json
+      combine_output: false
+      write_debug: true
+  getparameter:
+    lang: Dockerfile
+    handler: ./getparameter
+    image: ibo1986/getparameter:latest
+    environment:
+      fprocess: "node index.js"
+      content_type: application/json
+      combine_output: false
+      write_debug: true
+  finishjob:
+    lang: Dockerfile
+    handler: ./finishjob
+    image: ibo1986/finishjob:latest
+    environment:
+      fprocess: "node index.js"
+      content_type: application/json
+      combine_output: false
+      write_debug: true

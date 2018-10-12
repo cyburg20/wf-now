@@ -1,0 +1,21 @@
+{
+    "name": "getxml",
+    "version": "1.0.0",
+    "description": "read the xml file and produce the exact one for the job",
+    "main": "index.js",
+    "keywords": [],
+    "author": {
+        "name": "Benard obhade",
+        "email": "benard.obhade@sealsystems.de"
+    },
+    "license": "ISC",
+    "dependencies": {
+        "find": "0.2.9",
+        "fs": "0.0.1-security",
+        "get-stdin": "6.0.0",
+        "promise": "8.0.1",
+        "readable-stream": "3.0.2",
+        "request": "2.85.0",
+        "xml-js": "1.6.7"
+    }
+}

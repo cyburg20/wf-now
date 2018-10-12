@@ -1,0 +1,19 @@
+{
+  "name": "localconnector",
+  "version": "1.0.0",
+  "description": "connection from the database ",
+  "main": "bin/app.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ben",
+  "license": "ISC",
+  "dependencies": {
+    "amqplib": "0.5.2",
+    "pg": "7.5.0",
+    "pg-pool": "2.0.3"
+  }
+}
