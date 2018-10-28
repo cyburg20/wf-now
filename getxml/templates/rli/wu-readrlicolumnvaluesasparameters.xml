@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <Rli.ReadRliColumnValuesAsParameters
+        CODEPAGE="UTF8"
+        COMMAND="%DPFSRV%/scripts/rli/readrlicolumnvaluesasparameters.pl -parfile %PARFILENAME%"
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGSTDOUT="Y"
+        NAME="Read Rli Column Values As Parameters"
+        NODENAMES=""
+        PROJECT="Rli"
+        THREADS="5"
+        TIMEOUT=""
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-readrlicolumnvaluesasparameters.xml,v 1.5 2016/04/15 15:04:27 sek Exp $"
+        >
+        <DEFAULTS/>
+        <INPUT>
+          <CurrRliFileName
+            DESCRIPTION="the input rli-file"
+            MANDATORY="true"
+            TYPE="TEXT"
+            />
+          <FilterOperator
+            DESCRIPTION="optional operator to compare value(s), default: eq, all perl operators are allowed"
+            TYPE="TEXT"
+            />
+          <FilterValue
+            DESCRIPTION="value to search for in filter"
+            TYPE="TEXT"
+            />
+          <OffsetValue
+            DESCRIPTION="if set, OffsetValue will be added to each column value that is a number"
+            TYPE="TEXT"
+            />
+          <ReadColumn
+            DESCRIPTION="read all values of this column"
+            MANDATORY="true"
+            TYPE="TEXT"
+            />
+          <RlicFilter
+            DESCRIPTION="name of RLI column for filter"
+            TYPE="TEXT"
+            />
+          <WriteParamBaseName
+            DESCRIPTION="optional base name of output parameters, default: value of ReadColumn parameter"
+            TYPE="TEXT"
+            />
+        </INPUT>
+        <OUTPUT/>
+      </Rli.ReadRliColumnValuesAsParameters>
+    </workingunits>
+  </config>
+</DPF>

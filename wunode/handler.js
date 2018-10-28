@@ -4,19 +4,19 @@
 
 
 const handler = async (context) => {
-  let workFlow = context.workFlow
+  let jobFlow = context.jobFlow
   let job = context.job;
 
 
   //check if the node is a working unit
-  const node = workFlow[job.processposition]._attributes;
+  const node = jobFlow[job.processposition]._attributes;
   if(node ['TYPE'] === 'WU'){
       job.workingunitname = node['NAME'];
   }  else {
-      console.error('there is no defined workflow'. error);
+      console.error('there is no defined jobFlow'. error);
   }
   
-   return { job, workFlow};
+   return { job, jobFlow};
 
 
 };

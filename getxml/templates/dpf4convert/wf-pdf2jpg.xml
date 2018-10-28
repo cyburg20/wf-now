@@ -1,0 +1,23 @@
+<DPF>
+  <config>
+    <workflows>
+      <pdf2jpg
+        NAME="DPF 4 Convert - PDF to JPG"
+        VERSION="$Id: wf-pdf2jpg.xml,v 1.2 2006/08/15 10:03:23 ludwig Exp $"
+        PROJECT="DPF4CONVERT"
+        COMMENT="dpf4convert - Convert process PDF to JPG"
+        DPFINT-Type="WorkflowDescription"
+        DPFINT-Changes="0"
+        >
+        <MAIN
+          BEGIN="pdf2jpg"
+          ERROR="END"
+          />
+        <pdf2jpg
+          NAME="pdf2jpg"
+          NEXT="END"
+          />
+      </pdf2jpg>
+    </workflows>
+  </config>
+</DPF>

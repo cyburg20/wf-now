@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DPF>
+  <config>
+    <workingunits>
+      <Test.unicode
+        COMMAND="%DPFSRV%/scripts/test/unicode.pl -parfile %PARFILENAME%"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGNAME=""
+        LOGSTDOUT="Y"
+        CODEPAGE="UTF8"
+        NAME="I ♥ Ünicödë"
+        PROJECT="Test"
+        THREADS="5"
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-unicode.xml,v 1.5 2008/07/18 16:45:51 stefan Exp $"
+        >
+        <DEFAULTS
+          DefaultGreek="Γειά σας!"
+          DefaultChinese="你好"
+          DefaultRussian="привет"
+          DPFINT-Icon="doc://:/defaults.gif"
+          WU_ENABLE_DEBUG_LOOP="N"
+          />
+        <ENVIRONMENTS
+          HERE_YOU_COULD_SET_EXTRA_ENV_VARS="to a value"
+          />
+        <INPUT
+          CURRFILENAME="*"
+          DPFINT-Icon="doc://:/wu-input.gif"
+          WU_ENABLE_DEBUG_LOOP="*"
+          />
+        <OUTPUT
+          DPFINT-Icon="doc://:/wu-output.gif"
+          ERR_REASON="*"
+          EXAMPLE_OUTPUT="*"
+          />
+      </Test.unicode>
+    </workingunits>
+  </config>
+</DPF>

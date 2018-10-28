@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <error
+        COMMAND="%DPFSRV%/scripts/error.pl -parfile %PARFILENAME%"
+        DEFAULTS=""
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGSTDOUT="Y"
+        NAME="Error (set an error and run error handling)"
+        PROJECT=""
+        Status="Running"
+        THREADS="1"
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-error.xml,v 1.2 2007/07/13 10:19:21 stefan Exp $"
+        >
+        <DEFAULTS
+          ERR_CODE="1"
+          />
+        <INPUT>
+          <ERR_CODE
+            DEFAULT="1"
+            DESCRIPTION="error code"
+            TYPE="TEXT"
+            />
+          <ERR_REASON
+            DESCRIPTION="set an error reason here"
+            TYPE="TEXT"
+            />
+        </INPUT>
+      </error>
+    </workingunits>
+  </config>
+</DPF>

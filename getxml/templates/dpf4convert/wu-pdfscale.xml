@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <pdfscale
+        NAME="dpf4c - Scale PDF"
+        VERSION="$Id: wu-pdfscale.xml,v 1.7 2006/08/03 11:35:33 ludwig Exp $"
+        PROJECT="DPF4CONVERT"
+        TYPE="WUSystemCall"
+        LOGNAME="dpf4c-pdfscale"
+        LOGSTDOUT="Y"
+        LOGLEVEL="LOG_INFO"
+        THREADS="1"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/pdfscale.pl -parfile %PARFILENAME%">
+        <DEFAULTS
+          WU_ENABLE_DEBUG_LOOP="N"
+          DPF4C_MODIFY_SCALE_FACTOR=""
+          DPF4C_PDFSCALE_EXT=""
+          DPF4C_MODIFY_SCALE="N"
+          />
+        <INPUT
+          CURRFILENAME="*"
+          CURRFILETYPE="pdf"
+          DPF4C_MODIFY_SCALE_FACTOR="number"
+          DPF4C_MODIFY_SCALE="Y|!N!"
+          DPF4C_COMMON_TIMEOUT="number"
+          />
+        <OUTPUT
+          CURRFILENAME="*"
+          CURRFILETYPE="pdf"
+          />
+      </pdfscale>
+    </workingunits>
+  </config>
+</DPF>

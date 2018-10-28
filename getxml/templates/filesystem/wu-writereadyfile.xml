@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <FileSystem.WriteReadyFile
+        COMMAND="%DPFSRV%/scripts/filesystem/writereadyfile.pl -parfile %PARFILENAME%"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGSTDOUT="Y"
+        NAME="WriteReadyFile"
+        PROJECT="FileSystem"
+        THREADS="1"
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-writereadyfile.xml,v 1.1 2008/04/02 09:26:42 sek Exp $"
+        />
+    </workingunits>
+  </config>
+</DPF>

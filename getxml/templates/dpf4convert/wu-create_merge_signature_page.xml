@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <create_merge_signature_page
+        NAME="dpf4c - Create signature file and merge with main document."
+        VERSION="$Id: wu-create_merge_signature_page.xml,v 1.3 2012/11/15 08:44:07 kig Exp $"
+        PROJECT="DPF4CONVERT"
+        TYPE="WUSystemCall"
+        LOGNAME="dpf4c-create_merge_signature_page"
+        LOGSTDOUT="Y"
+        LOGLEVEL="LOG_INFO"
+        THREADS="1"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/create_merge_signature_page.pl -parfile %PARFILENAME%">
+        <DEFAULTS
+          WU_ENABLE_DEBUG_LOOP="N"
+          DPF4C_CREATE_SIGNATURE_PAGE="N"
+          DPF4C_SIGNATURE_SIG_FILENAME=""
+          DPF4C_SIGNATURE_SIG_POSITION="F"
+    	  DPF4C_CREATE_MERGE_SIGNATURE_PAGE_TAKE_NO_BOOKMARKS="N"
+          ENABLE_PDFEXPAND="N"
+          />
+        <INPUT
+          CURRFILENAME="*"
+          CURRFILETYPE="pdf"
+          />
+        <OUTPUT
+          CURRFILENAME="*"
+          CURRFILETYPE="pdf"
+          />
+      </create_merge_signature_page>
+    </workingunits>
+  </config>
+</DPF>

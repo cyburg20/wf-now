@@ -1,20 +1,16 @@
 'use strict';
 
 
-const ifthenelse = (context) => {
-         
-    let job = context.job;
-    let workFlow = context.workFlow;
-    let parameters = context.result;
+const ifThenElse =  async (job, jobFlow, parameters) => {
 
-    const doIfThenElseNode = workFlow[job.processposition]._attributes;
+    const doIfThenElseNode = jobFlow[job.processposition]._attributes;
     const elseAttribute = doIfThenElseNode["ELSE"];
     const thenAttribute = doIfThenElseNode["THEN"];
     const operator = doIfThenElseNode["OPERATOR"]; //eq
     const valueAttribute = doIfThenElseNode["VALUE"]; //bar
     const propertyAttribute = doIfThenElseNode["PROPERTY"]; //foo
   
-    //parameterm abstraction
+
   
     // evaluate expression
     if (operator === "eq") {
@@ -24,13 +20,9 @@ const ifthenelse = (context) => {
       } else {        
         return elseAttribute;
       }
-    } else if (operator === "ne") {
-      // handle ne
-    }
-  
-
+    } 
 
 
 }
 
-module.exports = ifthenelse;
+module.exports = ifThenElse;

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <CdRobot.toastAdr
+        CODEPAGE="ISO-8859-1"
+        COMMAND="%DPFSRV%/scripts/cdrobot/toastadr.pl -parfile %PARFILENAME%"
+        DPFINT-FileLinks="doc://:/%DPFSRV%/scripts/cdrobot/toastadr.pl"
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGNAME=""
+        LOGSTDOUT="Y"
+        NAME="Toast CD with ADR robot"
+        NODENAMES=""
+        PROJECT="CdRobot"
+        THREADS="1"
+        TIMEOUT=""
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-toastadr.xml,v 1.5 2009/05/22 05:32:49 wolfi Exp $"
+        >
+        <DEFAULTS
+          DPFINT-Icon="doc://:/defaults.gif"
+          PMASTER_BINDIR=""
+          WU_ENABLE_DEBUG_LOOP="N"
+          />
+        <ENVIRONMENTS
+          HERE_YOU_CAN_SET_EXTRA_ENV_VARS="to a value"
+          />
+        <INPUT
+          DPFINT-Icon="doc://:/wu-input.gif"
+          PMASTER_BINDIR="*"
+          WU_ENABLE_DEBUG_LOOP="*"
+          >
+          <LABELFILE
+            TYPE="TEXT"
+            />
+          <LABELTEXT
+            TYPE="TEXT"
+            />
+          <PMASTER_BINDIR
+            TYPE="TEXT"
+            />
+          <TOAST_NODENAME
+            TYPE="TEXT"
+            />
+          <TOAST_NUM_COPIES
+            TYPE="TEXT"
+            />
+          <WU_ENABLE_DEBUG_LOOP
+            DEFAULT="N"
+            TYPE="TEXT"
+          />
+        </INPUT>
+        <OUTPUT
+          DPFINT-Icon="doc://:/wu-output.gif"
+          />
+      </CdRobot.toastAdr>
+    </workingunits>
+  </config>
+</DPF>

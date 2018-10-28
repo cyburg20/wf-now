@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <FileSystem.setPriveliges
+        COMMAND="%DPFSRV%/scripts/filesystem/setpriveliges.pl -parfile %PARFILENAME%"
+        COMMENT="Restrict access rights to the given User"
+        DPFINT-FileLinks="doc://:/%DPFSRV%/scripts/filesystem/setpriveliges.pl"
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGNAME=""
+        LOGSTDOUT="Y"
+        NAME="Set File Priveliges"
+        PROJECT="FileSystem"
+        Status="Running"
+        THREADS="1"
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-setpriveliges.xml,v 1.5 2007/03/28 10:39:37 ch Exp $"
+        >
+        <INPUT
+          DPFINT-Icon="doc://:/wu-input.gif"
+          />
+      </FileSystem.setPriveliges>
+    </workingunits>
+  </config>
+</DPF>

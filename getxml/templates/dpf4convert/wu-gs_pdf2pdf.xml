@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <gs_pdf2pdf
+        NAME="dpf4c - gs_pdf to pdf for compacter pdf file"
+        VERSION="$Id: wu-gs_pdf2pdf.xml,v 1.3 2007/03/16 13:38:52 ludwig Exp $"
+        PROJECT="DPF4CONVERT"
+        TYPE="WUSystemCall"
+        LOGNAME="dpf4c-gs_pdf2pdf"
+        LOGSTDOUT="Y"
+        LOGLEVEL="LOG_INFO"
+        THREADS="1"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/gs_pdf2pdf.pl -parfile %PARFILENAME%">
+        <DEFAULTS
+          WU_ENABLE_DEBUG_LOOP="N"
+          PS2PDF_PDF_SETTING=""
+          GS_PDF_SETTINGS="default"
+          />
+        <INPUT
+          CURRFILETYPE="pdf"
+          PS2PDF_PDF_SETTING="PDFA|"
+          GS_PDF_SETTINGS="default|printer"
+          />
+        <OUTPUT
+          CURRFILETYPE="pdf"
+          />
+      </gs_pdf2pdf>
+    </workingunits>
+  </config>
+</DPF>

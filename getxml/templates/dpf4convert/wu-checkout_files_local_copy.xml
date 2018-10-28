@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <checkout_files_local_copy
+        CODEPAGE="UTF8"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/checkout_files_local_copy.pl -parfile %PARFILENAME%"
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        LOGLEVEL="LOG_INFO"
+        LOGNAME="dpf4c-checkout_files_local_copy"
+        LOGSTDOUT="Y"
+        NAME="dpf4c - Check out files by local copy."
+        NODENAMES=""
+        PROJECT="DPF4CONVERT"
+        THREADS="1"
+        TIMEOUT=""
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-checkout_files_local_copy.xml,v 1.9 2012/03/07 14:51:38 kig Exp $"
+        >
+        <DEFAULTS
+           PLMCHECKOUTDIRNAME=""
+           PLMCHECKOUTDIRREPLACEFROM=""
+           PLMCHECKOUTDIRREPLACETO=""
+           PLMCHECKOUTDESTAPPEND=""
+           PLMCHECKOUTDIRREPLACEFROM_SECOND=""
+           PLMCHECKOUTDIRREPLACETO_SECOND=""
+           PLMCHECKOUTDESTAPPEND_SECOND=""
+           PLMCHECKOUT_COPY_ALL_FILES_FROM_JOBINDIR_TO_JOBDIR_WITH_EXTENSION=""
+          />
+        <INPUT
+           PLMCHECKOUT_COPY_ALL_FILES_FROM_JOBINDIR_TO_JOBDIR_WITH_EXTENSION=""
+          />
+        <OUTPUT
+          />
+      </checkout_files_local_copy>
+    </workingunits>
+  </config>
+</DPF>

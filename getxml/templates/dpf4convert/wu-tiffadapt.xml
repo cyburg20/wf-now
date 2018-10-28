@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <DPF4CONVERT.tiffadapt
+        CODEPAGE="ISO-8859-1"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/tiffadapt.pl -parfile %PARFILENAME%"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGNAME=""
+        LOGSTDOUT="Y"
+        NAME="dpf4c - Adapt TIFF files"
+        NODENAMES=""
+        PROJECT="DPF4CONVERT"
+        THREADS="1"
+        TIMEOUT=""
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-tiffadapt.xml,v 1.2 2011/04/27 15:42:37 kig Exp $">
+        <DEFAULTS
+          TIFFADAPT_STATES_REQUEST_ADAPT="WARNING,ERROR,FAILURE"
+          TIFFADAPT_STATES_ACCEPT_RESULT="OK"
+          TIFFADAPT_FILECHECK_CONFIG_FILE="tiffbasecheck.cfg"
+          TIFFADAPT_ERROR_IF_REFUSED="Y"
+          />
+        </DPF4CONVERT.tiffadapt>
+    </workingunits>
+  </config>
+</DPF>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <Test.sleep1thread
+        COMMAND="%DPFSRV%/scripts/test/sleep.pl -parfile %PARFILENAME%"
+        DPFINT-Icon="doc://:/test.sleep.png"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGNAME=""
+        LOGSTDOUT="N"
+        NAME="Sleep 1 thread"
+        PROJECT="Test"
+        Status="Running"
+        THREADS="1"
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-sleep1thread.xml,v 1.5 2007/03/28 10:39:39 ch Exp $"
+        >
+        <INPUT
+          TIME_TO_SLEEP="1"
+          />
+      </Test.sleep1thread>
+    </workingunits>
+  </config>
+</DPF>

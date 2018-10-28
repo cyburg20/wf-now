@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workflows>
+      <DPF4CONVERT.ConvIniUserPreConvert
+        COMMENT=""
+        DPFINT-Customer="1"
+        DPFINT-Interactive="0"
+        DPFINT-Type="WorkflowDescription"
+        NAME="ConvIniUserPreConvert"
+        OrigIdentifier="WorkflowDPF4CONVERT.ConvIniUserPreConvert"
+        PROJECT="DPF4CONVERT"
+        VERSION="$Id: wf-conviniuserpreconvert.xml,v 1.1 2014/05/20 08:26:58 kig Exp $"
+        >
+        <DEFAULTS
+          DPF4CONVERT.ConvIniUserPreConvert="DPF4CONVERT.ConvIniUserPreConvert"
+          />
+        <END
+          COMMENT=""
+          NAME="END"
+          POSX="200"
+          POSY="100"
+          TYPE="STOP"
+          />
+        <MAIN
+          BEGIN="END"
+          NAME=""
+          />
+        <MAPPING/>
+      </DPF4CONVERT.ConvIniUserPreConvert>
+    </workflows>
+  </config>
+</DPF>

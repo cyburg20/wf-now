@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <sift_properties
+        NAME="dpf4c - Sift property update properties from property file."
+        VERSION="$Id: wu-sift_properties.xml,v 1.1 2005/02/02 14:12:15 ludwig Exp $"
+        PROJECT="DPF4CONVERT"
+        TYPE="WUSystemCall"
+        LOGNAME="dpf4c-sift_properties"
+        LOGSTDOUT="Y"
+        LOGLEVEL="LOG_INFO"
+        THREADS="1"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/sift_properties.pl -parfile %PARFILENAME%">
+        <DEFAULTS
+          WU_ENABLE_DEBUG_LOOP="N"
+          DECISION_DPF_PARAMETER=""
+          SIFT_DECISION_VALUE_GREATER_THAN="00" 
+          SIFTED_PROPERTIES_1=""
+          SIFTED_PROPERTIES_2=""
+          />
+        <INPUT
+          DPF4C_PROPERTYUPDATE_FILE="*"
+          />
+        <OUTPUT
+          />
+      </sift_properties>
+    </workingunits>
+  </config>
+</DPF>

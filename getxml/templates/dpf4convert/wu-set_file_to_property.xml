@@ -1,0 +1,29 @@
+<DPF>
+  <config>
+    <workingunits>
+      <set_file_to_property
+        NAME="dpf4c - Set a file to a DPF property."
+        VERSION="$Id: wu-set_file_to_property.xml,v 1.2 2007/02/09 14:44:48 ludwig Exp $"
+        PROJECT="DPF4CONVERT"
+        TYPE="WUSystemCall"
+        LOGNAME="dpf4c-set_file_to_property"
+        LOGSTDOUT="Y"
+        LOGLEVEL="LOG_INFO"
+        THREADS="1"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/set_file_to_property.pl -parfile %PARFILENAME%">
+    	<DEFAULTS
+            SET_FILE_TO_PROPERTY_FILENAME="$_converted_document.doc"
+            SET_FILE_TO_PROPERTY_DESTINATION_PROPERTY="DPF4C_PROPERTYUPDATE_OUTFILE1"
+            SET_FILE_TO_PROPERTY_COPY_TO_SAP_IN_DIR="N"
+          />
+        <INPUT
+            SET_FILE_TO_PROPERTY_FILENAME="filename"
+            SET_FILE_TO_PROPERTY_DESTINATION_PROPERTY="string"
+            SET_FILE_TO_PROPERTY_COPY_TO_SAP_IN_DIR="Y|!N!"
+          />
+        <OUTPUT
+          />
+      </set_file_to_property>
+    </workingunits>
+  </config>
+</DPF>

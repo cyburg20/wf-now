@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workflows>
+      <Examples.simpleRliExample
+        COMMENT=""
+        DPFINT-Icon="doc://:/wf.gif"
+        DPFINT-Type="WorkflowDescription"
+        INTERNALNAME="Examples.simpleRliExample"
+        NAME="Simple RLI Example"
+        PROJECT="Examples"
+        VERSION="$Id: wf-simplerliexample.xml,v 1.1 2006/11/10 22:33:32 stefan Exp $"
+        >
+        <DEFAULTS
+          DPFINT-Icon="doc://:/defaults.gif"
+          />
+        <Examples.simpleRliExample1
+          COMMENT=""
+          ERROR="END"
+          NAME="Examples.simpleRliExample"
+          NEXT="END"
+          POSX="300"
+          POSY="100"
+          TYPE="WU"
+          >
+          <DEFAULTS/>
+        </Examples.simpleRliExample1>
+        <MAIN
+          BEGIN="SET-RLI"
+          NAME=""
+          />
+        <MAPPING/>
+        <SET-RLI
+          COMMENT=""
+          NEXT="Examples.simpleRliExample1"
+          POSX="100"
+          POSY="100"
+          TYPE="MODIFY"
+          >
+          <CONNECTIONS
+            NEXT="DIRECT"
+            />
+          <SET
+            CURRRLIFILENAME="%CURRFILENAME%"
+            />
+        </SET-RLI>
+      </Examples.simpleRliExample>
+    </workflows>
+  </config>
+</DPF>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <hed2par
+        NAME="Header to Properties"
+        VERSION="$Id: wu-hed2par.xml,v 1.3 2003/04/08 07:07:57 stefan Exp $"
+        PROJECT="Convert WIZ 2"
+        TYPE="WUSystemCall"
+        LOGNAME="hed2par"
+        LOGLEVEL="LOG_INFO"
+        THREADS="1"
+	COMMAND="%DPFSRV%/scripts/hed2par.pl -parfile %PARFILENAME%">
+	<DEFAULTS
+          />
+        <INPUT
+	  PARFILENAME="*"
+	  CURRFILENAME="*"
+	  STEMPEL="*"
+	  JOBID="*"
+	  LOGLEVEL=""
+          />
+	<OUTPUT
+	  CURRFILENAME="*"
+          />
+      </hed2par>
+    </workingunits>
+  </config>
+</DPF>

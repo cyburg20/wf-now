@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <Test.countJobs
+        COMMAND="%DPFSRV%/scripts/test/countjobs.pl -parfile %PARFILENAME%"
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGNAME=""
+        LOGSTDOUT="Y"
+        NAME="Count jobs for each WU thread"
+        PROJECT="Test"
+        Status="Running"
+        THREADS="10"
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-countjobs.xml,v 1.5 2007/03/28 10:39:38 ch Exp $"
+        >
+        <INPUT
+          DPFINT-Icon="doc://:/wu-input.gif"
+          TIME_TO_SLEEP="1"
+          />
+      </Test.countJobs>
+    </workingunits>
+  </config>
+</DPF>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workflows>
+      <DPF4CONVERT.saprefile_user_pre_put_files
+        COMMENT="SAP Refile - USER EXIT PROCESS FOR SAP REFILE BEFORE PUT FILES"
+        DPFINT-Customer="0"
+        DPFINT-Interactive="0"
+        DPFINT-Type="WorkflowDescription"
+        NAME="SAP Refile - SubProcess saprefile_user_pre_put_files"
+        PROJECT="DPF4CONVERT"
+        VERSION="$Id: wf-saprefile_user_pre_put_files.xml,v 1.1 2012/05/25 14:31:55 kig Exp $"
+        >
+        <DEFAULTS/>
+        <END
+          COMMENT=""
+          NAME="END"
+          POSX="900"
+          POSY="200"
+          TYPE="STOP"
+          />
+        <MAIN
+          BEGIN="END"
+          ERROR="END"
+          LOGLEVEL="I"
+          />
+        <MAPPING/>
+      </DPF4CONVERT.saprefile_user_pre_put_files>
+    </workflows>
+  </config>
+</DPF>

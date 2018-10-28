@@ -1,0 +1,30 @@
+<DPF>
+  <config>
+    <workingunits>
+      <plm_data_mapping
+        NAME="dpf4c - PLM data mapping."
+        VERSION="$Id: wu-plm_data_mapping.xml,v 1.8 2009/02/03 15:53:29 kig Exp $"
+        PROJECT="DPF4CONVERT"
+        TYPE="WUSystemCall"
+        LOGNAME="dpf4c-plm_data_mapping"
+        LOGSTDOUT="Y"
+        LOGLEVEL="LOG_INFO"
+        THREADS="5"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/plm_data_mapping.pl -parfile %PARFILENAME%">
+        <DEFAULTS
+
+           MAPPING_CFG_FILE="%PLSROOT%server/dpf/conf/dpf4convert/plm_data_mapping_dpf4conv.cfg"
+           ENABLE_MAP_INPUT_FILETYPE_MAPPING="N"
+           ENABLE_MAP_FILETYPE_MAPPING_FOR_DESTFORMAT="N"
+           ENABLE_MAP_FILE="N"
+           PLM_DATA_MAPPING_FILE="%JOBDIR%/customer_hed_file.txt"
+           ENABLE_MAP_NAMES_AND_VALUES_OF_DPF_PARAMETERS="N"
+          />
+        <INPUT
+          />
+        <OUTPUT
+          />
+      </plm_data_mapping>
+    </workingunits>
+  </config>
+</DPF>

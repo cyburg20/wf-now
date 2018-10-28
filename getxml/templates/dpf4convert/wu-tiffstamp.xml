@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <tiffstamp
+        CODEPAGE="UTF8"
+        NAME="dpf4c - Stamp tiff"
+        VERSION="$Id: wu-tiffstamp.xml,v 1.10 2012/03/08 10:05:57 dei Exp $"
+        PROJECT="DPF4CONVERT"
+        TYPE="WUSystemCall"
+        LOGNAME="dpf4c-tiffstamp"
+        LOGSTDOUT="Y"
+        LOGLEVEL="LOG_INFO"
+        THREADS="1"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/tiffstamp.pl -parfile %PARFILENAME%">
+        <DEFAULTS
+          WU_ENABLE_DEBUG_LOOP="N"
+          DPF4C_STAMP_STP_FILE=""
+          DPF4C_STAMP_DB_FILE=""
+          DPF4C_TIFFSTAMP_STP_FILE="default.stp"
+          DPF4C_TIFFSTAMP_DB_FILE="default.db"
+          USE_DEFAULT_TXT_FILE="N"
+          DPF4C_TIFFSTAMP_TXT_FILE="%PLSROOT%tools/convcfg/tiffstamp/default.txt"
+          DPF4C_TIFFSTAMP_EXT=""
+          DPF4C_MODIFY_STAMP_N_TEXT0=""
+          DPF4C_MODIFY_STAMP_N_TEXT1=""
+          DPF4C_MODIFY_STAMP_N_TEXT2=""
+          DPF4C_MODIFY_STAMP_N_TEXT3=""
+          DPF4C_MODIFY_STAMP_N_TEXT4=""
+          DPF4C_MODIFY_STAMP_N_TEXT5=""
+          DPF4C_MODIFY_STAMP_N_TEXT6=""
+          DPF4C_MODIFY_STAMP_N_TEXT7=""
+          DPF4C_MODIFY_STAMP_N_TEXT8=""
+          DPF4C_MODIFY_STAMP_N_TEXT9=""
+          />
+        <INPUT
+          PARFILENAME="*"
+          CURRFILENAME="*"
+          CURRFILETYPE="tif"
+          />
+        <OUTPUT
+          CURRFILENAME="*"
+          CURRFILETYPE="tif"
+          />
+      </tiffstamp>
+    </workingunits>
+  </config>
+</DPF>

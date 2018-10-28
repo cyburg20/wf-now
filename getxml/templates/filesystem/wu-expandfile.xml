@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <FileSystem.expandFile
+        COMMAND="%DPFSRV%/scripts/filesystem/expandfile.pl -parfile %PARFILENAME%"
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGSTDOUT="Y"
+        NAME="Expand File"
+        PROJECT="FileSystem"
+        Status="Running"
+        THREADS="1"
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-expandfile.xml,v 1.1 2007/05/31 15:52:56 stefan Exp $"
+        >
+        <DEFAULTS/>
+        <INPUT>
+          <InputFile
+            DESCRIPTION="the input file name of the ASCII file to expand"
+            TYPE="TEXT"
+            />
+          <OutputFile
+            DESCRIPTION="the file name of the exapnded contents (may be the same as InputFile)"
+            TYPE="TEXT"
+            />
+        </INPUT>
+      </FileSystem.expandFile>
+    </workingunits>
+  </config>
+</DPF>

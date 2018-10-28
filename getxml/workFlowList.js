@@ -20,7 +20,7 @@ workFlowList.init = async function () {
             }
         }
     } catch (err) {
-        console.error(err);
+        console.log(err);
     }
 };
 

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <convertwiz_convert_files
+        NAME="CONVERTWIZ - convert one or multiple files - synchronize results"
+        VERSION="$Id: wu-convertwiz_convert_files.xml,v 1.3 2008/10/13 13:57:19 dh Exp $"
+        PROJECT="CONVERTWIZ"
+        TYPE="WUSystemCall"
+        LOGNAME="convertwiz-convertwiz_convert_files"
+        LOGSTDOUT="Y"
+        LOGLEVEL="LOG_INFO"
+        THREADS="3"
+        TRACEIGNOREEXITCODE="N"
+        COMMAND="%DPFSRV%/scripts/convertwiz/convertwiz_convert_files.pl -parfile %PARFILENAME%">
+        <DEFAULTS
+          WU_ENABLE_DEBUG_LOOP="N"
+          CONVERT_FILES_DPF_PARAMETERS_TO_SET_FOR_ASYNCHRON_CALL=""
+          />
+        <INPUT
+          />
+        <OUTPUT
+          />
+      </convertwiz_convert_files>
+    </workingunits>
+  </config>
+</DPF>

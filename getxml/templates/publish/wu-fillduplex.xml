@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <Publish.fillDuplex
+        COMMAND="%DPFSRV%/scripts/publish/fillduplex.pl -parfile %PARFILENAME%"
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGSTDOUT="Y"
+        NAME="Fill duplex"
+        PROJECT="Publish"
+        Status="Running"
+        THREADS="1"
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-fillduplex.xml,v 1.1 2007/04/05 16:53:25 stefan Exp $"
+        >
+        <DEFAULTS
+          EmptyPageFile="%DPFSRV%/conf/publish/fillduplex.pdf"
+          />
+        <INPUT>
+          <EmptyPageFile
+            DEFAULT="%DPFSRV%/conf/publish/fillduplex.pdf"
+            TYPE="TEXT"
+            />
+          <PLS_DUPLEX
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </PLS_DUPLEX>
+        </INPUT>
+      </Publish.fillDuplex>
+    </workingunits>
+  </config>
+</DPF>

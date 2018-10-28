@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <cals2pdf
+        NAME="dpf4c - Convert CALS to PDF"
+        VERSION="$Id: wu-cals2pdf.xml,v 1.1 2012/08/20 12:27:20 kig Exp $"
+        PROJECT="DPF4CONVERT"
+        TYPE="WUSystemCall"
+        LOGNAME="dpf4c-cals2pdf"
+        LOGSTDOUT="Y"
+        LOGLEVEL="LOG_INFO"
+        THREADS="1"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/cals2pdf.pl -parfile %PARFILENAME%">
+        <DEFAULTS
+          DPF4C_MODIFY_ROTATE=""
+          DPF4C_MODIFY_ROTATION=""
+          CALS2PDF_GXC_ADD_PARAMS=""
+          CALS2PDF_GXC_DEVICE=""
+          />
+        <INPUT
+          CURRFILENAME="file"
+          CURRFILETYPE="cals"
+          DPF4C_MODIFY_ROTATE="Y|N"
+          DPF4C_MODIFY_ROTATION="number"
+          DPF4C_COMMON_TIMEOUT="number"
+          CALS2PDF_GXC_ADD_PARAMS="string"
+          CALS2PDF_GXC_DEVICE="number"
+          />
+        <OUTPUT
+          CURRFILENAME="file"
+          CURRFILETYPE="pdf"
+          DPF4C_COMMON_OUTFILEpdf="file"
+          ERR_REASON="text"
+          />
+      </cals2pdf>
+    </workingunits>
+  </config>
+</DPF>

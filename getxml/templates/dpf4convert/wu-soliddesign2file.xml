@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <soliddesign2file
+        NAME="dpf4c - Convert CAD Solid Design file to multiple destination formats"
+        VERSION="$Id: wu-soliddesign2file.xml,v 1.4 2006/08/15 10:03:24 ludwig Exp $"
+        PROJECT="DPF4CONVERT"
+        TYPE="WUSystemCall"
+        LOGNAME="dpf4c-soliddesign2file"
+        LOGSTDOUT="Y"
+        LOGLEVEL="LOG_INFO"
+        THREADS="1"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/soliddesign2file.pl -parfile %PARFILENAME%">
+        <DEFAULTS
+          WU_ENABLE_DEBUG_LOOP="N"
+          SOLID_DESIGN_2_FILE_CONVERTER_CFG=""
+          SOLID_DESIGN_2_FILE_CFG_LANGUAGE="en"
+          SOLID_DESIGN_2_FILE_CFG_LOGLEVEL="I"
+          SOLID_DESIGN_2_FILE_CFG_WAITIDLE_SECONDS="3"
+          SOLID_DESIGN_2_FILE_CFG_MANDATORY_CONVERTED_FORMATS=""
+          />
+        <INPUT
+          SOLID_DESIGN_2_FILE_CONVERTER_CFG="file"
+          SOLID_DESIGN_2_FILE_CFG_LANGUAGE="en|de"
+          SOLID_DESIGN_2_FILE_CFG_LOGLEVEL="I|W|E"
+          SOLID_DESIGN_2_FILE_CFG_WAITIDLE_SECONDS="3"
+          SOLID_DESIGN_2_FILE_CFG_MANDATORY_CONVERTED_FORMATS=""
+          />
+        <OUTPUT
+          DPF4C_SWITCH_MODIFY="N"
+          DPF4C_SWITCH_CREATE_DESTFORMATS="N"
+          />
+      </soliddesign2file>
+    </workingunits>
+  </config>
+</DPF>

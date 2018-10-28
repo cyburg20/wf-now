@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workflows>
+      <convertwiz_get_jobs_file
+        NAME="CONVERTWIZ - Main process convertwiz_get_jobs_file"
+        VERSION="$Id: wf-convertwiz_get_jobs_file.xml,v 1.3 2006/10/26 12:56:20 ludwig Exp $"
+        PROJECT="CONVERTWIZ"
+        COMMENT="convertwiz - PROCESS FOR GETTING ALL RESULTS FROM OLDER JOBS IN CONVERTWIZ SOLUTIONS"
+        DPFINT-Type="WorkflowDescription"
+        DPFINT-Changes="0"
+        DPFINT-Interactive="1"
+        >
+        <MAIN
+          BEGIN="convertwiz_get_files_to_send_and_send"
+          ERROR="END"
+          LOGLEVEL="I"
+        />
+        <convertwiz_get_files_to_send_and_send
+          NAME="convertwiz_get_files_to_send_and_send"
+          NEXT="switch_checkin_method"
+          />
+        <switch_checkin_method
+          TYPE="IF-THEN-ELSE"
+          PROPERTY="CONVERTWIZ_CHECKIN_METHOD"
+          OPERATOR="contains"
+          VALUE="sendback"
+          THEN="checkin"
+          ELSE="END"
+          />
+        <checkin
+          NAME="checkin"
+          NEXT="sendback"
+          />
+        <sendback
+          NAME="sendback"
+          NEXT="END"
+          />
+      </convertwiz_get_jobs_file>
+    </workflows>
+  </config>
+</DPF>

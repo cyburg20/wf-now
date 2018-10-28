@@ -1,0 +1,1546 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workflows>
+      <DPF4Publish.BuildDocumentation
+        COMMENT=""
+        DPFINT-Customer="0"
+        DPFINT-Interactive="0"
+        DPFINT-Type="WorkflowDescription"
+        NAME="Build Documentation"
+        PROJECT="DPF4Publish"
+        VERSION="$Id: wf-builddocumentation.xml,v 1.76 2014/05/05 17:13:12 sek Exp $"
+        >
+        <CalculateTotalPages
+          COMMENT="Add cover sheet and toc page number to the total page number."
+          NEXT="UserExitBeforeStampPageNumbers"
+          POSX="500"
+          POSY="2900"
+          TYPE="MODIFY"
+          >
+          <CONNECTIONS
+            NEXT="DIRECT"
+            />
+          <SET
+            TotalPages="%TotalPages% + %CoverSheetPagecount% + %TocPageNum%"
+            />
+        </CalculateTotalPages>
+        <CloseOriginalsWithBookmarks
+          COMMENT=""
+          ERROR="END"
+          NAME="Rli.fillRliColumn"
+          NEXT="MarkErrorAndMissingSheets"
+          POSX="700"
+          POSY="2300"
+          TYPE="WU"
+          >
+          <CONNECTIONS
+            ERROR="DIRECT"
+            NEXT="DIRECT"
+            />
+          <DEFAULTS>
+            <Replacement
+              val="_"
+              />
+            <UseEval
+              val="N"
+              />
+            <WuEnableDebugLoop
+              val="N"
+              />
+          </DEFAULTS>
+          <MAPPING
+            ValueSets="%CloseOriginalsWithBookmarksValueSets%"
+            />
+        </CloseOriginalsWithBookmarks>
+        <ConvertFilesToPdfa
+          COMMENT="Convert all pdfs to pdfa."
+          ERROR="END"
+          NAME="Rli.processLines"
+          NEXT="IfWantEncryption"
+          POSX="300"
+          POSY="4500"
+          TYPE="WU"
+          >
+          <CONNECTIONS
+            ERROR="DIRECT"
+            NEXT="DIRECT"
+            />
+          <DEFAULTS/>
+          <MAPPING
+            DpfDebugSubJobs="Y"
+            FilterPrefix="%WFPOSITION%"
+            SubProcess="DPF4CONVERT.pdfadapt"
+            />
+        </ConvertFilesToPdfa>
+        <ConvertMergedFileToPdfa
+          COMMENT="Convert merged pdf to pdfa."
+          ERROR="END"
+          NEXT="IfWantEncryption"
+          POSX="700"
+          POSY="4500"
+          TYPE="SWF"
+          USE="DPF4CONVERT.pdfadapt"
+          >
+          <CONNECTIONS
+            ERROR="DIRECT"
+            NEXT="DIRECT"
+            />
+          <DEFAULTS/>
+          <MAPPING/>
+        </ConvertMergedFileToPdfa>
+        <CreateChapterNumbers
+          COMMENT="create RLI column CHAPTERNUMBER"
+          ERROR="END"
+          NAME="Publish.createChapterNumbers"
+          NEXT="IfWantTableOfContents3"
+          POSX="300"
+          POSY="1500"
+          TYPE="WU"
+          >
+          <CONNECTIONS
+            ERROR="DIRECT"
+            NEXT="DIRECT"
+            />
+          <DEFAULTS/>
+          <MAPPING
+            FilterPrefix="%WFPOSITION%"
+            />
+        </CreateChapterNumbers>
+        <CreateCoverSheet
+          COMMENT="Create a cover sheet."
+          ERROR="END"
+          NAME="Publish.createCoverSheet"
+          NEXT="UserExitBeforeAppendCoverRliLine"
+          POSX="300"
+          POSY="300"
+          TYPE="WU"
+          >
+          <CONNECTIONS
+            ERROR="DIRECT"
+            NEXT="DIRECT"
+            />
+          <DEFAULTS/>
+          <MAPPING
+            DEFAULT_ALIGN="%CoverDefaultAlign%"
+            DEFAULT_COLOR="%CoverDefaultColor%"
+            DEFAULT_FONT="%CoverDefaultFont%"
+            DEFAULT_SIZE="%CoverDefaultSize%"
+            DestFileName="%CoverFileName%"
+            IMAGE_LIST="%CoverImageList%"
+            LABEL_LIST="%CoverLabelList%"
+            />
+        </CreateCoverSheet>
+        <CreateTableOfContents
+          COMMENT="Create a table of contents."
+          ERROR="END"
+          NAME="Publish.createContents"
+          NEXT="SetTocPageCount"
+          POSX="500"
+          POSY="2500"
+          TYPE="WU"
+          >
+          <CONNECTIONS
+            ERROR="DIRECT"
+            NEXT="DIRECT"
+            />
+          <DEFAULTS/>
+          <MAPPING
+            CREATETOCPDF_POST_OFFSET="%CoverSheetPageCount%"
+            CREATETOCPDF_SIMPLE_PAGE_ENUMERATION="Y"
+            CREATETOCPDF_TARGET_TOC_PROPERTY="TocFileName"
+            CREATETOCPDF_WANT_TOC_BOOKMARK="N"
+            DEFAULT_ALIGN="%TocDefaultAlign%"
+            DEFAULT_COLOR="%TocDefaultColor%"
+            DEFAULT_FONT="%TocDefaultFont%"
+            DEFAULT_SIZE="%TocDefaultSize%"
+            DestFileName="%TocFileName%"
+            FilterPrefix="%WFPOSITION%"
+            ImageList="%TocImageList%"
+            ImageListFirstPage="%TocImageListFirstPage%"
+            LabelList="%TocLabelList%"
+            LabelListFirstPage="%TocLabelListFirstPage%"
+            />
+        </CreateTableOfContents>
+        <CryptLinkedPdfs
+          COMMENT="Crypt linked files."
+          ERROR="END"
+          NAME="Rli.cryptPdfs"
+          NEXT="END"
+          POSX="500"
+          POSY="4900"
+          TYPE="WU"
+          >
+          <CONNECTIONS
+            ERROR="DIRECT"
+            NEXT="DIRECT"
+            />
+          <DEFAULTS/>
+          <MAPPING
+            DPF4C_AUTHORIZE_ADDNOTES="%CryptDpf4cAuthorizeAddnotes%"
+            DPF4C_AUTHORIZE_ASSEMBLE="%CryptDpf4cAuthorizeAssemble%"
+            DPF4C_AUTHORIZE_BRAILLE="%CryptDpf4cAuthorizeBraille%"
+            DPF4C_AUTHORIZE_CHANGE="%CryptDpf4cAuthorizeChange%"
+            DPF4C_AUTHORIZE_COPY_TEXT="%CryptDpf4cAuthorizeCopyText%"
+            DPF4C_AUTHORIZE_FILLFIELDS="%CryptDpf4cAuthorizeFillfields%"
+            DPF4C_AUTHORIZE_KEEP_FILENAME="%CryptDpf4cAuthorizeKeepFilename%"
+            DPF4C_AUTHORIZE_LOWRES="%CryptDpf4cAuthorizeLowres%"
+            DPF4C_AUTHORIZE_OWNER_PW="%CryptDpf4cAuthorizeOwnerPw%"
+            DPF4C_AUTHORIZE_PRINT="%CryptDpf4cAuthorizePrint%"
+            DPF4C_AUTHORIZE_USER_PW="%CryptDpf4cAuthorizeUserPw%"
+            />
+        </CryptLinkedPdfs>
+        <CryptMergedPdf
+          COMMENT="Crypt merged file."
+          ERROR="END"
+          NAME="pdfauthorize"
+          NEXT="END"
+          POSX="500"
+          POSY="4700"
+          TYPE="WU"
+          >
+          <CONNECTIONS
+            ERROR="DIRECT"
+            NEXT="DIRECT"
+            />
+          <DEFAULTS/>
+          <MAPPING
+            CURRFILETYPE="%CurrFileName.extension%"
+            DPF4C_AUTHORIZE_ACTIVATE="%CryptDpf4cAuthorizeActivate%"
+            DPF4C_AUTHORIZE_ADDNOTES="%CryptDpf4cAuthorizeAddnotes%"
+            DPF4C_AUTHORIZE_ASSEMBLE="%CryptDpf4cAuthorizeAssemble%"
+            DPF4C_AUTHORIZE_BRAILLE="%CryptDpf4cAuthorizeBraille%"
+            DPF4C_AUTHORIZE_CHANGE="%CryptDpf4cAuthorizeChange%"
+            DPF4C_AUTHORIZE_CHANGE_PW="%CryptDpf4cAuthorizeChangePw%"
+            DPF4C_AUTHORIZE_COPY_TEXT="%CryptDpf4cAuthorizeCopyText%"
+            DPF4C_AUTHORIZE_DECRYPT="%CryptDpf4cAuthorizeDecrypt%"
+            DPF4C_AUTHORIZE_DECRYPT_ALL="%CryptDpf4cAuthorizeDecryptAll%"
+            DPF4C_AUTHORIZE_ENCRYPTION128="%CryptDpf4cAuthorizeEncryption128%"
+            DPF4C_AUTHORIZE_FILLFIELDS="%CryptDpf4cAuthorizeFillfields%"
+            DPF4C_AUTHORIZE_KEEP_FILENAME="%CryptDpf4cAuthorizeKeepFilename%"
+            DPF4C_AUTHORIZE_LOWRES="%CryptDpf4cAuthorizeLowres%"
+            DPF4C_AUTHORIZE_OPEN_PW="%CryptDpf4cAuthorizeOpenPw%"
+            DPF4C_AUTHORIZE_OWNER_PW="%CryptDpf4cAuthorizeOwnerPw%"
+            DPF4C_AUTHORIZE_PRINT="%CryptDpf4cAuthorizePrint%"
+            DPF4C_AUTHORIZE_USER_PW="%CryptDpf4cAuthorizeUserPw%"
+            DPF4C_COMMON_TIMEOUT="%CryptDpf4cAuthorizeCommonTimeout%"
+            />
+        </CryptMergedPdf>
+        <DEFAULTS
+          DPF4Publish.UserExitAfterStampPageNumbers="DPF4Publish.UserExitAfterStampPageNumbers"
+          DPF4Publish.UserExitBeforeAppendCoverRliLine="DPF4Publish.UserExitBeforeAppendCoverRliLine"
+          DPF4Publish.UserExitBeforeBuildDocumentation="DPF4Publish.UserExitBeforeBuildDocumentation"
+          DPF4Publish.UserExitBeforeCreateTableOfContents="DPF4Publish.UserExitBeforeCreateTableOfContents"
+          DPF4Publish.UserExitBeforeInsertPdfBackLinks="DPF4Publish.UserExitBeforeInsertPdfBackLinks"
+          DPF4Publish.UserExitBeforeSetBookmarks="DPF4Publish.UserExitBeforeSetBookmarks"
+          DPF4Publish.UserExitBeforeStampPageNumbers="DPF4Publish.UserExitBeforeStampPageNumbers"
+          DPF4Publish.UserExitInsteadOfAppendCoverRliLine="DPF4Publish.UserExitInsteadOfAppendCoverRliLine"
+          DPF4Publish.UserExitInsteadOfAppendTocRliLine="DPF4Publish.UserExitInsteadOfAppendTocRliLine"
+          WantBuildDocumentation="Y"
+          />
+        <DeletePageNumbersForLinesWithoutFiles
+          COMMENT=""
+          ERROR="END"
+          NAME="Rli.fillRliColumn"
+          NEXT="UserExitBeforeCreateTableOfContents"
+          POSX="900"
+          POSY="2100"
+          TYPE="WU"
+          >
+          <CONNECTIONS
+            ERROR="DIRECT"
+            NEXT="DIRECT"
+            />
+          <DEFAULTS>
+            <Replacement
+              val="_"
+              />
+            <WuEnableDebugLoop
+              val="N"
+              />
+          </DEFAULTS>
+          <MAPPING
+            FillColumn="PAGENUMBER"
+            FilterOperator="eq"
+            RlicFilter="CURRFILENAME"
+            />
+        </DeletePageNumbersForLinesWithoutFiles>
+        <END
+          COMMENT=""
+          NAME="END"
+          POSX="200"
+          POSY="700"
+          TYPE="STOP"
+          />
+        <FillRlicBookmarkText
+          COMMENT=""
+          ERROR="END"
+          NAME="Rli.fillRliColumn"
+          NEXT="SetRlicChapterName"
+          POSX="300"
+          POSY="3500"
+          TYPE="WU"
+          >
+          <CONNECTIONS
+            ERROR="DIRECT"
+            NEXT="DIRECT"
+            />
+          <DEFAULTS>
+            <Replacement
+              val="_"
+              />
+            <UseEval
+              val="N"
+              />
+            <WuEnableDebugLoop
+              val="N"
+              />
+          </DEFAULTS>
+          <MAPPING
+            FillColumn="BookmarkText"
+            FillData="%%ChapterNumber%% %%Beschreibung%%"
+            />
+        </FillRlicBookmarkText>
+        <IfCorrectPageNumbers
+          COMMENT=""
+          ELSE="IfWantStampPdfs"
+          OPERATOR="is true"
+          POSX="300"
+          POSY="2700"
+          PROPERTY="CorrectPageNumbers"
+          THEN="correctPageNumbers"
+          TYPE="IF-THEN-ELSE"
+          VALUE=""
+          >
+          <CONNECTIONS
+            ELSE="DIRECT"
+            THEN="DIRECT"
+            />
+        </IfCorrectPageNumbers>
+        <IfDeletePageNumbersForLinesWithoutFiles
+          COMMENT=""
+          ELSE="UserExitBeforeCreateTableOfContents"
+          OPERATOR="is true"
+          POSX="900"
+          POSY="1900"
+          PROPERTY="DeletePageNumbersForLinesWithoutFiles"
+          THEN="DeletePageNumbersForLinesWithoutFiles"
+          TYPE="IF-THEN-ELSE"
+          VALUE=""
+          >
+          <CONNECTIONS
+            ELSE="DIRECT"
+            THEN="DIRECT"
+            />
+        </IfDeletePageNumbersForLinesWithoutFiles>
+        <IfFillEmptyPageNumbers
+          COMMENT=""
+          ELSE="IfDeletePageNumbersForLinesWithoutFiles"
+          OPERATOR="is true"
+          POSX="700"
+          POSY="1700"
+          PROPERTY="FillEmptyPageNumbers"
+          THEN="fillEmptyPageNumbers"
+          TYPE="IF-THEN-ELSE"
+          VALUE=""
+          >
+          <CONNECTIONS
+            ELSE="DIRECT"
+            THEN="DIRECT"
+            />
+        </IfFillEmptyPageNumbers>
+        <IfSetHeadlineTocType
+          COMMENT=""
+          ELSE="IfWantMergePdfs30"
+          OPERATOR="is true"
+          POSX="500"
+          POSY="700"
+          PROPERTY="SetHeadlineTocType"
+          THEN="SetHeadlineTocType"
+          TYPE="IF-THEN-ELSE"
+          VALUE=""
+          >
+          <CONNECTIONS
+            ELSE="DIRECT"
+            THEN="DIRECT"
+            />
+        </IfSetHeadlineTocType>
+        <IfSetRelFileNames
+          COMMENT=""
+          ELSE="ifWantChapterNumbers"
+          OPERATOR="is true"
+          POSX="300"
+          POSY="1100"
+          PROPERTY="SetRelFileNames"
+          THEN="SetRelFileName"
+          TYPE="IF-THEN-ELSE"
+          VALUE=""
+          >
+          <CONNECTIONS
+            ELSE="DIRECT"
+            THEN="DIRECT"
+            />
+        </IfSetRelFileNames>
+        <IfSetTocType
+          COMMENT=""
+          ELSE="IfSetHeadlineTocType"
+          OPERATOR="is true"
+          POSX="700"
+          POSY="700"
+          PROPERTY="SetTocType"
+          THEN="SetTocType"
+          TYPE="IF-THEN-ELSE"
+          VALUE=""
+          >
+          <CONNECTIONS
+            ELSE="DIRECT"
+            THEN="DIRECT"
+            />
+        </IfSetTocType>
+        <IfToc2
+          COMMENT="Create a table of contents?"
+          ELSE="IfWantStampPdfs"
+          OPERATOR="is true"
+          POSX="100"
+          POSY="2700"
+          PROPERTY="WantTableOfContents"
+          THEN="IfCorrectPageNumbers"
+          TYPE="IF-THEN-ELSE"
+          VALUE=""
+          >
+          <CONNECTIONS
+            ELSE="DIRECT"
+            THEN="DIRECT"
+            />
+        </IfToc2>
+        <IfUserExitBeforeAppendTocRliLine
+          COMMENT=""
+          ELSE="IfSetTocType"
+          OPERATOR="eq"
+          POSX="700"
+          POSY="500"
+          PROPERTY="DPF4Publish.UserExitInsteadOfAppendTocRliLine"
+          THEN="PrependTableOfContentsToRli"
+          TYPE="IF-THEN-ELSE"
+          VALUE="DPF4Publish.UserExitInsteadOfAppendTocRliLine"
+          >
+          <CONNECTIONS
+            ELSE="DIRECT"
+            THEN="DIRECT"
+            />
+        </IfUserExitBeforeAppendTocRliLine>
+        <IfUserExitInsteadOfAppendCoverRliLine
+          COMMENT=""
+          ELSE="InsertTocAfterCover"
+          OPERATOR="eq"
+          POSX="700"
+          POSY="100"
+          PROPERTY="DPF4Publish.UserExitInsteadOfAppendCoverRliLine"
+          THEN="PrependCoverSheetToRli"
+          TYPE="IF-THEN-ELSE"
+          VALUE="DPF4Publish.UserExitInsteadOfAppendCoverRliLine"
+          >
+          <CONNECTIONS
+            ELSE="DIRECT"
+            THEN="DIRECT"
+            />
+        </IfUserExitInsteadOfAppendCoverRliLine>
+        <IfWantBackLinks
+          COMMENT="Insert pdf back links?"
+          ELSE="IfWantPdfA"
+          OPERATOR="is true"
+          POSX="700"
+          POSY="4100"
+          PROPERTY="WantBackLinks"
+          THEN="IfWantMergePdfs45"
+          TYPE="IF-THEN-ELSE"
+          VALUE=""
+          >
+          <CONNECTIONS
+            ELSE="DIRECT"
+            THEN="DIRECT"
+            />
+        </IfWantBackLinks>
+        <IfWantBookmarksAndHyperlinks
+          COMMENT=""
+          ELSE="IfWantReplaceHyperlinks"
+          OPERATOR="is true"
+          POSX="500"
+          POSY="3700"
+          PROPERTY="WantBookmarksAndHyperlinks"
+          THEN="SetBookmarks"
+          TYPE="IF-THEN-ELSE"
+          VALUE=""
+          >
+          <CONNECTIONS
+            ELSE="DIRECT"
+            THEN="DIRECT"
+            />
+        </IfWantBookmarksAndHyperlinks>
+        <IfWantCoverSheet
+          COMMENT="Create a cover sheet?"
+          ELSE="IfWantTableOfContents"
+          OPERATOR="is true"
+          POSX="100"
+          POSY="300"
+          PROPERTY="WantCoverSheet"
+          THEN="CreateCoverSheet"
+          TYPE="IF-THEN-ELSE"
+          VALUE=""
+          >
+          <CONNECTIONS
+            ELSE="DIRECT"
+            THEN="DIRECT"
+            />
+        </IfWantCoverSheet>
+        <IfWantEncryption
+          COMMENT="Crypt merged file?"
+          ELSE="END"
+          OPERATOR="is true"
+          POSX="100"
+          POSY="4700"
+          PROPERTY="WantEncryption"
+          THEN="IfWantMergePdfs60"
+          TYPE="IF-THEN-ELSE"
+          VALUE=""
+          >
+          <CONNECTIONS
+            ELSE="DIRECT"
+            THEN="DIRECT"
+            />
+        </IfWantEncryption>
+        <IfWantMergePdfs30
+          COMMENT="Merge documents to one pdf file?"
+          ELSE="IfSetRelFileNames"
+          OPERATOR="is true"
+          POSX="100"
+          POSY="700"
+          PROPERTY="WantMergePdfs"
+          THEN="ifWantChapterNumbers"
+          TYPE="IF-THEN-ELSE"
+          VALUE=""
+          >
+          <CONNECTIONS
+            ELSE="DIRECT"
+            THEN="DIRECT"
+            />
+        </IfWantMergePdfs30>
+        <IfWantMergePdfs35
+          COMMENT="Merge documents to one pdf file?"
+          ELSE="WriteOriginalBookmarksToRli"
+          OPERATOR="is true"
+          POSX="500"
+          POSY="2100"
+          PROPERTY="WantMergePdfs"
+          THEN="MarkErrorAndMissingSheets"
+          TYPE="IF-THEN-ELSE"
+          VALUE=""
+          >
+          <CONNECTIONS
+            ELSE="DIRECT"
+            THEN="DIRECT"
+            />
+        </IfWantMergePdfs35>
+        <IfWantMergePdfs40
+          COMMENT="Merge documents to one pdf file?"
+          ELSE="IfWantTableOfContents2"
+          OPERATOR="is true"
+          POSX="100"
+          POSY="3500"
+          PROPERTY="WantMergePdfs"
+          THEN="FillRlicBookmarkText"
+          TYPE="IF-THEN-ELSE"
+          VALUE=""
+          >
+          <CONNECTIONS
+            ELSE="DIRECT"
+            THEN="DIRECT"
+            />
+        </IfWantMergePdfs40>
+        <IfWantMergePdfs45
+          COMMENT="Merge documents to one pdf file?"
+          ELSE="UserExitBeforeInsertPdfBackLinks"
+          OPERATOR="is true"
+          POSX="900"
+          POSY="4100"
+          PROPERTY="WantMergePdfs"
+          THEN="IfWantPdfA"
+          TYPE="IF-THEN-ELSE"
+          VALUE=""
+          >
+          <CONNECTIONS
+            ELSE="DIRECT"
+            THEN="DIRECT"
+            />
+        </IfWantMergePdfs45>
+        <IfWantMergePdfs50
+          COMMENT="Merge documents to one pdf file?"
+          ELSE="ConvertFilesToPdfa"
+          OPERATOR="is true"
+          POSX="500"
+          POSY="4500"
+          PROPERTY="WantMergePdfs"
+          THEN="ConvertMergedFileToPdfa"
+          TYPE="IF-THEN-ELSE"
+          VALUE=""
+          >
+          <CONNECTIONS
+            ELSE="DIRECT"
+            THEN="DIRECT"
+            />
+        </IfWantMergePdfs50>
+        <IfWantMergePdfs60
+          COMMENT="Merge documents to one pdf file?"
+          ELSE="CryptLinkedPdfs"
+          OPERATOR="is true"
+          POSX="300"
+          POSY="4700"
+          PROPERTY="WantMergePdfs"
+          THEN="CryptMergedPdf"
+          TYPE="IF-THEN-ELSE"
+          VALUE=""
+          >
+          <CONNECTIONS
+            ELSE="DIRECT"
+            THEN="DIRECT"
+            />
+        </IfWantMergePdfs60>
+        <IfWantOrigBookmarks
+          COMMENT="should we create bookmarks with pdfjoin to keep original bookmarks in merged pdf?"
+          ELSE="MarkErrorAndMissingSheets"
+          OPERATOR="is true"
+          POSX="300"
+          POSY="2100"
+          PROPERTY="WantOriginalBookmarks"
+          THEN="IfWantMergePdfs35"
+          TYPE="IF-THEN-ELSE"
+          VALUE=""
+          >
+          <CONNECTIONS
+            ELSE="DIRECT"
+            THEN="DIRECT"
+            />
+        </IfWantOrigBookmarks>
+        <IfWantPdfA
+          COMMENT="Convert pdf to pdfa?"
+          ELSE="IfWantEncryption"
+          OPERATOR="eq"
+          POSX="100"
+          POSY="4300"
+          PROPERTY="PdfQuality"
+          THEN="IfWantMergePdfs50"
+          TYPE="IF-THEN-ELSE"
+          VALUE="PDFA"
+          >
+          <CONNECTIONS
+            ELSE="DIRECT"
+            THEN="DIRECT"
+            />
+        </IfWantPdfA>
+        <IfWantReplaceHyperlinks
+          COMMENT=""
+          ELSE="IfWantBackLinks"
+          OPERATOR="is true"
+          POSX="500"
+          POSY="3900"
+          PROPERTY="WantReplaceHyperlinks"
+          THEN="ReplaceHyperlinks"
+          TYPE="IF-THEN-ELSE"
+          VALUE=""
+          >
+          <CONNECTIONS
+            ELSE="DIRECT"
+            THEN="DIRECT"
+            />
+        </IfWantReplaceHyperlinks>
+        <IfWantStampPageNumbers
+          COMMENT="Stamp files of the reprolist with page numbers?"
+          ELSE="UserExitAfterStampPageNumbers"
+          OPERATOR="is true"
+          POSX="100"
+          POSY="3100"
+          PROPERTY="WantStampPageNumbers"
+          THEN="WasTocPageNumSet"
+          TYPE="IF-THEN-ELSE"
+          VALUE=""
+          >
+          <CONNECTIONS
+            ELSE="DIRECT"
+            THEN="DIRECT"
+            />
+        </IfWantStampPageNumbers>
+        <IfWantStampPdfs
+          COMMENT="Stamp files of the reprolist?"
+          ELSE="IfWantStampPageNumbers"
+          OPERATOR="is true"
+          POSX="100"
+          POSY="2900"
+          PROPERTY="WantStampPdfs"
+          THEN="StampPdfs"
+          TYPE="IF-THEN-ELSE"
+          VALUE=""
+          >
+          <CONNECTIONS
+            ELSE="DIRECT"
+            THEN="DIRECT"
+            />
+        </IfWantStampPdfs>
+        <IfWantTableOfContents
+          COMMENT="Create a table of contents?"
+          ELSE="IfWantMergePdfs30"
+          OPERATOR="is true"
+          POSX="100"
+          POSY="500"
+          PROPERTY="WantTableOfContents"
+          THEN="SetTocPageNumber"
+          TYPE="IF-THEN-ELSE"
+          VALUE=""
+          >
+          <CONNECTIONS
+            ELSE="DIRECT"
+            THEN="DIRECT"
+            />
+        </IfWantTableOfContents>
+        <IfWantTableOfContents2
+          COMMENT="Create a table of contents?"
+          ELSE="IfWantPdfA"
+          OPERATOR="is true"
+          POSX="100"
+          POSY="3700"
+          PROPERTY="WantTableOfContents"
+          THEN="UserExitBeforeSetBookmarks"
+          TYPE="IF-THEN-ELSE"
+          VALUE=""
+          >
+          <CONNECTIONS
+            ELSE="DIRECT"
+            THEN="DIRECT"
+            />
+        </IfWantTableOfContents2>
+        <IfWantTableOfContents3
+          COMMENT="Create a table of contents?"
+          ELSE="ifCover2"
+          OPERATOR="is true"
+          POSX="100"
+          POSY="1700"
+          PROPERTY="WantTableOfContents"
+          THEN="ifWantLinkHeadlinesToNextDoc"
+          TYPE="IF-THEN-ELSE"
+          VALUE=""
+          >
+          <CONNECTIONS
+            ELSE="DIRECT"
+            THEN="DIRECT"
+            />
+        </IfWantTableOfContents3>
+        <InsertPdfBackLinks
+          COMMENT="Insert pdf back links."
+          ERROR="END"
+          NAME="Rli.insertPdfBackLinks"
+          NEXT="IfWantPdfA"
+          POSX="700"
+          POSY="4300"
+          TYPE="WU"
+          >
+          <CONNECTIONS
+            ERROR="DIRECT"
+            NEXT="DIRECT"
+            />
+          <DEFAULTS/>
+          <MAPPING
+            FilterOperator="ne"
+            FilterValue="toc"
+            IndexFileName="%TocFileName%"
+            RlicFilter="EntryType"
+            />
+        </InsertPdfBackLinks>
+        <InsertTocAfterCover
+          COMMENT="Insert the table of contents after the cover sheet.
+
+
+
+
+
+Hint: Set the AdjustBmOffset parameter to same value as WantMergePdfs. For merged pdf output we have to adjust the Bookmark offset so that the TOC shifts bookmarks to page after cover.
+
+
+
+
+"
+          NEXT="IfWantTableOfContents"
+          POSX="900"
+          POSY="300"
+          TYPE="MODIFY"
+          >
+          <CONNECTIONS
+            NEXT="DIRECT"
+            />
+          <SET
+            CoverSheetPagecount="%COVER_PAGECOUNT%"
+            CreateTocPdfInsertAtRliIndex="1"
+            CreateTocPdfInsertAtRliIndexAdjustBmOffset="%WantMergePdfs%"
+            />
+        </InsertTocAfterCover>
+        <MAIN
+          BEGIN="UserExitBeforeBuildDocumentation"
+          NAME=""
+          />
+        <MAPPING/>
+        <MarkErrorAndMissingSheets
+          COMMENT=""
+          ERROR="END"
+          NAME="Rli.fillRliColumn"
+          NEXT="CreateTableOfContents"
+          POSX="500"
+          POSY="2300"
+          TYPE="WU"
+          >
+          <CONNECTIONS
+            ERROR="DIRECT"
+            NEXT="DIRECT"
+            />
+          <DEFAULTS>
+            <Replacement
+              val="_"
+              />
+            <UseEval
+              val="N"
+              />
+            <WuEnableDebugLoop
+              val="N"
+              />
+          </DEFAULTS>
+          <MAPPING
+            ValueSets="%MarkErrorAndMissingSheetsValueSets%"
+            />
+        </MarkErrorAndMissingSheets>
+        <MergePdfFiles
+          COMMENT="Merge all pdf document to one file."
+          ERROR="END"
+          NAME="Rli.mergePdfs"
+          NEXT="SetTocFileName"
+          POSX="700"
+          POSY="3500"
+          TYPE="WU"
+          >
+          <CONNECTIONS
+            ERROR="DIRECT"
+            NEXT="DIRECT"
+            />
+          <DEFAULTS/>
+          <MAPPING
+            FilterPrefix="%WFPOSITION%"
+            KeepAttachments="Y"
+            PdfExpandCollection="Y"
+            RlicBookmarkLevel="%RlicChapterDepth%"
+            RlicBookmarkText="%RlicChapterName1%"
+            WuEnableDebugLoop="N"
+            />
+        </MergePdfFiles>
+        <PrependCoverSheetToRli
+          COMMENT="Prepend the cover sheet to the reprolist."
+          ERROR="END"
+          NAME="Rli.appendLine"
+          NEXT="InsertTocAfterCover"
+          POSX="900"
+          POSY="100"
+          TYPE="WU"
+          >
+          <CONNECTIONS
+            ERROR="DIRECT"
+            NEXT="DIRECT"
+            />
+          <DEFAULTS/>
+          <MAPPING
+            PrependRliLine="Y"
+            RLICOLUMNDATA01="CURRFILENAME=%COVERFILENAME%"
+            RLICOLUMNDATA02="CURRFILETYPE=pdf"
+            RLICOLUMNDATA03="SkipStampPageNumbers=%SkipStampPageNumbersOnCover%"
+            RLICOLUMNDATA04="PAGECOUNT=%COVER_PAGECOUNT%"
+            RLICOLUMNDATA05="%RlicChapterName1%=%CoverTitle%"
+            RLICOLUMNDATA06="EntryType=cover"
+            RLICOLUMNDATA07="PAGENUMBER=1"
+            RLICOLUMNDATA08="SkipStamp=%SkipStampOnCover%"
+            />
+        </PrependCoverSheetToRli>
+        <PrependTableOfContentsToRli
+          COMMENT="Prepend the table of contents to the reprolist or append it after the cover sheet."
+          ERROR="END"
+          NAME="Rli.appendLine"
+          NEXT="IfSetTocType"
+          POSX="900"
+          POSY="500"
+          TYPE="WU"
+          >
+          <CONNECTIONS
+            ERROR="DIRECT"
+            NEXT="DIRECT"
+            />
+          <DEFAULTS/>
+          <MAPPING
+            InsertLineAtIndex="%CreateTocPdfInsertAtRliIndex%"
+            PrependRliLine="Y"
+            RLICOLUMNDATA01="CURRFILENAME=%TocFileName%"
+            RLICOLUMNDATA02="CURRFILETYPE=pdf"
+            RLICOLUMNDATA03="SkipStampPageNumbers=%SkipStampPageNumbersOnToc%"
+            RLICOLUMNDATA04="PAGECOUNT=%CoverSheetPagecount%"
+            RLICOLUMNDATA05="%RlicChapterName1%=%CreateTocPdfTitleText%"
+            RLICOLUMNDATA06="EntryType=toc"
+            RLICOLUMNDATA07="PAGENUMBER=%TocPageNumber%"
+            RLICOLUMNDATA08="SkipStamp=%SkipStampOnToc%"
+            />
+        </PrependTableOfContentsToRli>
+        <ReplaceHyperlinks
+          COMMENT=""
+          ERROR="END"
+          NAME="Publish.ReplaceHyperlinks"
+          NEXT="IfWantBackLinks"
+          POSX="700"
+          POSY="3900"
+          TYPE="WU"
+          >
+          <CONNECTIONS
+            ERROR="DIRECT"
+            NEXT="DIRECT"
+            />
+          <DEFAULTS/>
+          <MAPPING/>
+        </ReplaceHyperlinks>
+        <SetBookmarks
+          COMMENT="Create hyperlinks in the merged file or 
+
+hyperlinks and bookmarks in toc."
+          ERROR="END"
+          NAME="Publish.setBookmarks"
+          NEXT="IfWantReplaceHyperlinks"
+          POSX="700"
+          POSY="3700"
+          TYPE="WU"
+          >
+          <CONNECTIONS
+            ERROR="DIRECT"
+            NEXT="DIRECT"
+            />
+          <DEFAULTS/>
+          <MAPPING
+            CurrFileName="%TocFileName%"
+            DeleteOldBookmarks="%WantDeleteOldBookmarks%"
+            DestFileName="%TocFileName%"
+            />
+        </SetBookmarks>
+        <SetCoverlFileName
+          COMMENT="Set a relative file name for the cover sheet."
+          ERROR="END"
+          NAME="Rli.modifyLine"
+          NEXT="ifToc"
+          POSX="700"
+          POSY="1300"
+          TYPE="WU"
+          >
+          <CONNECTIONS
+            ERROR="DIRECT"
+            NEXT="DIRECT"
+            />
+          <DEFAULTS/>
+          <MAPPING
+            ModifyLineAtIndex="%CreateTocPdfInsertAtRliIndex% - 1"
+            RliColumnData01="RelFileName=%CoverFileName.fileName%"
+            />
+        </SetCoverlFileName>
+        <SetHeadlineTocType
+          COMMENT="Set text toc type for headlines."
+          ERROR="END"
+          NAME="Rli.fillRliColumn"
+          NEXT="IfWantMergePdfs30"
+          POSX="500"
+          POSY="900"
+          TYPE="WU"
+          >
+          <CONNECTIONS
+            ERROR="DIRECT"
+            NEXT="DIRECT"
+            />
+          <DEFAULTS/>
+          <MAPPING
+            FillColumn="TocType"
+            FillData="%TocTypeHeadline%"
+            FilterOperator="eq"
+            RlicFilter="CurrFileType"
+            />
+        </SetHeadlineTocType>
+        <SetRelFileName
+          COMMENT="Set relative file names for all files except cover sheet and table of contents."
+          ERROR="END"
+          NAME="Rli.fillRliColumn"
+          NEXT="ifCover"
+          POSX="500"
+          POSY="1100"
+          TYPE="WU"
+          >
+          <CONNECTIONS
+            ERROR="DIRECT"
+            NEXT="DIRECT"
+            />
+          <DEFAULTS/>
+          <MAPPING
+            FillColumn="RelFileName"
+            FillData="%OutputPdfFileName%"
+            FilterOperator2="-f"
+            FilterOperator="!~"
+            FilterValue="/cover|toc/"
+            ReplaceBadCharacters="\/:*?&quot;&lt;&gt;|"
+            RlicFilter2="CurrFileName"
+            RlicFilter="EntryType"
+            />
+        </SetRelFileName>
+        <SetRlicChapterName
+          COMMENT=""
+          NEXT="MergePdfFiles"
+          POSX="500"
+          POSY="3500"
+          TYPE="MODIFY"
+          >
+          <CONNECTIONS
+            NEXT="DIRECT"
+            />
+          <SET
+            RlicChapterName1="BookmarkText"
+            />
+        </SetRlicChapterName>
+        <SetTocFileName
+          COMMENT="Set merged pdf file as toc."
+          NEXT="IfWantTableOfContents2"
+          POSX="900"
+          POSY="3500"
+          TYPE="MODIFY"
+          >
+          <CONNECTIONS
+            NEXT="DIRECT"
+            />
+          <SET
+            TocFileName="%CurrFileName%"
+            />
+        </SetTocFileName>
+        <SetTocPageCount
+          COMMENT="Set page count for the table of contents."
+          ERROR="END"
+          NAME="Rli.modifyLine"
+          NEXT="ifCover2"
+          POSX="300"
+          POSY="2500"
+          TYPE="WU"
+          >
+          <CONNECTIONS
+            ERROR="DIRECT"
+            NEXT="DIRECT"
+            />
+          <DEFAULTS/>
+          <MAPPING
+            ModifyLineAtIndex="%CreateTocPdfInsertAtRliIndex%"
+            RliColumnData01="PAGECOUNT=%TOC_PAGENUM%"
+            />
+        </SetTocPageCount>
+        <SetTocPageNumber
+          COMMENT="Begin counting page numbers after the cover sheet."
+          NEXT="UserExitInsteadOfAppendTocRliLine"
+          POSX="300"
+          POSY="500"
+          TYPE="MODIFY"
+          >
+          <CONNECTIONS
+            NEXT="DIRECT"
+            />
+          <SET
+            TocPageNumber="%CoverSheetPagecount% + 1"
+            />
+        </SetTocPageNumber>
+        <SetTocRelFileName
+          COMMENT="Set a relative file name for the table of contents."
+          ERROR="END"
+          NAME="Rli.modifyLine"
+          NEXT="ifWantChapterNumbers"
+          POSX="300"
+          POSY="1300"
+          TYPE="WU"
+          >
+          <CONNECTIONS
+            ERROR="DIRECT"
+            NEXT="DIRECT"
+            />
+          <DEFAULTS/>
+          <MAPPING
+            ModifyLineAtIndex="%CreateTocPdfInsertAtRliIndex%"
+            RliColumnData01="RelFileName=%TocFileName.fileName%"
+            />
+        </SetTocRelFileName>
+        <SetTocType
+          COMMENT="Create bookmarks with &quot;create table of contents&quot; or &quot;merge pdf&quot; wu."
+          ERROR="END"
+          NAME="Rli.fillRliColumn"
+          NEXT="IfSetHeadlineTocType"
+          POSX="700"
+          POSY="900"
+          TYPE="WU"
+          >
+          <CONNECTIONS
+            ERROR="DIRECT"
+            NEXT="DIRECT"
+            />
+          <DEFAULTS/>
+          <MAPPING
+            FillColumn="TocType"
+            FillData="%TocTypeSet%"
+            />
+        </SetTocType>
+        <SetZeroTocPageCount
+          COMMENT="Default value for no TOC generation."
+          NEXT="CalculateTotalPages"
+          POSX="500"
+          POSY="3100"
+          TYPE="MODIFY"
+          >
+          <CONNECTIONS
+            NEXT="DIRECT"
+            />
+          <SET
+            TocPageNum="0"
+            />
+        </SetZeroTocPageCount>
+        <StampPageNumbers
+          COMMENT="Stamp files of the reprolist (exept those marked with &quot;SkipStampPageNumbers&quot;) with page numbers."
+          ERROR="END"
+          NAME="Rli.stampPdfs"
+          NEXT="UserExitAfterStampPageNumbers"
+          POSX="500"
+          POSY="3300"
+          TYPE="WU"
+          >
+          <CONNECTIONS
+            ERROR="DIRECT"
+            NEXT="DIRECT"
+            />
+          <DEFAULTS/>
+          <MAPPING
+            FilterPrefix="%WFPOSITION%"
+            PDFSTAMP_DB_FILENAME="%PdfStampPageNumbersDbFileName%"
+            PDFSTAMP_ODD_EVEN_DIFFERENT="%PdfStampPageNumbersOddEvenDifferent%"
+            PDFSTAMP_ODD_STP_FILENAME="%PdfStampPageNumbersOddStpFilename%"
+            PDFSTAMP_STP_FILENAME="%PdfStampPageNumbersStpFileName%"
+            PDFSTAMP_TXT_FILENAME="%PdfStampPageNumbersTxtFileName%"
+            PdfStampPagesValue="%TotalPages%"
+            RlicPageValue="PAGENUMBER"
+            />
+        </StampPageNumbers>
+        <StampPdfs
+          COMMENT="Stamp all files of the reprolist exept those marked with &quot;SkipStamp&quot;."
+          ERROR="END"
+          NAME="Rli.stampPdfs"
+          NEXT="IfWantStampPageNumbers"
+          POSX="300"
+          POSY="2900"
+          TYPE="WU"
+          >
+          <CONNECTIONS
+            ERROR="DIRECT"
+            NEXT="DIRECT"
+            />
+          <DEFAULTS/>
+          <MAPPING
+            FilterPrefix="%WFPOSITION%"
+            StampTextFromRlic="PLS_STAMP_*"
+            WuEnableDebugLoop="N"
+            />
+        </StampPdfs>
+        <UserExitAfterStampPageNumbers
+          COMMENT=""
+          ERROR="END"
+          NEXT="IfWantMergePdfs40"
+          POSX="100"
+          POSY="3300"
+          TYPE="USER_EXIT"
+          USE="%DPF4Publish.UserExitAfterStampPageNumbers%"
+          >
+          <CONNECTIONS
+            ERROR="DIRECT"
+            NEXT="DIRECT"
+            />
+          <DEFAULTS/>
+          <MAPPING/>
+        </UserExitAfterStampPageNumbers>
+        <UserExitBeforeAppendCoverRliLine
+          COMMENT=""
+          ERROR="END"
+          NEXT="UserExitInsteadOfAppendCoverRliLine"
+          POSX="500"
+          POSY="300"
+          TYPE="USER_EXIT"
+          USE="%DPF4Publish.UserExitBeforeAppendCoverRliLine%"
+          >
+          <CONNECTIONS
+            ERROR="DIRECT"
+            NEXT="DIRECT"
+            />
+          <DEFAULTS/>
+          <MAPPING/>
+        </UserExitBeforeAppendCoverRliLine>
+        <UserExitBeforeBuildDocumentation
+          COMMENT="user exit before standard distribute process.
+
+
+customize it in publish.customer.ini with keyword 
+
+
+
+DPF4Publish.UserExitBeforeBuildDocumentation = ...
+
+
+
+use internal process name to call instead empty default."
+          ERROR="END"
+          NEXT="ifWantBuildDocumentation"
+          POSX="100"
+          POSY="100"
+          TYPE="USER_EXIT"
+          USE="%DPF4Publish.userExitBeforeBuildDocumentation%"
+          >
+          <CONNECTIONS
+            ERROR="DIRECT"
+            NEXT="DIRECT"
+            />
+          <DEFAULTS/>
+          <MAPPING/>
+        </UserExitBeforeBuildDocumentation>
+        <UserExitBeforeCreateTableOfContents
+          COMMENT=""
+          ERROR="END"
+          NEXT="IfWantOrigBookmarks"
+          POSX="500"
+          POSY="1900"
+          TYPE="USER_EXIT"
+          USE="%DPF4Publish.UserExitBeforeCreateTableOfContents%"
+          >
+          <CONNECTIONS
+            ERROR="DIRECT"
+            NEXT="DIRECT"
+            />
+          <DEFAULTS/>
+          <MAPPING/>
+        </UserExitBeforeCreateTableOfContents>
+        <UserExitBeforeInsertPdfBackLinks
+          COMMENT=""
+          ERROR="END"
+          NEXT="InsertPdfBackLinks"
+          POSX="900"
+          POSY="4300"
+          TYPE="USER_EXIT"
+          USE="%DPF4Publish.UserExitBeforeInsertPdfBackLinks%"
+          >
+          <CONNECTIONS
+            ERROR="DIRECT"
+            NEXT="DIRECT"
+            />
+          <DEFAULTS/>
+          <MAPPING/>
+        </UserExitBeforeInsertPdfBackLinks>
+        <UserExitBeforeSetBookmarks
+          COMMENT=""
+          ERROR="END"
+          NEXT="IfWantBookmarksAndHyperlinks"
+          POSX="300"
+          POSY="3700"
+          TYPE="USER_EXIT"
+          USE="%DPF4Publish.UserExitBeforeSetBookmarks%"
+          >
+          <CONNECTIONS
+            ERROR="DIRECT"
+            NEXT="DIRECT"
+            />
+          <DEFAULTS/>
+          <MAPPING/>
+        </UserExitBeforeSetBookmarks>
+        <UserExitBeforeStampPageNumbers
+          COMMENT="user exit before standard distribute process.
+
+
+customize it in publish.customer.ini with keyword 
+
+
+
+DPF4Publish.UserExitBeforeStampPageNumbers = ...
+
+
+
+use internal process name to call instead empty default."
+          ERROR="END"
+          NEXT="StampPageNumbers"
+          POSX="700"
+          POSY="3100"
+          TYPE="USER_EXIT"
+          USE="%DPF4Publish.UserExitBeforeStampPageNumbers%"
+          >
+          <CONNECTIONS
+            ERROR="DIRECT"
+            NEXT="DIRECT"
+            />
+          <DEFAULTS/>
+          <MAPPING/>
+        </UserExitBeforeStampPageNumbers>
+        <UserExitInsteadOfAppendCoverRliLine
+          COMMENT=""
+          ERROR="END"
+          NEXT="IfUserExitInsteadOfAppendCoverRliLine"
+          POSX="700"
+          POSY="300"
+          TYPE="USER_EXIT"
+          USE="%DPF4Publish.UserExitInsteadOfAppendCoverRliLine%"
+          >
+          <CONNECTIONS
+            ERROR="DIRECT"
+            NEXT="DIRECT"
+            />
+          <DEFAULTS/>
+          <MAPPING/>
+        </UserExitInsteadOfAppendCoverRliLine>
+        <UserExitInsteadOfAppendTocRliLine
+          COMMENT="user exit before appending toc to rli.
+
+
+customize it in publish.customer.ini with keyword 
+
+
+
+DPF4Publish.UserExitInsteadOfAppendTocRliLine = ...
+
+
+
+use internal process name to call instead empty default."
+          ERROR="END"
+          NEXT="IfUserExitBeforeAppendTocRliLine"
+          POSX="500"
+          POSY="500"
+          TYPE="USER_EXIT"
+          USE="%DPF4Publish.UserExitInsteadOfAppendTocRliLine%"
+          >
+          <CONNECTIONS
+            ERROR="DIRECT"
+            NEXT="DIRECT"
+            />
+          <DEFAULTS/>
+          <MAPPING/>
+        </UserExitInsteadOfAppendTocRliLine>
+        <WasTocPageNumSet
+          COMMENT="Was TocPageNum set by create toc wu?"
+          ELSE="SetZeroTocPageCount"
+          OPERATOR="exists"
+          POSX="300"
+          POSY="3100"
+          PROPERTY="TocPageNum"
+          THEN="CalculateTotalPages"
+          TYPE="IF-THEN-ELSE"
+          VALUE=""
+          >
+          <CONNECTIONS
+            ELSE="DIRECT"
+            THEN="DIRECT"
+            />
+        </WasTocPageNumSet>
+        <WriteOriginalBookmarksToRli
+          COMMENT=""
+          ERROR="END"
+          NAME="Rli.WriteOriginalBookmarksToRli"
+          NEXT="CloseOriginalsWithBookmarks"
+          POSX="700"
+          POSY="2100"
+          TYPE="WU"
+          >
+          <CONNECTIONS
+            ERROR="DIRECT"
+            NEXT="DIRECT"
+            />
+          <DEFAULTS/>
+          <MAPPING
+            FilterOperator2="!~"
+            FilterOperator="-f"
+            FilterValue2="/cover|toc/i"
+            RlicFilter2="EntryType"
+            RlicFilter="CurrFileName"
+            />
+        </WriteOriginalBookmarksToRli>
+        <correctPageNumbers
+          COMMENT="Add cover sheet and toc page number to the page number of each document."
+          ERROR="END"
+          NAME="Rli.fillRliColumn"
+          NEXT="IfWantStampPdfs"
+          POSX="500"
+          POSY="2700"
+          TYPE="WU"
+          >
+          <CONNECTIONS
+            ERROR="DIRECT"
+            NEXT="DIRECT"
+            />
+          <DEFAULTS/>
+          <MAPPING
+            FillColumn="PAGENUMBER"
+            FillData="%PAGENUMBER% + %CoverSheetPagecount% + %TOC_PAGENUM%"
+            FilterOperator="!~"
+            FilterValue="/cover|toc/"
+            RlicFilter="EntryType"
+            UseEval="Y"
+            />
+        </correctPageNumbers>
+        <fillEmptyPageNumbers
+          COMMENT="fill rli lines with empty PAGENUMBER column to value of next rli line.
+
+
+
+So bookmarks to headlines link to document below.
+
+
+
+Fixes problems with test cases linked Test09 + Test10
+
+
+
+
+Fill also RelFileName in case of linked output."
+          ERROR="END"
+          NAME="Publish.fillEmptyPageNumbers"
+          NEXT="IfDeletePageNumbersForLinesWithoutFiles"
+          POSX="900"
+          POSY="1700"
+          TYPE="WU"
+          >
+          <CONNECTIONS
+            ERROR="DIRECT"
+            NEXT="DIRECT"
+            />
+          <DEFAULTS/>
+          <MAPPING
+            FillColumn2="RelFileName"
+            />
+        </fillEmptyPageNumbers>
+        <ifCover
+          COMMENT=""
+          ELSE="ifToc"
+          OPERATOR="is true"
+          POSX="700"
+          POSY="1100"
+          PROPERTY="WantCoverSheet"
+          THEN="SetCoverlFileName"
+          TYPE="IF-THEN-ELSE"
+          VALUE=""
+          >
+          <CONNECTIONS
+            ELSE="DIRECT"
+            THEN="DIRECT"
+            />
+        </ifCover>
+        <ifCover2
+          COMMENT=""
+          ELSE="IfToc2"
+          OPERATOR="is true"
+          POSX="100"
+          POSY="2500"
+          PROPERTY="WantCoverSheet"
+          THEN="IfCorrectPageNumbers"
+          TYPE="IF-THEN-ELSE"
+          VALUE=""
+          >
+          <CONNECTIONS
+            ELSE="DIRECT"
+            THEN="DIRECT"
+            />
+        </ifCover2>
+        <ifToc
+          COMMENT=""
+          ELSE="ifWantChapterNumbers"
+          OPERATOR="is true"
+          POSX="500"
+          POSY="1300"
+          PROPERTY="WantTableOfContents"
+          THEN="SetTocRelFileName"
+          TYPE="IF-THEN-ELSE"
+          VALUE=""
+          >
+          <CONNECTIONS
+            ELSE="DIRECT"
+            THEN="DIRECT"
+            />
+        </ifToc>
+        <ifWantBuildDocumentation
+          COMMENT=""
+          ELSE="END"
+          OPERATOR="is true"
+          POSX="300"
+          POSY="100"
+          PROPERTY="WantBuildDocumentation"
+          THEN="IfWantCoverSheet"
+          TYPE="IF-THEN-ELSE"
+          VALUE=""
+          >
+          <CONNECTIONS
+            ELSE="DIRECT"
+            THEN="DIRECT"
+            />
+        </ifWantBuildDocumentation>
+        <ifWantChapterNumbers
+          COMMENT=""
+          ELSE="IfWantTableOfContents3"
+          OPERATOR="is true"
+          POSX="100"
+          POSY="1500"
+          PROPERTY="WantChapterNumbers"
+          THEN="CreateChapterNumbers"
+          TYPE="IF-THEN-ELSE"
+          VALUE=""
+          >
+          <CONNECTIONS
+            ELSE="DIRECT"
+            THEN="DIRECT"
+            />
+        </ifWantChapterNumbers>
+        <ifWantLinkHeadlinesToNextDoc
+          COMMENT="should headlines link to following document (next rli line)
+
+
+
+so user also can click on headline bookmarks and hyperlinks?
+
+
+
+"
+          ELSE="UserExitBeforeCreateTableOfContents"
+          OPERATOR="is true"
+          POSX="300"
+          POSY="1700"
+          PROPERTY="WantLinkHeadlinesToNextDoc"
+          THEN="ifWantPageNumbers"
+          TYPE="IF-THEN-ELSE"
+          VALUE=""
+          >
+          <CONNECTIONS
+            ELSE="DIRECT"
+            THEN="DIRECT"
+            />
+        </ifWantLinkHeadlinesToNextDoc>
+        <ifWantPageNumbers
+          COMMENT=""
+          ELSE="UserExitBeforeCreateTableOfContents"
+          OPERATOR="is true"
+          POSX="500"
+          POSY="1700"
+          PROPERTY="WantPageNumbers"
+          THEN="IfFillEmptyPageNumbers"
+          TYPE="IF-THEN-ELSE"
+          VALUE=""
+          >
+          <CONNECTIONS
+            ELSE="DIRECT"
+            THEN="DIRECT"
+            />
+        </ifWantPageNumbers>
+      </DPF4Publish.BuildDocumentation>
+    </workflows>
+  </config>
+</DPF>

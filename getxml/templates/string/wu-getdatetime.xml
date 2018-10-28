@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <String.getDateTime
+        COMMAND="%DPFSRV%/scripts/string/getdatetime.pl -parfile %PARFILENAME%"
+        DEFAULTS=""
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGSTDOUT="Y"
+        NAME="Get Date Time"
+        PROJECT="String"
+        Status="Running"
+        THREADS="1"
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-getdatetime.xml,v 1.2 2009/09/21 10:06:10 sek Exp $"
+        >
+        <DEFAULTS
+          DateFormat="YYYY-MM-DDTHH:mm:SS"
+          />
+        <INPUT>
+          <DateFormat
+            DEFAULT="YYYY-MM-DDTHH:mm:SS"
+            DESCRIPTION="input format to build the date and time"
+            TYPE="TEXT"
+            />
+        </INPUT>
+      </String.getDateTime>
+    </workingunits>
+  </config>
+</DPF>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <Pdf.CollectLinkedPdfsToStructuredPdf
+        CODEPAGE="ISO-8859-1"
+        COMMAND="%DPFSRV%/scripts/pdf/collectlinkedpdfstostructuredpdf.pl -parfile %PARFILENAME%"
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGNAME=""
+        LOGSTDOUT="Y"
+        NAME="Collect Linked Pdfs To Structured Pdf"
+        NODENAMES=""
+        PROJECT="Pdf"
+        THREADS="1"
+        TIMEOUT=""
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-collectlinkedpdfstostructuredpdf.xml,v 1.3 2017/07/27 09:29:45 sek Exp $"
+        >
+        <DEFAULTS
+          NewAcrobatWindow="N"
+          />
+        <INPUT>
+          <CurrFileName
+            DESCRIPTION="the input file"
+            MANDATORY="true"
+            TYPE="TEXT"
+            />
+          <NewAcrobatWindow
+            DEFAULT="N"
+            DESCRIPTION="if Y the acrobat reader opens a new window/tab for each linked document"
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </NewAcrobatWindow>
+          <TargetFileName
+            DESCRIPTION="the output file, .pdf is appended to input file per default"
+            TYPE="TEXT"
+            />
+        </INPUT>
+        <OUTPUT/>
+      </Pdf.CollectLinkedPdfsToStructuredPdf>
+    </workingunits>
+  </config>
+</DPF>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <hpgl_convert
+        NAME="dpf4c - Convert multiple HPGL to single PDF or TIFF"
+        VERSION="$Id: wu-hpgl_convert.xml,v 1.3 2010/11/10 09:27:51 kig Exp $"
+        PROJECT="DPF4CONVERT"
+        TYPE="WUSystemCall"
+        LOGNAME="dpf4c-hpgl_convert"
+        LOGSTDOUT="Y"
+        LOGLEVEL="LOG_INFO"
+        THREADS="1"
+        TRACEIGNOREEXITCODE="N"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/hpgl_convert.pl -parfile %PARFILENAME%">
+        <DEFAULTS
+          WU_ENABLE_DEBUG_LOOP="N"
+          DPF4C_COMMON_DEST_COLOR="col"
+          HPGL_CONVERT_COMMON_DEST_FORMAT="pdf"
+          HPGL_CONVERT_MODIFY_ROTATION="0"
+          />
+        <INPUT
+          INFILEn="file"
+          TARGETFILE="file"
+          DPF4C_COMMON_DEST_COLOR="black|!col!"
+          HPGL_CONVERT_COMMON_DEST_FORMAT="pdf|tif"
+          HPGL_CONVERT_MODIFY_ROTATION="!0!|90|180|270"
+          />
+        <OUTPUT
+          CURRFILENAME="*"
+          CURRFILETYPE="pdf|tif"
+          />
+      </hpgl_convert>
+    </workingunits>
+  </config>
+</DPF>

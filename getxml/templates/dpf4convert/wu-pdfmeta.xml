@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <pdfmeta
+        NAME="dpf4c - Set meta informations in pdf file."
+        VERSION="$Id: wu-pdfmeta.xml,v 1.3 2013/07/30 12:39:54 kig Exp $"
+        PROJECT="DPF4CONVERT"
+        TYPE="WUSystemCall"
+        LOGNAME="dpf4c-pdfmeta"
+        LOGSTDOUT="Y"
+        LOGLEVEL="LOG_INFO"
+        THREADS="1"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/pdfmeta.pl -parfile %PARFILENAME%">
+        <DEFAULTS
+          WU_ENABLE_DEBUG_LOOP="N"
+          PDFMETA_CFG_FILE=""
+          PDFMETA_INI_FILE=""
+          PDFMETA_TEST_FOR_RETURN_VALUE="N"
+          PDFMETA_TYPE="INI"
+          />
+        <INPUT
+          CURRFILENAME="*"
+          CURRFILETYPE="pdf"
+          PDFMETA_CFG_FILE="file"
+          PDFMETA_INI_FILE="file"
+          PDFMETA_TYPE="INI|XML"
+          DPF4C_METADATA_PROPERTY_name=""
+          PDFMETA_TEST_FOR_RETURN_VALUE="Y|N"
+          />
+        <OUTPUT
+          CURRFILENAME="*"
+          CURRFILETYPE="pdf"
+          />
+      </pdfmeta>
+    </workingunits>
+  </config>
+</DPF>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workflows>
+      <DPF4CONVERT.tiffadapt
+        COMMENT=""
+        DPFINT-Customer="0"
+        DPFINT-Interactive="0"
+        DPFINT-Type="WorkflowDescription"
+        NAME="Tiffadapt"
+        PROJECT="DPF4CONVERT"
+        VERSION="$Id: wf-tiffadapt.xml,v 1.2 2011/08/11 11:37:05 kig Exp $"
+        >
+        <DEFAULTS/>
+        <DPF4CONVERT.tiffadapt1
+          COMMENT=""
+          ERROR="END"
+          NAME="DPF4CONVERT.tiffadapt"
+          NEXT="END"
+          POSX="500"
+          POSY="300"
+          TYPE="WU"
+          >
+          <CONNECTIONS
+            ERROR="DIRECT"
+            NEXT="DIRECT"
+            />
+          <DEFAULTS/>
+          <MAPPING/>
+        </DPF4CONVERT.tiffadapt1>
+        <END
+          COMMENT=""
+          NAME="END"
+          POSX="200"
+          POSY="100"
+          TYPE="STOP"
+          />
+        <MAIN
+          BEGIN="DPF4CONVERT.tiffadapt1"
+          NAME=""
+          />
+        <MAPPING/>
+      </DPF4CONVERT.tiffadapt>
+    </workflows>
+  </config>
+</DPF>

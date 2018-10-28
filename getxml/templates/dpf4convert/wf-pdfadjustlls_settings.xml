@@ -1,0 +1,28 @@
+<DPF>
+  <config>
+    <workflows>
+      <pdfadjustlls_settings
+        NAME="DPF 4 Convert - pdfadjustlls_settings"
+        VERSION="$Id: wf-pdfadjustlls_settings.xml,v 1.1 2006/11/03 13:29:49 ludwig Exp $"
+        PROJECT="DPF4CONVERT"
+        COMMENT="dpf4convert - (Customer) Settings for pdfadjustlls process."
+        DPFINT-Type="WorkflowDescription"
+        DPFINT-Changes="0"
+        >
+        <MAIN
+          BEGIN="set_parameters"
+          ERROR="END"
+          />
+        <set_parameters
+          TYPE="MODIFY"
+          NEXT="END"
+        >
+          <SET
+          zzz_off_ENABLE_PDF_ADJUST_PROCESS=""
+          zzz_off_ENABLE_PDF_ADJUST=""
+          />
+        </set_parameters>
+      </pdfadjustlls_settings>
+    </workflows>
+  </config>
+</DPF>

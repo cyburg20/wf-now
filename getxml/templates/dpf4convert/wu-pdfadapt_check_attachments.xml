@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <DPF4CONVERT.pdfadapt_check_attachments
+        CODEPAGE="ISO-8859-1"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/pdfadapt_check_attachments.pl -parfile %PARFILENAME%"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGNAME=""
+        LOGSTDOUT="Y"
+        NAME="Pdfadapt - Check Attachments"
+        NODENAMES=""
+        PROJECT="DPF4CONVERT"
+        THREADS="99"
+        TIMEOUT=""
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-pdfadapt_check_attachments.xml,v 1.1 2015/12/14 17:16:12 kig Exp $"
+        />
+    </workingunits>
+  </config>
+</DPF>

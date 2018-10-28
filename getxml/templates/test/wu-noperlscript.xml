@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <Test.noperlscript
+        COMMAND="%DPFSRV%/scripts/test/noperlscript.pl -parfile %PARFILENAME%"
+        DPFINT-Icon="doc://:/wu.gif"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGNAME=""
+        LOGSTDOUT="Y"
+        NAME="No Perl Script"
+        PROJECT="Test"
+        THREADS="5"
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-noperlscript.xml,v 1.4 2008/10/06 07:26:23 stefan Exp $"
+        >
+        <DEFAULTS
+          CURRFILENAME=""
+          DPFINT-Icon="doc://:/defaults.gif"
+          WU_ENABLE_DEBUG_LOOP="N"
+          />
+        <ENVIRONMENTS
+          HERE_YOU_COULD_SET_EXTRA_ENV_VARS="to a value"
+          />
+        <INPUT
+          CURRFILENAME="*"
+          DPFINT-Icon="doc://:/wu-input.gif"
+          WU_ENABLE_DEBUG_LOOP="*"
+          />
+        <OUTPUT
+          DPFINT-Icon="doc://:/wu-output.gif"
+          ERR_REASON="*"
+          EXAMPLE_OUTPUT="*"
+          />
+      </Test.noperlscript>
+    </workingunits>
+  </config>
+</DPF>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <hpgl2tiff
+        NAME="dpf4c - Convert HPGL to TIFF"
+        LICENSE="CIHPGL"
+        VERSION="$Id: wu-hpgl2tiff.xml,v 1.11 2017/02/08 12:46:27 thomas Exp $"
+        PROJECT="DPF4CONVERT"
+        TYPE="WUSystemCall"
+        LOGNAME="dpf4c-hpgl2tiff"
+        LOGSTDOUT="Y"
+        LOGLEVEL="LOG_INFO"
+        THREADS="1"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/hpgl2tiff.pl -parfile %PARFILENAME%">
+        <DEFAULTS
+          DPF4C_MODIFY_ROTATION=""
+          HPGL2TIFF_GXC_DEVICE="8074"
+          HPGL2TIFF_GXC_ADD_PARAMS=""
+          />
+        <INPUT
+          CURRFILENAME="file"
+          CURRFILETYPE="hp"
+          DPF4C_COMMON_TIMEOUT="number"
+          DPF4C_MODIFY_RESOLUTION_DPI="number"
+          DPF4C_MODIFY_ROTATE="Y|N"
+          DPF4C_MODIFY_ROTATION="angle"
+          HPGL2TIFF_GXC_ADD_PARAMS="string"
+          HPGL2TIFF_GXC_DEVICE="number"
+          />
+	<OUTPUT
+          CURRFILENAME="file"
+          CURRFILETYPE="tif"
+          DPF4C_COMMON_OUTFILEtif="file"
+          ERR_REASON="text"
+          />
+      </hpgl2tiff>
+    </workingunits>
+  </config>
+</DPF>

@@ -1,0 +1,31 @@
+<DPF>
+  <config>
+    <workingunits>
+      <otf2gksm
+        VERSION="$Id: wu-otf2gksm.xml,v 1.3 2013/05/16 07:47:38 kig Exp $"
+        PROJECT="DPF4CONVERT"
+        TYPE="WUSystemCall"
+        LOGNAME="dpf4c-otf2gksm"
+        LOGLEVEL="LOG_INFO"
+        THREADS="1"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/otf2gksm.pl -parfile %PARFILENAME%">
+        <DEFAULTS
+          />
+        <INPUT
+          PARFILENAME="*"
+          CURRFILENAME="*"
+          JOBID="*"
+          LOGLEVEL=""
+          CURRFILETYPE="otf"
+          />
+	<OUTPUT
+          CURRHEDFILENAME="*"
+          CURRMETFILENAME="*"
+          CURRXMLFILENAME=""
+          CURRFILENAME="*"
+          CURRFILETYPE="xml|gksm"
+          />
+      </otf2gksm>
+    </workingunits>
+  </config>
+</DPF>

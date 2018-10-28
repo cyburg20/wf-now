@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workflows>
+      <DPF4LOADER.sapgoloader
+        COMMENT=""
+        DPFINT-Customer="0"
+        DPFINT-Interactive="0"
+        DPFINT-Type="WorkflowDescription"
+        NAME="Document Load - Subprocess SAP GO Loader"
+        PROJECT="DPF4LOADER"
+        VERSION="$Id: wf-sapgoloader.xml,v 1.6 2013/12/03 06:31:29 tobias Exp $"
+        >
+        <CheckinGOFile
+          COMMENT="execute 1 GO @%SAPBO_OBJECTTYPE%@%SAPBO_OBJECTKEY%@BACK@%CurrFileName%@%SAP_CREATOR%@%SAPGO_PIECE_6%@%SAPGO_PIECE_7%@%SAPGO_PIECE_8%@"
+          ERROR="END"
+          NAME="Sap.executeSapFunction"
+          NEXT="END"
+          POSX="700"
+          POSY="300"
+          TYPE="WU"
+          >
+          <CONNECTIONS
+            ERROR="DIRECT"
+            NEXT="DIRECT"
+            />
+          <DEFAULTS/>
+          <MAPPING
+            ExecuteSapFunctionErrorStatus="0"
+            FunctionCall="%SAPFUNC%"
+            SAPLANGU="%SAPCHECKIN_LANGUAGE%"
+            SAPMANDANT="%SAPCHECKIN_MANDANT%"
+            SAPSYSTEM="%SAPCHECKIN_SYSTEM%"
+            />
+        </CheckinGOFile>
+        <DEFAULTS/>
+        <END
+          COMMENT=""
+          NAME="END"
+          POSX="2800"
+          POSY="300"
+          TYPE="STOP"
+          />
+        <MAIN
+          BEGIN="CheckinGOFile"
+          NAME=""
+          />
+        <MAPPING/>
+      </DPF4LOADER.sapgoloader>
+    </workflows>
+  </config>
+</DPF>

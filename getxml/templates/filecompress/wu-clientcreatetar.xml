@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <FileCompress.clientCreateTar
+        COMMAND="%SEPPSTARTER% -s -o TCP/IP tar -c -C &quot;%TARDIR%&quot; -f &quot;%TARFILENAME%&quot; ."
+        DPFINT-FileLinks="doc://:/%SEPPSTARTER%"
+        DPFINT-Icon="doc://:/wu.gif"
+        LOGLEVEL="LOG_INFO"
+        LOGNAME=""
+        LOGSTDOUT="Y"
+        NAME="Call Tar on client"
+        PROJECT="FileCompress"
+        THREADS="1"
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-clientcreatetar.xml,v 1.2 2007/02/13 23:58:29 stefan Exp $"
+        >
+        <DEFAULTS
+          DPFINT-Icon="doc://:/defaults.gif"
+          TARDIR=""
+          TARFILENAME=""
+          WU_ENABLE_DEBUG_LOOP="N"
+          />
+        <INPUT
+          DPFINT-Icon="doc://:/wu-input.gif"
+          TARDIR="*"
+          TARFILENAME="*"
+          WU_ENABLE_DEBUG_LOOP="*"
+          />
+        <OUTPUT
+          DPFINT-Icon="doc://:/wu-output.gif"
+          />
+      </FileCompress.clientCreateTar>
+    </workingunits>
+  </config>
+</DPF>

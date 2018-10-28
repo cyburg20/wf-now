@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <FileCompress.createTar
+        COMMAND="tar -c -C &quot;%TARDIR%&quot; -f &quot;%TARFILENAME%&quot; ."
+        DPFINT-FileLinks="doc://:/tar"
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        LOGLEVEL="LOG_INFO"
+        LOGNAME=""
+        LOGSTDOUT="Y"
+        NAME="Create Tar Archive"
+        PROJECT="FileCompress"
+        Status="Running"
+        THREADS="1"
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-createtar.xml,v 1.3 2007/09/18 14:12:10 stefan Exp $"
+        >
+        <DEFAULTS
+          DPFINT-Icon="doc://:/defaults.gif"
+          WU_ENABLE_DEBUG_LOOP="N"
+          />
+        <INPUT
+          DPFINT-Icon="doc://:/wu-input.gif"
+          TARDIR="*"
+          TARFILENAME="*"
+          WU_ENABLE_DEBUG_LOOP="*"
+          >
+          <TARDIR
+            TYPE="TEXT"
+            />
+          <TARFILENAME
+            TYPE="TEXT"
+            />
+          <WU_ENABLE_DEBUG_LOOP
+            DEFAULT="N"
+            TYPE="TEXT"
+            />
+        </INPUT>
+      </FileCompress.createTar>
+    </workingunits>
+  </config>
+</DPF>

@@ -1,0 +1,23 @@
+<DPF>
+  <config>
+    <workflows>
+      <coreldesigner2file
+        NAME="DPF 4 Convert - coreldesigner2file"
+        VERSION="$Id: wf-coreldesigner2file.xml,v 1.1 2006/10/25 07:38:01 ludwig Exp $"
+        PROJECT="DPF4CONVERT"
+        COMMENT="dpf4convert - Convert process CorelDesigner to PDF"
+        DPFINT-Type="WorkflowDescription"
+        DPFINT-Changes="0"
+        >
+        <MAIN
+          BEGIN="coreldesigner2file"
+          ERROR="END"
+          />
+        <coreldesigner2file
+          NAME="coreldesigner2file"
+          NEXT="END"
+          />
+      </coreldesigner2file>
+    </workflows>
+  </config>
+</DPF>

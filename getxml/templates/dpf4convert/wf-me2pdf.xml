@@ -1,0 +1,27 @@
+<DPF>
+  <config>
+    <workflows>
+      <me2pdf
+        NAME="DPF 4 Convert - me2pdf"
+        VERSION="$Id: wf-me2pdf.xml,v 1.7 2006/11/23 13:15:00 ludwig Exp $"
+        PROJECT="DPF4CONVERT"
+        COMMENT="dpf4convert - Convert process ME to PDF"
+        DPFINT-Type="WorkflowDescription"
+        DPFINT-Changes="0"
+        >
+        <MAIN
+          BEGIN="me2hpgl"
+          ERROR="END"
+          />
+        <me2hpgl
+          NAME="me2hpgl"
+          NEXT="sp-hpgl2pdf"
+          />
+        <sp-hpgl2pdf
+          USE="hpgl2pdf"
+          NEXT="END"
+          />
+      </me2pdf>
+    </workflows>
+  </config>
+</DPF>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <Rli.expandAllDocumentSections
+        CODEPAGE="ISO-8859-1"
+        COMMAND="%DPFSRV%/scripts/rli/expandalldocumentsections.pl -parfile %PARFILENAME%"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGNAME=""
+        LOGSTDOUT="Y"
+        NAME="Expand All Document Sections"
+        NODENAMES=""
+        PROJECT="Rli"
+        THREADS="5"
+        TIMEOUT=""
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-expandalldocumentsections.xml,v 1.1 2011/07/28 10:20:33 stefan Exp $"
+        />
+    </workingunits>
+  </config>
+</DPF>

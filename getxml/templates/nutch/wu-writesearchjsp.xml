@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <Nutch.WriteSearchJsp
+        COMMAND="%DPFSRV%/scripts/nutch/writesearchjsp.pl -parfile %PARFILENAME%"
+        DEFAULTS=""
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGSTDOUT="Y"
+        NAME="WriteSearchJsp"
+        PROJECT="Nutch"
+        Status="Running"
+        THREADS="1"
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-writesearchjsp.xml,v 1.3 2007/09/14 05:34:36 tobias Exp $"
+        >
+        <DEFAULTS/>
+        <INPUT>
+          <CATALINA_HOME
+            DESCRIPTION="(dir) Root dir of Tomcat; mandatory, NO DEFAULT"
+            MANDATORY="true"
+            TYPE="TEXT"
+            />
+          <CATALINA_PORT
+            DESCRIPTION="(port) tomcat&apos;s port (default is 8080)"
+            TYPE="TEXT"
+            />
+          <CONTENT_DEPLOY_PATH
+            DESCRIPTION="(relative path) the container w/ the data, relative to %CATALINA_HOME% (default is &apos;/webapps/ROOT&apos;)"
+            TYPE="TEXT"
+            />
+          <NUTCH_SERVLET_PATH
+            DESCRIPTION="(relative path) the dir with the deployed Servlet, relative to %CATALINA_HOME% (default is &apos;/webapps/nutch&apos;)"
+            TYPE="TEXT"
+            />
+        </INPUT>
+      </Nutch.WriteSearchJsp>
+    </workingunits>
+  </config>
+</DPF>

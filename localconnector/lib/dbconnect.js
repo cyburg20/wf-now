@@ -5,10 +5,10 @@ const Pool = require ('pg-pool');
 const dbconnect = function() {
     
 const pool = new Pool({
-    database: 'name',
-    host: 'localhost',
-    user: 'name',
-    password: 'name',
+    database: 'dpf',
+    host: '10.128.2.247',
+    user: 'dpf',
+    password: 'dpf',
     port: 7128, //port
     max: 20, // set pool max size to 20
     min: 10, // set min pool size to 4

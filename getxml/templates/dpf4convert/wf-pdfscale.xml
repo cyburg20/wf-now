@@ -1,0 +1,23 @@
+<DPF>
+  <config>
+    <workflows>
+      <pdfscale
+        NAME="DPF 4 Convert - pdfscale"
+        VERSION="$Id: wf-pdfscale.xml,v 1.5 2004/09/23 09:30:04 stefan Exp $"
+        PROJECT="DPF4CONVERT"
+        COMMENT="dpf4convert - Scale PDF"
+        DPFINT-Type="WorkflowDescription"
+        DPFINT-Changes="0"
+        >
+        <MAIN
+          BEGIN="pdfscale"
+          ERROR="END"
+          />
+        <pdfscale
+          NAME="pdfscale"
+          NEXT="END"
+          />
+      </pdfscale>
+    </workflows>
+  </config>
+</DPF>

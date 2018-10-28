@@ -1,0 +1,27 @@
+<DPF>
+  <config>
+    <workflows>
+      <idw2pdf
+        NAME="DPF 4 Convert - CAD Inventor IDW to PDF"
+        VERSION="$Id: wf-idw2pdf.xml,v 1.5 2006/09/15 15:29:50 ludwig Exp $"
+        PROJECT="DPF4CONVERT"
+        COMMENT="dpf4convert - Convert process CAD Inventor IDW to PDF"
+        DPFINT-Type="WorkflowDescription"
+        DPFINT-Changes="0"
+        >
+        <MAIN
+          BEGIN="idw2ps"
+          ERROR="END"
+          />
+        <idw2ps
+          NAME="idw2ps"
+          NEXT="ps2pdfg"
+          />
+        <ps2pdfg
+          USE="ps2pdfg"
+          NEXT="END"
+          />
+      </idw2pdf>
+    </workflows>
+  </config>
+</DPF>

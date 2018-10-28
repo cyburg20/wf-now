@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <Publish.cleanup
+        COMMAND="%DPFSRV%/scripts/publish/cleanup.pl -parfile %PARFILENAME%"
+        DPFINT-FileLinks="doc://:/perl"
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGNAME="cleanup"
+        LOGSTDOUT="Y"
+        MAPPING=""
+        NAME="cleanup"
+        PROJECT="Publish"
+        Status="Running"
+        THREADS="1"
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-cleanup.xml,v 1.5 2007/03/28 10:39:37 ch Exp $"
+        >
+        <DEFAULTS
+          DPFINT-Icon="doc://:/defaults.gif"
+          WU_ENABLE_DEBUG_LOOP="N"
+          />
+        <INPUT
+          DPFINT-Icon="doc://:/wu-input.gif"
+          WU_ENABLE_DEBUG_LOOP="*"
+          >
+          <CLEANUP_PROPERTIES
+            TYPE="TEXT"
+            />
+          <ROOTDIR
+            TYPE="TEXT"
+            />
+          <WU_ENABLE_DEBUG_LOOP
+            DEFAULT="N"
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </WU_ENABLE_DEBUG_LOOP>
+        </INPUT>
+      </Publish.cleanup>
+    </workingunits>
+  </config>
+</DPF>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workflows>
+      <DPF4Publish.Notify
+        COMMENT=""
+        DPFINT-Customer="0"
+        DPFINT-Interactive="0"
+        DPFINT-Type="WorkflowDescription"
+        NAME="Notify"
+        PROJECT="DPF4Publish"
+        VERSION="$Id: wf-notify.xml,v 1.2 2010/10/21 15:50:32 stefan Exp $"
+        >
+        <DEFAULTS
+          DPF4Publish.UserExitBeforeNotify="DPF4Publish.UserExitBeforeNotify"
+          />
+        <END
+          COMMENT=""
+          NAME="END"
+          POSX="200"
+          POSY="300"
+          TYPE="STOP"
+          />
+        <IfWantSapReply
+          COMMENT="Reply the stati of all documents to sap?"
+          ELSE="IfWantSendMail"
+          OPERATOR="is true"
+          POSX="100"
+          POSY="300"
+          PROPERTY="WantSapReply"
+          THEN="SapReply"
+          TYPE="IF-THEN-ELSE"
+          VALUE=""
+          >
+          <CONNECTIONS
+            ELSE="DIRECT"
+            THEN="DIRECT"
+            />
+        </IfWantSapReply>
+        <IfWantSendMail
+          COMMENT="Send an email?"
+          ELSE="END"
+          OPERATOR="is true"
+          POSX="100"
+          POSY="500"
+          PROPERTY="WantSendMail"
+          THEN="SendMail"
+          TYPE="IF-THEN-ELSE"
+          VALUE=""
+          >
+          <CONNECTIONS
+            ELSE="DIRECT"
+            THEN="DIRECT"
+            />
+        </IfWantSendMail>
+        <MAIN
+          BEGIN="UserExitBeforeNotify"
+          NAME=""
+          />
+        <MAPPING/>
+        <SapReply
+          COMMENT="Reply the stati of all documents to sap."
+          ERROR="END"
+          NAME="Sap.replyStatusOfDocumentsInRli"
+          NEXT="IfWantSendMail"
+          POSX="300"
+          POSY="300"
+          TYPE="WU"
+          >
+          <CONNECTIONS
+            ERROR="DIRECT"
+            NEXT="DIRECT"
+            />
+          <DEFAULTS/>
+          <MAPPING
+            FilterPrefix="%WFPOSITION%"
+            />
+        </SapReply>
+        <SendMail
+          COMMENT="Mail output file path."
+          ERROR="END"
+          NAME="Mail.sendMail"
+          NEXT="END"
+          POSX="300"
+          POSY="500"
+          TYPE="WU"
+          >
+          <CONNECTIONS
+            ERROR="DIRECT"
+            NEXT="DIRECT"
+            />
+          <DEFAULTS/>
+          <MAPPING/>
+        </SendMail>
+        <UserExitBeforeNotify
+          COMMENT=""
+          ERROR="END"
+          NEXT="IfWantSapReply"
+          POSX="100"
+          POSY="100"
+          TYPE="USER_EXIST"
+          USE="%DPF4Publish.UserExitBeforeNotify%"
+          >
+          <CONNECTIONS
+            ERROR="DIRECT"
+            NEXT="DIRECT"
+            />
+          <DEFAULTS/>
+          <MAPPING/>
+        </UserExitBeforeNotify>
+      </DPF4Publish.Notify>
+    </workflows>
+  </config>
+</DPF>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <DPF4CONVERT.pdf_to_file_init
+        CODEPAGE="UTF8"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/pdf_to_file_init.pl -parfile %PARFILENAME%"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGSTDOUT="Y"
+        NAME="pdf_to_file_init"
+        PROJECT="DPF4CONVERT"
+        THREADS="5"
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-pdf_to_file_init.xml,v 1.1 2014/01/09 13:43:32 kig Exp $"
+        />
+    </workingunits>
+  </config>
+</DPF>

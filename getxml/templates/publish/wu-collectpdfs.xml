@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <Publish.collectPdfs
+        COMMAND="%DPFSRV%/scripts/publish/collectpdfs.pl -parfile %PARFILENAME%"
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGSTDOUT="Y"
+        NAME="Collect PDF&apos;s"
+        PROJECT="Publish"
+        Status="Running"
+        THREADS="1"
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-collectpdfs.xml,v 1.1 2007/10/25 15:50:16 stefan Exp $"
+        >
+        <DEFAULTS
+          NumOfPdfsPerPage="1"
+          RlicFileName="CurrFileName"
+          />
+        <INPUT>
+          <BackgroundPdfFileName
+            DESCRIPTION="name of background PDF to stamp on"
+            TYPE="TEXT"
+            />
+          <CollectBase
+            DESCRIPTION="base name of DPF parameters with _POSITION and _OFFSET parameters"
+            TYPE="TEXT"
+            />
+          <CurrRliFileName
+            DESCRIPTION="Name of input RLI file"
+            TYPE="TEXT"
+            />
+          <DestFileName
+            DESCRIPTION="optional name of output PDF file"
+            TYPE="TEXT"
+            />
+          <FilterValue
+            TYPE="TEXT"
+            />
+          <NumOfPdfsPerPage
+            DEFAULT="1"
+            DESCRIPTION="number of PDFs to collect per page"
+            TYPE="TEXT"
+            />
+          <RlicFileName
+            DEFAULT="CurrFileName"
+            DESCRIPTION="name of RLI column with PDF files to collect"
+            TYPE="TEXT"
+            />
+          <RlicFilter
+            TYPE="TEXT"
+            />
+        </INPUT>
+      </Publish.collectPdfs>
+    </workingunits>
+  </config>
+</DPF>

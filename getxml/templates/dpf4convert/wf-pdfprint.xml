@@ -1,0 +1,35 @@
+<DPF>
+  <config>
+    <workflows>
+      <pdfprint
+        NAME="DPF 4 Convert - pdfprint"
+        VERSION="$Id: wf-pdfprint.xml,v 1.1 2006/01/26 13:02:42 ludwig Exp $"
+        PROJECT="DPF4CONVERT"
+        COMMENT="dpf4convert - Print PDF file to printer format using a installed windows printer driver"
+        DPFINT-Type="WorkflowDescription"
+        DPFINT-Changes="0"
+        >
+        <MAIN
+          BEGIN="get_printer"
+          ERROR="END"
+          />
+        <get_printer
+          NAME="get_printer"
+          NEXT="check_if_printer_found"
+          />
+        <check_if_printer_found
+          TYPE="IF-THEN-ELSE"
+          PROPERTY="DPF4C_PRINTER_FOUND"
+          OPERATOR="contains"
+          VALUE="Y"
+          THEN="printpdf"
+          ELSE="END"
+          />
+        <printpdf
+          NAME="printpdf"
+          NEXT="END"
+          />
+      </pdfprint>
+    </workflows>
+  </config>
+</DPF>

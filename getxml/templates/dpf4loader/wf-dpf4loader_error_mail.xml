@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workflows>
+      <DPF4LOADER.dpf4loader_error_mail
+        COMMENT=""
+        DPFINT-Customer="0"
+        DPFINT-Interactive="0"
+        DPFINT-Type="WorkflowDescription"
+        NAME="Document Load - Subprocess DPF Loader Error Mail"
+        PROJECT="DPF4LOADER"
+        VERSION="$Id: wf-dpf4loader_error_mail.xml,v 1.2 2013/10/16 10:35:22 tobias Exp $"
+        >
+        <ComposeErrorMail
+          COMMENT=""
+          ERROR="END"
+          NAME="compose_error_mail"
+          NEXT="SendEmail"
+          POSX="300"
+          POSY="200"
+          TYPE="WU"
+          >
+          <CONNECTIONS
+            ERROR="DIRECT"
+            NEXT="DIRECT"
+            />
+          <DEFAULTS>
+            <CUSTOM_MAIL_BODY_DE
+              val="INFO:\nIm Prozess %1 ist an der Position %2 ein Fehler aufgetreten.\nFehlerstatus = %3\n\nTODO:\nBitte kontaktieren Sie Ihren DPF-Administrator unter:\n%4\n\nAuftragsparameter:\nAuftragskennung = %5\nEingabedatei = %6\nAuftrag abgeschickt von %8 auf Rechner %7\n"
+              />
+            <CUSTOM_MAIL_BODY_DPF_TRACKER_URL_JOB_TEXT_DE
+              val="\nWeitere Informationen:\n%1\n"
+              />
+            <CUSTOM_MAIL_BODY_DPF_TRACKER_URL_JOB_TEXT_EN
+              val="\nFurther Information: \n%1\n"
+              />
+            <CUSTOM_MAIL_BODY_EN
+              val="INFO:\nError occurred in process %1 at position %2\nError state = %3\n\nTODO:\nPlease contact your DPF administrator at:\n%4\n\nJOB INFO:\nJobId = %5\nInput file = %6\nJob created by %8 at host %7\n"
+              />
+            <CUSTOM_MAIL_BODY_ERR_EXT_CMD_DE
+              val="Der Fehler trat auf bei der Ausführung des Kommandos:\n%1\n\n"
+              />
+            <CUSTOM_MAIL_BODY_ERR_EXT_CMD_EN
+              val="The error occurred while executing command:\n%1\n\n"
+              />
+            <CUSTOM_MAIL_BODY_ERR_JOB_SAVED_DE
+              val="\nDer fehlerhafte Auftrag wurde zur Wiederholung unter der Kennung %1 gespeichert.\n"
+              />
+            <CUSTOM_MAIL_BODY_ERR_JOB_SAVED_EN
+              val="\nThe erroneous job has been saved for repetition with ID %1.\n"
+              />
+            <CUSTOM_MAIL_BODY_SAP_DOCUMENT_DE
+              val="Dokument: %1\n"
+              />
+            <CUSTOM_MAIL_BODY_SAP_DOCUMENT_EN
+              val="Document: %1\n"
+              />
+            <CUSTOM_MAIL_BODY_TRACKER_LINK_DE
+              val="\nWeitere Informationen:\nhttp://%1:%2/cgi-bin/dpftracker?job=%3\n"
+              />
+            <CUSTOM_MAIL_BODY_TRACKER_LINK_EN
+              val="\nFurther Information: \nhttp://%1:%2/cgi-bin/dpftracker?job=%3\n"
+              />
+            <CUSTOM_MAIL_SUBJECT_DE
+              val="Fehler in der Verarbeitung von Datei: %1"
+              />
+            <CUSTOM_MAIL_SUBJECT_EN
+              val="Error processing file: %1"
+              />
+            <DPF4C_ERROR_MAIL_ACCOUNT
+              val=""
+              />
+            <DPFTRACKER_AVAILABLE
+              val=""
+              />
+            <DPFTRACKER_SERVER
+              val=""
+              />
+            <DPFTRACKER_WEB_PORT
+              val=""
+              />
+            <MAIL_FROM
+              val=""
+              />
+            <MAIL_SMTP
+              val=""
+              />
+            <WU_ENABLE_DEBUG_LOOP
+              val="N"
+              />
+          </DEFAULTS>
+          <MAPPING
+            CUSTOM_MAIL_BODY_EN="INFO:\nError occurred in process SAP Loader for job:\n %JOBNAME%\n at position %2\nError state = %3\n\nTODO:\nPlease contact your DPF administrator at:\n%4\n\nJOB INFO:\nJobId = %5\nInput file = %6\nJob created by %8 at host %7\n"
+            DPFTRACKER_AVAILABLE="Y"
+            />
+        </ComposeErrorMail>
+        <DEFAULTS
+          SEND_ERROR_MAIL="Y"
+          />
+        <END
+          COMMENT=""
+          NAME="END"
+          POSX="200"
+          POSY="100"
+          TYPE="STOP"
+          />
+        <IF-SendEmail
+          COMMENT="send email?"
+          ELSE="END"
+          OPERATOR="eq"
+          POSX="200"
+          POSY="0"
+          PROPERTY="SEND_ERROR_MAIL"
+          THEN="ComposeErrorMail"
+          TYPE="IF-THEN-ELSE"
+          VALUE="Y"
+          >
+          <CONNECTIONS
+            ELSE="DIRECT"
+            THEN="DIRECT"
+            />
+        </IF-SendEmail>
+        <MAIN
+          BEGIN="IF-SendEmail"
+          NAME=""
+          />
+        <MAPPING/>
+        <SendEmail
+          COMMENT=""
+          ERROR="END"
+          NAME="sendmail"
+          NEXT="END"
+          POSX="600"
+          POSY="200"
+          TYPE="WU"
+          >
+          <CONNECTIONS
+            ERROR="DIRECT"
+            NEXT="DIRECT"
+            />
+          <DEFAULTS>
+            <MAIL_EXPAND_TEXT
+              val="N"
+              />
+            <MAIL_SMTP
+              val="sepp.de"
+              />
+            <WU_ENABLE_DEBUG_LOOP
+              val="N"
+              />
+          </DEFAULTS>
+          <MAPPING/>
+        </SendEmail>
+      </DPF4LOADER.dpf4loader_error_mail>
+    </workflows>
+  </config>
+</DPF>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workflows>
+      <Rli.convertFilesHelper
+        COMMENT="The sub workflow to convert a file in RLI and copy the result back to the parent job, used by the working unit Rli.convertFiles.
+
+"
+        DPFINT-Icon="doc://:/wf.gif"
+        DPFINT-Type="WorkflowDescription"
+        INTERNALNAME="Rli.convertFilesHelper"
+        NAME="convertFilesHelper"
+        PROJECT="Rli"
+        VERSION="$Id: wf-convertfileshelper.xml,v 1.3 2007/04/10 09:16:20 stefan Exp $"
+        >
+        <DEFAULTS
+          DPFINT-Icon="doc://:/defaults.gif"
+          />
+        <END
+          COMMENT=""
+          NAME="END"
+          POSX="300"
+          POSY="300"
+          TYPE="STOP"
+          />
+        <MAIN
+          BEGIN="callConvertFilesWorker"
+          NAME=""
+          />
+        <MAPPING/>
+        <callConvertFilesWorker
+          COMMENT="Call customizable sub workflow which uses dpf4convert as default to do the conversion."
+          ERROR="copyParFileToTarget"
+          NEXT="copyPdfAndParFileToTarget"
+          POSX="100"
+          POSY="100"
+          TYPE="SWF"
+          USE="Rli.convertFilesWorker"
+          >
+          <CONNECTIONS
+            ERROR="DIRECT"
+            NEXT="DIRECT"
+            />
+          <DEFAULTS/>
+          <MAPPING/>
+        </callConvertFilesWorker>
+        <copyParFileToTarget
+          COMMENT="In case of an error copy just the resulting properties back to the parent job."
+          ERROR="END"
+          NAME="FileTransfer.copyFiles"
+          NEXT="END"
+          POSX="300"
+          POSY="100"
+          TYPE="WU"
+          >
+          <CONNECTIONS
+            ERROR="DIRECT"
+            NEXT="DIRECT"
+            />
+          <DEFAULTS
+            COPY_RETRY=""
+            COPY_SOURCE_PROPERTIES="PARFILENAME"
+            COPY_TARGET_PROPERTIES="TARGETPARFILENAME"
+            WU_ENABLE_DEBUG_LOOP="N"
+            />
+          <MAPPING/>
+        </copyParFileToTarget>
+        <copyPdfAndParFileToTarget
+          COMMENT="After conversion, copy the PDF and the resulting properties back to the parent job."
+          ERROR="END"
+          NAME="FileTransfer.copyFiles"
+          NEXT="END"
+          POSX="100"
+          POSY="300"
+          TYPE="WU"
+          >
+          <CONNECTIONS
+            ERROR="DIRECT"
+            NEXT="DIRECT"
+            />
+          <DEFAULTS
+            COPY_RETRY=""
+            COPY_SOURCE_PROPERTIES="CurrFileName ParFileName"
+            COPY_TARGETDIR=""
+            COPY_TARGET_PROPERTIES="TargetFileName TargetParFileName"
+            NAME="DEFAULTS"
+            WU_ENABLE_DEBUG_LOOP="N"
+            />
+          <MAPPING/>
+        </copyPdfAndParFileToTarget>
+      </Rli.convertFilesHelper>
+    </workflows>
+  </config>
+</DPF>

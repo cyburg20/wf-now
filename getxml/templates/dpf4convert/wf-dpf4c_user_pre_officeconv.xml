@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workflows>
+      <DPF4CONVERT.dpf4c_user_pre_officeconv
+        COMMENT="Convert Office - USER EXIT PROCESS BEFORE OFFICE CONVERSION"
+        DPFINT-Customer="0"
+        DPFINT-Interactive="0"
+        DPFINT-Type="WorkflowDescription"
+        NAME="Convert Office - SubProcess dpf4c_user_pre_officeconv"
+        PROJECT="DPF4CONVERT"
+        VERSION="$Id: wf-dpf4c_user_pre_officeconv.xml,v 1.1 2010/05/07 10:04:45 kig Exp $"
+        >
+        <DEFAULTS/>
+        <END
+          COMMENT=""
+          NAME="END"
+          POSX="800"
+          POSY="200"
+          TYPE="STOP"
+          />
+        <MAIN
+          BEGIN="END"
+          ERROR="END"
+          LOGLEVEL="I"
+          />
+        <MAPPING/>
+      </DPF4CONVERT.dpf4c_user_pre_officeconv>
+    </workflows>
+  </config>
+</DPF>

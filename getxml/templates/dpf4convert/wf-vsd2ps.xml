@@ -1,0 +1,23 @@
+<DPF>
+  <config>
+    <workflows>
+      <vsd2ps
+        NAME="DPF 4 Convert - Microsoft Visio VSD to PostScript"
+        VERSION="$Id: wf-vsd2ps.xml,v 1.7 2006/08/15 10:03:23 ludwig Exp $"
+        PROJECT="DPF4CONVERT"
+        COMMENT="dpf4convert - Convert process Microsoft Visio VSD to PostScript"
+        DPFINT-Type="WorkflowDescription"
+        DPFINT-Changes="0"
+        >
+        <MAIN
+          BEGIN="office2ps"
+          ERROR="END"
+          />
+        <office2ps
+          USE="office2ps"
+          NEXT="END"
+          />
+      </vsd2ps>
+    </workflows>
+  </config>
+</DPF>

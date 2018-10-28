@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workflows>
+      <Test.OnlyModify
+        COMMENT="dpf4convert - Give dpf4convert processes the possiblility to have explicitly set version, build and customer build number"
+        DPFINT-Changes="0"
+        DPFINT-Icon="doc://:/wf.gif"
+        DPFINT-Type="WorkflowDescription"
+        NAME="Only MODIFY element"
+        PROJECT="Test"
+        VERSION="$Id: wf-onlymodify.xml,v 1.4 2006/11/10 20:24:04 stefan Exp $"
+        >
+        <DEFAULTS
+          DPFINT-Icon="doc://:/defaults.gif"
+          />
+        <MAIN
+          BEGIN="set_versions"
+          ERROR="END"
+          />
+        <set_versions
+          NEXT="END"
+          TYPE="MODIFY"
+          >
+          <SET
+            VERSION="1.1.1"
+            VERSION_BUILD="1"
+            VERSION_CUSTOMER_BUILD="1"
+            />
+        </set_versions>
+      </Test.OnlyModify>
+    </workflows>
+  </config>
+</DPF>

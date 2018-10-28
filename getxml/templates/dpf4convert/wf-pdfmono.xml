@@ -1,0 +1,23 @@
+<DPF>
+  <config>
+    <workflows>
+      <pdfmono
+        NAME="DPF 4 Convert - pdfmono"
+        VERSION="$Id: wf-pdfmono.xml,v 1.1 2004/12/06 13:59:54 ludwig Exp $"
+        PROJECT="DPF4CONVERT"
+        COMMENT="dpf4convert - Convert pdf to black white pdf"
+        DPFINT-Type="WorkflowDescription"
+        DPFINT-Changes="0"
+        >
+        <MAIN
+          BEGIN="pdfmono"
+          ERROR="END"
+          />
+        <pdfmono
+          NAME="pdf2pdf_mono"
+          NEXT="END"
+          />
+      </pdfmono>
+    </workflows>
+  </config>
+</DPF>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <DPF4CONVERT.Convertmsg
+        CODEPAGE="ISO-8859-1"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/convertmsg.pl -parfile %PARFILENAME%"
+        DEFAULTS=""
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGSTDOUT="Y"
+        NAME="Convertmsg"
+        NODENAMES=""
+        PROJECT="DPF4CONVERT"
+        THREADS="5"
+        TIMEOUT=""
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-convertmsg.xml,v 1.1 2010/02/04 16:19:35 dh Exp $"
+        >
+        <DEFAULTS
+          CONVERTWORKFLOW="DPF4CONVERT.Attachmentconvert"
+          ERROR_PAGE_FILE="%DPFSRV%/conf/dpf4convert/msgerror.pdf"
+          IGNORED_PAGE_FILE="%DPFSRV%/conf/dpf4convert/msgignore.pdf"
+          MSG2PDF_EXTRACT_MSG_ATTACH="N"
+          MSG2PS_INFOTYPE="ini"
+          TARGETERRORDIR="%JOBDIR%/msgconvert_error"
+          TARGETIGNOREDIR="%JOBDIR%/msgconvert_ignored"
+          />
+        <INPUT>
+          <CONVERTWORKFLOW
+            DEFAULT="DPF4CONVERT.Attachmentconvert"
+            DESCRIPTION="Workflow converting each attachment"
+            MANDATORY="true"
+            TYPE="TEXT"
+            />
+          <ERROR_PAGE_FILE
+            DEFAULT="%DPFSRV%/conf/dpf4convert/msgerror.pdf"
+            TYPE="TEXT"
+            />
+          <IGNORED_PAGE_FILE
+            DEFAULT="%DPFSRV%/conf/dpf4convert/msgignore.pdf"
+            TYPE="TEXT"
+            />
+          <MSG2PDF_EXTRACT_MSG_ATTACH
+            DEFAULT="N"
+            TYPE="TEXT"
+            />
+          <MSG2PS_INFOTYPE
+            DEFAULT="ini"
+            TYPE="TEXT"
+            />
+          <TARGETERRORDIR
+            DEFAULT="%JOBDIR%/msgconvert_error"
+            TYPE="TEXT"
+            />
+          <TARGETIGNOREDIR
+            DEFAULT="%JOBDIR%/msgconvert_ignored"
+            TYPE="TEXT"
+            />
+        </INPUT>
+        <OUTPUT/>
+      </DPF4CONVERT.Convertmsg>
+    </workingunits>
+  </config>
+</DPF>

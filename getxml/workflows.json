@@ -62646,7 +62646,7 @@
       "MAPPING": {}
     }
   },
-  "Thesis.Test2": {
+  "Thesis.test2": {
     "_attributes": {
       "COMMENT": "",
       "DPFINT-Customer": "0",
@@ -62687,7 +62687,7 @@
     },
     "MAIN": {
       "_attributes": {
-        "BEGIN": "example1",
+        "BEGIN": "MODIFY1",
         "NAME": ""
       }
     },
@@ -62748,44 +62748,6 @@
           "path": "yes"
         }
       }
-    },
-    "example1": {
-      "_attributes": {
-        "COMMENT": "",
-        "ERROR": "END",
-        "NAME": "example",
-        "NEXT": "MODIFY1",
-        "POSX": "100",
-        "POSY": "100",
-        "TYPE": "WU"
-      },
-      "CONNECTIONS": {
-        "_attributes": {
-          "ERROR": "DIRECT",
-          "NEXT": "DIRECT"
-        }
-      },
-      "DEFAULTS": {
-        "_attributes": {
-          "DPFINT-Icon": "doc://:/defaults.gif"
-        },
-        "CURRFILENAME": {
-          "_attributes": {
-            "val": ""
-          }
-        },
-        "TargetFileName": {
-          "_attributes": {
-            "val": "%JobDir%/%WFPOSITION%.pdf"
-          }
-        },
-        "WU_ENABLE_DEBUG_LOOP": {
-          "_attributes": {
-            "val": "N"
-          }
-        }
-      },
-      "MAPPING": {}
     }
   },
   "Thesis.test3": {

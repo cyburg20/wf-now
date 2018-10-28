@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workflows>
+      <Publish.error
+        COMMENT="Publish error workflow "
+        DPFINT-Customer="1"
+        DPFINT-Icon="doc://:/wf.gif"
+        DPFINT-Interactive="0"
+        DPFINT-Type="WorkflowDescription"
+        NAME="error"
+        PROJECT="Publish"
+        VERSION="$Id: wf-error.customer.xml,v 1.3 2010/03/08 13:52:57 sek Exp $"
+        >
+        <DEFAULTS/>
+        <END
+          COMMENT=""
+          NAME="END"
+          POSX="600"
+          POSY="700"
+          TYPE="STOP"
+          />
+        <MAIN
+          BEGIN="END"
+          ERROR="END"
+          />
+        <MAPPING/>
+      </Publish.error>
+    </workflows>
+  </config>
+</DPF>

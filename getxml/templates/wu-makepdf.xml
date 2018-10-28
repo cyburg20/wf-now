@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <makepdf
+        NAME="Make PDF"
+        VERSION="$Id: wu-makepdf.xml,v 1.3 2003/04/10 08:17:56 stefan Exp $"
+        PROJECT="Convert WIZ 2"
+        TYPE="WUSystemCall"
+        LOGNAME="dpfmakepdf"
+        LOGSTDOUT="Y"
+        LOGLEVEL="LOG_INFO"
+        THREADS="1"
+	COMMAND="%DPFSRV%/scripts/makepdf.pl -parfile %PARFILENAME%">
+	<DEFAULTS
+          WU_ENABLE_DEBUG_LOOP="N"
+          />
+        <INPUT
+	  PARFILENAME="*"
+	  CURRFILENAME="*"
+	  JOBID="*"
+	  LOGLEVEL=""
+	  CURRFILETYPE="*"
+          />
+	<OUTPUT
+	  CURRFILENAME="*"
+	  CURRFILETYPE="PDF"
+          />
+      </makepdf>
+    </workingunits>
+  </config>
+</DPF>

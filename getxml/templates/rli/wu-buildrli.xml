@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <Rli.buildrli
+        CODEPAGE="UTF8"
+        COMMAND="%DPFSRV%/scripts/rli/buildrli.pl -parfile %PARFILENAME%"
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGNAME=""
+        LOGSTDOUT="Y"
+        NAME="Buildrli"
+        NODENAMES=""
+        PROJECT="Rli"
+        THREADS="1"
+        TIMEOUT=""
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-buildrli.xml,v 1.2 2016/09/23 14:42:51 kig Exp $"
+        >
+        <DEFAULTS/>
+        <INPUT>
+          <FILE_LIST_PARAM
+            MANDATORY="true"
+            TYPE="TEXT"
+            />
+        </INPUT>
+        <OUTPUT/>
+      </Rli.buildrli>
+    </workingunits>
+  </config>
+</DPF>

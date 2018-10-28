@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <multiconvert
+        NAME="dpf4c - convert multiple files to one destination format"
+        VERSION="$Id: wu-multiconvert.xml,v 1.2 2007/01/18 12:39:17 ludwig Exp $"
+        PROJECT="DPF4CONVERT"
+        TYPE="WUSystemCall"
+        LOGNAME="dpf4c-multiconvert"
+        LOGSTDOUT="Y"
+        LOGLEVEL="LOG_INFO"
+        THREADS="1"
+        TRACEIGNOREEXITCODE="N"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/multiconvert.pl -parfile %PARFILENAME%">
+        <DEFAULTS
+            MULTICONVERT_DOOR_HATCH_PARAMETERS="DESTINATION_FORMAT_QUALITY"
+          />
+        <INPUT
+            MULTICONVERT_DOOR_HATCH_PARAMETERS="string"
+          />
+        <OUTPUT
+          />
+      </multiconvert>
+    </workingunits>
+  </config>
+</DPF>

@@ -1,0 +1,40 @@
+<DPF>
+  <config>
+    <workingunits>
+      <se_3d_2file
+        NAME="dpf4c - Convert CAD SolidEdge 3D-format to other format."
+        VERSION="$Id: wu-se_3d_2file.xml,v 1.2 2008/06/04 14:30:29 kig Exp $"
+        PROJECT="DPF4CONVERT"
+        TYPE="WUSystemCall"
+        LOGNAME="dpf4c-se_3d_2file"
+        LOGSTDOUT="Y"
+        LOGLEVEL="LOG_INFO"
+        THREADS="1"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/se_3d_2file.pl -parfile %PARFILENAME%">
+        <DEFAULTS
+          DPF4C_SEDFT2FILE_NOCONV2QUITSE="0"
+          DPF4C_SEDFT2FILE_USE_SEALSERVICE="N"
+          CAD_SE_COLORTYPE="col"
+          CAD_SE_START_APP_VISIBLE="N"
+          CAD_SE_USE_SEPPEXECUTE_FOR_TIMEOUT="N"
+          CAD_SE_USE_SEPPSTARTER="N"
+          />
+        <INPUT
+          PARFILENAME="*"
+          CURRFILENAME="*"
+          CURRFILETYPE="dft"
+          DPF4C_SEDFT2FILE_NOCONV2QUITSE="0"
+          DPF4C_SEDFT2FILE_USE_SEALSERVICE="Y|N"
+          CAD_SE_COLORTYPE="col|bw"
+          CAD_SE_START_APP_VISIBLE="Y|!N!"
+          CAD_SE_USE_SEPPEXECUTE_FOR_TIMEOUT="Y|!N!"
+          CAD_SE_USE_SEPPSTARTER="Y|!N!"
+          />
+        <OUTPUT
+          CURRFILENAME="*"
+          CURRFILETYPE="*"
+          />
+      </se_3d_2file>
+    </workingunits>
+  </config>
+</DPF>

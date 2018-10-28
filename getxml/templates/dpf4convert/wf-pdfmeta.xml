@@ -1,0 +1,23 @@
+<DPF>
+  <config>
+    <workflows>
+      <pdfmeta
+        NAME="DPF 4 Convert - Set meta informations in a PDF file."
+        VERSION="$Id: wf-pdfmeta.xml,v 1.1 2006/03/23 07:37:12 ludwig Exp $"
+        PROJECT="DPF4CONVERT"
+        COMMENT="dpf4convert - PDFmeta"
+        DPFINT-Type="WorkflowDescription"
+        DPFINT-Changes="0"
+        >
+        <MAIN
+          BEGIN="pdfmeta"
+          ERROR="END"
+          />
+        <pdfmeta
+          NAME="pdfmeta"
+          NEXT="END"
+          />
+      </pdfmeta>
+    </workflows>
+  </config>
+</DPF>

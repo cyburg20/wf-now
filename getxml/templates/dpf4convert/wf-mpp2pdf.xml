@@ -1,0 +1,36 @@
+<DPF>
+  <config>
+    <workflows>
+      <mpp2pdf
+        NAME="DPF 4 Convert - Microsoft Project to PDF"
+        LICENSE="CIMPP"
+        VERSION="$Id: wf-mpp2pdf.xml,v 1.10 2017/02/08 12:46:25 thomas Exp $"
+        PROJECT="DPF4CONVERT"
+        COMMENT="dpf4convert - Convert process Microsoft Project to PDF"
+        DPFINT-Type="WorkflowDescription"
+        DPFINT-Changes="0"
+        >
+        <MAIN
+          BEGIN="office2ps"
+          ERROR="END"
+          />
+        <office2ps
+          USE="office2ps"
+          NEXT="check_destformat"
+          />
+        <check_destformat
+          TYPE="IF-THEN-ELSE"
+          PROPERTY="DPF4C_COMMON_DEST_FORMAT"
+          OPERATOR="contains"
+          VALUE="ps"
+          THEN="END"
+          ELSE="ps2pdfg"
+          />
+        <ps2pdfg
+          USE="ps2pdfg"
+          NEXT="END"
+          />
+      </mpp2pdf>
+    </workflows>
+  </config>
+</DPF>

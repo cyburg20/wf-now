@@ -1,0 +1,41 @@
+<DPF>
+  <config>
+    <workingunits>
+      <ocr2pdf
+        NAME="dpf4c - Conversion raster file to PDF with OCR."
+        VERSION="$Id: wu-ocr2pdf.xml,v 1.7 2017/03/14 06:37:56 kig Exp $"
+        PROJECT="DPF4CONVERT"
+        TYPE="WUSystemCall"
+        LOGNAME="dpf4c-ocr2pdf"
+        LOGSTDOUT="Y"
+        LOGLEVEL="LOG_INFO"
+        THREADS="1"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/ocr2pdf.pl -parfile %PARFILENAME%">
+    	<DEFAULTS
+          DPF4C_OCR2PDF_DETECT_ORIENTATION="Y"
+          DPF4C_OCR2PDF_ERRORS_TO_IGNORE=""
+          DPF4C_OCR2PDF_LANGUAGES=""
+          DPF4C_OCR2PDF_MIN_VOLUME=""
+          DPF4C_OCR2PDF_PROFILE=""
+          DPF4C_OCR2PDF_SKEWMODE=""
+          DPF4C_OCR2PDF_USERPROFILE=""
+          />
+        <INPUT
+          CURRFILENAME="*"
+          DESTINATION_FORMAT_QUALITY=""
+          DPF4C_OCR2PDF_DETECT_ORIENTATION="Y|N"
+          DPF4C_OCR2PDF_ERRORS_TO_IGNORE="*"
+          DPF4C_OCR2PDF_LANGUAGES="*"
+          DPF4C_OCR2PDF_MIN_VOLUME="int"
+          DPF4C_OCR2PDF_PROFILE="*"
+          DPF4C_OCR2PDF_SKEWMODE="int"
+          DPF4C_OCR2PDF_USERPROFILE="*"
+          />
+        <OUTPUT
+          CURRFILENAME="*"
+          CURRFILETYPE="pdf"
+          />
+      </ocr2pdf>
+    </workingunits>
+  </config>
+</DPF>

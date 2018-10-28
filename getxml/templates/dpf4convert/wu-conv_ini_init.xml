@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <DPF4CONVERT.conv_ini_init
+        NAME="conv_ini - Read custom configuration and check INI-file"
+        VERSION="$Id: wu-conv_ini_init.xml,v 1.1 2014/05/19 14:19:08 kig Exp $"
+        PROJECT="DPF4CONVERT"
+        TYPE="WUSystemCall"
+        LOGNAME="dpf4c-conv_ini_init"
+        LOGSTDOUT="Y"
+        LOGLEVEL="LOG_INFO"
+        THREADS="1"
+        TRACEIGNOREEXITCODE="N"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/conv_ini_init.pl -parfile %PARFILENAME%">
+        <DEFAULTS
+          WU_ENABLE_DEBUG_LOOP="N"
+          DPF4C_COMMON_TIMEOUT="10"
+          />
+        <INPUT
+          CURRFILENAME="*"
+          />
+        <OUTPUT
+          CURRFILENAME="*"
+          ERR_REASON="*"
+          />
+      </DPF4CONVERT.conv_ini_init>
+    </workingunits>
+  </config>
+</DPF>

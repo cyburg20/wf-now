@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <ps2pdfg
+        CODEPAGE="UTF8"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/ps2pdfg.pl -parfile %PARFILENAME%"
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        LOGLEVEL="LOG_INFO"
+        LOGNAME="dpf4c-ps2pdfg"
+        LOGSTDOUT="Y"
+        NAME="dpf4c - Convert PostScript to PDF"
+        NODENAMES=""
+        PROJECT="DPF4CONVERT"
+        THREADS="5"
+        TIMEOUT=""
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-ps2pdfg.xml,v 1.9 2017/04/10 08:09:20 kig Exp $"
+        >
+        <DEFAULTS
+          GS_PDF_SETTINGS="default"
+          PS2PDF_AUTOROTATE="None"
+          PS2PDF_PSPRECONV="Y"
+          WU_ENABLE_DEBUG_LOOP="N"
+          />
+        <INPUT
+          CURRFILENAME="*"
+          CURRFILETYPE="ps"
+          GS_PDF_SETTINGS="default|printer"
+          JOBID="*"
+          PARFILENAME="*"
+          PS2PDF_AUTOROTATE="!None!|PageByPage|PageByPageAndA3"
+          PS2PDF_PSPRECONV="!Y!|N"
+          PS2PDF_PDF_SETTING="PDFA|"
+          >
+          <GS_PDF_SETTINGS
+            DEFAULT="default"
+            TYPE="TEXT"
+            />
+          <PS2PDF_AUTOROTATE
+            DEFAULT="None"
+            TYPE="TEXT"
+            />
+          <PS2PDF_PDF_SETTING
+            TYPE="TEXT"
+            />
+          <WU_ENABLE_DEBUG_LOOP
+            DEFAULT="N"
+            TYPE="TEXT"
+            />
+        </INPUT>
+        <OUTPUT
+          CURRFILENAME="*"
+          CURRFILETYPE="pdf"
+          />
+      </ps2pdfg>
+    </workingunits>
+  </config>
+</DPF>

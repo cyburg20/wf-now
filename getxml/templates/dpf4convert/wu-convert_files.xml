@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <convert_files
+        NAME="dpf4c - convert multiple files - synchronize results"
+        VERSION="$Id: wu-convert_files.xml,v 1.7 2006/07/27 15:46:43 ludwig Exp $"
+        PROJECT="DPF4CONVERT"
+        TYPE="WUSystemCall"
+        LOGNAME="dpf4c-convert_files"
+        LOGSTDOUT="Y"
+        LOGLEVEL="LOG_INFO"
+        THREADS="1"
+        TRACEIGNOREEXITCODE="N"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/convert_files.pl -parfile %PARFILENAME%">
+        <DEFAULTS
+          WU_ENABLE_DEBUG_LOOP="N"
+          DPF4C_SWITCH_MODIFY_FOR_CONVERT_FILES="N"
+          CREATE_ERRORSHEET_INSTEAD_EXIT="N"
+          CONVERT_FILES_DPF_PARAMETERS_TO_SET_FOR_ASYNCHRON_CALL="DPF4C_PRINTER_DEFAULT_PAPERSIZE,DPF4C_PRINTER_DEVICETYPE,DPF4C_COMMON_LANG,DPF4C_CONNECTION_SYSTEM,DPF4C_CONNECTION_MANDANT"
+          />
+        <INPUT
+          />
+        <OUTPUT
+          />
+      </convert_files>
+    </workingunits>
+  </config>
+</DPF>

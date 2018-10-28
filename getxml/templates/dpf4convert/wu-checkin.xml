@@ -1,0 +1,21 @@
+<DPF>
+  <config>
+    <workingunits>
+      <checkin
+        NAME="dpf4c - Checkin files to client."
+        VERSION="$Id: wu-checkin.xml,v 1.7 2009/02/03 15:53:29 kig Exp $"
+        PROJECT="DPF4CONVERT"
+        TYPE="WUSystemCall"
+        LOGNAME="dpf4c-checkin"
+        LOGSTDOUT="Y"
+        LOGLEVEL="LOG_INFO"
+        THREADS="5"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/checkin.pl -parfile %PARFILENAME%">
+        <DEFAULTS
+          DPF4C_PROPERTYUPDATE_PROVIDE_FILES="N"
+          CHECKIN_USE_COUNTING_FOR_COMMON_OUTFILES="Y"
+          />
+      </checkin>
+    </workingunits>
+  </config>
+</DPF>

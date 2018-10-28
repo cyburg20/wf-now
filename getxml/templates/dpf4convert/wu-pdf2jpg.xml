@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <pdf2jpg
+        NAME="dpf4c - Convert PDF to JPG"
+        VERSION="$Id: wu-pdf2jpg.xml,v 1.3 2007/06/18 09:35:40 ludwig Exp $"
+        PROJECT="DPF4CONVERT"
+        TYPE="WUSystemCall"
+        LOGNAME="dpf4c-pdf2jpg"
+        LOGSTDOUT="Y"
+        LOGLEVEL="LOG_INFO"
+        THREADS="1"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/pdf2jpg.pl -parfile %PARFILENAME%">
+        <DEFAULTS
+          WU_ENABLE_DEBUG_LOOP="N"
+          DPF4C_PDF2JPG_DEVICE="jpeg"
+          DPF4C_PDF2JPG_QUALITY="75"
+          DPF4C_PDF2JPG_DESTINATION_PIXEL_SIZE=""
+          />
+        <INPUT
+          CURRFILENAME="file"
+          CURRFILETYPE="pdf"
+          DPF4C_COMMON_MULTIPAGE="!Y!|N"
+          DPF4C_COMMON_TIMEOUT="number"
+          DPF4C_MODIFY_RESOLUTION_DPI="number"
+          DPF4C_PDF2JPG_DESTINATION_PIXEL_SIZE="width x heigth"
+          DPF4C_PDF2JPG_DEVICE="jpeg|jpeggray"
+          DPF4C_PDF2JPG_QUALITY="0-100"
+          />
+        <OUTPUT
+          CURRFILENAME="file"
+          CURRFILETYPE="jpg"
+          DPF4C_COMMON_MULTIPAGE="Y|"
+          DPF4C_COMMON_OUTFILEjpg="file"
+          DPF4C_COMMON_OUTFILEx="file"
+          DPF4C_JPEG_PAGE_COUNT="number"
+          ERR_REASON="text"
+          />
+      </pdf2jpg>
+    </workingunits>
+  </config>
+</DPF>
+
+

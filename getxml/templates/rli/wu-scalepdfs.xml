@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <Rli.scalePdfs
+        CODEPAGE="ISO-8859-1"
+        COMMAND="%DPFSRV%/scripts/rli/scalepdfs.pl -parfile %PARFILENAME%"
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGSTDOUT="Y"
+        NAME="Scale PDF&apos;s"
+        NODENAMES=""
+        PROJECT="Rli"
+        THREADS="5"
+        TIMEOUT=""
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-scalepdfs.xml,v 1.7 2011/03/07 09:24:15 stefan Exp $"
+        >
+        <DEFAULTS
+          IgnoreErrors="N"
+          IgnoreUnknownScaleFactors="N"
+          />
+        <INPUT>
+          <AdditionalPageFormats
+            TYPE="TEXT"
+            />
+          <CurrRliFileName
+            DESCRIPTION="the rli input file"
+            TYPE="TEXT"
+            />
+          <FilterOperator
+            DESCRIPTION="optional operator to compare value(s), default: eq"
+            TYPE="TEXT"
+            />
+          <FilterOperator2
+            DESCRIPTION="second optional operator to compare value(s), default: eq"
+            TYPE="TEXT"
+            />
+          <FilterValue
+            DESCRIPTION="optional filter values"
+            TYPE="TEXT"
+            />
+          <FilterValue2
+            DESCRIPTION="second set of colon separated values to work on these specific RLI lines only"
+            TYPE="TEXT"
+            />
+          <IgnoreErrors
+            DEFAULT="N"
+            DESCRIPTION="if Y, ignore errors while scaling, just write RLI column ERR_REASON"
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </IgnoreErrors>
+          <IgnoreUnknownScaleFactors
+            DEFAULT="N"
+            DESCRIPTION="ignore unknown scale formats, default N"
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </IgnoreUnknownScaleFactors>
+          <PdfScaleOutputInJobDir
+            DEFAULT="N"
+            DESCRIPTION="if Y, create output PDF in current (sub) job dir, default: N"
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </PdfScaleOutputInJobDir>
+          <RlicCurrFileName
+            DESCRIPTION="optional RLI column name for input file names, default: CURFILENAME"
+            TYPE="TEXT"
+            />
+          <RlicFilter
+            DESCRIPTION="optional RLI column name for selecting specific lines"
+            TYPE="TEXT"
+            />
+          <RlicFilter2
+            DESCRIPTION="name of second RLI column to use to filter specific RLI lines only"
+            TYPE="TEXT"
+            />
+          <RlicScaleFactor
+            DESCRIPTION="optional RLI column name for the scale factor to be used"
+            TYPE="TEXT"
+            />
+        </INPUT>
+        <OUTPUT/>
+      </Rli.scalePdfs>
+    </workingunits>
+  </config>
+</DPF>

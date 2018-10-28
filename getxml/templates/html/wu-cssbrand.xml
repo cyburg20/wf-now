@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <HTML.CSSBrand
+        COMMAND="%DPFSRV%/scripts/html/cssbrand.pl -parfile %PARFILENAME%"
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGSTDOUT="Y"
+        NAME="CSSBrand"
+        PROJECT="HTML"
+        Status="Running"
+        THREADS="1"
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-cssbrand.xml,v 1.3 2007/09/14 05:32:06 tobias Exp $"
+        >
+        <DEFAULTS/>
+        <INPUT>
+          <CSS
+            DESCRIPTION="the href to the css file"
+            MANDATORY="true"
+            TYPE="TEXT"
+            />
+          <CURRFILENAME
+            DESCRIPTION="our job dir for temp files"
+            TYPE="TEXT"
+            />
+          <HTML_DIR
+            DESCRIPTION="dir containing the html files to brand"
+            TYPE="TEXT"
+            />
+          <JOBDIR
+            DESCRIPTION="the input file"
+            TYPE="TEXT"
+            />
+        </INPUT>
+      </HTML.CSSBrand>
+    </workingunits>
+  </config>
+</DPF>

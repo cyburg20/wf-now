@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <Nutch.CreateNutchConfPath
+        COMMAND="%DPFSRV%/scripts/nutch/createnutchconfpath.pl -parfile %PARFILENAME%"
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGSTDOUT="Y"
+        NAME="CreateNutchConfPath"
+        PROJECT="Nutch"
+        Status="Running"
+        THREADS="1"
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-createnutchconfpath.xml,v 1.3 2007/09/14 05:33:47 tobias Exp $"
+        >
+        <DEFAULTS/>
+        <INPUT>
+          <CURRFILENAME
+            DESCRIPTION="the input file"
+            TYPE="TEXT"
+            />
+          <JOBDIR
+            DESCRIPTION="our job dir for temp files"
+            TYPE="TEXT"
+            />
+          <NUTCH_CONF_DIR
+            DESCRIPTION="dir to write config to"
+            TYPE="TEXT"
+            />
+          <NUTCH_HOME
+            DESCRIPTION="custom nutch_home; default is $ENV{&quot;NUTCH_HOME&quot;}"
+            TYPE="TEXT"
+            />
+          <SEEDDIR
+            DESCRIPTION="dir containing the flat files for this seed"
+            TYPE="TEXT"
+            />
+        </INPUT>
+      </Nutch.CreateNutchConfPath>
+    </workingunits>
+  </config>
+</DPF>

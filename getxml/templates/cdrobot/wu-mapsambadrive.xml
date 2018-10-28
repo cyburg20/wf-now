@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <CdRobot.mapSambaDrive
+        COMMAND="%DPFSRV%/scripts/cdrobot/mapsambadrive.pl -parfile %PARFILENAME%"
+        DPFINT-FileLinks="doc://:/%DPFSRV%/scripts/cdrobot/mapsambadrive.pl"
+        DPFINT-Icon="doc://:/wu.gif"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGNAME=""
+        LOGSTDOUT="Y"
+        NAME="Get drive type"
+        PROJECT="CdRobot"
+        THREADS="1"
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-mapsambadrive.xml,v 1.4 2007/03/01 09:12:40 stefan Exp $"
+        >
+        <DEFAULTS
+          DPFINT-Icon="doc://:/defaults.gif"
+          DRIVE_REST=""
+          DRIVE_SHARE=""
+          DRIVE_TYPE=""
+          OUTPUTPROPERTY=""
+          WU_ENABLE_DEBUG_LOOP="N"
+          />
+        <INPUT
+          DPFINT-Icon="doc://:/wu-input.gif"
+          DRIVE_REST="*"
+          DRIVE_SHARE="*"
+          DRIVE_TYPE="SAMBA"
+          OUTPUTPROPERTY="*"
+          WU_ENABLE_DEBUG_LOOP="*"
+          />
+        <OUTPUT
+          DPFINT-Icon="doc://:/wu-output.gif"
+          />
+      </CdRobot.mapSambaDrive>
+    </workingunits>
+  </config>
+</DPF>

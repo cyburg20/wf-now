@@ -1,0 +1,66 @@
+<DPF>
+  <config>
+    <workflows>
+      <pdfadjustlls
+        NAME="DPF 4 Convert - pdfadjustlls"
+        VERSION="$Id: wf-pdfadjustlls.xml,v 1.7 2009/02/06 12:23:01 kig Exp $"
+        PROJECT="DPF4CONVERT"
+        COMMENT="dpf4convert - Try to adjust a pdf file using pdfadjust"
+        DPFINT-Type="WorkflowDescription"
+        >
+        <MAIN
+          BEGIN="sp-pdfadjustlls_settings"
+          ERROR="END"
+          />
+        <sp-pdfadjustlls_settings
+          USE="pdfadjustlls_settings"
+          NEXT="set_properties_for_pdfadjustlls"
+          />
+        <set_properties_for_pdfadjustlls
+          TYPE="MODIFY"
+          NEXT="check_switch_pdfadjust"
+        >
+          <SET
+          VERSION_PRODUCER="PDF Longlife Suite - DPF Process"
+          VERSION="2.0.4.0"
+          FILECOMPARE_PLANNED_FILE="%CURRFILENAME%"
+          PDFADJUST_USE_PDFREPAIR="N"
+          ENABLE_PDFADJUSTLLS_PROCESS="N"
+          />
+        </set_properties_for_pdfadjustlls>
+        <check_switch_pdfadjust
+          TYPE="IF-THEN-ELSE"
+          PROPERTY="ENABLE_PDF_ADJUST_PROCESS"
+          OPERATOR="contains"
+          VALUE="Y"
+          THEN="check_switch_pdf_already_ok"
+          ELSE="END"
+          />
+        <check_switch_pdf_already_ok
+          TYPE="IF-THEN-ELSE"
+          PROPERTY="FILE_CHECK_PDFCHECKER_RESULT_LEVEL"
+          OPERATOR="contains"
+          VALUE="OK"
+          THEN="END"
+          ELSE="check_pdfchecker_already_run"
+          />
+        <check_pdfchecker_already_run
+          TYPE="IF-THEN-ELSE"
+          PROPERTY="PDFCHECKER_LAST_SIMPLE_PROTOCOL_FILE"
+          OPERATOR="exists"
+          VALUE=""
+          THEN="pdfadjust"
+          ELSE="pdfchecker"
+          />
+        <pdfchecker
+          NAME="pdfchecker"
+          NEXT="pdfadjust"
+          />
+        <pdfadjust
+          NAME="pdfadjust"
+          NEXT="END"
+          />
+      </pdfadjustlls>
+    </workflows>
+  </config>
+</DPF>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <proe2file
+        NAME="dpf4c - Convert CAD ProE to dest format"
+        VERSION="$Id: wu-proe2file.xml,v 1.13 2007/11/29 07:26:22 kig Exp $"
+        PROJECT="DPF4CONVERT"
+        TYPE="WUSystemCall"
+        LOGNAME="dpf4c-proe2file"
+        LOGSTDOUT="Y"
+        LOGLEVEL="LOG_INFO"
+        THREADS="1"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/proe2file.pl -parfile %PARFILENAME%">
+        <DEFAULTS
+          DPF4C_COMMON_TIMEOUT="20"
+          DPF4C_PROPERTYUPDATE_PROVIDE_FILES="N"
+          PROE_MANDATORY_CONVERTED_FORMATS=""
+          PROE_USE_PS_AS_BETWEEN_FORMAT="N"
+          PROE2FILE_JAVA_CALL="java"
+          PROE2FILE_JS_CONV_DIR="%PLSSV%\cad\proe"
+          PROE2FILE_PROE_HOME="C:\PTC\proeWildfire"
+          PROE2FILE_PROE_START_CMD="C:\PTC\proeWildfire\bin\proewildfire.bat"
+          PROE2FILE_USE_PROE_SHORT_PATH="Y"
+          PROE2FILE_CONVERTER="%PLSSV%\cad\proe\bin\JsConverter.jar"
+          PROE2FILE_SCRIPT_FILE="%PLSSV%\cad\proe\js_convert.js"
+          />
+        <INPUT
+          DPF4C_COMMON_TIMEOUT="integer"
+          DPF4C_PROPERTYUPDATE_PROVIDE_FILES="Y|N"
+          PROE_MANDATORY_CONVERTED_FORMATS=""
+          PROE_USE_PS_AS_BETWEEN_FORMAT="Y|N"
+          PROE2FILE_JAVA_CALL="file"
+          PROE2FILE_JS_CONV_DIR="dir"
+          PROE2FILE_PROE_START_CMD="file"
+          PROE2FILE_PROE_HOME="dir"
+          PROE2FILE_CONVERTER="file"
+          PROE2FILE_SCRIPT_FILE="file"
+          />
+        <OUTPUT
+          DPF4C_PROPERTYUPDATE_OUTFILE1="file|"
+          DPF4C_PROPERTYUPDATE_PROVIDE_FILES="Y|"
+          />
+      </proe2file>
+    </workingunits>
+  </config>
+</DPF>

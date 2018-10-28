@@ -1,0 +1,33 @@
+<DPF>
+  <config>
+    <workflows>
+      <pdfcheckadjust
+        NAME="DPF 4 Convert - pdfcheckadjust"
+        VERSION="$Id: wf-pdfcheckadjust.xml,v 1.11 2006/10/23 08:31:11 ludwig Exp $"
+        PROJECT="DPF4CONVERT"
+        COMMENT="dpf4convert - Check pdf and try to adjust"
+        DPFINT-Type="WorkflowDescription"
+        DPFINT-Changes="0"
+        >
+        <MAIN
+          BEGIN="sp-version_dpf4c"
+          ERROR="END"
+          />
+        <sp-version_dpf4c
+          USE="version_dpf4c"
+          NEXT="sp-pdfcheck"
+          />
+        <sp-pdfcheck
+          USE="pdfcheck"
+          NEXT="sp-pdfadjust"
+          />
+        <sp-pdfadjust
+          USE="pdfadjust"
+          NEXT="END"
+          />
+      </pdfcheckadjust>
+    </workflows>
+  </config>
+</DPF>
+
+

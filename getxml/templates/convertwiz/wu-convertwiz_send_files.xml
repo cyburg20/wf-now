@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <convertwiz_send_files
+        NAME="convertwiz - Send file to cwsender server on client side"
+        VERSION="$Id: wu-convertwiz_send_files.xml,v 1.3 2008/10/13 13:57:19 dh Exp $"
+        PROJECT="CONVERTWIZ"
+        TYPE="WUSystemCall"
+        LOGNAME="convertwiz-convertwiz_send_files"
+        LOGSTDOUT="Y"
+        LOGLEVEL="LOG_INFO"
+        THREADS="3"
+        COMMAND="%DPFSRV%/scripts/convertwiz/convertwiz_send_files.pl -parfile %PARFILENAME%">
+        <DEFAULTS
+          WU_ENABLE_DEBUG_LOOP="N"
+          />
+        <INPUT
+          />
+        <OUTPUT
+          />
+      </convertwiz_send_files>
+    </workingunits>
+  </config>
+</DPF>

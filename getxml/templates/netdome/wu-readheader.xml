@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <NetDome.readHeader
+        COMMAND="%DPFSRV%/scripts/netdome/readheader.pl -parfile %PARFILENAME%"
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGNAME=""
+        LOGSTDOUT="Y"
+        NAME="Read PLOSSYS Header file and set them as DPF Properties"
+        PROJECT="NetDome"
+        Status="Running"
+        THREADS="1"
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-readheader.xml,v 1.3 2007/03/28 10:39:37 ch Exp $"
+        >
+        <DEFAULTS
+          OVERWRITEPROPERTIES="Y"
+          />
+        <INPUT>
+          <CURRHEDFILENAME
+            TYPE="TEXT"
+            />
+          <OVERWRITEPROPERTIES
+            DEFAULT="Y"
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </OVERWRITEPROPERTIES>
+        </INPUT>
+      </NetDome.readHeader>
+    </workingunits>
+  </config>
+</DPF>

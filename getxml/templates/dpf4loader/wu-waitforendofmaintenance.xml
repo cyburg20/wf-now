@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <DPF4LOADER.waitforendofmaintenance
+        CODEPAGE="ISO-8859-1"
+        COMMAND="%DPFSRV%/scripts/dpf4loader/waitforendofmaintenance.pl -parfile %PARFILENAME%"
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGNAME=""
+        LOGSTDOUT="Y"
+        NAME="WaitForEndOfMaintenance"
+        NODENAMES=""
+        PROJECT="DPF4LOADER"
+        THREADS="100"
+        TIMEOUT=""
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-waitforendofmaintenance.xml,v 1.1 2013/10/16 12:11:27 tobias Exp $"
+        >
+        <DEFAULTS
+          MAXPOLL="0"
+          POLLINTERVALL="15"
+          />
+        <INPUT>
+          <MAINTENANCESTOPFILE
+            DESCRIPTION="stop file for polling"
+            MANDATORY="true"
+            TYPE="TEXT"
+            />
+          <MAXPOLL
+            DEFAULT="0"
+            DESCRIPTION="maximum number of polls"
+            TYPE="TEXT"
+            />
+          <POLLINTERVALL
+            DEFAULT="15"
+            DESCRIPTION="waiting time between polls"
+            TYPE="TEXT"
+            />
+        </INPUT>
+        <OUTPUT/>
+      </DPF4LOADER.waitforendofmaintenance>
+    </workingunits>
+  </config>
+</DPF>

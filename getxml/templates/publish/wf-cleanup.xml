@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workflows>
+      <Publish.cleanup
+        COMMENT="Publish Unterprozess zum Aufraeumen"
+        DPFINT-Icon="doc://:/wf.gif"
+        DPFINT-Type="WorkflowDescription"
+        NAME="cleanup"
+        PROJECT="Publish"
+        VERSION="$Id: wf-cleanup.xml,v 1.3 2009/08/13 09:52:24 sek Exp $"
+        >
+        <DEFAULTS
+          DPFINT-Icon="doc://:/defaults.gif"
+          />
+        <END
+          COMMENT=""
+          NAME="END"
+          POSX="700"
+          POSY="100"
+          TYPE="STOP"
+          />
+        <IfError
+          COMMENT="Nur löschen wenn kein Fehler passiert ist"
+          ELSE="switchActionCode"
+          OPERATOR="exists"
+          POSX="400"
+          POSY="300"
+          PROPERTY="ERR_WFNAME"
+          THEN="END"
+          TYPE="IF-THEN-ELSE"
+          VALUE=""
+          >
+          <CONNECTIONS
+            ELSE="DIRECT"
+            THEN="DIRECT"
+            />
+        </IfError>
+        <MAIN
+          BEGIN="SwitchCleanupJobdir"
+          NAME=""
+          />
+        <MAPPING/>
+        <SwitchCleanupJobdir
+          CASE:E="IfError"
+          CASE:N="END"
+          CASE:Y="cleanup"
+          CASE:x="END"
+          COMMENT="Wie soll geloescht werden?"
+          CONNECTION:DEFAULT="DIRECT"
+          CONNECTION:E="DIRECT"
+          CONNECTION:Y="DIRECT"
+          CONNECTION:x="DIRECT"
+          DEFAULT="END"
+          POSX="100"
+          POSY="100"
+          PROPERTY="CLEANUP_JOBDIR"
+          TYPE="SWITCH"
+          />
+        <cleanup
+          COMMENT="Cleanup SAP job directory"
+          ERROR="END"
+          NAME="Publish.cleanup"
+          NEXT="END"
+          POSX="100"
+          POSY="500"
+          TYPE="WU"
+          >
+          <CONNECTIONS
+            ERROR="DIRECT"
+            NEXT="DIRECT"
+            />
+          <DEFAULTS
+            WU_ENABLE_DEBUG_LOOP="false"
+            />
+          <MAPPING/>
+        </cleanup>
+        <switchActionCode
+          CASE:C="END"
+          CASE:P="cleanup"
+          CASE:Z="cleanup"
+          COMMENT="Don&apos;t delete if error occured during conversion process because SAP will do after reading state information"
+          CONNECTION:C="DIRECT"
+          CONNECTION:DEFAULT="DIRECT"
+          CONNECTION:P="DIRECT"
+          CONNECTION:Z="DIRECT"
+          DEFAULT="END"
+          POSX="700"
+          POSY="500"
+          PROPERTY="ACTIONCODE"
+          TYPE="SWITCH"
+          />
+      </Publish.cleanup>
+    </workflows>
+  </config>
+</DPF>

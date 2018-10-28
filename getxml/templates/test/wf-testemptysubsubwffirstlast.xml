@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workflows>
+      <Test.TestEmptySubSubWFFirstLast
+        DPFINT-Changes="0"
+        DPFINT-Icon="doc://:/wf.gif"
+        DPFINT-Type="WorkflowDescription"
+        NAME="Test empty sub workflow"
+        COMMENT="test an empty sub workflow"
+        PROJECT="Test"
+        VERSION="$Id: wf-testemptysubsubwffirstlast.xml,v 1.3 2006/11/10 20:24:04 stefan Exp $"
+        >
+        <DEFAULTS
+          DPFINT-Icon="doc://:/defaults.gif"
+          />
+        <MAIN
+          BEGIN="MainFirstWU"
+          ERROR="END"
+          />
+        <MainFirstWU
+          NEXT="MainSecondWU"
+          USE="Test.TestEmptySubWFLast"
+          />
+        <MainSecondWU
+          NAME="Test.exit0"
+          NEXT="MainThirdWU"
+          />
+        <MainThirdWU
+          NAME="Test.exit0"
+          NEXT="END"
+          />
+      </Test.TestEmptySubSubWFFirstLast>
+    </workflows>
+  </config>
+</DPF>

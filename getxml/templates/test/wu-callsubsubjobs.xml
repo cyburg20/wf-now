@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <Test.callSubSubJobs
+        COMMAND="%DPFSRV%/scripts/test/calljobs.pl -parfile %PARFILENAME%"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGSTDOUT="Y"
+        NAME="call sub sub jobs"
+        PROJECT="Test"
+        THREADS="1"
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-callsubsubjobs.xml,v 1.1 2008/04/08 16:31:15 stefan Exp $"
+        />
+    </workingunits>
+  </config>
+</DPF>

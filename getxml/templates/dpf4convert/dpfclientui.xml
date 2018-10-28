@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <Stringtable
+      CVSID="$Id: dpfclientui.xml,v 1.5 2005/08/31 07:39:17 ludwig Exp $"
+      SELECTED_LANGUAGE="DE"
+      >
+      <DE
+        TARGETFILENAME="Filename"
+        CURRFILENAME="Quell-File"
+        DPF4C_COMMON_DEST_FORMAT="Zielformat"
+        DPF4C_MODIFY_ROTATION="Drehung" 
+        DPF4C_MODIFY_COMPRESSION="Komprimierung" 
+        DPF4C_SCALE_FACTOR="Skalierungsfaktor" 
+        DPF4C_MODIFY_RESOLUTION_DPI="Aufloesung in dpi" 
+        DPF4C_MODIFY_STAMP_N_TEXT0="Stempeltext Zeile 0" 
+        DPF4C_MODIFY_STAMP_N_TEXT1="Stempeltext Zeile 1" 
+        DPF4C_MODIFY_STAMP_N_TEXT2="Stempeltext Zeile 2" 
+        DPF4C_MODIFY_STAMP_N_TEXT3="Stempeltext Zeile 3" 
+        DPF4C_MODIFY_STAMP_N_TEXT4="Stempeltext Zeile 4" 
+        DPF4C_MODIFY_STAMP_N_TEXT5="Stempeltext Zeile 5" 
+        DPF4C_MODIFY_STAMP_N_TEXT6="Stempeltext Zeile 6" 
+        DPF4C_MODIFY_STAMP_N_TEXT7="Stempeltext Zeile 7" 
+        DPF4C_MODIFY_STAMP_N_TEXT8="Stempeltext Zeile 8" 
+        DPF4C_MODIFY_STAMP_N_TEXT9="Stempeltext Zeile 9"
+        >
+        <HELP
+          TARGETFILENAME="Filename"
+          CURRFILENAME="Zu konvertierendes Quell-File. Gültige Eingabeformate sind abhängig von der Installation des Konvertierungsservers."
+          DPF4C_COMMON_DEST_FORMAT="Zielformate [pdf,tiff,cls]"
+          DPF4C_MODIFY_ROTATION="Drehwinkel [0|90|180|270] gegen den Uhrzeigersinn" 
+          DPF4C_MODIFY_COMPRESSION="Komprimierung des Zielformats aktivieren [Y|N]" 
+          DPF4C_SCALE_FACTOR="Skalierungsfaktor x [0.0&lt;x&lt;n]" 
+          DPF4C_MODIFY_RESOLUTION_DPI="Aufloesung in dpi. Kein Wert bedeutet Beibehaltung der Originalauflösung." 
+          DPF4C_MODIFY_STAMP_N_TEXT0="Stempeltext für Zeile 0" 
+          DPF4C_MODIFY_STAMP_N_TEXT1="Stempeltext für Zeile 1" 
+          DPF4C_MODIFY_STAMP_N_TEXT2="Stempeltext für Zeile 2" 
+          DPF4C_MODIFY_STAMP_N_TEXT3="Stempeltext für Zeile 3" 
+          DPF4C_MODIFY_STAMP_N_TEXT4="Stempeltext für Zeile 4" 
+          DPF4C_MODIFY_STAMP_N_TEXT5="Stempeltext für Zeile 5" 
+          DPF4C_MODIFY_STAMP_N_TEXT6="Stempeltext für Zeile 6" 
+          DPF4C_MODIFY_STAMP_N_TEXT7="Stempeltext für Zeile 7" 
+          DPF4C_MODIFY_STAMP_N_TEXT8="Stempeltext für Zeile 8" 
+          DPF4C_MODIFY_STAMP_N_TEXT9="Stempeltext für Zeile 9"
+          />
+        <DPF>
+          <dpf4convert
+            PLOTTER_NAME="dpf4convert"
+            NAME="hugo"
+            PLOTTER_COMMENT="Formatkonvertierung"
+            PLOTTER_LOCATION=""
+            RECEIVER="Empfänger"
+            />
+        </DPF>
+      </DE>
+      <EN
+        TARGETFILENAME="File name"
+        CURRFILENAME="Source file"
+        DPF4C_COMMON_DEST_FORMAT="Destination format"
+        DPF4C_MODIFY_ROTATION="Rotation" 
+        DPF4C_MODIFY_COMPRESSION="Compression" 
+        DPF4C_SCALE_FACTOR="Scale factor" 
+        DPF4C_MODIFY_RESOLUTION_DPI="Resolution in dpi" 
+        DPF4C_MODIFY_STAMP_N_TEXT0="Stamp text row 0" 
+        DPF4C_MODIFY_STAMP_N_TEXT1="Stamp text row 1" 
+        DPF4C_MODIFY_STAMP_N_TEXT2="Stamp text row 2" 
+        DPF4C_MODIFY_STAMP_N_TEXT3="Stamp text row 3" 
+        DPF4C_MODIFY_STAMP_N_TEXT4="Stamp text row 4" 
+        DPF4C_MODIFY_STAMP_N_TEXT5="Stamp text row 5" 
+        DPF4C_MODIFY_STAMP_N_TEXT6="Stamp text row 6" 
+        DPF4C_MODIFY_STAMP_N_TEXT7="Stamp text row 7" 
+        DPF4C_MODIFY_STAMP_N_TEXT8="Stamp text row 8" 
+        DPF4C_MODIFY_STAMP_N_TEXT9="Stamp text row 9"
+        >
+        <HELP
+          TARGETFILENAME="New Name for the created PDF file"
+          CURRFILENAME="Source file to be converted. Valid input formats depend on installation of convert server."
+          DPF4C_COMMON_DEST_FORMAT="Destination formats [pdf,tiff,cls]"
+          DPF4C_MODIFY_ROTATION="Rotation angel [0|90|180|270]" 
+          DPF4C_MODIFY_COMPRESSION="Activate compression of destination format [Y|N]" 
+          DPF4C_SCALE_FACTOR="Scale factor x [0.0&lt;x&lt;n]" 
+          DPF4C_MODIFY_RESOLUTION_DPI="Resolution in dpi. No value means to keep origin resolution." 
+          DPF4C_MODIFY_STAMP_N_TEXT0="Stamp text for row 0" 
+          DPF4C_MODIFY_STAMP_N_TEXT1="Stamp text for row 1" 
+          DPF4C_MODIFY_STAMP_N_TEXT2="Stamp text for row 2" 
+          DPF4C_MODIFY_STAMP_N_TEXT3="Stamp text for row 3" 
+          DPF4C_MODIFY_STAMP_N_TEXT4="Stamp text for row 4" 
+          DPF4C_MODIFY_STAMP_N_TEXT5="Stamp text for row 5" 
+          DPF4C_MODIFY_STAMP_N_TEXT6="Stamp text for row 6" 
+          DPF4C_MODIFY_STAMP_N_TEXT7="Stamp text for row 7" 
+          DPF4C_MODIFY_STAMP_N_TEXT8="Stamp text for row 8" 
+          DPF4C_MODIFY_STAMP_N_TEXT9="Stamp text for row 9"
+          />
+        <DPF>
+          <dpf4convert
+            PLOTTER_NAME="dpf4convert"
+            PLOTTER_COMMENT="Fomat conversion"
+            PLOTTER_LOCATION=""
+            />
+        </DPF>
+      </EN>
+    </Stringtable>
+    <UserInterface>
+      <CommonSettings
+        SHOW_HELPMENU="Y"
+        SHOW_FILEMENU="Y"
+        SHOW_LANGUAGEMENU="Y"
+        WINDOW_SIZE="384 , 800"
+        HELPROOT="%DPFROOT%/source/dpf/dpfserver/dpfclientui_help"
+        CONFIG_PRIVATEPLOTTERLIST="N"
+        EXPANDED="Y"
+        PLOTTERLIST="PLOTTERLIST"
+        SHOW_DECORATEDPRINTERNAMES="N"
+        ITEM_COLUMNS="1"
+        SPLIT_PARTS="180 , 169"
+        PLOTTERPARAM="EXPANDABLE"
+        MUSTTEXTCOLOR="Black"
+        MUSTBACKGROUNDCOLOR="LightCoral"
+        BACKGROUNDCOLOR="Red"
+        CONFIG_PLOTTER="Y"
+        GLOBAL="GLOBAL"
+        PLOTTERPARAMoff="Y|N|EXPANDABLE"
+        />
+      <WorkflowDescriptor
+        ORDER="COMMENT LOCATION"
+        >
+        <COMMENT
+          TYPE="Static"
+          DEFAULT="PLOTTER_COMMENT"
+          />
+        <LOCATION
+          TYPE="Static"
+          DEFAULT="PLOTTER_LOCATION"
+          />
+      </WorkflowDescriptor>
+      <Global
+        ORDER="CURRFILENAME"
+        >
+        <CURRFILENAME
+          TYPE = "File"
+          RANGE = "All (*.*)|AutoCAD (*.dft)|AutoCAD (*.dwg)|Computer Graphics Metafile CGM (*.cgm)|Corel Draw CDR (*.cdr)|HP Graphics Language HPGL (*.hpgl)|Inventor (*.idw)|ME10 (*.me)|Microsoft Excel XLS (*.xls)|Microsoft PowerPoint MPP (*.mpp)|Microsoft PowerPoint MPV (*.mpv)|Microsoft PowerPoint PPT (*.ppt)|Microsoft Visio VSD (*.vsd)|Microsoft Word DOC (*.doc)|Microsoft Word DOT (*.dot)|PostScript PS (*.ps)|ProE (*.proe)|Rich Text Format RTF (*.rtf)|SAPGof (*.otf)|Solid Edge (*.dft)|Solid Works (*.drw)|TXT (*.txt)"
+          DEFAULT = ""
+          />
+        <DPF_SRV_GET_FILES
+          RANGE=""
+          TYPE="Hidden"
+          DEFAULT="CURRFILENAME"
+          />
+        <PLS_USERNAME
+          RANGE=""
+          TYPE="Hidden"
+          DEFAULT="UNKNOWN"
+          />
+        <PLS_SRCNODE
+          RANGE=""
+          TYPE="Hidden"
+          DEFAULT="UNKNOWN"
+          />
+        <DELETEJOBoff
+          RANGE=""
+          TYPE="Hidden"
+          DEFAULT="3d"
+          />
+      </Global>
+      <WorkflowDescriptorOFF>
+        <COMMENT
+          TYPE="Static"
+          COMMENT="Wenn der Defaultwert leer ist, kommt hier der Kommentar aus der Workflowdefinition rein"
+          DEFAULT="WORKFLOW_COMMENT"
+          />
+        <VERSION
+          TYPE="Static"
+          COMMENT="Wenn der Defaultwert leer ist, kommt hier die Version aus der Workflowdefinition rein"
+          DEFAULT=""
+          />
+      </WorkflowDescriptorOFF>
+    </UserInterface>
+  </config>
+</DPF>

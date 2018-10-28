@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <DPF4LOADER.ExtractParameters
+        CODEPAGE="ISO-8859-1"
+        COMMAND="%DPFSRV%/scripts/dpf4loader/extractparameters.pl -parfile %PARFILENAME%"
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGNAME=""
+        LOGSTDOUT="Y"
+        NAME="Extract Parameters from other Parameter"
+        NODENAMES=""
+        PROJECT="DPF4LOADER"
+        THREADS="10"
+        TIMEOUT=""
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-extractparameters.xml,v 1.3 2013/12/03 06:31:29 tobias Exp $"
+        >
+        <DEFAULTS
+          DPFL_CONNPAR="%PLS_DATA_1%"
+          DPFL_LOADPAR="%PLS_DATA_0%"
+          DPFL_VARIANT="SAPDMS"
+          />
+        <INPUT>
+          <DPFL_CONNPAR
+            DEFAULT="%PLS_DATA_1%"
+            DESCRIPTION="Values for system connection, seperated by |"
+            MANDATORY="true"
+            TYPE="TEXT"
+            />
+          <DPFL_LOADPAR
+            DEFAULT="%PLS_DATA_0%"
+            DESCRIPTION="Values of Loading object, separated by |"
+            MANDATORY="true"
+            TYPE="TEXT"
+            />
+          <DPFL_VARIANT
+            DEFAULT="SAPDMS"
+            DESCRIPTION="Variant of loading, e.g SAPDMS, SAPGO, OPENTEXT"
+            MANDATORY="true"
+            TYPE="TEXT"
+            />
+        </INPUT>
+        <OUTPUT/>
+      </DPF4LOADER.ExtractParameters>
+    </workingunits>
+  </config>
+</DPF>

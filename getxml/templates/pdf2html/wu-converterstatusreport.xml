@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <PDF2HTML.ConverterStatusReport
+        COMMAND="%DPFSRV%/scripts/pdf2html/converterstatusreport.pl -parfile %PARFILENAME%"
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGSTDOUT="Y"
+        NAME="ConverterStatusReport"
+        PROJECT="PDF2HTML"
+        Status="Running"
+        THREADS="1"
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-converterstatusreport.xml,v 1.3 2007/09/14 05:36:16 tobias Exp $"
+        >
+        <DEFAULTS/>
+        <INPUT>
+          <CONV_DIR
+            DESCRIPTION="directory with converter results"
+            MANDATORY="true"
+            TYPE="TEXT"
+            />
+          <CURRFILENAME
+            DESCRIPTION="the input file"
+            TYPE="TEXT"
+            />
+          <IMG
+            DESCRIPTION="image type of converter"
+            MANDATORY="true"
+            TYPE="SELECT"
+            >
+            <RANGE
+              VALUE1="gif"
+              VALUE2="jpg"
+              VALUE3="png"
+              />
+          </IMG>
+          <JOBDIR
+            DESCRIPTION="our job dir for temp files"
+            TYPE="TEXT"
+            />
+        </INPUT>
+      </PDF2HTML.ConverterStatusReport>
+    </workingunits>
+  </config>
+</DPF>

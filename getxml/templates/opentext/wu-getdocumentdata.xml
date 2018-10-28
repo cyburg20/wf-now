@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <opentext.getdocumentdata
+        CODEPAGE="ISO-8859-1"
+        COMMAND="%DPFSRV%/scripts/opentext/getdocumentdata.pl  -parfile %PARFILENAME%"
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGNAME=""
+        LOGSTDOUT="Y"
+        NAME="GetDocumentData"
+        NODENAMES=""
+        PROJECT="opentext"
+        THREADS="100"
+        TIMEOUT=""
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-getdocumentdata.xml,v 1.4 2013/10/15 08:54:26 tobias Exp $"
+        >
+        <DEFAULTS
+          OPENTEXTCLI_EXIT_ON_ERROR="0"
+          OPENTEXT_INI="%PLSSV%/sapserv/conf/opentext.ini"
+          />
+        <INPUT>
+          <OPENTEXTCLI_EXIT_ON_ERROR
+            DEFAULT="0"
+            DESCRIPTION="Exit on (first) Error of javaopentextcli"
+            TYPE="TEXT"
+            />
+          <OPENTEXT_INI
+            DEFAULT="%PLSSV%/sapserv/conf/opentext.ini"
+            DESCRIPTION="configuration file"
+            TYPE="TEXT"
+            />
+          <OTDataID
+            DESCRIPTION="DataID/DocumentID for Document"
+            MANDATORY="true"
+            TYPE="TEXT"
+            />
+          <OTVersion
+            DESCRIPTION="Version number of Document"
+            MANDATORY="true"
+            TYPE="TEXT"
+            />
+          <OT_Destination
+            DESCRIPTION="destination - configured OpenText system"
+            MANDATORY="true"
+            TYPE="TEXT"
+            />
+        </INPUT>
+        <OUTPUT/>
+      </opentext.getdocumentdata>
+    </workingunits>
+  </config>
+</DPF>

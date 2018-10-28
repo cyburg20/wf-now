@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunit
+      VERSION="$Id: main.xml,v 1.49 2015/03/06 12:24:05 rg Exp $"
+      LOGLEVEL="LOG_TRACE"
+      LOGSIZE="1000"
+      THREADS="10"
+      NODENAMES="localhost"
+      SLEEP_MILLI_SECONDS="100"
+      />
+    <jobcleaner
+      VERSION="$Id: main.xml,v 1.49 2015/03/06 12:24:05 rg Exp $"
+      LOGLEVEL="LOG_INFO"
+      LOGSIZE="1000"
+      INSTANCES="1"
+      SLEEP_MILLI_SECONDS="1000"
+      DELETEJOB="3h"
+      FORGETJOB="2d"
+      ERR_DELETEJOB="4d"
+      RETRY_DELETEJOB="1m"
+      RETRY_FORGETJOB="1m"
+      KEEPUNTILFORGET="job.dat joborig.dat job.log ORIGFILENAME"
+      />
+    <watchdog
+      VERSION="$Id: main.xml,v 1.49 2015/03/06 12:24:05 rg Exp $"
+      LOGLEVEL="LOG_INFO"
+      LOGSIZE="1000"
+      SLEEP_MILLI_SECONDS="250"
+      CHECK_INTERVAL="100"
+      RESTART_COMMAND="%DPFSRV%/dpfstart.pl"
+      RESTART_HANG_COMMAND="%DPFSRV%/dpfrestart.pl"
+      KILL_COMMAND="nkill -sKILL -cr -no -pid %PID%"
+      />
+    <dpfgate
+      LOGLEVEL="LOG_INFO"
+      LOGSIZE="1000"
+      SLEEP="4"
+      RDY="rdy"
+      SGATE="%PLSDATA%/io/dpfgate"
+      ERROR="error"
+      ARCHIV=""
+      />
+    <accounting
+      LOGNAME="account"
+      LOGLEVEL="LOG_INFO"
+      LOGSIZE="1000"
+      LOGFORMAT="%JOB_TIMESTAMP_BEGIN%;%JOB_TIMESTAMP_END%;%JOBID%;%WFNAME%;%ORIGUSERNAME%;%ORIGHOSTNAME%;%JOBSTATUS%"
+      />
+    <processmanager
+      VERSION="$Id: main.xml,v 1.49 2015/03/06 12:24:05 rg Exp $"
+      LOGLEVEL="LOG_INFO"
+      LOGSIZE="1000"
+      THREADS="10"
+      INSTANCES="1"
+      WARN_BEFORE_LICENSE_EXPIRES="14d"
+      NODENAMES="localhost"
+      SLEEP_MILLI_SECONDS="100"
+      />
+    <franss3
+      LOGNAME="dpf-franss3"
+      LOGLEVEL="LOG_INFO"
+      LOGSIZE="1000"
+      PORT="4166..4176"
+      offCOMPRESSION="DEFLATE_SPEED"
+      COMPRESSION="NONE"
+      />
+    <FileManager
+      LOGLEVEL="LOG_INFO"
+      >
+    </FileManager>
+    <WorkflowManager
+      LOGNAME="workflowmanager"
+      LOGLEVEL="LOG_INFO"
+      >
+      <ICONS
+        WF="doc://:/wf.gif"
+        />
+    </WorkflowManager>
+    <WorkingunitManager
+      LOGNAME="workingunitmanager"
+      LOGLEVEL="LOG_INFO"
+      >
+      <ICONS
+        WU="doc://:/wu.gif"
+        />
+    </WorkingunitManager>
+    <nodenames> <!-- node configuration for remote WUs you can add as many node tags as you like-->
+        <node> <!-- this will be taken if no matching node found -->
+          <ACADNODES>
+            %DB_HOST%
+          </ACADNODES>
+          <ELCADNODES>
+            %DB_HOST%
+          </ELCADNODES>
+          <INVENTORNODES>
+            %DB_HOST%
+          </INVENTORNODES>
+          <ME10NODES>
+            %DB_HOST%
+          </ME10NODES>
+          <MICROSTATIONNODES>
+            %DB_HOST%
+          </MICROSTATIONNODES>
+          <PROENODES>
+            %DB_HOST%
+          </PROENODES>
+          <SOLIDDESIGNERNODES>
+            %DB_HOST%
+          </SOLIDDESIGNERNODES>
+          <SOLIDEDGENODES>
+            %DB_HOST%
+          </SOLIDEDGENODES>
+          <SOLIDWORKSNODES>
+            %DB_HOST%
+          </SOLIDWORKSNODES>
+          <OFFICENODES>
+            %DB_HOST%
+          </OFFICENODES>
+          <OUTLOOKNODES>
+            %DB_HOST%
+          </OUTLOOKNODES>
+          <DEFAULTNODE>
+            %DB_HOST%
+          </DEFAULTNODE>
+        </node>
+    </nodenames>
+
+    <DPFMailService>
+      <!-- Here are the defaults to be applied to each mail account: -->
+      <defaults>
+        <!--
+          checkMailFreqInMilliSec == poll cycle
+          Needed only if fetching from server without IMAP IDLE feature or
+          Exchange Server without Push notifications (available at Exchange 2013 and up).
+          fetchProtocol = IMAP | MS_Exchange
+          -->
+        <settings
+          fetchProtocol="IMAP"
+          fetchHost="imap.mycompany.com"
+          checkMailFreqInMilliSec="5000"
+          inputFolder="INBOX"
+          workflow="DPF4CONVERT.MailService"
+        />
+        <!-- Job parameters for sending reply mail via DPF working unit Mail.sendMail -->
+        <jobParameters
+          MAIL_SMTP="smtp.mycompany.com"
+          MAIL_FROM="%DpfMailService_MessageReceivedByAddr%"
+          MAIL_TO="%DpfMailService_MessageFromAddr%"
+          MAIL_SUBJECT="Re: %DpfMailService_MessageSubject%"
+          MAIL_TEXT="%DpfMailService_MessageBody%"
+        />
+      </defaults>
+
+      <!-- 
+        Supersede your Mail Service custom settings in 
+        %SEAL_CUSTOMDIR%\server\dpf\templates\main.customer.xml !
+        At least fetchHost, mailAccountUser and password have to go there.
+      -->
+    </DPFMailService>
+
+  </config>
+</DPF>

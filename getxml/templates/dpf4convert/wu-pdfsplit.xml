@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <pdfsplit
+        NAME="dpf4c - Split PDF"
+        VERSION="$Id: wu-pdfsplit.xml,v 1.2 2005/04/18 12:21:43 wolfi Exp $"
+        PROJECT="DPF4CONVERT"
+        TYPE="WUSystemCall"
+        LOGNAME="dpf4c-pdfsplit"
+        LOGSTDOUT="Y"
+        LOGLEVEL="LOG_INFO"
+        THREADS="1"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/pdfsplit.pl -parfile %PARFILENAME%"
+        >
+	<DEFAULTS
+          WU_ENABLE_DEBUG_LOOP="N"
+          />
+        <INPUT
+          PARFILENAME="*"
+          CURRFILENAME="*"
+          CURRFILETYPE="pdf"
+          />
+        <OUTPUT
+          CURRFILENAME="*"
+          CURRFILETYPE="pdf"
+          />
+      </pdfsplit>
+    </workingunits>
+  </config>
+</DPF>

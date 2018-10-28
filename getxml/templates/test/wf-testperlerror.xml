@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workflows>
+      <Test.testperlerror
+        DPFINT-Changes="0"
+        DPFINT-Icon="doc://:/wf.gif"
+        DPFINT-Type="WorkflowDescription"
+        NAME="Test a working unit with a perl error in the perl script"
+        COMMENT="small miss in first wu of a workflow"
+        PROJECT="Test"
+        VERSION="$Id: wf-testperlerror.xml,v 1.3 2006/11/10 20:24:04 stefan Exp $"
+        >
+        <DEFAULTS
+          DPFINT-Icon="doc://:/defaults.gif"
+          />
+        <MAIN
+          BEGIN="firstwu"
+          ERROR="END"
+          />
+        <firstwu
+          NAME="Test.exit0"
+          NEXT="secondwu"
+          />
+        <secondwu
+          NAME="Test.perlerror"
+          NEXT="thirdwu"
+          />
+        <thirdwu
+          NAME="Test.exit0"
+          NEXT="END"
+          />
+      </Test.testperlerror>
+    </workflows>
+  </config>
+</DPF>

@@ -1,0 +1,23 @@
+<DPF>
+  <config>
+    <workflows>
+      <tiffsplit
+        NAME="DPF 4 Convert - tiffsplit"
+        VERSION="$Id: wf-tiffsplit.xml,v 1.2 2004/09/23 09:30:05 stefan Exp $"
+        PROJECT="DPF4CONVERT"
+        COMMENT="dpf4convert - Split TIFF"
+        DPFINT-Type="WorkflowDescription"
+        DPFINT-Changes="0"
+        >
+        <MAIN
+          BEGIN="tiffsplit"
+          ERROR="END"
+          />
+        <tiffsplit
+          NAME="tiffsplit"
+          NEXT="END"
+          />
+      </tiffsplit>
+    </workflows>
+  </config>
+</DPF>

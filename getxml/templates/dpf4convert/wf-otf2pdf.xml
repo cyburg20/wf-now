@@ -1,0 +1,23 @@
+<DPF>
+  <config>
+    <workflows>
+      <otf2pdf
+        NAME="DPF 4 Convert - (SAP-)OTF to PDF"
+        VERSION="$Id: wf-otf2pdf.xml,v 1.6 2008/06/30 09:34:03 dei Exp $"
+        PROJECT="DPF4CONVERT"
+        COMMENT="dpf4convert - Convert process (SAP-)OTF to PDF"
+        DPFINT-Type="WorkflowDescription"
+        DPFINT-Changes="0"
+        >
+        <MAIN
+          BEGIN="sap2pdf"
+          ERROR="END"
+          />
+        <sap2pdf
+          NAME="sap2pdf"
+          NEXT="END"
+          />
+      </otf2pdf>
+    </workflows>
+  </config>
+</DPF>

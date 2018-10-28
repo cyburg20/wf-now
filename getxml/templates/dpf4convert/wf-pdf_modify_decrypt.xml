@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workflows>
+      <pdf_modify_decrypt
+        NAME="DPF 4 Convert - Decrypt a pdf file with pdfauthorize or pdfcrypt"
+        VERSION="$Id: wf-pdf_modify_decrypt.xml,v 1.1 2007/04/18 11:59:35 ludwig Exp $"
+        PROJECT="DPF4CONVERT"
+        COMMENT="dpf4convert - Decrypt a pdf file with pdfauthorize or pdfcrypt"
+        DPFINT-Type="WorkflowDescription"
+        DPFINT-Changes="0"
+        >
+        <MAIN
+          BEGIN="pdfauthorize_decrypt"
+          ERROR="END"
+          />
+        <pdfauthorize_decrypt
+          NAME="pdfauthorize_decrypt"
+          NEXT="check_use_pdfcrpyt"
+          />
+        <check_use_pdfcrpyt
+          TYPE="IF-THEN-ELSE"
+          PROPERTY="DPF4C_MODIFY_DECRYPT_PDF_USE_PDFCRYPT"
+          OPERATOR="contains"
+          VALUE="Y"
+          THEN="pdfcrypt_decrypt"
+          ELSE="END"
+          />
+        <pdfcrypt_decrypt
+          NAME="pdfcrypt_decrypt"
+          NEXT="END"
+          />
+      </pdf_modify_decrypt>
+    </workflows>
+  </config>
+</DPF>

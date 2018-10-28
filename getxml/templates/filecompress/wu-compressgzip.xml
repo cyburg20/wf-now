@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <FileCompress.compressGZIP
+        COMMAND="%DPFSRV%/scripts/filecompress/compressgzip.pl -parfile %PARFILENAME%"
+        DPFINT-FileLinks="doc://:/%DPFSRV%/scripts/filecompress/compressgzip.pl"
+        DPFINT-Icon="doc://:/wu.gif"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGNAME=""
+        LOGSTDOUT="N"
+        NAME="Compress with GZIP"
+        PROJECT="FileCompress"
+        THREADS="1"
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-compressgzip.xml,v 1.3 2007/03/01 09:12:43 stefan Exp $"
+        >
+        <DEFAULTS
+          DPFINT-Icon="doc://:/defaults.gif"
+          WU_ENABLE_DEBUG_LOOP="N"
+          />
+        <INPUT
+          DPFINT-Icon="doc://:/wu-input.gif"
+          WU_ENABLE_DEBUG_LOOP="*"
+          />
+        <OUTPUT
+          DPFINT-Icon="doc://:/wu-output.gif"
+          />
+      </FileCompress.compressGZIP>
+    </workingunits>
+  </config>
+</DPF>

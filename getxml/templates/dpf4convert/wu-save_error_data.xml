@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <save_error_data
+        NAME="dpf4c - save error data"
+        VERSION="$Id: wu-save_error_data.xml,v 1.4 2005/04/18 12:21:43 wolfi Exp $"
+        PROJECT="DPF4CONVERT"
+        TYPE="WUSystemCall"
+        LOGNAME="dpf4c-save_error_data"
+        LOGSTDOUT="Y"
+        LOGLEVEL="LOG_INFO"
+        THREADS="1"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/save_error_data.pl -parfile %PARFILENAME%">
+        <DEFAULTS
+          WU_ENABLE_DEBUG_LOOP="N"
+          />
+        <INPUT
+          />
+        <OUTPUT
+          />
+      </save_error_data>
+    </workingunits>
+  </config>
+</DPF>

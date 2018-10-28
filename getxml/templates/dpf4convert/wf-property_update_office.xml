@@ -1,0 +1,23 @@
+<DPF>
+  <config>
+    <workflows>
+      <property_update_office
+        NAME="DPF 4 Convert - property_update_office"
+        VERSION="$Id: wf-property_update_office.xml,v 1.1 2005/01/18 16:54:39 ludwig Exp $"
+        PROJECT="DPF4CONVERT"
+        COMMENT="dpf4convert - Property update on office document"
+        DPFINT-Type="WorkflowDescription"
+        DPFINT-Changes="0"
+        >
+        <MAIN
+          BEGIN="property_update_office"
+          ERROR="END"
+          />
+        <property_update_office
+          NAME="property_update_office"
+          NEXT="END"
+          />
+      </property_update_office>
+    </workflows>
+  </config>
+</DPF>

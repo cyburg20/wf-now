@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <CdRobot.createCdImage
+        CODEPAGE="ISO-8859-1"
+        COMMAND="%DPFSRV%/scripts/cdrobot/createcdimage.pl -parfile %PARFILENAME%"
+        DPFINT-FileLinks="doc://:/%DPFSRV%/scripts/cdrobot/createcdimage.pl"
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGNAME=""
+        LOGSTDOUT="Y"
+        NAME="Create CD ISO Image"
+        NODENAMES=""
+        PROJECT="CdRobot"
+        THREADS="1"
+        TIMEOUT=""
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-createcdimage.xml,v 1.4 2009/05/22 05:34:33 wolfi Exp $"
+        >
+        <DEFAULTS
+          DPFINT-Icon="doc://:/defaults.gif"
+          WU_ENABLE_DEBUG_LOOP="N"
+          />
+        <INPUT
+          DPFINT-Icon="doc://:/wu-input.gif"
+          WU_ENABLE_DEBUG_LOOP="*"
+          >
+          <MKISO_VOLUME_ID
+            TYPE="TEXT"
+          />
+          <ROOTDIR
+            TYPE="TEXT"
+            />
+          <WU_ENABLE_DEBUG_LOOP
+            DEFAULT="N"
+            TYPE="TEXT"
+            />
+        </INPUT>
+        <OUTPUT
+          DPFINT-Icon="doc://:/wu-output.gif"
+          />
+      </CdRobot.createCdImage>
+    </workingunits>
+  </config>
+</DPF>

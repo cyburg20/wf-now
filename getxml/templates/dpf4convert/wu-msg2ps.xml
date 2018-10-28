@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <msg2ps
+        NAME="dpf4c - Convert MS Outlook MSG files to PostScript"
+        VERSION="$Id: wu-msg2ps.xml,v 1.2 2006/03/03 16:13:16 ludwig Exp $"
+        PROJECT="DPF4CONVERT"
+        TYPE="WUSystemCall"
+        LOGNAME="dpf4c-msg2ps"
+        LOGSTDOUT="Y"
+        LOGLEVEL="LOG_INFO"
+        THREADS="1"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/msg2ps.pl -parfile %PARFILENAME%">
+        <DEFAULTS
+          WU_ENABLE_DEBUG_LOOP="N"
+          MSG2PS_EXTRACT_ATTACHMENTS="N"
+          MSG2PS_ACCESS_ADDRESSBOOK="N"
+          MSG2PS_PRINTER_NAME="SEAL Outlook Printer"
+          MSG2PS_INFOTYPE="XML"
+          />
+        <INPUT
+          MSG2PS_EXTRACT_ATTACHEMENTS="Y|N"
+          MSG2PS_ACCESS_ADDRESSBOOK="Y|N"
+          MSG2PS_PRINTER_NAME="*"
+          MSG2PS_INFOTYPE="XML|INI"
+          CURRFILENAME="*"
+          CURRFILETYPE="msg"
+          />
+	<OUTPUT
+          CURRFILENAME="*"
+          CURRFILETYPE="ps"
+          INFOFILE="file"
+          MSG2PS_FILES="property list"
+          />
+      </msg2ps>
+    </workingunits>
+  </config>
+</DPF>

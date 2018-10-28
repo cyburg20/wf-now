@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <String.setValue
+        CODEPAGE="ISO-8859-1"
+        COMMAND="%DPFSRV%/scripts/string/setvalue.pl -parfile %PARFILENAME%"
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGNAME=""
+        LOGSTDOUT="Y"
+        NAME="Set Value"
+        NODENAMES=""
+        PROJECT="String"
+        THREADS="4"
+        TIMEOUT=""
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-setvalue.xml,v 1.1 2010/12/23 15:20:05 stefan Exp $"
+        >
+        <DEFAULTS/>
+        <INPUT>
+          <Key
+            DESCRIPTION="name of DPF parameter to set"
+            TYPE="TEXT"
+            />
+          <Value
+            DESCRIPTION="value of the DPF parameter to set"
+            TYPE="TEXT"
+            />
+        </INPUT>
+        <OUTPUT/>
+      </String.setValue>
+    </workingunits>
+  </config>
+</DPF>

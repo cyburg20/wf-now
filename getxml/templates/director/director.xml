@@ -1,0 +1,512 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+  @Project        DPF Director
+  @File           director.xml
+
+  @first_rev      05.08.2003
+  @last_rev       $Date: 2007/03/01 10:21:53 $
+
+  @author         HG
+
+  DPF Director configuration file
+
+  ====================================================================
+  Copyright (c) by SEAL Systems
+  ====================================================================
+  "@(#) $Id: director.xml,v 1.12 2007/03/01 10:21:53 mk Exp $"
+
+  Revision History                                                        
+  $Log: director.xml,v $
+  Revision 1.12  2007/03/01 10:21:53  mk
+  For director-version 1.2.1.9
+
+  Revision 1.11  2007/02/27 11:12:08  mk
+  Modified toolbar-configuration.
+
+  Revision 1.10  2007/02/06 09:17:24  mk
+  Reactivated Version 1.8 and added default user sealsupport
+
+  Revision 1.8  2006/11/06 08:38:19  mk
+  *** empty log message ***
+
+  Revision 1.7  2006/03/24 10:20:57  mk
+  Version 1.5 reanimated
+
+  Revision 1.5  2005/04/15 11:52:12  hans
+  peanuts
+
+  Revision 1.4  2004/12/22 10:05:29  hans
+  English Online Documentation available
+
+  Revision 1.3  2004/11/24 15:07:18  hans
+  WorkflowDescription parameters added for searching
+
+  Revision 1.2  2004/11/16 09:44:24  stefan
+  added TIMEOUT, INTERNALNAME is now basic
+
+  Revision 1.1  2004/11/16 07:26:05  stefan
+  moved DPF Director contents into sub directory "director".
+  Splitted language strings into separate files.
+  Added internal job state RESTART.
+
+  Revision 1.15  2004/11/11 11:43:24  hans
+  Verbesserungen an Uebersetzungstexten (AG)
+
+  Revision 1.14  2004/11/09 11:49:42  hans
+  Uebersetzungen
+
+  Revision 1.13  2004/11/04 16:51:12  hans
+  Menu 'System' -> Menus 'System' + 'Working Unit'
+
+  Revision 1.12  2004/11/02 09:51:40  hans
+  Copyright 2003 -> 2004
+
+  Revision 1.11  2004/10/28 10:37:57  hans
+  Workflow -> Prozess/Process
+
+  Revision 1.10  2004/09/28 11:17:53  hans
+  Uebersetzungen
+
+  Revision 1.9  2004/09/22 13:08:21  hans
+  ProcessDescription
+
+  Revision 1.8  2004/09/21 12:51:24  hans
+  Allerlei
+
+  Revision 1.7  2004/09/16 14:38:41  hans
+  Neue Uebersetzungstexte; Menuepunkte verbessert
+
+  Revision 1.6  2004/08/13 11:45:17  hans
+  Viele Aenderungen fuer Director Version 1.1.0
+
+  Revision 1.5  2004/06/04 06:07:04  stefan
+  ERR_OK and OK are green for DPF 1.0.1
+
+  Revision 1.4  2004/01/09 10:17:58  hans
+  neue online Hilfe
+
+
+-->
+
+<DPF>
+   <URM Active="Y"/>
+   <Help>
+      <AVAILABLE_LANGUAGES>
+         <Deutsch short="de"/>
+         <English short="en"/>
+         <Default short="en"/>
+      </AVAILABLE_LANGUAGES>
+      <Content file="%WEBSERVER%/director/dpf_director_onl_%HELPLANGUAGE%/index.htm%WEBBROWSER%"/>
+      <Index file="%WEBSERVER%/director/dpf_director_onl_%HELPLANGUAGE%/index.htm%WEBBROWSER%"/>
+      <WORKING_SET_ID file="%WEBSERVER%/director/dpf_director_onl_%HELPLANGUAGE%/index.htm?context=dpf_director_onl_%HELPLANGUAGE%&amp;topic=working_set%WEBBROWSER%"/>
+      <WINDOW_TILE_MIT_ID file="%WEBSERVER%/director/dpf_director_onl_%HELPLANGUAGE%/index.htm?context=dpf_director_onl_%HELPLANGUAGE%&amp;topic=arrange_window%WEBBROWSER%"/>
+      <WINDOW_CASCADE_MIT_ID file="%WEBSERVER%/director/dpf_director_onl_%HELPLANGUAGE%/index.htm?context=dpf_director_onl_%HELPLANGUAGE%&amp;topic=overlap_window%WEBBROWSER%"/>
+      <DEBUG_MEM_MIT_ID file="%WEBSERVER%/director/dpf_director_onl_%HELPLANGUAGE%/index.htm?context=dpf_director_onl_%HELPLANGUAGE%&amp;topic=activate_debug_memory%WEBBROWSER%"/>
+      <FILE_LOGIN_MIT_ID file="%WEBSERVER%/director/dpf_director_onl_%HELPLANGUAGE%/index.htm?context=dpf_director_onl_%HELPLANGUAGE%&amp;topic=logon%WEBBROWSER%"/>
+      <FILE_EXIT_MIT_ID file="%WEBSERVER%/director/dpf_director_onl_%HELPLANGUAGE%/index.htm?context=dpf_director_onl_%HELPLANGUAGE%&amp;topic=exit%WEBBROWSER%"/>
+      <FILE_CLOSE_MIT_ID file="%WEBSERVER%/director/dpf_director_onl_%HELPLANGUAGE%/index.htm?context=dpf_director_onl_%HELPLANGUAGE%&amp;topic=close_window%WEBBROWSER%"/>
+      <FILE_SAVE_MIT_ID file="%WEBSERVER%/director/dpf_director_onl_%HELPLANGUAGE%/index.htm?context=dpf_director_onl_%HELPLANGUAGE%&amp;topic=save_window%WEBBROWSER%"/>
+      <FILE_PRINT_MIT_ID file="%WEBSERVER%/director/dpf_director_onl_%HELPLANGUAGE%/index.htm?context=dpf_director_onl_%HELPLANGUAGE%&amp;topic=print_window%WEBBROWSER%"/>
+      <VIEW_DEL_SCENARIO_MIT_ID file="%WEBSERVER%/director/dpf_director_onl_%HELPLANGUAGE%/index.htm?context=dpf_director_onl_%HELPLANGUAGE%&amp;topic=delete_scenario%WEBBROWSER%"/>
+      <VIEW_SAVE_SCENARIO_MIT_ID file="%WEBSERVER%/director/dpf_director_onl_%HELPLANGUAGE%/index.htm?context=dpf_director_onl_%HELPLANGUAGE%&amp;topic=save_scenario%WEBBROWSER%"/>
+      <WORKFLOW_ELEM_PREF_ID>
+         <WFList file="%WEBSERVER%/director/dpf_director_onl_%HELPLANGUAGE%/index.htm?context=dpf_director_onl_%HELPLANGUAGE%&amp;topic=wf_editor_element%WEBBROWSER%"/>
+         <WUList file="%WEBSERVER%/director/dpf_director_onl_%HELPLANGUAGE%/index.htm?context=dpf_director_onl_%HELPLANGUAGE%&amp;topic=wf_editor_element%WEBBROWSER%"/>
+         <Start file="%WEBSERVER%/director/dpf_director_onl_%HELPLANGUAGE%/index.htm?context=dpf_director_onl_%HELPLANGUAGE%&amp;topic=wf_editor%WEBBROWSER%"/>
+         <ID file="%WEBSERVER%/director/dpf_director_onl_%HELPLANGUAGE%/index.htm?context=dpf_director_onl_%HELPLANGUAGE%&amp;topic=wf_editor_element%WEBBROWSER%"/>
+         <Index file="%WEBSERVER%/director/dpf_director_onl_%HELPLANGUAGE%/index.htm?context=dpf_director_onl_%HELPLANGUAGE%&amp;topic=wf_editor_element%WEBBROWSER%"/>
+         <ITEParam file="%WEBSERVER%/director/dpf_director_onl_%HELPLANGUAGE%/index.htm?context=dpf_director_onl_%HELPLANGUAGE%&amp;topic=wf_editor_element%WEBBROWSER%"/>
+         <SWITCHParam file="%WEBSERVER%/director/dpf_director_onl_%HELPLANGUAGE%/index.htm?context=dpf_director_onl_%HELPLANGUAGE%&amp;topic=wf_editor_element%WEBBROWSER%"/>
+         <Cancel file="%WEBSERVER%/director/dpf_director_onl_%HELPLANGUAGE%/index.htm?context=dpf_director_onl_%HELPLANGUAGE%&amp;topic=wf_editor_element%WEBBROWSER%"/>
+         <Ok file="%WEBSERVER%/director/dpf_director_onl_%HELPLANGUAGE%/index.htm?context=dpf_director_onl_%HELPLANGUAGE%&amp;topic=wf_editor_element%WEBBROWSER%"/>
+      </WORKFLOW_ELEM_PREF_ID>
+      <WORKFLOW_PREF_ID>
+         <Name file="%WEBSERVER%/director/dpf_director_onl_%HELPLANGUAGE%/index.htm?context=dpf_director_onl_%HELPLANGUAGE%&amp;topic=wf_editor_element%WEBBROWSER%"/>
+         <Info file="%WEBSERVER%/director/dpf_director_onl_%HELPLANGUAGE%/index.htm?context=dpf_director_onl_%HELPLANGUAGE%&amp;topic=wf_editor_element%WEBBROWSER%"/>
+         <ParameterDefaults file="%WEBSERVER%/director/dpf_director_onl_%HELPLANGUAGE%/index.htm?context=dpf_director_onl_%HELPLANGUAGE%&amp;topic=wf_editor_element%WEBBROWSER%"/>
+         <Index file="%WEBSERVER%/director/dpf_director_onl_%HELPLANGUAGE%/index.htm?context=dpf_director_onl_%HELPLANGUAGE%&amp;topic=wf_editor_element%WEBBROWSER%"/>
+         <Cancel file="%WEBSERVER%/director/dpf_director_onl_%HELPLANGUAGE%/index.htm?context=dpf_director_onl_%HELPLANGUAGE%&amp;topic=wf_editor_element%WEBBROWSER%"/>
+         <Ok file="%WEBSERVER%/director/dpf_director_onl_%HELPLANGUAGE%/index.htm?context=dpf_director_onl_%HELPLANGUAGE%&amp;topic=wf_editor_element%WEBBROWSER%"/>
+      </WORKFLOW_PREF_ID>
+      <WORKFLOW_CON_PREF_ID>
+         <Connection file="%WEBSERVER%/director/dpf_director_onl_%HELPLANGUAGE%/index.htm?context=dpf_director_onl_%HELPLANGUAGE%&amp;topic=wf_editor_element%WEBBROWSER%"/>
+         <Index file="%WEBSERVER%/director/dpf_director_onl_%HELPLANGUAGE%/index.htm?context=dpf_director_onl_%HELPLANGUAGE%&amp;topic=wf_editor_element%WEBBROWSER%"/>
+         <Cancel file="%WEBSERVER%/director/dpf_director_onl_%HELPLANGUAGE%/index.htm?context=dpf_director_onl_%HELPLANGUAGE%&amp;topic=wf_editor_element%WEBBROWSER%"/>
+         <Ok file="%WEBSERVER%/director/dpf_director_onl_%HELPLANGUAGE%/index.htm?context=dpf_director_onl_%HELPLANGUAGE%&amp;topic=wf_editor_element%WEBBROWSER%"/>
+      </WORKFLOW_CON_PREF_ID>
+      <WORKFLOW_EDITOR_ID>
+         <Help file="%WEBSERVER%/director/dpf_director_onl_%HELPLANGUAGE%/index.htm?context=dpf_director_onl_%HELPLANGUAGE%&amp;topic=wf_editor%WEBBROWSER%"/>
+         <WFList file="%WEBSERVER%/director/dpf_director_onl_%HELPLANGUAGE%/index.htm?context=dpf_director_onl_%HELPLANGUAGE%&amp;topic=wf_editor%WEBBROWSER%"/>
+         <WUList file="%WEBSERVER%/director/dpf_director_onl_%HELPLANGUAGE%/index.htm?context=dpf_director_onl_%HELPLANGUAGE%&amp;topic=wf_editor%WEBBROWSER%"/>
+         <CTRLList file="%WEBSERVER%/director/dpf_director_onl_%HELPLANGUAGE%/index.htm?context=dpf_director_onl_%HELPLANGUAGE%&amp;topic=wf_editor%WEBBROWSER%"/>
+         <Index file="%WEBSERVER%/director/dpf_director_onl_%HELPLANGUAGE%/index.htm?context=dpf_director_onl_%HELPLANGUAGE%&amp;topic=wf_editor%WEBBROWSER%"/>
+         <Editor file="%WEBSERVER%/director/dpf_director_onl_%HELPLANGUAGE%/index.htm?context=dpf_director_onl_%HELPLANGUAGE%&amp;topic=wf_editor%WEBBROWSER%"/>
+         <Toolbar file="%WEBSERVER%/director/dpf_director_onl_%HELPLANGUAGE%/index.htm?context=dpf_director_onl_%HELPLANGUAGE%&amp;topic=wf_editor_icon%WEBBROWSER%"/>
+         <Cancel file="%WEBSERVER%/director/dpf_director_onl_%HELPLANGUAGE%/index.htm?context=dpf_director_onl_%HELPLANGUAGE%&amp;topic=wf_editor%WEBBROWSER%"/>
+         <Ok file="%WEBSERVER%/director/dpf_director_onl_%HELPLANGUAGE%/index.htm?context=dpf_director_onl_%HELPLANGUAGE%&amp;topic=wf_editor%WEBBROWSER%"/>
+      </WORKFLOW_EDITOR_ID>
+      <VIEW_LOGS_MIT_ID file="%WEBSERVER%/director/dpf_director_onl_%HELPLANGUAGE%/index.htm?context=dpf_director_onl_%HELPLANGUAGE%&amp;topic=log%WEBBROWSER%"/>
+      <LOGS_MOD_ID>
+         <Window file="%WEBSERVER%/director/dpf_director_onl_%HELPLANGUAGE%/index.htm?context=dpf_director_onl_%HELPLANGUAGE%&amp;topic=log%WEBBROWSER%"/>
+      </LOGS_MOD_ID>
+      <SESSIONS_MOD_ID>
+         <Window file="%WEBSERVER%/director/dpf_director_onl_%HELPLANGUAGE%/index.htm?context=dpf_director_onl_%HELPLANGUAGE%&amp;topic=session%WEBBROWSER%"/>
+      </SESSIONS_MOD_ID>
+      <USERS_MOD_ID>
+         <Window file="%WEBSERVER%/director/dpf_director_onl_%HELPLANGUAGE%/index.htm?context=dpf_director_onl_%HELPLANGUAGE%&amp;topic=user%WEBBROWSER%"/>
+      </USERS_MOD_ID>
+      <VIEW_STATIONS_MIT_ID file="%WEBSERVER%/director/dpf_director_onl_%HELPLANGUAGE%/index.htm?context=dpf_director_onl_%HELPLANGUAGE%&amp;topic=system%WEBBROWSER%"/>
+      <SYSTEM_MOD_ID>
+         <Window file="%WEBSERVER%/director/dpf_director_onl_%HELPLANGUAGE%/index.htm?context=dpf_director_onl_%HELPLANGUAGE%&amp;topic=system%WEBBROWSER%"/>
+      </SYSTEM_MOD_ID>
+      <VIEW_WORKFLOWS_MIT_ID file="%WEBSERVER%/director/dpf_director_onl_%HELPLANGUAGE%/index.htm?context=dpf_director_onl_%HELPLANGUAGE%&amp;topic=wf%WEBBROWSER%"/>
+      <WORKFLOWS_MOD_ID>
+         <Window file="%WEBSERVER%/director/dpf_director_onl_%HELPLANGUAGE%/index.htm?context=dpf_director_onl_%HELPLANGUAGE%&amp;topic=wf%WEBBROWSER%"/>
+      </WORKFLOWS_MOD_ID>
+      <VIEW_JOBS_MIT_ID file="%WEBSERVER%/director/dpf_director_onl_%HELPLANGUAGE%/index.htm?context=dpf_director_onl_%HELPLANGUAGE%&amp;topic=job%WEBBROWSER%"/>
+      <JOBS_MOD_ID>
+         <Window file="%WEBSERVER%/director/dpf_director_onl_%HELPLANGUAGE%/index.htm?context=dpf_director_onl_%HELPLANGUAGE%&amp;topic=job%WEBBROWSER%"/>
+      </JOBS_MOD_ID>
+   </Help>
+   <Language>
+      <JOBS_MOD_ID>
+         <PARAM_NAMES>
+         </PARAM_NAMES>
+         <PARAM_VALUES>
+         </PARAM_VALUES>
+      </JOBS_MOD_ID>
+      <SYSTEM_MOD_ID>
+         <PARAM_NAMES>
+         </PARAM_NAMES>
+         <PARAM_VALUES>
+         </PARAM_VALUES>
+      </SYSTEM_MOD_ID>
+      <AVAIL>
+      </AVAIL>
+   </Language>
+   <JobDescription>
+      <DefaultJob name="DefaultJob">
+         <Job MODIFY="wildcard">
+            <GROUP name="GROUP_ID_ID"/>
+            <NAME range="0,100" type="EDIT" default="" editable="N" basic="Y"/>
+            <VAL_ELEM>
+               <ELEM1 what="VALUE" trans="N" elem="NAME"/>
+            </VAL_ELEM>
+            <ID_ELEM>
+               <ELEM1 what="STRING" trans="N" elem="JOB"/>
+            </ID_ELEM>
+         </Job>
+         <HistoryEntry MODIFY="wildcard">
+            <GROUP name="GROUP_ID_ID"/>
+            <val range="0,100" type="EDIT" default="" editable="N" basic="Y"/>
+            <VAL_ELEM>
+               <ELEM1 what="VALUE" trans="N" elem="val"/>
+            </VAL_ELEM>
+            <ID_ELEM>
+               <ELEM1 what="STRING" trans="N" elem="History Entry"/>
+            </ID_ELEM>
+         </HistoryEntry>
+         <Status>
+            <val type="EDIT" range="0,100" editable="N" red="ERR_EXTERN_PROG_CALL|ERR_ID_NOT_FOUND|ERR_EXPAND_LIMIT_REACHED|ERR_EXTERN_PROG_TIMEOUT|ERR_EXTERN_PROG_STOP|ERR_EXTERN_PROG_ABORTED|ERR_ABORTED_DEBUG_LOOP|ERR_NO_IOR|ERR_NO_SOURCENAME|ERR_NO_TARGETNAME|EX_UNKNOWN|EX_FAILED|EX_INVALIDACTIVITY|EX_INVALIDOPERATION|ERR_CONNECTION_TIMEOUT|ERR_CANT_CONNECT|ERR_UNKNOWN|ERR_SUSPEND|ERR_FINI|ERR_FILESERVER_CONNECT|ERR_SEND_FILE|ERR_JOB_ALREADY_EXISTS|ERR_JOB_STATE|ERR_FIND_JOB|ERR_UNKNOWNPLUGIN|ERR_LOADPLUGIN|ERR_EXECUTEPLUGIN|ERR_RESOLVEPLUGINENTRY|ERR_FLUSH_JOB|ERR_NO_JOBS_STARTED|ERR_RESUME|ERR_START_TASK|ERR_TASK_PUT_QUEUE|ERR_FIND_WF|ERR_ADD_WF|ERR_DELETE_WF|ERR_FIND_WU" default="" green="ERR_OK|OK" basic="Y"/>
+         </Status>
+         <InternalState>
+            <val type="EDIT" range="0,100" editable="N" red="WAITTOSUSPEND|SUSPENDED" default="" cyan="UNDEFINED|ADDED|TRANSFERED" green="RUNNING|DONE|FINISHED" yellow="QUEUED|RESTARTED|REPEAT" gray="DELETED" basic="Y"/>
+         </InternalState>
+         <WFName>
+            <val editable="N" range="0,100" type="EDIT" default="" basic="Y"/>
+         </WFName>
+         <ChangeTime>
+            <val editable="N" range="0,100" type="EDIT" default="" basic="Y"/>
+         </ChangeTime>
+         <WFPos>
+            <val editable="N" range="0,100" type="EDIT" default="" basic="Y"/>
+         </WFPos>
+      </DefaultJob>
+   </JobDescription>
+   <StationDescription>
+      <StationDescription name="StationDescription">
+         <Station MODIFY="wildcard">
+            <GROUP name="GROUP_ID_ID"/>
+            <NAME range="0,100" type="EDIT" default="" editable="N" basic="Y"/>
+            <VAL_ELEM>
+               <ELEM1 what="VALUE" trans="N" elem="NAME"/>
+            </VAL_ELEM>
+            <ID_ELEM>
+               <ELEM1 what="STRING" trans="N" elem="WORKING UNIT"/>
+            </ID_ELEM>
+         </Station>
+         <FULLNAME>
+            <val editable="Y" range="0,100" type="EDIT" default="" basic="Y"/>
+         </FULLNAME>
+         <INTERNNAME>
+            <val editable="Y" range="0,100" type="EDIT" default="" basic="Y"/>
+         </INTERNNAME>
+         <INTERNALNAME>
+            <val editable="Y" range="0,100" type="EDIT" default="" basic="Y"/>
+         </INTERNALNAME>
+         <TYPE>
+            <val editable="N" range="0,50" type="EDIT" default="" basic="Y"/>
+         </TYPE>
+         <PROJECT>
+            <val editable="Y" range="0,100" type="EDIT" default="" basic="Y"/>
+         </PROJECT>
+         <VERSION>
+            <val editable="Y" range="0,100" type="EDIT" default=""/>
+         </VERSION>
+         <TIMEOUT>
+            <val editable="Y" range="0,5000" type="INT" default="" basic="Y"/>
+         </TIMEOUT>
+         <COMMAND>
+            <val editable="Y" range="0,400" type="EDIT" default="" basic="Y"/>
+         </COMMAND>
+         <IGNOREEXITCODE>
+            <val editable="Y" range="Y|N" type="BOOL" default="N"/>
+         </IGNOREEXITCODE>
+         <THREADS>
+            <val editable="Y" range="1,100" type="INT" default=""/>
+         </THREADS>
+         <LOGNAME>
+            <val editable="Y" range="0,100" type="EDIT" default=""/>
+         </LOGNAME>
+         <LOGSTDOUT>
+            <val editable="Y" range="Y|N" type="BOOL" default="Y"/>
+         </LOGSTDOUT>
+         <LOGLEVEL>
+            <val editable="Y" range="LOG_OFF|LOG_RUN|LOG_FATAL|LOG_ERROR|LOG_WARN|LOG_INFO|LOG_DEBUG|LOG_TRACE" type="OPT" default="LOG_WARN"/>
+         </LOGLEVEL>
+         <Status>
+            <val editable="N" range="0,100" type="EDIT" red="Error" default="" green="Running" yellow="Stopped" basic="Y"/>
+         </Status>
+      </StationDescription>
+   </StationDescription>
+   <StatisticDescription>
+      <StatisticDescription name="StatisticDescription"/>
+   </StatisticDescription>
+   <LogDescription>
+      <LogDescription name="LogDescription"/>
+   </LogDescription>
+   <SessionDescription>
+      <SessionDescription name="SessionDescription">
+         <SESSION MODIFY="wildcard">
+            <Name type="EDIT" range="0,100" default=""/>
+            <ID_ELEM>
+               <ELEM1 what="STRING" trans="N" elem="Session ID"/>
+            </ID_ELEM>
+            <VAL_ELEM>
+               <ELEM1 what="VALUE" trans="N" elem="Name"/>
+            </VAL_ELEM>
+         </SESSION>
+      </SessionDescription>
+   </SessionDescription>
+   <UserDescription>
+      <UserDescription name="UserDescription">
+         <USER MODIFY="wildcard">
+            <Name type="EDIT" range="0,100" default=""/>
+            <ID_ELEM>
+               <ELEM1 what="STRING" trans="N" elem="User ID"/>
+            </ID_ELEM>
+            <VAL_ELEM>
+               <ELEM1 what="VALUE" trans="N" elem="Name"/>
+            </VAL_ELEM>
+         </USER>
+      </UserDescription>
+   </UserDescription>
+   <WorkflowDescription>
+      <WorkflowDescription name="WorkflowDescription">
+         <Workflow MODIFY="wildcard">
+            <VAL_ELEM>
+               <ELEM1 what="VALUE" trans="N" elem="NAME"/>
+            </VAL_ELEM>
+            <ID_ELEM>
+               <ELEM1 what="STRING" trans="N" elem="Process"/>
+            </ID_ELEM>
+         </Workflow>
+         <COMMENT>
+            <val editable="N" range="0,500" type="EDIT" default=""/>
+         </COMMENT>
+         <INTERNALNAME>
+            <val editable="N" range="0,500" type="EDIT" default=""/>
+         </INTERNALNAME>
+         <PROJECT>
+            <val editable="N" range="0,500" type="EDIT" default=""/>
+         </PROJECT>
+         <VERSION>
+            <val editable="N" range="0,500" type="EDIT" default=""/>
+         </VERSION>
+      </WorkflowDescription>
+      <ProcessDescription name="ProcessDescription">
+         <Workflow MODIFY="wildcard">
+            <VAL_ELEM>
+               <ELEM1 what="VALUE" trans="N" elem="NAME"/>
+            </VAL_ELEM>
+            <ID_ELEM>
+               <ELEM1 what="STRING" trans="N" elem="Process"/>
+            </ID_ELEM>
+         </Workflow>
+         <COMMENT>
+            <val editable="N" range="0,500" type="EDIT" default=""/>
+         </COMMENT>
+         <INTERNALNAME>
+            <val editable="N" range="0,500" type="EDIT" default=""/>
+         </INTERNALNAME>
+         <PROJECT>
+            <val editable="N" range="0,500" type="EDIT" default=""/>
+         </PROJECT>
+         <VERSION>
+            <val editable="N" range="0,500" type="EDIT" default=""/>
+         </VERSION>
+      </ProcessDescription>
+   </WorkflowDescription>
+   <Licenses timeout="600000" amount="50"/>
+   <Modules Authentication="Y" ExternApplications="Y" LookAndFeels="Y" Toolbars="Y" Scenarios="Y" Workflows="Y" Logs="Y" Statistics="N" Stations="Y" Jobs="Y" Devices="N" Users="N" Sessions="Y"/>
+   <Scenarios>
+      <STARTSCENARIO_ID name="STARTSCENARIO_ID">
+         <Window1 module="JOBS_MOD_ID" height="500" workingset="WS_ALL_JOBS" y="0" width="800" x="0"/>
+         <Window2 module="WORKFLOWS_MOD_ID" height="500" workingset="WS_ALL_WORKFLOWS" y="50" width="800" x="50"/>
+         <Window3 module="SYSTEM_MOD_ID" height="500" workingset="WS_ALL_WUS" y="100" width="800" x="100"/>
+      </STARTSCENARIO_ID>
+      <SCENARIO_WUS_DETAILED_ID name="SCENARIO_WUS_DETAILED_ID">
+         <Window1 module="SYSTEM_MOD_ID" workingset="WS_DEFECTIVE_WUS" x="0" y="0" width="1000" height="300"/>
+         <Window2 module="SYSTEM_MOD_ID" workingset="WS_RUNNING_WUS" x="0" y="300" width="1000" height="300"/>
+         <Window3 module="SYSTEM_MOD_ID" workingset="WS_STOPPED_WUS" x="0" y="600" width="1000" height="300"/>
+      </SCENARIO_WUS_DETAILED_ID>
+      <SCENARIO_JOBS_DETAILED_ID name="SCENARIO_JOBS_DETAILED_ID">
+         <Window1 module="JOBS_MOD_ID" workingset="WS_MY_JOBS" x="0" y="0" width="1000" height="300"/>
+         <Window2 module="JOBS_MOD_ID" workingset="WS_JOBS_IN_PROCESS" x="0" y="300" width="1000" height="300"/>
+         <Window3 module="JOBS_MOD_ID" workingset="WS_DEFECTIVE_JOBS" x="0" y="600" width="1000" height="300"/>
+      </SCENARIO_JOBS_DETAILED_ID>
+   </Scenarios>
+   <ToolBars>
+      <ToolBar0 visible="Y" name="CONFIG_MNU_ID">
+         <Button0 visible="Y" name="CONFIG_SETTINGS_MIT_ID"/>
+      </ToolBar0>
+      <ToolBar1 visible="N" name="CONFIG_MNU_ID/CONFIG_LANG_MIT_ID">
+         <!-- is in director-de.xml Button0 visible="Y" name="Deutsch"/ -->
+         <!-- is in director-en.xml Button1 visible="Y" name="English"/ -->
+         <Button0 name="Deutsch" visible="N"></Button0>
+         <Button1 name="English" visible="N"></Button1></ToolBar1>
+      <ToolBar2 visible="Y" name="VIEW_MNU_ID">
+         <Button0 visible="N" name="VIEW_JOBS_MIT_ID"></Button0>
+         <Button1 visible="Y" name="VIEW_WORKFLOWS_MIT_ID"/>
+         <Button2 visible="Y" name="VIEW_STATIONS_MIT_ID"/>
+         <Button3 visible="Y" name="VIEW_SAVE_SCENARIO_MIT_ID"/>
+         <Button4 visible="Y" name="VIEW_DEL_SCENARIO_MIT_ID"/>
+         <Button5 name="VIEW_SESSIONS_MIT_ID" visible="N"></Button5>
+         <Button6 name="VIEW_LOGS_MIT_ID" visible="N"></Button6></ToolBar2>
+      <ToolBar3 visible="Y" name="VIEW_MNU_ID/VIEW_SCENARIO_MIT_ID">
+         <Button0 visible="Y" name="VIEW_SCENARIO_START_MIT_ID"/>
+      </ToolBar3>
+      <ToolBar4 visible="N" name="HELP_MNU_ID">
+         <Button0 visible="N" name="HELP_DIRECTHELP_MIT_ID"/>
+      </ToolBar4>
+      <ToolBar5 visible="N" name="DEBUG_MNU_ID">
+         <Button0 visible="N" name="DEBUG_MEM_MIT_ID"/>
+      </ToolBar5>
+      <ToolBar6 visible="N" name="FILE_MNU_ID">
+         <Button0 visible="N" name="FILE_EXIT_MIT_ID"/>
+         <Button1 visible="N" name="FILE_SAVE_MIT_ID"/>
+         <Button2 visible="N" name="FILE_CLOSE_MIT_ID"/>
+         <Button3 visible="N" name="FILE_PRINT_MIT_ID"/>
+      </ToolBar6>
+   </ToolBars>
+   <WorkingSets>
+      <STATISTICS_MOD_ID/>
+      <WORKFLOWS_MOD_ID>
+         <WS_ALL_WORKFLOWS name="WS_ALL_WORKFLOWS" changeable="N">
+            <Columns>
+               <Column0 name="DUMMYCOLUMN"/>
+            </Columns>
+         </WS_ALL_WORKFLOWS>
+      </WORKFLOWS_MOD_ID>
+      <LOGS_MOD_ID>
+         <x name="__________"/>
+         <dpfserver.log name="dpfserver.log"/>
+         <dpfclient.log name="dpfclient.log"/>
+      </LOGS_MOD_ID>
+      <SESSIONS_MOD_ID>
+         <WS_ALL_SESSIONS name="WS_ALL_SESSIONS"/>
+      </SESSIONS_MOD_ID>
+      <USERS_MOD_ID/>
+      <SYSTEM_MOD_ID>
+         <WS_ALL_WUS name="WS_ALL_WUS" changeable="N">
+            <Columns>
+               <Column0 name="DUMMYCOLUMN"/>
+            </Columns>
+         </WS_ALL_WUS>
+         <WS_RUNNING_WUS name="WS_RUNNING_WUS" changeable="N">
+            <Columns>
+               <Column1 name="Status">
+                  <Filter name="val" val="Running"/>
+               </Column1>
+            </Columns>
+         </WS_RUNNING_WUS>
+         <WS_STOPPED_WUS name="WS_STOPPED_WUS" changeable="N">
+            <Columns>
+               <Column1 name="Status">
+                  <Filter name="val" val="Stopped"/>
+               </Column1>
+            </Columns>
+         </WS_STOPPED_WUS>
+         <WS_DEFECTIVE_WUS name="WS_DEFECTIVE_WUS" changeable="N">
+            <Columns>
+               <Column1 name="Status">
+                  <Filter name="val" val="Error"/>
+               </Column1>
+            </Columns>
+         </WS_DEFECTIVE_WUS>
+      </SYSTEM_MOD_ID>
+      <JOBS_MOD_ID>
+         <WS_ALL_JOBS name="WS_ALL_JOBS" changeable="N">
+            <Columns>
+               <Column0 name="DUMMYCOLUMN"/>
+            </Columns>
+         </WS_ALL_JOBS>
+         <WS_MY_JOBS name="WS_MY_JOBS" case="N" changeable="N">
+            <Columns>
+               <Column0 name="ORIGUSERNAME">
+                  <Filter name="val" val="%USERNAME%"/>
+               </Column0>
+            </Columns>
+         </WS_MY_JOBS>
+         <WS_JOBS_IN_PROCESS name="WS_JOBS_IN_PROCESS" changeable="N">
+            <Columns visible="all">
+               <Column1 name="InternalState">
+                  <Filter name="val" val="RUNNING|ADDED|TRANSFERED|QUEUED|RESTARTED|REPEAT|DONE"/>
+               </Column1>
+            </Columns>
+         </WS_JOBS_IN_PROCESS>
+         <WS_FINISHED_JOBS name="WS_FINISHED_JOBS" changeable="N">
+            <Columns visible="all">
+               <Column1 name="InternalState">
+                  <Filter name="val" val="FINISHED"/>
+               </Column1>
+            </Columns>
+         </WS_FINISHED_JOBS>
+         <WS_DEFECTIVE_JOBS name="WS_DEFECTIVE_JOBS" changeable="N">
+            <Columns visible="all">
+               <Column1 name="InternalState">
+                  <Filter name="val" val="ERROR"/>
+               </Column1>
+            </Columns>
+         </WS_DEFECTIVE_JOBS>
+      </JOBS_MOD_ID>
+   </WorkingSets>
+   <General name="General">
+      <Images name="Images">
+         <Background type="TILE" name="Background Image" url="doc://:/background.gif"/>
+      </Images>
+      <Sounds name="Sounds">
+         <Welcome name="Welcome Sound" url="doc://:/welcome.mid"/>
+      </Sounds>
+   </General>
+   <LookAndFeel Type="com.sun.java.swing.plaf.windows.WindowsLookAndFeel" Theme="javax.swing.plaf.metal.DefaultMetalTheme"/>
+   <Mail Sender="name@server.com" SMTP="server.com"/>
+   <ClientUpdate>
+      <JOBS_MOD_ID interval="5000"/>
+      <WORKFLOWS_MOD_ID interval="5000"/>
+      <SYSTEM_MOD_ID interval="5000"/>
+      <USERS_MOD_ID interval="0"/>
+      <SESSIONS_MOD_ID interval="30000"/>
+      <LOGS_MOD_ID interval="0"/>
+   </ClientUpdate>
+</DPF>

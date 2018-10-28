@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <sendback
+        NAME="Send file(s) back to dpfclient"
+        VERSION="$Id: wu-sendback.xml,v 1.7 2008/04/24 15:49:32 stefan Exp $"
+        PROJECT="FileTransfer"
+        TYPE="WUSendFile"
+        LOGNAME="dpfsendback"
+        LOGLEVEL="LOG_DEBUG"
+        OVERWRITE="Y"
+        >
+        <DEFAULTS
+          IOR="%ORIGFILESERVERIOR%"
+          SOURCE="%CURRFILENAME%"
+          TARGETFILE="%TARGETFILENAME%"
+          OVERWRITE="Y"
+          />
+        <INPUT
+          ORIGFILESERVERIOR=""
+          CURRFILENAME=""
+          TARGETFILENAME=""
+          />
+      </sendback>
+    </workingunits>
+  </config>
+</DPF>

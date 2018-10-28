@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <DPF4CONVERT.dvsfilecheck_init
+        CODEPAGE="ISO-8859-1"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/dvsfilecheck_init.pl -parfile %PARFILENAME%"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGNAME=""
+        LOGSTDOUT="Y"
+        NAME="Dvsfilecheck Init"
+        NODENAMES=""
+        PROJECT="DPF4CONVERT"
+        THREADS="1"
+        TIMEOUT=""
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-dvsfilecheck_init.xml,v 1.1 2011/05/18 14:25:59 kig Exp $"
+        />
+    </workingunits>
+  </config>
+</DPF>

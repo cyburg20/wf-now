@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <tiffsplit
+        NAME="dpf4c - Split TIFF"
+        VERSION="$Id: wu-tiffsplit.xml,v 1.2 2005/04/18 12:21:43 wolfi Exp $"
+        PROJECT="DPF4CONVERT"
+        TYPE="WUSystemCall"
+        LOGNAME="dpf4c-tiffsplit"
+        LOGSTDOUT="Y"
+        LOGLEVEL="LOG_INFO"
+        THREADS="1"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/tiffsplit.pl -parfile %PARFILENAME%"
+        >
+	<DEFAULTS
+          WU_ENABLE_DEBUG_LOOP="N"
+          DPF4C_TIFFSPLIT_CREATE_HEADERS="N"
+          />
+        <INPUT
+          PARFILENAME="*"
+          CURRFILENAME="*"
+          CURRFILETYPE="tif"
+          />
+        <OUTPUT
+          CURRFILENAME="*"
+          CURRFILETYPE="tif"
+          />
+      </tiffsplit>
+    </workingunits>
+  </config>
+</DPF>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <PDF2HTML.ChangeIntraPDFDefaults
+        COMMAND="%DPFSRV%/scripts/pdf2html/changeintrapdfdefaults.pl -parfile %PARFILENAME%"
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGSTDOUT="Y"
+        NAME="ChangeIntraPDFDefaults"
+        PROJECT="PDF2HTML"
+        Status="Running"
+        THREADS="1"
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-changeintrapdfdefaults.xml,v 1.4 2007/09/14 05:36:04 tobias Exp $"
+        >
+        <DEFAULTS/>
+        <INPUT>
+          <NEW_DEFAULTS
+            DESCRIPTION="file w/ the new defaults (mandatory)"
+            MANDATORY="true"
+            TYPE="TEXT"
+            />
+          <OLD_DEFAULTS
+            DESCRIPTION="file w/ the original defaults (mandatory)"
+            MANDATORY="true"
+            TYPE="TEXT"
+            />
+        </INPUT>
+      </PDF2HTML.ChangeIntraPDFDefaults>
+    </workingunits>
+  </config>
+</DPF>

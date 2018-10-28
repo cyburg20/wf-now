@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workflows>
+      <Test.Speedometer
+        COMMENT=""
+        DPFINT-Icon="doc://:/wf.gif"
+        DPFINT-Type="WorkflowDescription"
+        INTERNALNAME="Test.Speedometer"
+        NAME="Speedometer"
+        PROJECT="Test"
+        VERSION="$Id: wf-speedometer.xml,v 1.3 2006/11/10 20:24:03 stefan Exp $"
+        >
+        <DEFAULTS
+          DPFINT-Icon="doc://:/defaults.gif"
+          />
+        <MAIN
+          BEGIN="Test.callJobs1"
+          NAME=""
+          />
+        <MAPPING/>
+        <Test.callJobs1
+          COMMENT=""
+          ERROR="END"
+          NAME="Test.callJobs"
+          NEXT="END"
+          POSX="100"
+          POSY="100"
+          TYPE="WU"
+          >
+          <DEFAULTS
+            NUM_OF_JOBS="100"
+            NUM_OF_PARALLEL_JOBS="10"
+            SUB_WFNAME="Test.sleep1thread"
+            />
+          <MAPPING/>
+        </Test.callJobs1>
+      </Test.Speedometer>
+    </workflows>
+  </config>
+</DPF>

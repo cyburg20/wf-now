@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workflows>
+      <!-- USER EXIT PROCESS FOR APPLICATION CONVERSIONS --> 
+      <dpf4c_user_pre_appkonv
+        NAME="DPF 4 Convert - SubProcess User Exit dpf4c_appkonv"
+        VERSION="$Id: wf-dpf4c_user_pre_appkonv.customer.xml.example,v 1.1 2005/08/23 13:39:04 ludwig Exp $"
+        PROJECT="DPF4CONVERT"
+        COMMENT="dpf4convert - USER EXIT PROCESS FOR APPLICATION CONVERSIONS"
+        DPFINT-Type="WorkflowDescription"
+        DPFINT-Changes="0"
+        >
+        <MAIN
+          BEGIN="your_customer_workingunit"
+          ERROR="sp-dpf4c_error"
+          LOGLEVEL="I"     
+        />
+        <your_customer_workingunit
+          NAME="your_customer_workingunit"
+          NEXT="END"
+          />
+        <sp-dpf4c_error
+          USE="dpf4c_error"
+          NEXT="END"
+          />
+      </dpf4c_user_pre_appkonv>
+    </workflows>
+  </config>
+</DPF>

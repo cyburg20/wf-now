@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workflows>
+      <doc2pdf
+        NAME="DPF 4 Convert - Microsoft Word DOC to PDF"
+        VERSION="$Id: wf-doc2pdf.xml,v 1.11 2007/06/29 10:10:21 ludwig Exp $"
+        PROJECT="DPF4CONVERT"
+        COMMENT="dpf4convert - Convert process Microsoft Word DOC to PDF"
+        DPFINT-Type="WorkflowDescription"
+        DPFINT-Changes="0"
+        >
+        <MAIN
+          BEGIN="office2ps"
+          ERROR="END"
+          />
+        <office2ps
+          USE="office2ps"
+          NEXT="check_currfiletype"
+          />
+        <check_currfiletype
+          TYPE="IF-THEN-ELSE"
+          PROPERTY="CURRFILETYPE"
+          OPERATOR="contains"
+          VALUE="pdf"
+          THEN="END"
+          ELSE="check_destformat"
+          />
+        <check_destformat
+          TYPE="IF-THEN-ELSE"
+          PROPERTY="DPF4C_COMMON_DEST_FORMAT"
+          OPERATOR="contains"
+          VALUE="ps"
+          THEN="END"
+          ELSE="ps2pdfg"
+          />
+        <ps2pdfg
+          USE="ps2pdfg"
+          NEXT="END"
+          />
+      </doc2pdf>
+    </workflows>
+  </config>
+</DPF>

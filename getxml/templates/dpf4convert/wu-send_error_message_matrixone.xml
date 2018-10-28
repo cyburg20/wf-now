@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <send_error_message_matrixone
+        NAME="dpf4c - Send error message to matrixone"
+        VERSION="$Id: wu-send_error_message_matrixone.xml,v 1.2 2005/04/18 12:21:43 wolfi Exp $"
+        PROJECT="DPF4CONVERT"
+        TYPE="WUSystemCall"
+        LOGNAME="dpf4c-send_error_message_matrixonmatrixone"
+        LOGSTDOUT="Y"
+        LOGLEVEL="LOG_INFO"
+        THREADS="1"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/send_error_message_matrixone.pl -parfile %PARFILENAME%">
+        <DEFAULTS
+          WU_ENABLE_DEBUG_LOOP="N"
+          />
+        <INPUT
+          />
+        <OUTPUT
+          />
+      </send_error_message_matrixone>
+    </workingunits>
+  </config>
+</DPF>

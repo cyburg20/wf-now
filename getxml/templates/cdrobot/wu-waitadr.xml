@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <CdRobot.waitAdr
+        COMMAND="%DPFSRV%/scripts/cdrobot/waitadr.pl -parfile %PARFILENAME%"
+        DPFINT-FileLinks="doc://:/%DPFSRV%/scripts/cdrobot/waitadr.pl"
+        DPFINT-Icon="doc://:/wu.gif"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGNAME=""
+        LOGSTDOUT="Y"
+        NAME="Wait for CD job in ADR robot"
+        PROJECT="CdRobot"
+        THREADS="1"
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-waitadr.xml,v 1.5 2007/03/01 09:12:40 stefan Exp $"
+        >
+        <DEFAULTS
+          DPFINT-Icon="doc://:/defaults.gif"
+          PMASTER_BINDIR=""
+          WU_ENABLE_DEBUG_LOOP="N"
+          />
+        <INPUT
+          DPFINT-Icon="doc://:/wu-input.gif"
+          PMASTER_BINDIR="*"
+          WU_ENABLE_DEBUG_LOOP="*"
+          />
+        <OUTPUT
+          DPFINT-Icon="doc://:/wu-output.gif"
+          />
+      </CdRobot.waitAdr>
+    </workingunits>
+  </config>
+</DPF>

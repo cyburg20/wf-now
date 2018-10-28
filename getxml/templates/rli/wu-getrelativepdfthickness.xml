@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <Rli.getRelativePdfThickness
+        CODEPAGE="UTF8"
+        COMMAND="%DPFSRV%/scripts/rli/getrelativepdfthickness.pl -parfile %PARFILENAME%"
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGSTDOUT="Y"
+        NAME="Get Relative PDF Thickness"
+        NODENAMES=""
+        PROJECT="Rli"
+        THREADS="3"
+        TIMEOUT=""
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-getrelativepdfthickness.xml,v 1.3 2010/10/28 15:57:06 stefan Exp $"
+        >
+        <OUTPUT/>
+      </Rli.getRelativePdfThickness>
+    </workingunits>
+  </config>
+</DPF>

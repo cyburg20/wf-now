@@ -1,0 +1,28 @@
+<DPF>
+  <config>
+    <workflows>
+      <pdfcheck_settings
+        NAME="DPF 4 Convert - pdfcheck_settings"
+        VERSION="$Id: wf-pdfcheck_settings.xml,v 1.3 2007/02/08 14:19:20 ludwig Exp $"
+        PROJECT="DPF4CONVERT"
+        COMMENT="dpf4convert - (Customer) Settings for pdfcheck process."
+        DPFINT-Type="WorkflowDescription"
+        DPFINT-Changes="0"
+        >
+        <MAIN
+          BEGIN="set_parameters"
+          ERROR="END"
+          />
+        <set_parameters
+          TYPE="MODIFY"
+          NEXT="END"
+        >
+          <SET
+          ENABLE_PDF_CHECK="Y"
+          zzz_off_DPF4C_AUTHORIZE_ACTIVATE=""
+          />
+        </set_parameters>
+      </pdfcheck_settings>
+    </workflows>
+  </config>
+</DPF>

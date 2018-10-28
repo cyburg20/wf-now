@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <plm_data_mapping_sap
+        CODEPAGE="UTF8"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/plm_data_mapping_sap.pl -parfile %PARFILENAME%"
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        LOGLEVEL="LOG_INFO"
+        LOGNAME="dpf4c-plm_data_mapping_sap"
+        LOGSTDOUT="Y"
+        NAME="dpf4c - PLM data mapping sap specific."
+        NODENAMES=""
+        PROJECT="DPF4CONVERT"
+        THREADS="1"
+        TIMEOUT=""
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-plm_data_mapping_sap.xml,v 1.12 2012/11/15 12:24:17 kig Exp $"
+        >
+        <DEFAULTS
+           SAP_MESSAGE="default notification from DPF"
+           SAP_NOTIFY_LEVEL="I"
+           SWITCH_COPY_CLASS_DATA_TO_USER_DATA_PROPERTIES="N"
+           SWITCH_MAP_CLASSDATATXT_TO_DPF_PARAMETERS="N"
+           SWITCH_MAP_DOCUMENTDATATXT_TO_DPF_PARAMETERS="N"
+           SWITCH_MAP_ECMDATATXT_TO_DPF_PARAMETERS="N"
+           SWITCH_MAP_EXPORTDATATXT_TO_DPF_PARAMETERS="N"
+           SWITCH_MAP_LONGTEXTSTXT_TO_DPF_PARAMETERS="N"
+           SWITCH_MAP_OBJECTLINKSTXT_TO_DPF_PARAMETERS="N"
+           SWITCH_USE_USERDATA_UTF8TXT="N"
+           USERDATA_SECTIONS_TO_SKIP=""
+          />
+         <INPUT
+           SWITCH_COPY_CLASS_DATA_TO_USER_DATA_PROPERTIES="Y|!N!"
+           SWITCH_MAP_OBJECTLINKSTXT_TO_DPF_PARAMETERS="Y|!N!"
+           PLM_DATA_MAPPING_FORMAT_STRING_OBJECTLINKS="string"
+           SWITCH_MAP_DOCUMENTDATATXT_TO_DPF_PARAMETERS="Y|!N!"
+           SWITCH_MAP_ECMDATATXT_TO_DPF_PARAMETERS="Y|!N!"
+           SWITCH_MAP_EXPORTDATATXT_TO_DPF_PARAMETERS="Y|!N!"
+           SWITCH_MAP_CLASSDATATXT_TO_DPF_PARAMETERS="Y|!N!"
+           SWITCH_MAP_LONGTEXTSTXT_TO_DPF_PARAMETERS="Y|!N!"
+           SWITCH_USE_USERDATA_UTF8TXT="Y|!N!"
+           USERDATA_SECTIONS_TO_SKIP="string"
+          />
+         <OUTPUT
+          CURRFILENAME="*"
+          />
+      </plm_data_mapping_sap>
+    </workingunits>
+  </config>
+</DPF>

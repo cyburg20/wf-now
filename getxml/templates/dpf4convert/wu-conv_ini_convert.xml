@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <DPF4CONVERT.conv_ini_convert
+        NAME="conv_ini - Convert files from SAP by INI-file"
+        VERSION="$Id: wu-conv_ini_convert.xml,v 1.2 2014/05/20 08:28:42 kig Exp $"
+        PROJECT="DPF4CONVERT"
+        TYPE="WUSystemCall"
+        LOGNAME="dpf4c-conv_ini_convert"
+        LOGSTDOUT="Y"
+        LOGLEVEL="LOG_INFO"
+        THREADS="2"
+        TRACEIGNOREEXITCODE="N"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/conv_ini_convert.pl -parfile %PARFILENAME%">
+        <DEFAULTS
+          WU_ENABLE_DEBUG_LOOP="N"
+          DPF4C_COMMON_TIMEOUT="10"
+          />
+        <INPUT
+          CURRFILENAME="*"
+          />
+        <OUTPUT
+          CURRFILENAME="*"
+          ERR_REASON="*"
+          />
+      </DPF4CONVERT.conv_ini_convert>
+    </workingunits>
+  </config>
+</DPF>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workflows>
+      <!-- USER EXIT PROCESS AFTER CHECKIN OF FILES DEPENDING ON PLM SYSTEM --> 
+      <dpf4c_user_post_checkin
+        NAME="DPF 4 Convert - SubProcess dpf4c_user_post_checkin"
+        VERSION="$Id: wf-dpf4c_user_post_checkin.xml,v 1.1 2009/01/29 08:36:52 kig Exp $"
+        PROJECT="DPF4CONVERT"
+        COMMENT="dpf4convert - USER EXIT PROCESS AFTER CHECKIN OF FILES DEPENDING ON PLM SYSTEM"
+        DPFINT-Type="WorkflowDescription"
+        DPFINT-Changes="0"
+        >
+        <MAIN
+          BEGIN="END"
+          ERROR="END"
+          LOGLEVEL="I"     
+        />
+      </dpf4c_user_post_checkin>
+    </workflows>
+  </config>
+</DPF>

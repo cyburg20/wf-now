@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <String.split
+        CODEPAGE="ISO-8859-1"
+        COMMAND="%DPFSRV%/scripts/string/split.pl -parfile %PARFILENAME%"
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGSTDOUT="Y"
+        NAME="Split"
+        NODENAMES=""
+        PROJECT="String"
+        THREADS="1"
+        TIMEOUT=""
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-split.xml,v 1.3 2016/02/29 17:30:14 sek Exp $"
+        >
+        <DEFAULTS
+          TargetParamsBaseName="TargetSplitParam"
+          />
+        <INPUT>
+          <SplitRegEx
+            DESCRIPTION="regular expression to split with (e.x. \s+ for at least one whitespace), blank is default"
+            TYPE="TEXT"
+            />
+          <SplitSubStringLengthList
+            DESCRIPTION="whitespace separated list of numbers. If set, SplitRegEx will be ignored. Each number sets the length each string part."
+            TYPE="TEXT"
+            />
+          <String
+            DESCRIPTION="string to split"
+            TYPE="TEXT"
+            />
+          <TargetParamsBaseName
+            DEFAULT="TargetSplitParam"
+            DESCRIPTION="the splitted parts will be written into params with this basename"
+            TYPE="TEXT"
+            />
+        </INPUT>
+        <OUTPUT/>
+      </String.split>
+    </workingunits>
+  </config>
+</DPF>

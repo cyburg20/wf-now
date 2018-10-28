@@ -1,0 +1,35 @@
+<DPF>
+  <config>
+    <workflows>
+      <pdfmerge
+        NAME="DPF 4 Convert - pdfmerge"
+        VERSION="$Id: wf-pdfmerge.xml,v 1.3 2007/01/18 12:38:51 ludwig Exp $"
+        PROJECT="DPF4CONVERT"
+        COMMENT="dpf4convert - Merge at least two PDFs together"
+        DPFINT-Type="WorkflowDescription"
+        DPFINT-Changes="0"
+        >
+        <MAIN
+          BEGIN="pdfmerge"
+          ERROR="END"
+          />
+        <pdfmerge
+          NAME="pdfmerge"
+          NEXT="check_quality"
+          />
+        <check_quality
+          TYPE="IF-THEN-ELSE"
+          PROPERTY="DESTINATION_FORMAT_QUALITY"
+          OPERATOR="contains"
+          VALUE="pdfa"
+          THEN="pdfmeta"
+          ELSE="END"
+          />
+        <pdfmeta
+          NAME="pdfmeta"
+          NEXT="END"
+          />
+      </pdfmerge>
+    </workflows>
+  </config>
+</DPF>

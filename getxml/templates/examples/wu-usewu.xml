@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <Examples.useWu
+        COMMAND="%DPFSRV%/scripts/examples/usewu.pl -parfile %PARFILENAME%"
+        DPFINT-FileLinks="doc://:/%DPFSRV%/scripts/examples/usewu.pl"
+        DPFINT-Icon="doc://:/wu.gif"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGNAME=""
+        LOGSTDOUT="Y"
+        NAME="Example how to use wu Perl Module"
+        PROJECT="Examples"
+        THREADS="1"
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-usewu.xml,v 1.2 2007/03/01 09:12:43 stefan Exp $"
+        >
+        <DEFAULTS
+          DPFINT-Icon="doc://:/defaults.gif"
+          WU_ENABLE_DEBUG_LOOP="N"
+          />
+        <INPUT
+          DPFINT-Icon="doc://:/wu-input.gif"
+          />
+        <OUTPUT
+          DPFINT-Icon="doc://:/wu-output.gif"
+          ERR_REASON="*"
+          />
+      </Examples.useWu>
+    </workingunits>
+  </config>
+</DPF>

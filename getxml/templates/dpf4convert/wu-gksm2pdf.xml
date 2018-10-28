@@ -1,0 +1,31 @@
+<DPF>
+  <config>
+    <workingunits>
+      <gksm2pdf
+        VERSION="$Id: wu-gksm2pdf.xml,v 1.3 2004/05/14 11:36:59 ludwig Exp $"
+        PROJECT="DPF4CONVERT"
+        TYPE="WUSystemCall"
+        LOGNAME="dpf4c-gksm2pdf"
+        LOGLEVEL="LOG_INFO"
+        THREADS="1"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/gksm2pdf.pl -parfile %PARFILENAME%">
+        <DEFAULTS
+          />
+        <INPUT
+          PARFILENAME="*"
+          CURRFILENAME="*"
+          JOBID="*"
+          LOGLEVEL=""
+          CURRFILETYPE="gksm|otf"
+          />
+	<OUTPUT
+          CURRHEDFILENAME="*"
+          CURRMETFILENAME="*"
+          CURRXMLFILENAME=""
+          CURRFILENAME="*"
+          CURRFILETYPE="pdf"
+          />
+      </gksm2pdf>
+    </workingunits>
+  </config>
+</DPF>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workflows>
+      <DPF4CONVERT.work_on_ps_fileset
+        COMMENT="dpf4convert - Summarize processing steps for a single PS fileset
+
+This process performs the steps ps_fileset_convert, PDF-process, create target formats and PDF-postproc on a single PS fileset."
+        DPFINT-Customer="0"
+        DPFINT-Interactive="0"
+        DPFINT-Type="WorkflowDescription"
+        NAME="Work On PS Fileset - Summarize processing a single PS Fileset"
+        PROJECT="DPF4CONVERT"
+        VERSION="$Id: wf-work_on_ps_fileset.xml,v 1.1 2013/03/15 15:05:26 kig Exp $"
+        >
+        <DEFAULTS/>
+        <DPF4CONVERT.ps_fileset_convert1
+          COMMENT=""
+          ERROR="END"
+          NAME="DPF4CONVERT.ps_fileset_convert"
+          NEXT="DPF4CONVERT.work_on_pdf1"
+          POSX="400"
+          POSY="300"
+          TYPE="WU"
+          >
+          <CONNECTIONS
+            ERROR="DIRECT"
+            NEXT="DIRECT"
+            />
+          <DEFAULTS/>
+          <MAPPING/>
+        </DPF4CONVERT.ps_fileset_convert1>
+        <DPF4CONVERT.work_on_pdf1
+          COMMENT=""
+          ERROR="END"
+          NEXT="END"
+          POSX="400"
+          POSY="500"
+          TYPE="SWF"
+          USE="DPF4CONVERT.work_on_pdf"
+          >
+          <CONNECTIONS
+            ERROR="DIRECT"
+            NEXT="DIRECT"
+            />
+          <DEFAULTS/>
+          <MAPPING/>
+        </DPF4CONVERT.work_on_pdf1>
+        <END
+          COMMENT=""
+          NAME="END"
+          POSX="400"
+          POSY="700"
+          TYPE="STOP"
+          />
+        <MAIN
+          BEGIN="DPF4CONVERT.ps_fileset_convert1"
+          ERROR="sp-dpf4c_error"
+          LOGLEVEL="I"
+          />
+        <MAPPING/>
+      </DPF4CONVERT.work_on_ps_fileset>
+    </workflows>
+  </config>
+</DPF>

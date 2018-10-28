@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <Rli.writeCsv
+        CODEPAGE="ISO-8859-1"
+        COMMAND="%DPFSRV%/scripts/rli/writecsv.pl -parfile %PARFILENAME%"
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGSTDOUT="Y"
+        NAME="Write CSV file"
+        NODENAMES=""
+        PROJECT="Rli"
+        THREADS="5"
+        TIMEOUT=""
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-writecsv.xml,v 1.5 2010/03/02 17:25:18 sek Exp $"
+        >
+        <DEFAULTS
+          AppendCsvLines="N"
+          WriteHeadline="N"
+          />
+        <INPUT>
+          <AppendCsvLines
+            DEFAULT="N"
+            DESCRIPTION="if Y, append new content to existing file"
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </AppendCsvLines>
+          <CurrRliFileName
+            DESCRIPTION="the input RLI file"
+            TYPE="TEXT"
+            />
+          <DestFileName
+            DESCRIPTION="optional: destination file name of CSV file"
+            TYPE="TEXT"
+            />
+          <RliColumns
+            DESCRIPTION="blank separated list of RLI column names to convert into CSV file. Default: all RLI columns"
+            TYPE="TEXT"
+            />
+          <WriteHeadline
+            DEFAULT="N"
+            DESCRIPTION="if Y, also write a headline into CSV file"
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </WriteHeadline>
+        </INPUT>
+        <OUTPUT/>
+      </Rli.writeCsv>
+    </workingunits>
+  </config>
+</DPF>

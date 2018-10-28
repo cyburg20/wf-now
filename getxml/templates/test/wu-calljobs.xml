@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <Test.callJobs
+        COMMAND="%DPFSRV%/scripts/test/calljobs.pl -parfile %PARFILENAME%"
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGNAME=""
+        LOGSTDOUT="Y"
+        NAME="call jobs"
+        PROJECT="Test"
+        Status="Running"
+        THREADS="1"
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-calljobs.xml,v 1.4 2007/03/28 10:39:38 ch Exp $"
+        >
+        <DEFAULTS/>
+        <INPUT>
+          <CURRFILENAME
+            TYPE="TEXT"
+            />
+          <DPF_DEBUG_SUBJOBS
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </DPF_DEBUG_SUBJOBS>
+          <JOBDIR
+            TYPE="TEXT"
+            />
+          <NUM_OF_JOBS
+            TYPE="TEXT"
+            />
+          <NUM_OF_PARALLEL_JOBS
+            TYPE="TEXT"
+            />
+        </INPUT>
+      </Test.callJobs>
+    </workingunits>
+  </config>
+</DPF>

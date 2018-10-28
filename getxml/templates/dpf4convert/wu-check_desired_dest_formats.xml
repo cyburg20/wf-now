@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <check_desired_dest_formats
+        NAME="dpf4c - check desired destination formats."
+        VERSION="$Id: wu-check_desired_dest_formats.xml,v 1.11 2009/02/03 15:53:29 kig Exp $"
+        PROJECT="DPF4CONVERT"
+        TYPE="WUSystemCall"
+        LOGNAME="dpf4c-check_desired_dest_formats"
+        LOGSTDOUT="Y"
+        LOGLEVEL="LOG_INFO"
+        THREADS="5"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/check_desired_dest_formats.pl -parfile %PARFILENAME%">
+        <DEFAULTS
+          WU_ENABLE_DEBUG_LOOP="N"
+          AVAILABLE_DEST_FORMATS="pdf,ps,tiff,tif,cls,pcl,jpg"
+          IGNORE_DEST_FORMATS_FOR_CREATION_PROCESS="dwg,dxf,dwf,jt,stl,igs,iges,stp,set,vda,vrml,step,sat,edraw,prot,prot.xml,adj"
+          />
+        <INPUT
+          />
+        <OUTPUT
+          />
+      </check_desired_dest_formats>
+    </workingunits>
+  </config>
+</DPF>

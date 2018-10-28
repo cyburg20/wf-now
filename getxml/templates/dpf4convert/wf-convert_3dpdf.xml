@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workflows>
+      <DPF4CONVERT.convert_3dpdf
+        COMMENT="dpf4convert - SUBPROCESS CONVERT TO 3D-PDF.
+This subprocess is used to convert a 3D-format to 3D-PDF. It is used from the main processes like SAP CONVERT 3D-PDF inbetween the checkin and checkout subprocesses."
+        DPFINT-Customer="0"
+        DPFINT-Interactive="0"
+        DPFINT-Type="WorkflowDescription"
+        NAME="Convert to 3D-PDF - SubProcess Convert to 3D-PDF"
+        PROJECT="DPF4CONVERT"
+        VERSION="$Id: wf-convert_3dpdf.xml,v 1.1 2011/10/26 07:24:12 kig Exp $"
+        >
+        <DEFAULTS/>
+        <DPF4CONVERT.dpf4c_user_pre_3dpdfconv
+          COMMENT=""
+          ERROR="END"
+          NEXT="alc3dto3dpdf1"
+          POSX="500"
+          POSY="200"
+          TYPE="SWF"
+          USE="DPF4CONVERT.dpf4c_user_pre_3dpdfconv"
+          >
+          <CONNECTIONS
+            ERROR="DIRECT"
+            NEXT="HORIZONTAL"
+            />
+          <DEFAULTS/>
+          <MAPPING/>
+        </DPF4CONVERT.dpf4c_user_pre_3dpdfconv>
+        <END
+          COMMENT=""
+          NAME="END"
+          POSX="600"
+          POSY="1300"
+          TYPE="STOP"
+          />
+        <MAIN
+          BEGIN="check_user_pre_3dpdfconv"
+          ERROR="END"
+          LOGLEVEL="I"
+          />
+        <MAPPING/>
+        <alc3dto3dpdf1
+          COMMENT=""
+          ERROR="END"
+          NAME="alc3dto3dpdf"
+          NEXT="END"
+          POSX="200"
+          POSY="400"
+          TYPE="WU"
+          >
+          <CONNECTIONS
+            ERROR="DIRECT"
+            NEXT="DIRECT"
+            />
+          <DEFAULTS/>
+          <MAPPING/>
+        </alc3dto3dpdf1>
+        <check_user_pre_3dpdfconv
+          COMMENT=""
+          ELSE="alc3dto3dpdf1"
+          OPERATOR="eq"
+          POSX="200"
+          POSY="200"
+          PROPERTY="DPF4C_SWITCH_USER_PRE_3DPDFCONV"
+          THEN="DPF4CONVERT.dpf4c_user_pre_3dpdfconv"
+          TYPE="IF-THEN-ELSE"
+          VALUE="Y"
+          >
+          <CONNECTIONS
+            ELSE="DIRECT"
+            THEN="DIRECT"
+            />
+        </check_user_pre_3dpdfconv>
+      </DPF4CONVERT.convert_3dpdf>
+    </workflows>
+  </config>
+</DPF>

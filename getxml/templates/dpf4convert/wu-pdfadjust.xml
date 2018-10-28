@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <pdfadjust
+        NAME="dpf4c - Try to adjust a pdf file."
+        VERSION="$Id: wu-pdfadjust.xml,v 1.9 2010/03/08 09:08:24 kig Exp $"
+        PROJECT="DPF4CONVERT"
+        TYPE="WUSystemCall"
+        LOGNAME="dpf4c-pdfadjust"
+        LOGSTDOUT="Y"
+        LOGLEVEL="LOG_INFO"
+        THREADS="5"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/pdfadjust.pl -parfile %PARFILENAME%">
+        <DEFAULTS
+          WU_ENABLE_DEBUG_LOOP="N"
+          PDFADJUST_USE_PDFREPAIR="N"
+          PDFADJUST_GET_PROTOCOL="N"
+          PDFADJUST_TEST_FOR_RETURN_VALUE="N"
+          PDFADJUST_CONFIG_DIR="%PLSTOOLS%/convcfg/pdflls"
+          PDFADJUST_CONFIG_FILE="pdfadjust.cfg"
+          PDFADJUST_REPAIR_IF_PDFCHECKER_WORSE_THAN="WARN"
+          />
+        <INPUT
+          CURRFILENAME="*"
+          CURRFILETYPE="pdf"
+          DPF4C_COMMON_TIMEOUT="*"
+          PDFADJUST_USE_PDFREPAIR="Y|N"
+          PDFADJUST_GET_PROTOCOL="Y|N"
+          FILE_CHECK_PDFCHECKER_RESULT_LEVEL="OK|WARN|ERROR|FATAL"
+          DPF4C_COMMON_DEST_FORMAT="*"
+          PDFADJUST_TEST_FOR_RETURN_VALUE="Y|N"
+          PDFADJUST_CONFIG_DIR="directory"
+          PDFADJUST_CONFIG_FILE="filename"
+          PDFADJUST_REPAIR_IF_PDFCHECKER_WORSE_THAN="OK|WARN"
+          />
+    	<OUTPUT
+          CURRFILENAME="*"
+          CURRFILETYPE="pdf"
+          ERR_REASON="*"
+          PDF_CHECK_ADJUST_FILE_MODIFIED="Y"
+          DPF4C_COMMON_OUTFILEadj="file"
+          DPF4C_COMMON_DEST_FORMAT="xxx,adj"
+          />
+      </pdfadjust>
+    </workingunits>
+  </config>
+</DPF>

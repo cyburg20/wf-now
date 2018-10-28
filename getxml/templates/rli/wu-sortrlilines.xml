@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <Rli.sortRliLines
+        CODEPAGE="UTF8"
+        COMMAND="%DPFSRV%/scripts/rli/sortrlilines.pl -parfile %PARFILENAME%"
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGSTDOUT="Y"
+        NAME="Sort RLI Lines"
+        NODENAMES=""
+        PROJECT="Rli"
+        THREADS="4"
+        TIMEOUT=""
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-sortrlilines.xml,v 1.3 2010/10/28 15:57:08 stefan Exp $"
+        >
+        <INPUT>
+          <CurrRliFileName
+            TYPE="TEXT"
+            />
+          <FilterOperator
+            TYPE="TEXT"
+            />
+          <FilterOperator2
+            TYPE="TEXT"
+            />
+          <FilterValue
+            TYPE="TEXT"
+            />
+          <FilterValue2
+            TYPE="TEXT"
+            />
+          <RlicFilter
+            TYPE="TEXT"
+            />
+          <RlicFilter2
+            TYPE="TEXT"
+            />
+          <StartIndex
+            TYPE="TEXT"
+            />
+        </INPUT>
+        <OUTPUT/>
+      </Rli.sortRliLines>
+    </workingunits>
+  </config>
+</DPF>

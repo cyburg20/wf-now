@@ -1,0 +1,63 @@
+<DPF>
+  <config>
+    <workflows>
+      <pdf_embed_problematic_fonts
+        NAME="DPF 4 Convert - pdf embed problematic fonts"
+        VERSION="$Id: wf-pdf_embed_problematic_fonts.xml,v 1.1 2007/03/22 12:27:22 ludwig Exp $"
+        PROJECT="DPF4CONVERT"
+        COMMENT="dpf4convert - pdf embed problematic fonts using conversion pdf2ps2pdf"
+        DPFINT-Type="WorkflowDescription"
+        DPFINT-Changes="0"
+        >
+        <MAIN
+          BEGIN="set_activate_pdfps2pdf_repair"
+          ERROR="END"
+          />
+        <set_activate_pdfps2pdf_repair
+          TYPE="MODIFY"
+          NEXT="check_with_pdfadjust"
+        >
+          <SET
+          PDF2PS_USE_PDF2PS_EXE="Y"
+          DESTINATION_FORMAT_QUALITY="pdfa"
+          PDFADJUST_USE_PDFREPAIR="Y"
+          PDFADJUST_USE_PDFREPAIR_save="%PDFADJUST_USE_PDFREPAIR%"
+          PDFADJUST_TEST_FOR_RETURN_VALUE="Y"
+          PDFADJUST_TEST_FOR_RETURN_VALUE_save="%PDFADJUST_TEST_FOR_RETURN_VALUE%"
+          />
+        </set_activate_pdfps2pdf_repair>
+        <check_with_pdfadjust
+          NAME="pdfadjust"
+          NEXT="check_switch_pdfadjust_return_value"
+          />
+        <check_switch_pdfadjust_return_value
+          TYPE="IF-THEN-ELSE"
+          PROPERTY="PDFADJUST_RETURN_VALUE"
+          OPERATOR="eq"
+          VALUE="3"
+          THEN="pdf2ps"
+          ELSE="unset_activate_pdf2ps2pdf_repair"
+          />
+        <pdf2ps
+          NAME="pdf2ps"
+          NEXT="ps2pdfg"
+          />
+        <ps2pdfg
+          USE="ps2pdfg"
+          NEXT="unset_activate_pdf2ps2pdf_repair"
+          />
+        <unset_activate_pdf2ps2pdf_repair
+          TYPE="MODIFY"
+          NEXT="END"
+        >
+          <SET
+          PDF2PS_USE_PDF2PS_EXE="N"
+          PDFADJUST_TEST_FOR_RETURN_VALUE="%PDFADJUST_TEST_FOR_RETURN_VALUE_save%"
+          PDF_CHECK_ADJUST_FILE_MODIFIED="Y"
+          PDFADJUST_USE_PDFREPAIR="%PDFADJUST_USE_PDFREPAIR_save%"
+          />
+        </unset_activate_pdf2ps2pdf_repair>
+      </pdf_embed_problematic_fonts>
+    </workflows>
+  </config>
+</DPF>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <pdfdecrypt
+        NAME="dpf4c - Decrypt PDF"
+        VERSION="$Id: wu-pdfdecrypt.xml,v 1.3 2009/10/27 13:17:59 dei Exp $"
+        PROJECT="DPF4CONVERT"
+        TYPE="WUSystemCall"
+        LOGNAME="dpf4c-pdfdecrypt"
+        LOGSTDOUT="Y"
+        LOGLEVEL="LOG_INFO"
+        THREADS="1"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/pdfdecrypt.pl -parfile %PARFILENAME%">
+        <DEFAULTS
+          WU_ENABLE_DEBUG_LOOP="N"
+          DPF4C_AUTHORIZE_OPEN_PW=""
+          DPF4C_AUTHORIZE_CHANGE_PW=""
+          DPF4C_AUTHORIZE_DECRYPT="N"
+          DPF4C_AUTHORIZE_DECRYPT_ALL="N"
+          />
+        <INPUT
+          CURRFILENAME="*"
+          CURRFILETYPE="pdf"
+          />
+        <OUTPUT
+          CURRFILENAME="*"
+          CURRFILETYPE="pdf"
+          />
+      </pdfdecrypt>
+    </workingunits>
+  </config>
+</DPF>

@@ -1,0 +1,23 @@
+<DPF>
+  <config>
+    <workflows>
+      <cdr2ps
+        NAME="DPF 4 Convert - CorelDraw to PostScript"
+        VERSION="$Id: wf-cdr2ps.xml,v 1.6 2006/08/15 10:03:22 ludwig Exp $"
+        PROJECT="DPF4CONVERT"
+        COMMENT="dpf4convert - Convert process CorelDraw to PostScript"
+        DPFINT-Type="WorkflowDescription"
+        DPFINT-Changes="0"
+        >
+        <MAIN
+          BEGIN="office2ps"
+          ERROR="END"
+          />
+        <office2ps
+          NAME="office2ps"
+          NEXT="END"
+          />
+      </cdr2ps>
+    </workflows>
+  </config>
+</DPF>

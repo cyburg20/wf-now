@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <pdfcompress
+        NAME="dpf4c - Compress PDF"
+        VERSION="$Id: wu-pdfcompress.xml,v 1.6 2016/02/04 16:29:50 kig Exp $"
+        PROJECT="DPF4CONVERT"
+        TYPE="WUSystemCall"
+        LOGNAME="dpf4c-pdfcompress"
+        LOGSTDOUT="Y"
+        LOGLEVEL="LOG_INFO"
+        THREADS="1"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/pdfcompress.pl -parfile %PARFILENAME%">
+        <DEFAULTS
+          WU_ENABLE_DEBUG_LOOP="N"
+          DPF4C_MODIFY_COMPRESSION="N"
+          ENABLE_PDFOPTIMIZE="N"
+          PDFOPTIMIZE_COMPRESSION=""
+          PDFOPTIMIZE_OBJECTS=""
+          PDFOPTIMIZE_REMOVE=""
+          />
+        <INPUT
+          PARFILENAME="*"
+          CURRFILENAME="*"
+          JOBID="*"
+          LOGLEVEL=""
+          CURRFILETYPE="pdf"
+          />
+        <OUTPUT
+          CURRFILENAME="*"
+          CURRFILETYPE="pdf"
+          />
+      </pdfcompress>
+    </workingunits>
+  </config>
+</DPF>

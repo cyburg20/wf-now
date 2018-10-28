@@ -1,0 +1,44 @@
+<DPF>
+  <config>
+    <workflows>
+      <cdr2pdf
+        NAME="DPF 4 Convert - CorelDraw to PDF"
+        LICENSE="CICDR"
+        VERSION="$Id: wf-cdr2pdf.xml,v 1.10 2017/02/08 12:46:25 thomas Exp $"
+        PROJECT="DPF4CONVERT"
+        COMMENT="dpf4convert - Convert process CorelDraw to PDF"
+        DPFINT-Type="WorkflowDescription"
+        DPFINT-Changes="0"
+        >
+        <MAIN
+          BEGIN="office2ps"
+          ERROR="END"
+          />
+        <office2ps
+          USE="office2ps"
+          NEXT="check_currfiletype"
+          />
+        <check_currfiletype
+          TYPE="IF-THEN-ELSE"
+          PROPERTY="CURRFILETYPE"
+          OPERATOR="contains"
+          VALUE="pdf"
+          THEN="END"
+          ELSE="check_destformat"
+          />
+        <check_destformat
+          TYPE="IF-THEN-ELSE"
+          PROPERTY="DPF4C_COMMON_DEST_FORMAT"
+          OPERATOR="contains"
+          VALUE="ps"
+          THEN="END"
+          ELSE="ps2pdfg"
+          />
+        <ps2pdfg
+          USE="ps2pdfg"
+          NEXT="END"
+          />
+      </cdr2pdf>
+    </workflows>
+  </config>
+</DPF>

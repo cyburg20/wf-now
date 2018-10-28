@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workflows>
+      <DPF4CONVERT.png2pdf
+        COMMENT="dpf4convert - Convert process PNG to PDF"
+        DPFINT-Customer="0"
+        DPFINT-Interactive="0"
+        DPFINT-Type="WorkflowDescription"
+        NAME="png2pdf"
+        PROJECT="DPF4CONVERT"
+        VERSION="$Id: wf-png2pdf.xml,v 1.2 2011/07/20 13:44:56 kig Exp $"
+        >
+        <DPF4CONVERT.png2pdf1
+          COMMENT=""
+          ERROR="END"
+          NAME="png2pdf"
+          NEXT="END"
+          POSX="300"
+          POSY="200"
+          TYPE="WU"
+          >
+          <CONNECTIONS
+            ERROR="DIRECT"
+            NEXT="DIRECT"
+            />
+        </DPF4CONVERT.png2pdf1>
+        <END
+          COMMENT=""
+          NAME="END"
+          POSX="200"
+          POSY="100"
+          TYPE="STOP"
+          />
+        <MAIN
+          BEGIN="DPF4CONVERT.png2pdf1"
+          NAME=""
+          />
+        <MAPPING/>
+      </DPF4CONVERT.png2pdf>
+    </workflows>
+  </config>
+</DPF>

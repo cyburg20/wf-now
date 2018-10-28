@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <property_update_office
+        NAME="dpf4c - Property update on office document"
+        VERSION="$Id: wu-property_update_office.xml,v 1.4 2007/11/05 16:44:40 kig Exp $"
+        PROJECT="DPF4CONVERT"
+        TYPE="WUSystemCall"
+        LOGNAME="dpf4c-property_update_office"
+        LOGSTDOUT="Y"
+        LOGLEVEL="LOG_INFO"
+        THREADS="1"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/property_update_office.pl -parfile %PARFILENAME%">
+        <DEFAULTS
+          WU_ENABLE_DEBUG_LOOP="N"
+          REGSVRTOOL="regsvr32.exe"
+          DPF4C_PROPERTYUPDATE_ENABLE="N"
+          DPF4C_PROPERTYUPDATE_DELETE_EMPTY_VALUES="N"
+          DPF4C_PROPERTYUPDATE_PROVIDE_FILES="N"
+          />
+        <INPUT
+          />
+        <OUTPUT
+          />
+      </property_update_office>
+    </workingunits>
+  </config>
+</DPF>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <mhpgl2mpdf
+        NAME="dpf4c - Convert multiple HPGL-files to multiple PDF-Files"
+        VERSION="$Id: wu-mhpgl2mpdf.xml,v 1.2 2010/11/10 09:25:20 kig Exp $"
+        PROJECT="DPF4CONVERT"
+        TYPE="WUSystemCall"
+        LOGNAME="dpf4c-mhpgl2mpdf"
+        LOGSTDOUT="Y"
+        LOGLEVEL="I"
+        THREADS="1"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/mhpgl2mpdf.pl -parfile %PARFILENAME%">
+        <DEFAULTS
+          WU_ENABLE_DEBUG_LOOP="N"
+          />
+        <INPUT
+          JOBID="*"
+          CURRFILETYPE="hp"
+          />
+        <OUTPUT
+          CURRFILETYPE="pdf"
+          />
+      </mhpgl2mpdf>
+    </workingunits>
+  </config>
+</DPF>

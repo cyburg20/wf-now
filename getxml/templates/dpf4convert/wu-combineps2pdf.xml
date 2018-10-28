@@ -1,0 +1,19 @@
+<DPF>
+  <config>
+    <workingunits>
+      <combineps2pdf
+        NAME="dpf4c - Combine and scale multiple ps files to a single multipage pdf file"
+        VERSION="$Id: wu-combineps2pdf.xml,v 1.1 2010/04/16 10:15:03 kig Exp $"
+        PROJECT="DPF4CONVERT"
+        TYPE="WUSystemCall"
+        LOGNAME="dpf4c-combineps2pdf"
+        LOGSTDOUT="Y"
+        LOGLEVEL="LOG_INFO"
+        THREADS="1"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/combineps2pdf.pl -parfile %PARFILENAME%">
+        <DEFAULTS
+          />
+      </combineps2pdf>
+    </workingunits>
+  </config>
+</DPF>

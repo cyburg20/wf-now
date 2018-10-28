@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <elcad2file
+        NAME="dpf4c - Convert CAD Elcad projects to file (PDF)"
+        VERSION="$Id: wu-elcad2file.xml,v 1.3 2006/06/27 08:42:46 ludwig Exp $"
+        PROJECT="DPF4CONVERT"
+        TYPE="WUSystemCall"
+        LOGNAME="dpf4c-elcad2file"
+        LOGSTDOUT="Y"
+        LOGLEVEL="LOG_INFO"
+        THREADS="1"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/elcad2file.pl -parfile %PARFILENAME%">
+        <DEFAULTS
+          WU_ENABLE_DEBUG_LOOP="N"
+          ELCAD2FILE_ALWIN_PATH="C:\Programme\AUCOTEC\elcad.731\bin\ELCAD.731\alwin.exe"
+          ELCAD2FILE_RUN_PATH="C:\Programme\AUCOTEC\elcad.731\bin\ELCAD.731\elcad.run" 
+          ELCAD2FILE_PRO_PATH="C:\Programme\AUCOTEC\elcad.731\DAT\PROJEKTE.731"
+          ELCAD2FILE_WD_PATH="C:\Programme\AUCOTEC\elcad.731\USR\AUCO.731"
+          ELCAD2FILE_DEFAULT_PROJECT="demo"
+          ELCAD2FILE_DEFAULT_DESTINATION_LANGUAGE="DE;EN"
+          ELCAD2FILE_USE_SAP_DIS_NAME="Y"
+          ELCAD2FILE_PRE_COMMAND=""
+          ELCAD2FILE_IGNORE_ELCAD_STATUS_WARNING="N"
+          />
+        <INPUT
+          CURRFILETYPE="azp"
+          ELCAD2FILE_IGNORE_ELCAD_STATUS_WARNING="Y|N"
+          />
+        <OUTPUT
+          CURRFILETYPE="pdf"
+          />
+      </elcad2file>
+    </workingunits>
+  </config>
+</DPF>

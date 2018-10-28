@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <Pdf.AddBackgroundPdfToPdf
+        CODEPAGE="ISO-8859-1"
+        COMMAND="%DPFSRV%/scripts/pdf/addbackgroundpdftopdf.pl -parfile %PARFILENAME%"
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGNAME=""
+        LOGSTDOUT="Y"
+        NAME="Add Background Pdf To Pdf"
+        NODENAMES=""
+        PROJECT="Pdf"
+        THREADS="1"
+        TIMEOUT=""
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-addbackgroundpdftopdf.xml,v 1.1 2017/08/16 13:45:44 sek Exp $"
+        >
+        <DEFAULTS
+          TargetFileNameWu="%JobDir%/%WFPOSITION%.pdf"
+          />
+        <INPUT>
+          <BackgroundPdf
+            DESCRIPTION="name of the background pdf"
+            MANDATORY="true"
+            TYPE="TEXT"
+            />
+          <CurrFileName
+            DESCRIPTION="name of the input pdf"
+            MANDATORY="true"
+            TYPE="TEXT"
+            />
+          <TargetFileNameWu
+            DEFAULT="%JobDir%/%WFPOSITION%.pdf"
+            DESCRIPTION="name of the created output pdf"
+            TYPE="TEXT"
+            />
+        </INPUT>
+        <OUTPUT/>
+      </Pdf.AddBackgroundPdfToPdf>
+    </workingunits>
+  </config>
+</DPF>

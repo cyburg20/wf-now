@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <CdRobot.buildCds
+        COMMAND="%DPFSRV%/scripts/cdrobot/buildcds.pl -parfile %PARFILENAME%"
+        DPFINT-FileLinks="doc://:/%DPFSRV%/scripts/cdrobot/buildcds.pl"
+        DPFINT-Icon="doc://:/wu.gif"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGNAME=""
+        LOGSTDOUT="Y"
+        NAME="Build a couple of CD&apos;s with a given directory list"
+        PROJECT="CdRobot"
+        THREADS="3"
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-buildcds.xml,v 1.4 2007/03/01 09:12:40 stefan Exp $"
+        >
+        <DEFAULTS
+          CD=""
+          DIRECTORY=""
+          dpfint-icon="doc://:/defaults.gif"
+          LABEL_TEXT_PROPERTIES="Empfänger Software Verzeichnis CD Datum"
+          />
+        <INPUT
+          CD="*"
+          DIRECTORY="*"
+          DPFINT-Icon="doc://:/wu-input.gif"
+          LABEL_TEXT_PROPERTIES="*"
+          />
+        <OUTPUT
+          DPFINT-Icon="doc://:/wu-output.gif"
+          />
+      </CdRobot.buildCds>
+    </workingunits>
+  </config>
+</DPF>

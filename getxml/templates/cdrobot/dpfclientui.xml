@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <Stringtable
+      CVSID="$Id: dpfclientui.xml,v 1.14 2006/12/15 16:25:07 stefan Exp $"
+      SELECTED_LANGUAGE="DE"
+      >
+      <DE
+        SIMULATE="Simuliere Brennauftrag (durchläuft ganzen Prozess, brennt aber keine CD)"
+        SOFTWARE="Software:"
+        TARGETFILENAME="Filename"
+        MKISO_VOLUME_ID="Disk-Name:"
+        BrenneCD="CD brennen"
+        REVISION="Revision:"
+        VERSION="Version:"
+        TOAST_NUM_COPIES="Anzahl der Kopien:"
+        PLATFORM="Plattform:"
+        DO_TAR="Vor dem Brennen komprimieren (erzeugt .tar.gz)"
+        TARROOTDIR="Quellverzeichnis:"
+        CD_LABEL="Hintergrundbild:"
+        IMAGEFILE="ISO-Imagedatei (nur CD):"
+        WANT_UNIX="Unix-Dateirechte beibehalten"
+        CUSTOMER="Kunde:"
+        RECEIVER="Empfänger:"
+        LABEL_HELPER="\nTextfelder für CD-Label:"
+        AUFTRAG="Auftrag:"
+        >
+        <HELP
+          SIMULATE="Durchlaufe den DPF Workflow komplett, aber brenne keine CD.\nGut zum Testen, man erhält zumindest das CD-Label per Mail."
+          SOFTWARE="Text für CD-Label.\nDarf auch leer sein, dann erscheint das Feld nicht auf dem CD-Label"
+          TARGETFILENAME="Filename"
+          MKISO_VOLUME_ID="Dieser Disk-Name erscheint im Windows Explorer als Laufwerksname"
+          CD_LABEL="Hintergrundbild für das CD-Label.\nDarf ein JPEG-, PNG-, TIFF- oder GIF-Bild sein,\nebenso eine PDF-Datei mit 12x12cm Seitengröße."
+          IMAGEFILE="CD ISO Imagedatei, die gebrannt werden soll. Quellverzeichnis wird dann ignoriert."
+          WANT_UNIX="Falls das Quellverzeichnis auch unter Unix erreichbar ist,\netwa bei Testständen auf den Sambaplatten,\nwerden hiermit die Unix-Dateirechte mit übernommen."
+          REVISION="Text für CD-Label.\nDarf auch leer sein, dann erscheint das Feld nicht auf dem CD-Label"
+          VERSION="Text für CD-Label.\nDarf auch leer sein, dann erscheint das Feld nicht auf dem CD-Label"
+          TOAST_NUM_COPIES="Die Anzahl der CDs, die gebrannt werden sollen"
+          PLATFORM="Text für CD-Label.\nDarf auch leer sein, dann erscheint das Feld nicht auf dem CD-Label"
+          DO_TAR="Der Inhalt der CD wird vor dem Brennen als .tar.gz komprimiert,\ndamit die Dateinamen und Schreibrechte erhalten bleiben."
+          TARROOTDIR="Das Quellverzeichnis für den Brennauftrag.\nErlaubt sind:\n     lokales Verzeichnis   (z.B. C:\temp)\n     Novell-Verzeichnis   (z.B. F:\public\dpf)\n     Samba-Verzeichnis   (nur scratch, share, master)\n     absolutes Unix-Verzeichnis   (z.B. /scr/xx)."
+          CUSTOMER="der Kundenname, also der Empfänger der CD\nText für CD-Label.\nDarf auch leer sein, dann erscheint das Feld nicht auf dem CD-Label"
+          RECEIVER="der Empfänger der CD\nText für CD-Label.\nDarf auch leer sein, dann erscheint das Feld nicht auf dem CD-Label"
+          AUFTRAG="die Auftragsnummer\nText für CD-Label.\nDarf auch leer sein, dann erscheint das Feld nicht auf dem CD-Label"
+          />
+        <DPF>
+          <BrenneCD
+            PLOTTER_COMMENT="Brenne Verzeichnis auf CD mit Beschriftung"
+            />
+          <BrenneLabelCD
+            PLOTTER_COMMENT="Brenne Verzeichnis auf CD nur mit Hintergrundbild"
+            />
+          <BrenneKundenCD
+            PLOTTER_COMMENT="Brenne Verzeichnis für Kundenauftrag auf CD"
+            />
+          <BrenneConvertWIZ
+            PLOTTER_COMMENT="Brenne Verzeichnis für ConvertWIZ-Auslieferung auf CD"
+            />
+          <BrenneISO-Image
+            PLOTTER_COMMENT="Brenne ISO-Imagedatei auf CD nur mit Hintergrundbild"
+            />
+        </DPF>
+      </DE>
+      <EN
+        SIMULATE="Simulate (do not burn)"
+        SOFTWARE="Software"
+        TARGETFILENAME="File name"
+        BrenneCD="burn a CD"
+        MKISO_VOLUME_ID="Disc name:"
+        REVISION="Revision"
+        VERSION="Version"
+        TOAST_NUM_COPIES="Number of copies:"
+        PLATFORM="Platform"
+        DO_TAR="Compress before burng CD (as .tar.gz)"
+        TARROOTDIR="Source directory"
+        CD_LABEL="Background image:"
+        IMAGEFILE="ISO image file"
+        CUSTOMER="Customer"
+        RECEIVER="Label Receiver"
+        AUFTRAG="Order"
+        >
+        <HELP
+          TARGETFILENAME="New Name for the created PDF file"
+          CD_LABEL="JPEG image with 12x12cm"
+          IMAGEFILE="CD ISO image file to burn. Source directory will be ignored."
+          CUSTOMER="The customer name"
+          RECEIVER="The receiver of the CD"
+          AUFTRAG="The order"
+          />
+        <DPF>
+          <BrenneCD
+            PLOTTER_NAME="CD Robot BrenneCD"
+            PLOTTER_COMMENT="burn directory on CD"
+            />
+        </DPF>
+      </EN>
+    </Stringtable>
+    <UserInterface>
+      <CommonSettings
+        SHOW_HELPMENU="Y"
+        SHOW_FILEMENU="Y"
+        SHOW_LANGUAGEMENU="Y"
+        WINDOW_SIZE="450 , 600"
+        HELPROOT="%DPFROOT%/source/dpf/dpfserver/dpfclientui_help"
+        CONFIG_PRIVATEPLOTTERLIST="N"
+        EXPANDED="Y"
+        PLOTTERLIST="PLOTTERLIST"
+        SHOW_DECORATEDPRINTERNAMES="N"
+        ITEM_COLUMNS="1"
+        SPLIT_PARTS="0 , 350"
+        oldPLOTTERPARAM="EXPANDABLE"
+        PLOTTERPARAM="Y"
+        MUSTTEXTCOLOR="Black"
+        MUSTBACKGROUNDCOLOR="#ffffc0"
+        BACKGROUNDCOLOR="Red"
+        CONFIG_PLOTTER="Y"
+        GLOBAL="GLOBAL"
+        PLOTTERPARAMoff="Y|N|EXPANDABLE"
+        />
+      <WorkflowDescriptor
+        ORDER="COMMENT"
+        >
+        <COMMENT
+          TYPE="Static"
+          DEFAULT="PLOTTER_COMMENT"
+          />
+      </WorkflowDescriptor>
+      <offGlobal
+        ORDER="TARROOTDIR CD_LABEL TOAST_NUM_COPIES SIMULATE"
+        >
+        <CD_LABEL
+          TYPE = "File"
+          RANGE = "JPG (*.jpg)|PDF (*.pdf)|PNG (*.png)|TIFF (*.tif)|GIF (*.gif)|Alle (*.*)"
+          DEFAULT = ""
+          />
+        <SIMULATE
+          RANGE="Y|N"
+          TYPE="Check"
+          DEFAULT="N"
+          />
+        <DPF_SRV_GET_FILES
+          RANGE=""
+          TYPE="Hidden"
+          DEFAULT="CD_LABEL IMAGEFILE"
+          />
+        <PLS_USERNAME
+          RANGE=""
+          TYPE="Hidden"
+          DEFAULT="UNKNOWN"
+          />
+        <PLS_SRCNODE
+          RANGE=""
+          TYPE="Hidden"
+          DEFAULT="UNKNOWN"
+          />
+        <TOAST_NUM_COPIES
+          RANGE="1,25"
+          TYPE="Spin"
+          DEFAULT="1"
+          />
+        <TARROOTDIR
+          RANGE="59"
+          TYPE="Dir"
+          DEFAULT="C:/Bitte-Verzeichnis-Wählen"
+          />
+        <DELETEJOBoff
+          RANGE=""
+          TYPE="Hidden"
+          DEFAULT="3d"
+          />
+      </offGlobal>
+      <WorkflowDescriptorOFF>
+        <COMMENT
+          TYPE="Static"
+          COMMENT="Wenn der Defaultwert leer ist, kommt hier der Kommentar aus der Workflowdefinition rein"
+          DEFAULT="WORKFLOW_COMMENT"
+          />
+        <VERSION
+          TYPE="Static"
+          COMMENT="Wenn der Defaultwert leer ist, kommt hier die Version aus der Workflowdefinition rein"
+          DEFAULT=""
+          />
+      </WorkflowDescriptorOFF>
+    </UserInterface>
+  </config>
+</DPF>

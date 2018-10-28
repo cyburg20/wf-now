@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workflows>
+      <convertwiz_send_file
+        NAME="Convertwiz - SubProcess convertwiz_send_file"
+        VERSION="$Id: wf-convertwiz_send_file.xml,v 1.3 2006/10/26 12:56:36 ludwig Exp $"
+        PROJECT="CONVERTWIZ"
+        COMMENT="convertwiz - process for sending a file via cwsender server"
+        DPFINT-Type="WorkflowDescription"
+        DPFINT-Changes="0"
+        >
+        <MAIN
+          BEGIN="convertwiz_send_files"
+          ERROR="END"
+          LOGLEVEL="I"
+        />
+        <convertwiz_send_files
+          NAME="convertwiz_send_files"
+          NEXT="check_send_with_dpfclient"
+          />
+        <check_send_with_dpfclient
+          TYPE="IF-THEN-ELSE"
+          PROPERTY="CONVERTWIZ_CHECKIN_METHOD"
+          OPERATOR="contains"
+          VALUE="sendback"
+          THEN="checkin"
+          ELSE="END"
+          />
+        <checkin
+          NAME="checkin"
+          NEXT="sendback"
+          />
+        <sendback
+          NAME="sendback"
+          NEXT="END"
+          />
+
+
+      </convertwiz_send_file>
+    </workflows>
+  </config>
+</DPF>

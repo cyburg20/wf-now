@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <Examples.simpleRliExample
+        COMMAND="%DPFSRV%/scripts/examples/simplerliexample.pl -parfile %PARFILENAME%"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        INTERNALNAME="Examples.simpleRliExample"
+        LOGLEVEL="LOG_INFO"
+        LOGNAME=""
+        LOGSTDOUT="Y"
+        NAME="Simple RLI Example"
+        PROJECT="Examples"
+        THREADS="1"
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-simplerliexample.xml,v 1.2 2007/03/01 09:12:43 stefan Exp $"
+        />
+    </workingunits>
+  </config>
+</DPF>

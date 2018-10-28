@@ -1,0 +1,31 @@
+<DPF>
+  <config>
+    <workingunits>
+      <sapgof2gksm
+        VERSION="$Id: wu-sapgof2gksm.xml,v 1.6 2002/12/17 09:10:12 stefan Exp $"
+        PROJECT="DPF4PLM"
+        TYPE="WUSystemCall"
+        LOGNAME="dpfsapgof2gksm"
+        LOGLEVEL="LOG_INFO"
+        THREADS="1"
+	COMMAND="%DPFSRV%/scripts/dpf4plm/sapgof2gksm.pl -parfile %PARFILENAME%">
+	<DEFAULTS
+          />
+        <INPUT
+	  PARFILENAME="*"
+	  CURRFILENAME="*"
+	  JOBID="*"
+	  LOGLEVEL=""
+	  CURRFILETYPE="SAPGOF"
+          />
+	<OUTPUT
+	  CURRHEDFILENAME="*"
+	  CURRMETFILENAME="*"
+	  CURRXMLFILENAME=""
+	  CURRFILENAME="*"
+	  CURRFILETYPE="XML|GKSM"
+          />
+      </sapgof2gksm>
+    </workingunits>
+  </config>
+</DPF>

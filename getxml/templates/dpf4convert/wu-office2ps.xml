@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <office2ps
+        NAME="dpf4c - Convert Microsoft Office to PostScript"
+        LICENSE="CI3O CIXLS CIPPT CIMPP CIVSD CIDOC CICDR"
+        VERSION="$Id: wu-office2ps.xml,v 1.14 2017/05/02 09:38:42 dei Exp $"
+        PROJECT="DPF4CONVERT"
+        TYPE="WUSystemCall"
+        LOGNAME="dpf4c-office2ps"
+        LOGSTDOUT="Y"
+        LOGLEVEL="LOG_INFO"
+        THREADS="1"
+        TRACEIGNOREEXITCODE="N"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/office2ps.pl -parfile %PARFILENAME%">
+        <DEFAULTS
+          WU_ENABLE_DEBUG_LOOP="N"
+          DPF4C_COMMON_TIMEOUT="10"
+          DPF4C_USE_OWN_CONTEXT="N"
+          AK_WORDOPT_CFG=""
+          AK_WORD_PRINT_MARKUPS="never"
+          AK_SECTION=""
+          SWITCH_OFFICE_UPDATE_OLE_LINKS="N"
+          DPF4C_PROPERTYUPDATE_PROVIDE_FILES="N"
+          OFFICE_TYPE_UPDATE=""
+          OFFICE_KEEP_EMBEDDED_FILES="N"
+          DPF4C_EXCEL_MAX_PAGES="999"
+          />
+        <INPUT
+          CURRFILENAME="*"
+          CURRFILETYPE="*"
+          DPF4C_COMMON_TIMEOUT="10"
+          AK_WORDOPT_CFG="file"
+          DPF4C_USE_OWN_CONTEXT="N"
+          AK_WORD_PRINT_MARKUPS="never|always|auto"
+          AK_SECTION=""
+          SWITCH_OFFICE_UPDATE_OLE_LINKS="N"
+          DPF4C_PROPERTYUPDATE_PROVIDE_FILES="N"
+          APPKONV_CONFIG_DIR_DEFAULT="directory"
+          APPKONV_CONFIG_FILE="filename"
+          OFFICE_TYPE_UPDATE=""
+          OFFICE_KEEP_EMBEDDED_FILES="Y|N"
+          DPF4C_EXCEL_MAX_PAGES="999"
+          />
+        <OUTPUT
+          CURRFILENAME="*"
+          CURRFILETYPE="ps"
+          DPF4C_COMMON_OUTFILEps="*"
+          ERR_REASON="*"
+          DPF4C_PROPERTYUPDATE_OUTFILE1="*"
+          />
+      </office2ps>
+    </workingunits>
+  </config>
+</DPF>

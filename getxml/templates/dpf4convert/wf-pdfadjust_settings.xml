@@ -1,0 +1,36 @@
+<DPF>
+  <config>
+    <workflows>
+      <pdfadjust_settings
+        NAME="DPF 4 Convert - pdfadjust_settings"
+        VERSION="$Id: wf-pdfadjust_settings.xml,v 1.4 2007/07/06 15:47:47 ludwig Exp $"
+        PROJECT="DPF4CONVERT"
+        COMMENT="dpf4convert - (Customer) Settings for pdfadjust process."
+        DPFINT-Type="WorkflowDescription"
+        DPFINT-Changes="0"
+        >
+        <MAIN
+          BEGIN="set_parameters"
+          ERROR="END"
+          />
+        <set_parameters
+          TYPE="MODIFY"
+          NEXT="END"
+        >
+          <SET
+          ENABLE_PDFADJUSTLLS_PROCESS="Y"
+          FILECOMPARE_PLANNED_FILE="%CURRFILENAME%"
+          zzz_off_ENABLE_PDF_ADJUST_PROCESS="N"
+          zzz_off_ENABLE_PDF_CONVERT="N"
+          zzz_off_ENABLE_PDF_ADJUST_EMBED_PROBLEMATIC_FONTS_USING_CONVERSION_PDF2PS2PDF="N"
+          zzz_off_ENABLE_PDF_REPAIR="N"
+          zzz_off_ENABLE_PDF_CHECK_GS="N"
+          zzz_off_ENABLE_PDF_RASTER_IF_NOT_OK="N"
+          zzz_off_ENABLE_PDF_CHECK_PDFMERGE="N"
+          zzz_off_ENABLE_REMOVE_SECURITY="N"
+          />
+        </set_parameters>
+      </pdfadjust_settings>
+    </workflows>
+  </config>
+</DPF>

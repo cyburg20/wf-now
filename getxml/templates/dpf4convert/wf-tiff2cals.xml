@@ -1,0 +1,23 @@
+<DPF>
+  <config>
+    <workflows>
+      <tiff2cals
+        NAME="DPF 4 Convert - TIFF to CALS"
+        VERSION="$Id: wf-tiff2cals.xml,v 1.3 2006/08/15 10:03:23 ludwig Exp $"
+        PROJECT="DPF4CONVERT"
+        COMMENT="dpf4convert - Convert process TIFF to CALS"
+        DPFINT-Type="WorkflowDescription"
+        DPFINT-Changes="0"
+        >
+        <MAIN
+          BEGIN="tiff2cals"
+          ERROR="END"
+          />
+        <tiff2cals
+          NAME="tiff2cals"
+          NEXT="END"
+          />
+      </tiff2cals>
+    </workflows>
+  </config>
+</DPF>

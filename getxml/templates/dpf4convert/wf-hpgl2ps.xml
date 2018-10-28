@@ -1,0 +1,27 @@
+<DPF>
+  <config>
+    <workflows>
+      <hpgl2ps
+        NAME="DPF 4 Convert - HPGL to PS"
+        VERSION="$Id: wf-hpgl2ps.xml,v 1.2 2006/08/15 10:03:22 ludwig Exp $"
+        PROJECT="DPF4CONVERT"
+        COMMENT="dpf4convert - Convert process HPGL to PS"
+        DPFINT-Type="WorkflowDescription"
+        DPFINT-Changes="0"
+        >
+        <MAIN
+          BEGIN="hpgl2pdf"
+          ERROR="END"
+          />
+        <hpgl2pdf
+          NAME="hpgl2pdf"
+          NEXT="pdf2ps"
+          />
+        <pdf2ps
+          NAME="pdf2ps"
+          NEXT="END"
+          />
+      </hpgl2ps>
+    </workflows>
+  </config>
+</DPF>

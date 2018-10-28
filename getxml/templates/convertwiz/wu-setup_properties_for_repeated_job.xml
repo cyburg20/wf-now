@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <CONVERTWIZ.setup_properties_for_repeated_job
+        COMMAND="%DPFSRV%/scripts/convertwiz/setup_properties_for_repeated_job.pl -parfile %PARFILENAME%"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGSTDOUT="Y"
+        NAME="setup_properties_for_repeated_job"
+        PROJECT="CONVERTWIZ"
+        THREADS="3"
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-setup_properties_for_repeated_job.xml,v 1.2 2008/10/13 13:57:20 dh Exp $"
+        />
+    </workingunits>
+  </config>
+</DPF>

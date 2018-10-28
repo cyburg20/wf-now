@@ -1,0 +1,47 @@
+<DPF>
+  <config>
+    <workflows>
+      <pdfauthorize
+        NAME="DPF 4 Convert - pdfauthorize"
+        VERSION="$Id: wf-pdfauthorize.xml,v 1.3 2011/01/04 13:59:57 kig Exp $"
+        PROJECT="DPF4CONVERT"
+        COMMENT="dpf4convert - Crypt PDF with WU pdfauthorize"
+        DPFINT-Type="WorkflowDescription"
+        DPFINT-Changes="0"
+        >
+        <MAIN
+          BEGIN="check_authorize_activated"
+          ERROR="END"
+          />
+        <check_authorize_activated
+          TYPE="IF-THEN-ELSE"
+          PROPERTY="DPF4C_AUTHORIZE_ACTIVATE"
+          OPERATOR="eq"
+          VALUE="Y"
+          THEN="check_currfiletype_set"
+          ELSE="END"
+          />
+        <check_currfiletype_set
+          TYPE="IF-THEN-ELSE"
+          PROPERTY="CURRFILETYPE"
+          OPERATOR="exists"
+          VALUE=""
+          THEN="check_currfiletype_equals_pdf"
+          ELSE="pdfauthorize"
+          />
+        <check_currfiletype_equals_pdf
+          TYPE="IF-THEN-ELSE"
+          PROPERTY="CURRFILETYPE"
+          OPERATOR="eq"
+          VALUE="pdf"
+          THEN="pdfauthorize"
+          ELSE="END"
+          />
+        <pdfauthorize
+          NAME="pdfauthorize"
+          NEXT="END"
+          />
+      </pdfauthorize>
+    </workflows>
+  </config>
+</DPF>

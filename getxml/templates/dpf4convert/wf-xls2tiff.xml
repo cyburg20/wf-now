@@ -1,0 +1,27 @@
+<DPF>
+  <config>
+    <workflows>
+      <xls2tiff
+        NAME="DPF 4 Convert - Microsoft Excel XLS to TIFF"
+        VERSION="$Id: wf-xls2tiff.xml,v 1.7 2006/08/15 10:03:23 ludwig Exp $"
+        PROJECT="DPF4CONVERT"
+        COMMENT="dpf4convert - Convert process Microsoft Excel XLS to TIFF"
+        DPFINT-Type="WorkflowDescription"
+        DPFINT-Changes="0"
+        >
+        <MAIN
+          BEGIN="office2ps"
+          ERROR="END"
+          />
+        <office2ps
+          USE="office2ps"
+          NEXT="ps2tiff"
+          />
+        <ps2tiff
+          NAME="ps2tiff"
+          NEXT="END"
+          />
+      </xls2tiff>
+    </workflows>
+  </config>
+</DPF>

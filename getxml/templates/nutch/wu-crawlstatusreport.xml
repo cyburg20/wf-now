@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <Nutch.CrawlStatusReport
+        COMMAND="%DPFSRV%/scripts/nutch/crawlstatusreport.pl -parfile %PARFILENAME%"
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGSTDOUT="Y"
+        NAME="CrawlStatusReport"
+        PROJECT="Nutch"
+        Status="Running"
+        THREADS="1"
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-crawlstatusreport.xml,v 1.3 2007/09/14 05:33:08 tobias Exp $"
+        >
+        <DEFAULTS/>
+        <INPUT>
+          <CURRFILENAME
+            DESCRIPTION="the input file"
+            TYPE="TEXT"
+            />
+          <JOBDIR
+            DESCRIPTION="directory for temp files"
+            TYPE="TEXT"
+            />
+          <NUTCH_HOME
+            DESCRIPTION="custom home dir of nutch"
+            TYPE="TEXT"
+            />
+        </INPUT>
+      </Nutch.CrawlStatusReport>
+    </workingunits>
+  </config>
+</DPF>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <get_printer
+        NAME="dpf4c - Get printer for fitting to requirments."
+        VERSION="$Id: wu-get_printer.xml,v 1.2 2006/04/25 11:50:06 ludwig Exp $"
+        PROJECT="DPF4CONVERT"
+        TYPE="WUSystemCall"
+        LOGNAME="dpf4c-get_printer"
+        LOGSTDOUT="Y"
+        LOGLEVEL="LOG_INFO"
+        THREADS="1"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/get_printer.pl -parfile %PARFILENAME%">
+        <DEFAULTS
+          WU_ENABLE_DEBUG_LOOP="N"
+          FILE_PRINTERS_CFG="%PLSROOT%tools/convcfg/printpdf/printers.cfg"
+          />
+        <INPUT
+          />
+        <OUTPUT
+          />
+      </get_printer>
+    </workingunits>
+  </config>
+</DPF>

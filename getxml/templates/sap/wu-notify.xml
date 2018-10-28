@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <Sap.notify
+        COMMAND="%DPFSRV%/scripts/sap/notify.pl -parfile %PARFILENAME%"
+        DPFINT-FileLinks="doc://:/%DPFSRV%/scripts/sap/notify.pl"
+        DPFINT-Icon="doc://:/wu.gif"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_WARN"
+        LOGNAME=""
+        LOGSTDOUT="Y"
+        NAME="Notify SAP"
+        PROJECT="Sap"
+        Status="Running"
+        THREADS="1"
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-notify.xml,v 1.2 2007/03/01 09:12:44 stefan Exp $"
+        >
+        <DEFAULTS
+          DPFINT-Icon="doc://:/defaults.gif"
+          />
+        <INPUT
+          DPFINT-Icon="doc://:/wu-input.gif"
+          />
+        <OUTPUT
+          DPFINT-Icon="doc://:/wu-output.gif"
+          />
+      </Sap.notify>
+    </workingunits>
+  </config>
+</DPF>

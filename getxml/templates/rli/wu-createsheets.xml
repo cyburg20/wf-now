@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <Rli.createSheets
+        CODEPAGE="ISO-8859-1"
+        COMMAND="%DPFSRV%/scripts/rli/createsheets.pl -parfile %PARFILENAME%"
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGSTDOUT="Y"
+        NAME="Create Sheets"
+        NODENAMES=""
+        PROJECT="Rli"
+        THREADS="2"
+        TIMEOUT=""
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-createsheets.xml,v 1.10 2016/05/13 17:02:05 sek Exp $"
+        >
+        <DEFAULTS
+          COVER_ShowSinglePage="N"
+          DEFAULT_COLOR="#000000"
+          DEFAULT_FONT="Helvetica"
+          DEFAULT_SIZE="20"
+          PostprocessWithPdfadapt="N"
+          SkipStampOnSheets="N"
+          UpdatePageCount="N"
+          WuEnableDebugLoop="N"
+          />
+        <INPUT>
+          <COVER_BACKGROUND_PDF
+            TYPE="TEXT"
+            />
+          <COVER_FILLDUPLEX
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </COVER_FILLDUPLEX>
+          <COVER_ShowSinglePage
+            DEFAULT="N"
+            DESCRIPTION="if set to Y the open the PDF resized to fit into Adobe Readers window"
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </COVER_ShowSinglePage>
+          <CurrRliFileName
+            DESCRIPTION="the rli input file"
+            TYPE="TEXT"
+            />
+          <DEFAULT_COLOR
+            DEFAULT="#000000"
+            TYPE="TEXT"
+            />
+          <DEFAULT_FONT
+            DEFAULT="Helvetica"
+            TYPE="TEXT"
+            />
+          <DEFAULT_SIZE
+            DEFAULT="20"
+            TYPE="TEXT"
+            />
+          <DestFileName
+            TYPE="TEXT"
+            />
+          <FilterOperator
+            DESCRIPTION="optional operator to compare value(s), default: eq"
+            TYPE="TEXT"
+            />
+          <FilterOperator2
+            DESCRIPTION="second optional operator to compare value(s), default: eq"
+            TYPE="TEXT"
+            />
+          <FilterValue
+            DESCRIPTION="value to search for in filter"
+            TYPE="TEXT"
+            />
+          <FilterValue2
+            DESCRIPTION="second set of colon separated values to work on these specific RLI lines only"
+            TYPE="TEXT"
+            />
+          <IMAGE_LIST
+            DESCRIPTION="list of parameter names for images"
+            TYPE="TEXT"
+            />
+          <JOBDIR
+            DESCRIPTION="the folder for the job datas"
+            TYPE="TEXT"
+            />
+          <LABEL_LIST
+            DESCRIPTION="list of parameter names for text labes"
+            TYPE="TEXT"
+            />
+          <PDFARRANGE
+            TYPE="TEXT"
+            />
+          <PostprocessWithPdfadapt
+            DEFAULT="N"
+            DESCRIPTION="process the output pdf with pdfadapt to correct font errors"
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </PostprocessWithPdfadapt>
+          <RlicAttachFile
+            TYPE="TEXT"
+            />
+          <RlicCurrFileName
+            DESCRIPTION="optional RLI column name for input file names, default: CURRFILENAME"
+            TYPE="TEXT"
+            />
+          <RlicFilter
+            DESCRIPTION="name of RLI column for filter"
+            TYPE="TEXT"
+            />
+          <RlicFilter2
+            DESCRIPTION="name of second RLI column to use to filter specific RLI lines only"
+            TYPE="TEXT"
+            />
+          <SkipStampOnSheets
+            DEFAULT="N"
+            DESCRIPTION="the sheets will not be stamped with a user defined stamp"
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </SkipStampOnSheets>
+          <UpdatePageCount
+            DEFAULT="N"
+            DESCRIPTION="if Y, update RLI column PageCount, default: Y"
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </UpdatePageCount>
+          <WFPOSITION
+            DESCRIPTION="default name for output PDF"
+            TYPE="TEXT"
+            />
+          <WuEnableDebugLoop
+            DEFAULT="N"
+            DESCRIPTION="To run this wu in a debug loop."
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </WuEnableDebugLoop>
+          <xxx
+            TYPE="TEXT"
+            />
+          <xxx_ALIGN
+            TYPE="TEXT"
+            />
+          <xxx_COLOR
+            TYPE="TEXT"
+            />
+          <xxx_FONT
+            TYPE="TEXT"
+            />
+          <xxx_SIZE
+            TYPE="TEXT"
+            />
+          <xxx_X
+            TYPE="TEXT"
+            />
+          <xxx_Y
+            TYPE="TEXT"
+            />
+        </INPUT>
+        <OUTPUT/>
+      </Rli.createSheets>
+    </workingunits>
+  </config>
+</DPF>

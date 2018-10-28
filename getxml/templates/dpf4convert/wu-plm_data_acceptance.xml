@@ -1,0 +1,36 @@
+<DPF>
+  <config>
+    <workingunits>
+      <plm_data_acceptance
+        NAME="dpf4c - plm_data_acceptance."
+        VERSION="$Id: wu-plm_data_acceptance.xml,v 1.4 2004/05/14 11:37:00 ludwig Exp $"
+        PROJECT="DPF4CONVERT"
+        TYPE="WUSystemCall"
+        LOGNAME="dpf4c-dpf_plm_data_acceptance"
+        LOGSTDOUT="Y"
+        LOGLEVEL="LOG_INFO"
+        THREADS="1"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/plm_data_acceptance.pl -parfile %PARFILENAME%">
+        <DEFAULTS
+           SAP_NOTIFY_LEVEL="I"
+           SAP_MESSAGE="default notification from DPF"
+          />
+        <INPUT
+          CURRFILENAME="*"
+          JOBDIR="*"
+          SAP_NOTIFY_LEVEL="*"
+          SAP_SYSID="*"
+          SAP_CLNT="*"
+          SAP_USERREC="*"
+          SAP_LANG="*"
+          SAP_RMGID="*"
+          SAP_SPOOLID="*"
+          SAP_MESSAGE="*"
+          PREVIOUS_WORKINGUNIT=""
+          />
+        <OUTPUT
+          />
+      </plm_data_acceptance>
+    </workingunits>
+  </config>
+</DPF>

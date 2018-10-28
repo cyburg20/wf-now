@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <FileTransfer.receiveFtp
+        COMMAND="%DPFSRV%/scripts/filetransfer/receiveftp.pl -parfile %PARFILENAME%"
+        DPFINT-FileLinks="doc://:/%DPFSRV%/scripts/filetransfer/receiveftp.pl"
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGNAME=""
+        LOGSTDOUT="Y"
+        NAME="Receive one file via FTP"
+        PROJECT="FileTransfer"
+        Status="Running"
+        THREADS="1"
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-receiveftp.xml,v 1.3 2007/03/28 10:39:37 ch Exp $"
+        >
+        <DEFAULTS
+          DPFINT-Icon="doc://:/defaults.gif"
+          WU_ENABLE_DEBUG_LOOP="N"
+          />
+        <INPUT
+          DPFINT-Icon="doc://:/wu-input.gif"
+          WU_ENABLE_DEBUG_LOOP="*"
+          >
+          <FTP_DELETE_SOURCE
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </FTP_DELETE_SOURCE>
+          <FTP_HOSTNAME
+            TYPE="TEXT"
+            />
+          <FTP_PASSWORD
+            TYPE="TEXT"
+            />
+          <FTP_USERNAME
+            TYPE="TEXT"
+            />
+          <SOURCE
+            TYPE="TEXT"
+            />
+          <TARGET
+            TYPE="TEXT"
+            />
+          <WU_ENABLE_DEBUG_LOOP
+            DEFAULT="N"
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </WU_ENABLE_DEBUG_LOOP>
+        </INPUT>
+      </FileTransfer.receiveFtp>
+    </workingunits>
+  </config>
+</DPF>

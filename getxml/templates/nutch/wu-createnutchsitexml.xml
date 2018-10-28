@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <Nutch.CreateNutchSiteXML
+        COMMAND="%DPFSRV%/scripts/nutch/createnutchsitexml.pl -parfile %PARFILENAME%"
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGSTDOUT="Y"
+        NAME="CreateNutchSiteXML"
+        PROJECT="Nutch"
+        Status="Running"
+        THREADS="1"
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-createnutchsitexml.xml,v 1.3 2007/09/14 05:34:00 tobias Exp $"
+        >
+        <DEFAULTS/>
+        <INPUT>
+          <CURRFILENAME
+            DESCRIPTION="the input file"
+            TYPE="TEXT"
+            />
+          <CUSTOM_CONF_FILE
+            DESCRIPTION="references a file with configuration to be written to nutch-site.xml"
+            TYPE="TEXT"
+            />
+          <JOBDIR
+            DESCRIPTION="our job dir for temp files"
+            TYPE="TEXT"
+            />
+          <NUTCH_CONF_DIR
+            DESCRIPTION="directory nutch-site.xml will be written to"
+            TYPE="TEXT"
+            />
+        </INPUT>
+      </Nutch.CreateNutchSiteXML>
+    </workingunits>
+  </config>
+</DPF>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <Rli.appendFilesOfRli
+        COMMAND="%DPFSRV%/scripts/rli/appendfilesofrli.pl -parfile %PARFILENAME%"
+        DEFAULTS=""
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGSTDOUT="Y"
+        NAME="Append Files of Rli"
+        PROJECT="Rli"
+        Status="Running"
+        THREADS="5"
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-appendfilesofrli.xml,v 1.4 2008/06/11 13:18:29 wolfi Exp $"
+        >
+        <DEFAULTS
+          EquationOperator="eq"
+          />
+        <INPUT>
+          <AppendedFile
+            DESCRIPTION="output appended file"
+            MANDATORY="true"
+            TYPE="TEXT"
+            />
+          <CurrRliFileName
+            DESCRIPTION="input RLI file"
+            MANDATORY="true"
+            TYPE="TEXT"
+            />
+          <EquationOperator
+            DEFAULT="eq"
+            DESCRIPTION="determines if RlicFilter has to equal or not equal FilterValue for the file to be removed"
+            TYPE="TEXT"
+            />
+          <FilterValue
+            DESCRIPTION="RLI column value (see EQUATIONOPERATOR)"
+            MANDATORY="true"
+            TYPE="TEXT"
+            />
+          <RlicCurrFileName
+            DESCRIPTION="RLI column containing the filepath"
+            MANDATORY="true"
+            TYPE="TEXT"
+            />
+          <RlicFilter
+            DESCRIPTION="RLI column (see EQUATIONOPERATOR)"
+            MANDATORY="true"
+            TYPE="TEXT"
+            />
+        </INPUT>
+      </Rli.appendFilesOfRli>
+    </workingunits>
+  </config>
+</DPF>

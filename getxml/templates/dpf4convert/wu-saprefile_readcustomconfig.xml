@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <DPF4CONVERT.saprefile_readcustomconfig
+        CODEPAGE="ISO-8859-1"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/saprefile_readcustomconfig.pl -parfile %PARFILENAME%"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGSTDOUT="Y"
+        NAME="saprefile_readcustomconfig"
+        PROJECT="DPF4CONVERT"
+        THREADS="5"
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-saprefile_readcustomconfig.xml,v 1.1 2012/05/25 14:31:55 kig Exp $"
+        />
+    </workingunits>
+  </config>
+</DPF>

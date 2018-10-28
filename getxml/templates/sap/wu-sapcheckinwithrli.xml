@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <Sap.sapCheckinWithRli
+        CODEPAGE="UTF8"
+        COMMAND="%DPFSRV%/scripts/sap/sapcheckinwithrli.pl -parfile %PARFILENAME%"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGSTDOUT="Y"
+        NAME="Sap Checkin With Rli"
+        PROJECT="Sap"
+        THREADS="1"
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-sapcheckinwithrli.xml,v 1.1 2014/08/11 12:17:20 wolfi Exp $"
+        />
+    </workingunits>
+  </config>
+</DPF>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <Pdf.addWhiteBorderAndCenter
+        COMMAND="%DPFSRV%/scripts/pdf/addwhiteborderandcenter.pl -parfile %PARFILENAME%"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGSTDOUT="Y"
+        NAME="Add white border and center small pages"
+        PROJECT="Pdf"
+        THREADS="1"
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-addwhiteborderandcenter.xml,v 1.1 2007/04/03 18:16:13 stefan Exp $"
+        />
+    </workingunits>
+  </config>
+</DPF>

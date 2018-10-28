@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <Test.waitMultipleJobs
+        CODEPAGE="ISO-8859-1"
+        COMMAND="%DPFSRV%/scripts/test/waitmultiplejobs.pl -parfile %PARFILENAME%"
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGNAME=""
+        LOGSTDOUT="Y"
+        NAME="Wait Multiple Jobs"
+        NODENAMES=""
+        PROJECT="Test"
+        THREADS="1"
+        TIMEOUT=""
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-waitmultiplejobs.xml,v 1.1 2010/05/07 10:24:38 stefan Exp $"
+        >
+        <DEFAULTS/>
+        <INPUT>
+          <ExternalJobId
+            DESCRIPTION="external Job ID to wait for"
+            TYPE="TEXT"
+            />
+        </INPUT>
+        <OUTPUT/>
+      </Test.waitMultipleJobs>
+    </workingunits>
+  </config>
+</DPF>

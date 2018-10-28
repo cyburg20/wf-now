@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <pdfauthorize_decrypt
+        NAME="dpf4c - Add, change or remove encryption in a PDF"
+        VERSION="$Id: wu-pdfauthorize_decrypt.xml,v 1.1 2007/04/18 11:59:35 ludwig Exp $"
+        PROJECT="DPF4CONVERT"
+        TYPE="WUSystemCall"
+        LOGNAME="dpf4c-pdfauthorize_decrypt"
+        LOGSTDOUT="Y"
+        LOGLEVEL="LOG_INFO"
+        THREADS="1"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/pdfauthorize.pl -parfile %PARFILENAME%">
+        <DEFAULTS
+          WU_ENABLE_DEBUG_LOOP="N"
+          DPF4C_AUTHORIZE_ACTIVATE="N"
+          DPF4C_AUTHORIZE_OPEN_PW=""
+          DPF4C_AUTHORIZE_CHANGE_PW=""
+          DPF4C_AUTHORIZE_DECRYPT="N"
+          DPF4C_AUTHORIZE_DECRYPT_ALL="N"
+          DPF4C_AUTHORIZE_USER_PW=""
+          DPF4C_AUTHORIZE_OWNER_PW=""
+          DPF4C_AUTHORIZE_PRINT="N"
+          DPF4C_AUTHORIZE_CHANGE="N"
+          DPF4C_AUTHORIZE_COPY_TEXT="Y"
+          DPF4C_AUTHORIZE_ADDNOTES="Y"
+          DPF4C_AUTHORIZE_FILLFIELDS="N"
+          DPF4C_AUTHORIZE_BRAILLE="Y"
+          DPF4C_AUTHORIZE_ASSEMBLE="Y"
+          DPF4C_AUTHORIZE_LOWRES="N"
+          DPF4C_AUTHORIZE_ENCRYPTION128="N"
+          />
+        <INPUT
+          CURRFILENAME="*"
+          CURRFILETYPE="pdf"
+          DPF4C_AUTHORIZE_ACTIVATE="Y|N"
+          DPF4C_AUTHORIZE_OPEN_PW=""
+          DPF4C_AUTHORIZE_CHANGE_PW=""
+          DPF4C_AUTHORIZE_DECRYPT="Y|N"
+          DPF4C_AUTHORIZE_DECRYPT_ALL="Y|N"
+          DPF4C_AUTHORIZE_USER_PW=""
+          DPF4C_AUTHORIZE_OWNER_PW=""
+          DPF4C_AUTHORIZE_PRINT="Y|N"
+          DPF4C_AUTHORIZE_CHANGE="Y|N"
+          DPF4C_AUTHORIZE_COPY_TEXT="Y|N"
+          DPF4C_AUTHORIZE_ADDNOTES="Y|N"
+          DPF4C_AUTHORIZE_FILLFIELDS="Y|N"
+          DPF4C_AUTHORIZE_BRAILLE="Y|N"
+          DPF4C_AUTHORIZE_ASSEMBLE="Y|N"
+          DPF4C_AUTHORIZE_LOWRES="Y|N"
+          DPF4C_AUTHORIZE_ENCRYPTION128="Y|N"
+          />
+        <OUTPUT
+          CURRFILENAME="*"
+          CURRFILETYPE="pdf"
+          />
+      </pdfauthorize_decrypt>
+    </workingunits>
+  </config>
+</DPF>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <Pdf.prepare_header_footer
+        CODEPAGE="ISO-8859-1"
+        COMMAND="%DPFSRV%/scripts/pdf/prepare_header_footer.pl -parfile %PARFILENAME%"
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGNAME=""
+        LOGSTDOUT="Y"
+        NAME="Prepare Header Footer"
+        NODENAMES=""
+        PROJECT="Pdf"
+        THREADS="4"
+        TIMEOUT=""
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-prepare_header_footer.xml,v 1.2 2016/03/08 16:06:45 kig Exp $"
+        >
+        <DEFAULTS/>
+        <INPUT>
+          <AspectRatioFactor
+            TYPE="TEXT"
+            />
+          <DestMarginBottom
+            TYPE="TEXT"
+            />
+          <DestMarginLeft
+            TYPE="TEXT"
+            />
+          <DestMarginRight
+            TYPE="TEXT"
+            />
+          <DestMarginTop
+            TYPE="TEXT"
+            />
+          <FooterHeight
+            TYPE="TEXT"
+            />
+          <FooterOffset
+            TYPE="TEXT"
+            />
+          <HeaderHeight
+            TYPE="TEXT"
+            />
+          <HeaderOffset
+            TYPE="TEXT"
+            />
+          <OrigMarginBottom
+            TYPE="TEXT"
+            />
+          <OrigMarginLeft
+            TYPE="TEXT"
+            />
+          <OrigMarginRight
+            TYPE="TEXT"
+            />
+          <OrigMarginTop
+            TYPE="TEXT"
+            />
+          <ScaleFactor
+            TYPE="TEXT"
+            />
+        </INPUT>
+        <OUTPUT/>
+      </Pdf.prepare_header_footer>
+    </workingunits>
+  </config>
+</DPF>

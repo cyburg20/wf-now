@@ -1,0 +1,27 @@
+<DPF>
+  <config>
+    <workflows>
+      <hpgl2cals
+        NAME="DPF 4 Convert - HPGL to CALS"
+        VERSION="$Id: wf-hpgl2cals.xml,v 1.3 2006/08/15 10:03:22 ludwig Exp $"
+        PROJECT="DPF4CONVERT"
+        COMMENT="dpf4convert - Convert process HPGL to CALS"
+        DPFINT-Type="WorkflowDescription"
+        DPFINT-Changes="0"
+        >
+        <MAIN
+          BEGIN="hpgl2tiff"
+          ERROR="END"
+          />
+        <hpgl2tiff
+          USE="hpgl2tiff"
+          NEXT="tiff2cals"
+          />
+        <tiff2cals
+          NAME="tiff2cals"
+          NEXT="END"
+          />
+      </hpgl2cals>
+    </workflows>
+  </config>
+</DPF>

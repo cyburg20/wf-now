@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <DPF4CONVERT.pdfconvert
+        CODEPAGE="UTF8"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/pdfconvert.pl -parfile %PARFILENAME%"
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGNAME=""
+        LOGSTDOUT="Y"
+        NAME="Pdfconvert - convert PDF to PDF"
+        NODENAMES=""
+        PROJECT="DPF4CONVERT"
+        THREADS="1"
+        TIMEOUT=""
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-pdfconvert.xml,v 1.1 2012/12/03 14:04:01 kig Exp $"
+        >
+        <DEFAULTS/>
+        <INPUT>
+          <CURRFILENAME
+            MANDATORY="true"
+            TYPE="TEXT"
+            />
+          <DPF4C_COMMON_TIMEOUT
+            TYPE="TEXT"
+            />
+          <DPF4C_WU_TARGETDIR
+            TYPE="TEXT"
+            />
+        </INPUT>
+        <OUTPUT/>
+      </DPF4CONVERT.pdfconvert>
+    </workingunits>
+  </config>
+</DPF>

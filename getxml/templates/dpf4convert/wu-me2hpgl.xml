@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <me2hpgl
+        NAME="dpf4c - Convert CAD ME10 to HPGL and other destination formats"
+        VERSION="$Id: wu-me2hpgl.xml,v 1.14 2007/09/18 08:05:58 kig Exp $"
+        PROJECT="DPF4CONVERT"
+        TYPE="WUSystemCall"
+        LOGNAME="dpf4c-me2hpgl"
+        LOGSTDOUT="Y"
+        LOGLEVEL="LOG_INFO"
+        THREADS="1"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/me2hpgl.pl -parfile %PARFILENAME%">
+        <DEFAULTS
+          DPF4C_PROPERTYUPDATE_ENABLE="N"
+          DPF4C_PROPERTYUPDATE_PROVIDE_FILES="N"
+          DPF4C_PROPERTYUPDATE_MAPPINGFILE_ME="%PLSROOT%server/dpf/conf/dpf4convert/Me2hpglPropertyMappingFile.txt"
+          DPF4C_ME2HPGL_ENABLE_AUTO_ROTATION="N"
+          />
+        <INPUT
+          PARFILENAME="*"
+          CURRFILENAME="*"
+          CURRFILETYPE="me10"
+          DPF4C_COMMON_DEST_FORMAT="string (PDF, TIFF,IGES, DXF, DWG)"
+          DPF4C_COMMON_TIMEOUT="number"
+          DPF4C_PROPERTYUPDATE_ENABLE="Y|!N!"
+          DPF4C_PROPERTYUPDATE_FILE="file"
+          DPF4C_PROPERTYUPDATE_PROVIDE_FILES="Y|!N!"
+          DPF4C_PROPERTYUPDATE_MAPPINGFILE_ME="file"
+          DPF4C_ME2HPGL_ENABLE_AUTO_ROTATION="Y|!N!"
+          DPF4C_ME2HPGL_PAR_FILE="file"
+          DPF4C_ME2HPGL_PARFILE_ADDITIONAL_PARAMETER_name="value"
+          />
+    	<OUTPUT
+          CURRFILENAME="*"
+          CURRFILETYPE="hp"
+          />
+      </me2hpgl>
+    </workingunits>
+  </config>
+</DPF>

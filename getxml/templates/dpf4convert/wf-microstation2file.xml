@@ -1,0 +1,23 @@
+<DPF>
+  <config>
+    <workflows>
+      <microstation2file
+        NAME="DPF 4 Convert - CAD Microstation DGN to PDF or TIF"
+        VERSION="$Id: wf-microstation2file.xml,v 1.3 2007/07/31 07:54:37 ludwig Exp $"
+        PROJECT="DPF4CONVERT"
+        COMMENT="dpf4convert - Convert process CAD Microstation DGN to PDF or TIF"
+        DPFINT-Type="WorkflowDescription"
+        DPFINT-Changes="0"
+        >
+        <MAIN
+          BEGIN="microstation2file"
+          ERROR="END"
+          />
+        <microstation2file
+          NAME="microstation2file"
+          NEXT="END"
+          />
+      </microstation2file>
+    </workflows>
+  </config>
+</DPF>

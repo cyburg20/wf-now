@@ -1,0 +1,685 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workflows>
+      <DPF4Publish.Initialize
+        COMMENT=""
+        DPFINT-Customer="0"
+        DPFINT-Interactive="0"
+        DPFINT-Type="WorkflowDescription"
+        NAME="Initialize"
+        PROJECT="DPF4Publish"
+        VERSION="$Id: wf-initialize.xml,v 1.32 2014/04/16 12:58:34 sek Exp $"
+        >
+        <DEFAULTS
+          DPF4Publish.UserExitBeforeInitialize="DPF4Publish.UserExitBeforeInitialize"
+          DPF4Publish.UserExitBeforeValidate="DPF4Publish.UserExitBeforeValidate"
+          WantInitialize="Y"
+          />
+        <DeleteOldBookmarks
+          COMMENT="delete old bookmarks when setting hyperlinks into final documentation pdf or bookmarks+hyperlinks into toc"
+          NEXT="IncludeBookmarks"
+          POSX="700"
+          POSY="2900"
+          TYPE="MODIFY"
+          >
+          <CONNECTIONS
+            NEXT="DIRECT"
+            />
+          <SET
+            WantDeleteOldBookmarks="Y"
+            />
+        </DeleteOldBookmarks>
+        <DoNotIncludeBookmarks
+          COMMENT="Create bookmarks with pdfjoin wu to keep original bookmarks after join.
+
+createToc Wu does not create any bookmarks, just hyperlinks."
+          NEXT="IfWantLinkHeadlinesToNextDoc"
+          POSX="1100"
+          POSY="2700"
+          TYPE="MODIFY"
+          >
+          <CONNECTIONS
+            NEXT="DIRECT"
+            />
+          <SET
+            TocTypeHeadline="text"
+            TocTypeSet="text hyperlink"
+            />
+        </DoNotIncludeBookmarks>
+        <DoNotIncludeBookmarksAndHyperlinks
+          COMMENT="Create bookmarks with pdfjoin wu to keep original bookmarks after join.
+
+createToc Wu does not create any bookmarks nor hyperlinks.
+
+
+No Hyperlinks, these are wrong without page information in RLI.
+
+
+
+
+"
+          NEXT="IfWantLinkHeadlinesToNextDoc"
+          POSX="900"
+          POSY="2900"
+          TYPE="MODIFY"
+          >
+          <CONNECTIONS
+            NEXT="DIRECT"
+            />
+          <SET
+            TocTypeHeadline="text"
+            TocTypeSet="text"
+            />
+        </DoNotIncludeBookmarksAndHyperlinks>
+        <END
+          COMMENT=""
+          NAME="END"
+          POSX="2300"
+          POSY="1900"
+          TYPE="STOP"
+          />
+        <EncryptedPdfCannotBePdfa
+          COMMENT=""
+          ERROR="END"
+          NAME="error"
+          NEXT="END"
+          POSX="900"
+          POSY="3500"
+          TYPE="WU"
+          >
+          <CONNECTIONS
+            ERROR="DIRECT"
+            NEXT="DIRECT"
+            />
+          <DEFAULTS>
+            <ERR_CODE
+              val="1"
+              />
+          </DEFAULTS>
+          <MAPPING
+            ERR_REASON="An encrypted pdf cannot have pdfa quality! Deactivate one of these options."
+            />
+        </EncryptedPdfCannotBePdfa>
+        <HandlePropertyUpdate
+          COMMENT=""
+          ERROR="END"
+          NAME="Rli.HandlePropertyUpdate"
+          NEXT="SetMisc"
+          POSX="700"
+          POSY="2300"
+          TYPE="WU"
+          >
+          <CONNECTIONS
+            ERROR="DIRECT"
+            NEXT="DIRECT"
+            />
+          <DEFAULTS/>
+          <MAPPING/>
+        </HandlePropertyUpdate>
+        <IfCurrFileIsRli
+          COMMENT="Is the input file a reprolist?"
+          ELSE="InputIsNotRli"
+          OPERATOR="ends with"
+          POSX="700"
+          POSY="700"
+          PROPERTY="CURRRLIFILENAME"
+          THEN="IfJobNameExists"
+          TYPE="IF-THEN-ELSE"
+          VALUE="rli"
+          >
+          <CONNECTIONS
+            ELSE="DIRECT"
+            THEN="DIRECT"
+            />
+        </IfCurrFileIsRli>
+        <IfCurrFileNameEndsWithRli
+          COMMENT=""
+          ELSE="IfRliFileExists"
+          OPERATOR="ends with"
+          POSX="300"
+          POSY="700"
+          PROPERTY="CurrFileName"
+          THEN="SetRliFileName"
+          TYPE="IF-THEN-ELSE"
+          VALUE="rli"
+          >
+          <CONNECTIONS
+            ELSE="DIRECT"
+            THEN="DIRECT"
+            />
+        </IfCurrFileNameEndsWithRli>
+        <IfCurrFileNameExists
+          COMMENT=""
+          ELSE="IfRliFileExists"
+          OPERATOR="exists"
+          POSX="300"
+          POSY="500"
+          PROPERTY="CurrFileName"
+          THEN="IfCurrFileNameEndsWithRli"
+          TYPE="IF-THEN-ELSE"
+          VALUE=""
+          >
+          <CONNECTIONS
+            ELSE="DIRECT"
+            THEN="DIRECT"
+            />
+        </IfCurrFileNameExists>
+        <IfJobNameExists
+          COMMENT=""
+          ELSE="SetOverwriteDefaultValues"
+          OPERATOR="exists"
+          POSX="700"
+          POSY="900"
+          PROPERTY="JobName"
+          THEN="SetDpfJobName"
+          TYPE="IF-THEN-ELSE"
+          VALUE=""
+          >
+          <CONNECTIONS
+            ELSE="DIRECT"
+            THEN="DIRECT"
+            />
+        </IfJobNameExists>
+        <IfRliFileExists
+          COMMENT="Is the reprolist property already set?"
+          ELSE="SetRliFileName"
+          OPERATOR="exists"
+          POSX="700"
+          POSY="500"
+          PROPERTY="CURRRLIFILENAME"
+          THEN="IfCurrFileIsRli"
+          TYPE="IF-THEN-ELSE"
+          VALUE=""
+          >
+          <CONNECTIONS
+            ELSE="DIRECT"
+            THEN="DIRECT"
+            />
+        </IfRliFileExists>
+        <IfUseSourceFileName
+          COMMENT=""
+          ELSE="IfCurrFileNameExists"
+          OPERATOR="is true"
+          POSX="300"
+          POSY="300"
+          PROPERTY="UseSourceFileName"
+          THEN="UseSourceFileName"
+          TYPE="IF-THEN-ELSE"
+          VALUE=""
+          >
+          <CONNECTIONS
+            ELSE="DIRECT"
+            THEN="DIRECT"
+            />
+        </IfUseSourceFileName>
+        <IfUseSourceFileName2
+          COMMENT=""
+          ELSE="IfWantPdfA"
+          OPERATOR="is true"
+          POSX="500"
+          POSY="3300"
+          PROPERTY="UseSourceFileName"
+          THEN="ResetToCurrFileName"
+          TYPE="IF-THEN-ELSE"
+          VALUE=""
+          >
+          <CONNECTIONS
+            ELSE="DIRECT"
+            THEN="DIRECT"
+            />
+        </IfUseSourceFileName2>
+        <IfWantEncryption
+          COMMENT="Crypt merged file?"
+          ELSE="END"
+          OPERATOR="is true"
+          POSX="700"
+          POSY="3500"
+          PROPERTY="WantEncryption"
+          THEN="EncryptedPdfCannotBePdfa"
+          TYPE="IF-THEN-ELSE"
+          VALUE=""
+          >
+          <CONNECTIONS
+            ELSE="DIRECT"
+            THEN="DIRECT"
+            />
+        </IfWantEncryption>
+        <IfWantHandlePropertyUpdate
+          COMMENT=""
+          ELSE="SetMisc"
+          OPERATOR="is true"
+          POSX="500"
+          POSY="2300"
+          PROPERTY="WantHandlePropertyUpdate"
+          THEN="HandlePropertyUpdate"
+          TYPE="IF-THEN-ELSE"
+          VALUE=""
+          >
+          <CONNECTIONS
+            ELSE="DIRECT"
+            THEN="DIRECT"
+            />
+        </IfWantHandlePropertyUpdate>
+        <IfWantLinkHeadlinesToNextDoc
+          COMMENT="should headlines link to following document (next rli line)
+
+so user also can click on headline bookmarks and hyperlinks?
+
+"
+          ELSE="IfUseSourceFileName2"
+          OPERATOR="is true"
+          POSX="500"
+          POSY="3100"
+          PROPERTY="WantLinkHeadlinesToNextDoc"
+          THEN="SetTocTypeHeadline"
+          TYPE="IF-THEN-ELSE"
+          VALUE=""
+          >
+          <CONNECTIONS
+            ELSE="DIRECT"
+            THEN="DIRECT"
+            />
+        </IfWantLinkHeadlinesToNextDoc>
+        <IfWantMergePdfs10
+          COMMENT="Merge documents to one pdf file?"
+          ELSE="IncludeBookmarks"
+          OPERATOR="is true"
+          POSX="500"
+          POSY="2700"
+          PROPERTY="WantMergePdfs"
+          THEN="IfWantOrigBookmarks"
+          TYPE="IF-THEN-ELSE"
+          VALUE=""
+          >
+          <CONNECTIONS
+            ELSE="DIRECT"
+            THEN="DIRECT"
+            />
+        </IfWantMergePdfs10>
+        <IfWantOrigBookmarks
+          COMMENT="should we create bookmarks with pdfjoin to keep original bookmarks in merged pdf?"
+          ELSE="DeleteOldBookmarks"
+          OPERATOR="is true"
+          POSX="700"
+          POSY="2700"
+          PROPERTY="WantOriginalBookmarks"
+          THEN="IfWantPageNumbers"
+          TYPE="IF-THEN-ELSE"
+          VALUE=""
+          >
+          <CONNECTIONS
+            ELSE="DIRECT"
+            THEN="DIRECT"
+            />
+        </IfWantOrigBookmarks>
+        <IfWantPageNumbers
+          COMMENT=""
+          ELSE="DoNotIncludeBookmarksAndHyperlinks"
+          OPERATOR="is true"
+          POSX="900"
+          POSY="2700"
+          PROPERTY="WantPageNumbers"
+          THEN="DoNotIncludeBookmarks"
+          TYPE="IF-THEN-ELSE"
+          VALUE=""
+          >
+          <CONNECTIONS
+            ELSE="DIRECT"
+            THEN="DIRECT"
+            />
+        </IfWantPageNumbers>
+        <IfWantPdfA
+          COMMENT="Convert pdf to pdfa?"
+          ELSE="END"
+          OPERATOR="eq"
+          POSX="500"
+          POSY="3500"
+          PROPERTY="PdfQuality"
+          THEN="IfWantEncryption"
+          TYPE="IF-THEN-ELSE"
+          VALUE="PDFA"
+          >
+          <CONNECTIONS
+            ELSE="DIRECT"
+            THEN="DIRECT"
+            />
+        </IfWantPdfA>
+        <IfWantRenameRliColumns
+          COMMENT=""
+          ELSE="IfWantValidateRli"
+          OPERATOR="is true"
+          POSX="500"
+          POSY="1900"
+          PROPERTY="WantRenameRliColumns"
+          THEN="RenameRliColumns"
+          TYPE="IF-THEN-ELSE"
+          VALUE=""
+          >
+          <CONNECTIONS
+            ELSE="DIRECT"
+            THEN="DIRECT"
+            />
+        </IfWantRenameRliColumns>
+        <IfWantValidateRli
+          COMMENT="Validate Rli?"
+          ELSE="IfWantHandlePropertyUpdate"
+          OPERATOR="is true"
+          POSX="500"
+          POSY="2100"
+          PROPERTY="WantValidateRli"
+          THEN="ValidateRli"
+          TYPE="IF-THEN-ELSE"
+          VALUE=""
+          >
+          <CONNECTIONS
+            ELSE="DIRECT"
+            THEN="DIRECT"
+            />
+        </IfWantValidateRli>
+        <IncludeBookmarks
+          COMMENT="Create bookmarks with &quot;create table of contents&quot; wu."
+          NEXT="IfWantLinkHeadlinesToNextDoc"
+          POSX="500"
+          POSY="2900"
+          TYPE="MODIFY"
+          >
+          <CONNECTIONS
+            NEXT="DIRECT"
+            />
+          <SET
+            TocTypeHeadline="text bookmark"
+            TocTypeSet="text bookmark hyperlink"
+            />
+        </IncludeBookmarks>
+        <InputIsNotRli
+          COMMENT=""
+          ERROR="END"
+          NAME="error"
+          NEXT="END"
+          POSX="900"
+          POSY="700"
+          TYPE="WU"
+          >
+          <CONNECTIONS
+            ERROR="DIRECT"
+            NEXT="DIRECT"
+            />
+          <DEFAULTS>
+            <ERR_CODE
+              val="1"
+              />
+          </DEFAULTS>
+          <MAPPING
+            ERR_REASON="Only Reprolists (*.rli) can be processed!"
+            />
+        </InputIsNotRli>
+        <MAIN
+          BEGIN="UserExitBeforeInitialize"
+          NAME=""
+          />
+        <MAPPING/>
+        <ReadIniFiles
+          COMMENT="Read default sections of default, customer and computer-specific config files.
+
+Overwrite existing DPF parameters that were not already set before calling this wu."
+          ERROR="END"
+          NAME="FileSystem.ReadMultipleIniFiles"
+          NEXT="ReadRliSections"
+          POSX="500"
+          POSY="1100"
+          TYPE="WU"
+          >
+          <CONNECTIONS
+            ERROR="DIRECT"
+            NEXT="DIRECT"
+            />
+          <DEFAULTS/>
+          <MAPPING
+            OverwriteDefaultValues="Y"
+            SectionNames="MAIN,DEFAULTS"
+            />
+        </ReadIniFiles>
+        <ReadRliSections
+          COMMENT="Read standard sections from the reprolist.
+
+Always overwrite property values."
+          ERROR="END"
+          NAME="Rli.readSections"
+          NEXT="RereadIniFiles"
+          POSX="500"
+          POSY="1300"
+          TYPE="WU"
+          >
+          <CONNECTIONS
+            ERROR="DIRECT"
+            NEXT="DIRECT"
+            />
+          <DEFAULTS/>
+          <MAPPING/>
+        </ReadRliSections>
+        <RenameRliColumns
+          COMMENT=""
+          ERROR="END"
+          NAME="Rli.renameColumns"
+          NEXT="IfWantValidateRli"
+          POSX="700"
+          POSY="1900"
+          TYPE="WU"
+          >
+          <CONNECTIONS
+            ERROR="DIRECT"
+            NEXT="DIRECT"
+            />
+          <DEFAULTS/>
+          <MAPPING/>
+        </RenameRliColumns>
+        <RereadIniFiles
+          COMMENT="Read setting sections of default, customer and computer-specific config files.
+
+Always overwrite property values."
+          ERROR="END"
+          NAME="FileSystem.ReadMultipleIniFiles"
+          NEXT="UserExitBeforeValidate"
+          POSX="500"
+          POSY="1500"
+          TYPE="WU"
+          >
+          <CONNECTIONS
+            ERROR="DIRECT"
+            NEXT="DIRECT"
+            />
+          <DEFAULTS/>
+          <MAPPING
+            ForceIniValues="Y"
+            SectionNames="REREAD,SETTINGS"
+            />
+        </RereadIniFiles>
+        <ResetToCurrFileName
+          COMMENT="Required for Multiakte2go"
+          NEXT="IfWantPdfA"
+          POSX="700"
+          POSY="3300"
+          TYPE="MODIFY"
+          >
+          <CONNECTIONS
+            NEXT="DIRECT"
+            />
+          <SET
+            RlicCurrFileName="CurrFileName"
+            />
+        </ResetToCurrFileName>
+        <SetDpfJobName
+          COMMENT="set DpfJobName to avoid reading from ini file"
+          NEXT="SetOverwriteDefaultValues"
+          POSX="700"
+          POSY="1100"
+          TYPE="MODIFY"
+          >
+          <CONNECTIONS
+            NEXT="DIRECT"
+            />
+          <SET
+            DpfJobName="%JobName%"
+            />
+        </SetDpfJobName>
+        <SetMisc
+          COMMENT="Expand JOBNAME and JOBUSERNAME parameter after reading RLI and rereading INI files."
+          NEXT="IfWantMergePdfs10"
+          POSX="500"
+          POSY="2500"
+          TYPE="MODIFY"
+          >
+          <CONNECTIONS
+            NEXT="DIRECT"
+            />
+          <SET
+            JobName="%DpfJobName%"
+            JobUserName="%DpfJobUserName%"
+            WantDeleteOldBookmarks="N"
+            />
+        </SetMisc>
+        <SetOverwriteDefaultValues
+          COMMENT="Overwrite existing DPF parameters that were not already set before calling Read Muliple Ini Files."
+          NEXT="ReadIniFiles"
+          POSX="500"
+          POSY="900"
+          TYPE="MODIFY"
+          >
+          <CONNECTIONS
+            NEXT="DIRECT"
+            />
+          <SET
+            OverwriteDefaultValues="Y"
+            />
+        </SetOverwriteDefaultValues>
+        <SetRliFileName
+          COMMENT="Set the reprolist property to the input file."
+          NEXT="IfCurrFileIsRli"
+          POSX="500"
+          POSY="700"
+          TYPE="MODIFY"
+          >
+          <CONNECTIONS
+            NEXT="HORIZONTAL"
+            />
+          <SET
+            CURRRLIFILENAME="%CURRFILENAME%"
+            />
+        </SetRliFileName>
+        <SetTocTypeHeadline
+          COMMENT="set TocTypeHeadline = TocTypeSet because all RLI lines
+
+are able to have hyperlinks
+
+"
+          NEXT="IfUseSourceFileName2"
+          POSX="700"
+          POSY="3100"
+          TYPE="MODIFY"
+          >
+          <CONNECTIONS
+            NEXT="DIRECT"
+            />
+          <SET
+            TocTypeHeadline="%TocTypeSet%"
+            />
+        </SetTocTypeHeadline>
+        <UseSourceFileName
+          COMMENT="Required for Multiakte2go"
+          NEXT="IfCurrFileNameExists"
+          POSX="500"
+          POSY="300"
+          TYPE="MODIFY"
+          >
+          <CONNECTIONS
+            NEXT="DIRECT"
+            />
+          <SET
+            RlicCurrFileName="SourceFileName"
+            />
+        </UseSourceFileName>
+        <UserExitBeforeInitialize
+          COMMENT="user exit before standard distribute process.
+
+customize it in publish.customer.ini with keyword
+
+
+DPF4Publish.UserExitBeforeInitialize = ...
+
+
+use internal process name to call instead empty default."
+          ERROR="END"
+          NEXT="ifWantInitialize"
+          POSX="300"
+          POSY="100"
+          TYPE="USER_EXIT"
+          USE="%DPF4Publish.userExitBeforeInitialize%"
+          >
+          <CONNECTIONS
+            ERROR="DIRECT"
+            NEXT="DIRECT"
+            />
+          <DEFAULTS/>
+          <MAPPING/>
+        </UserExitBeforeInitialize>
+        <UserExitBeforeValidate
+          COMMENT="user exit before standard distribute process.
+
+customize it in publish.customer.ini with keyword
+
+
+DPF4Publish.UserExitBeforeValidate = ...
+
+
+use internal process name to call instead empty default."
+          ERROR="END"
+          NEXT="IfWantRenameRliColumns"
+          POSX="500"
+          POSY="1700"
+          TYPE="USER_EXIT"
+          USE="%DPF4Publish.UserExitBeforeValidate%"
+          >
+          <CONNECTIONS
+            ERROR="DIRECT"
+            NEXT="DIRECT"
+            />
+          <DEFAULTS/>
+          <MAPPING/>
+        </UserExitBeforeValidate>
+        <ValidateRli
+          COMMENT="Validate Rli according to rules set in config files."
+          ERROR="END"
+          NAME="Rli.validate"
+          NEXT="IfWantHandlePropertyUpdate"
+          POSX="700"
+          POSY="2100"
+          TYPE="WU"
+          >
+          <CONNECTIONS
+            ERROR="DIRECT"
+            NEXT="DIRECT"
+            />
+          <DEFAULTS/>
+          <MAPPING/>
+        </ValidateRli>
+        <ifWantInitialize
+          COMMENT=""
+          ELSE="END"
+          OPERATOR="is true"
+          POSX="500"
+          POSY="100"
+          PROPERTY="WantInitialize"
+          THEN="IfUseSourceFileName"
+          TYPE="IF-THEN-ELSE"
+          VALUE=""
+          >
+          <CONNECTIONS
+            ELSE="DIRECT"
+            THEN="DIRECT"
+            />
+        </ifWantInitialize>
+      </DPF4Publish.Initialize>
+    </workflows>
+  </config>
+</DPF>

@@ -1,0 +1,19 @@
+<DPF>
+  <config>
+    <workingunits>
+      <read_hed
+        NAME="dpf4c - Read dpf header file from gate assignment."
+        VERSION="$Id: wu-read_hed.xml,v 1.2 2004/05/14 11:37:00 ludwig Exp $"
+        PROJECT="DPF4CONVERT"
+        TYPE="WUSystemCall"
+        LOGNAME="dpf4c-read_hed"
+        LOGSTDOUT="Y"
+        LOGLEVEL="LOG_INFO"
+        THREADS="1"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/read_hed.pl -parfile %PARFILENAME%">
+        <DEFAULTS
+          />
+      </read_hed>
+    </workingunits>
+  </config>
+</DPF>

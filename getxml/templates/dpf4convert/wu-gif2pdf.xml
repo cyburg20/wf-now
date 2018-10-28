@@ -1,0 +1,24 @@
+<DPF>
+  <config>
+    <workingunits>
+      <gif2pdf
+        NAME="dpf4c - Conversion GIF to PDF."
+        LICENSE="CIGIF"
+        VERSION="$Id: wu-gif2pdf.xml,v 1.3 2017/02/08 12:46:27 thomas Exp $"
+        PROJECT="DPF4CONVERT"
+        TYPE="WUSystemCall"
+        LOGNAME="dpf4c-gif2pdf"
+        LOGSTDOUT="Y"
+        LOGLEVEL="LOG_INFO"
+        THREADS="1"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/gif2pdf.pl -parfile %PARFILENAME%">
+    	<DEFAULTS
+          />
+        <INPUT
+          />
+        <OUTPUT
+          />
+      </gif2pdf>
+    </workingunits>
+  </config>
+</DPF>

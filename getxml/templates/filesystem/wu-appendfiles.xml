@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <FileSystem.appendFiles
+        COMMAND="%DPFSRV%/scripts/filesystem/appendfiles.pl -parfile %PARFILENAME%"
+        DEFAULTS=""
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGSTDOUT="Y"
+        NAME="Append Files"
+        PROJECT="FileSystem"
+        Status="Running"
+        THREADS="1"
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-appendfiles.xml,v 1.3 2007/12/05 16:36:53 sek Exp $"
+        >
+        <DEFAULTS
+          EXCLUDE_EXACT_PATTERN_MATCH="N"
+          OVERWRITE_OUTPUT_FILE="N"
+          />
+        <INPUT>
+          <EXCLUDE_EXACT_PATTERN_MATCH
+            DEFAULT="N"
+            DESCRIPTION="the file with the name that equals the SEARCH_PATTERN will not be appended"
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </EXCLUDE_EXACT_PATTERN_MATCH>
+          <INPUT_DIRECTORY
+            DESCRIPTION="this directory is searched for files that match the SEARCH_PATTERN"
+            MANDATORY="true"
+            TYPE="TEXT"
+            />
+          <OUTPUT_FILE
+            DESCRIPTION="output appended file"
+            MANDATORY="true"
+            TYPE="TEXT"
+            />
+          <OVERWRITE_OUTPUT_FILE
+            DEFAULT="N"
+            DESCRIPTION="OUTPUT_FILE file will be overwritten, else appended"
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </OVERWRITE_OUTPUT_FILE>
+          <REMOVE_HEADERS
+            DESCRIPTION="the first line of each matching file after the first one will be removed"
+            TYPE="TEXT"
+            />
+          <SEARCH_PATTERN
+            DESCRIPTION="(see INPUT_DIRECTORY)"
+            MANDATORY="true"
+            TYPE="TEXT"
+            />
+        </INPUT>
+      </FileSystem.appendFiles>
+    </workingunits>
+  </config>
+</DPF>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <interactive
+        NAME="Interactive working unit step in SEALCC"
+        VERSION="$Id: wu-interactive.xml,v 1.1 2008/05/15 09:25:08 stefan Exp $"
+        PROJECT=""
+        TYPE="WUInteractive"
+        LOGNAME=""
+        LOGLEVEL="LOG_INFO"
+        >
+        <DEFAULTS
+          />
+        <INPUT
+          />
+      </interactive>
+    </workingunits>
+  </config>
+</DPF>

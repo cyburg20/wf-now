@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <Rli.mergePdfs
+        CODEPAGE="ISO-8859-1"
+        COMMAND="%DPFSRV%/scripts/rli/mergepdfs.pl -parfile %PARFILENAME%"
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGNAME=""
+        LOGSTDOUT="Y"
+        NAME="Merge Pdfs"
+        NODENAMES=""
+        PROJECT="Rli"
+        THREADS="5"
+        TIMEOUT=""
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-mergepdfs.xml,v 1.8 2014/06/26 13:34:15 sek Exp $"
+        >
+        <DEFAULTS
+          CreateBookmarks="Y"
+          DefaultBookmarkColor="#000000"
+          DefaultBookmarkOpen="N"
+          KeepAttachments="N"
+          MergedPdfFileName="MergedPdfFile.pdf"
+          PdfExpandCollection="N"
+          RlicBookmarkColor="BmColor"
+          RlicBookmarkLevel="LEVEL"
+          RlicBookmarkOpen="BmOpen"
+          RlicBookmarkStyle="BmStyle"
+          RlicBookmarkText="Beschreibung"
+          RlicFilename="CurrFileName"
+          />
+        <INPUT>
+          <CreateBookmarks
+            DEFAULT="Y"
+            DESCRIPTION="import old and create new bookmarks, default: Y"
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </CreateBookmarks>
+          <CurrRliFileName
+            DESCRIPTION="the input rli-file"
+            TYPE="TEXT"
+            />
+          <DefaultBookmarkColor
+            DEFAULT="#000000"
+            DESCRIPTION="name of the RLI column to use values from, a bookmark text color was not set, default: #000000"
+            TYPE="TEXT"
+            />
+          <DefaultBookmarkOpen
+            DEFAULT="N"
+            DESCRIPTION="name of the RLI column to use values from, a bookmark state was not set, default: N"
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </DefaultBookmarkOpen>
+          <DefaultBookmarkStyle
+            DESCRIPTION="name of the RLI column to use values from, a bookmark text style was not set, default: &quot;&quot;"
+            TYPE="TEXT"
+            />
+          <DestFileName
+            DESCRIPTION="path of the output rli-file"
+            TYPE="TEXT"
+            />
+          <DestForEmptyFile
+            DESCRIPTION="set to &quot;None&quot; to prevent linking a reprolist line without a document to the next line with a document"
+            TYPE="TEXT"
+            />
+          <FilterOperator
+            DESCRIPTION="optional operator to compare value(s), default: eq"
+            TYPE="TEXT"
+            />
+          <FilterOperator2
+            DESCRIPTION="second optional operator to compare value(s), default: eq"
+            TYPE="TEXT"
+            />
+          <FilterPrefix
+            DESCRIPTION="rlifilter prefix, if none was passed to the rlifilter object. if a prefix was defined either way, it must be inserted before rlifilter property names: &lt;Prefix&gt;RlicFilter"
+            TYPE="TEXT"
+            />
+          <FilterValue
+            DESCRIPTION="colon separated values to work on these specific RLI lines only"
+            TYPE="TEXT"
+            />
+          <FilterValue2
+            DESCRIPTION="second set of colon separated values to work on these specific RLI lines only"
+            TYPE="TEXT"
+            />
+          <KeepAttachments
+            DEFAULT="N"
+            DESCRIPTION="keep all attachments of the input pdfs in the merged pdf file"
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </KeepAttachments>
+          <MergedPdfFileName
+            DEFAULT="MergedPdfFile.pdf"
+            DESCRIPTION="path name of the output file, default: MergedPdfFile.pdf"
+            TYPE="TEXT"
+            />
+          <PdfExpandCollection
+            DEFAULT="N"
+            DESCRIPTION="merge all members of a collection into the output pdf file"
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </PdfExpandCollection>
+          <RlicBookmarkColor
+            DEFAULT="BmColor"
+            DESCRIPTION="name of the RLI column with bookmark text color, default: BmColor"
+            TYPE="TEXT"
+            />
+          <RlicBookmarkLevel
+            DEFAULT="LEVEL"
+            DESCRIPTION="name of the RLI column with bookmark tree level, default: LEVEL"
+            TYPE="TEXT"
+            />
+          <RlicBookmarkOpen
+            DEFAULT="BmOpen"
+            DESCRIPTION="name of the RLI column with bookmark state (children bookmarks visible or not), default: BmOpen"
+            TYPE="TEXT"
+            />
+          <RlicBookmarkStyle
+            DEFAULT="BmStyle"
+            DESCRIPTION="name of the RLI column with bookmark text style (bold, italic, or both) default: BmStyle"
+            TYPE="TEXT"
+            />
+          <RlicBookmarkText
+            DEFAULT="Beschreibung"
+            DESCRIPTION="name of the RLI column with bookmark text, default: Beschreibung"
+            TYPE="TEXT"
+            />
+          <RlicFilename
+            DEFAULT="CurrFileName"
+            DESCRIPTION="name of the RLI column with path names of files to merge, default: CurrFileName"
+            TYPE="TEXT"
+            />
+          <RlicFilter
+            DESCRIPTION="name of the RLI column to use to filter specific RLI lines only"
+            TYPE="TEXT"
+            />
+          <RlicFilter2
+            DESCRIPTION="name of second RLI column to use to filter specific RLI lines only"
+            TYPE="TEXT"
+            />
+        </INPUT>
+        <OUTPUT/>
+      </Rli.mergePdfs>
+    </workingunits>
+  </config>
+</DPF>

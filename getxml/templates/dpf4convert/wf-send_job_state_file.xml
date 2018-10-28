@@ -1,0 +1,35 @@
+<DPF>
+  <config>
+    <workflows>
+      <send_job_state_file
+        NAME="DPF 4 Convert - send_job_state_file"
+        VERSION="$Id: wf-send_job_state_file.xml,v 1.1 2006/07/27 15:45:39 ludwig Exp $"
+        PROJECT="DPF4CONVERT"
+        COMMENT="dpf4convert - Send job state file using dpfclient"
+        DPFINT-Type="WorkflowDescription"
+        DPFINT-Changes="0"
+        >
+        <MAIN
+          BEGIN="get_jobstate"
+          ERROR="END"
+          />
+        <get_jobstate
+          NAME="get_jobstate"
+          NEXT="set_job_state_file"
+          />
+        <set_job_state_file
+          TYPE="MODIFY"
+          NEXT="sendback"
+        >
+          <SET
+          TARGETFILE="getjobstate_statusfile.txt"
+          />
+        </set_job_state_file>
+        <sendback
+          NAME="sendback"
+          NEXT="END"
+          />
+      </send_job_state_file>
+    </workflows>
+  </config>
+</DPF>

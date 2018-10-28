@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <Pdf.DeleteAllBookmarks
+        CODEPAGE="ISO-8859-1"
+        COMMAND="%DPFSRV%/scripts/pdf/deleteallbookmarks.pl -parfile %PARFILENAME%"
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGNAME=""
+        LOGSTDOUT="Y"
+        NAME="Delete All Bookmarks"
+        NODENAMES=""
+        PROJECT="Pdf"
+        THREADS="1"
+        TIMEOUT=""
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-deleteallbookmarks.xml,v 1.1 2014/01/24 13:24:28 sek Exp $"
+        >
+        <DEFAULTS
+          TargetFileName="%JobDir%/%WFPOSITION%.pdf"
+          />
+        <INPUT>
+          <CurrFileName
+            DESCRIPTION="filepath of the input pdf"
+            MANDATORY="true"
+            TYPE="TEXT"
+            />
+          <TargetFileName
+            DEFAULT="%JobDir%/%WFPOSITION%.pdf"
+            DESCRIPTION="filepath of the output pdf"
+            TYPE="TEXT"
+            />
+        </INPUT>
+        <OUTPUT/>
+      </Pdf.DeleteAllBookmarks>
+    </workingunits>
+  </config>
+</DPF>

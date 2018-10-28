@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <Mail.sendMail
+        COMMAND="%DPFSRV%/scripts/mail/sendmail.pl -parfile %PARFILENAME%"
+        DPFINT-FileLinks="doc://:/%DPFSRV%/scripts/mail/sendmail.pl"
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGNAME=""
+        LOGSTDOUT="Y"
+        NAME="Send EMail with SMTP"
+        PROJECT="Mail"
+        Status="Running"
+        THREADS="1"
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-sendmail.xml,v 1.5 2007/03/28 10:39:37 ch Exp $"
+        >
+        <DEFAULTS
+          DPFINT-Icon="doc://:/defaults.gif"
+          WU_ENABLE_DEBUG_LOOP="N"
+          />
+        <INPUT
+          DPFINT-Icon="doc://:/wu-input.gif"
+          WU_ENABLE_DEBUG_LOOP="*"
+          >
+          <MAIL_ATTACH_PROPERTIES
+            TYPE="TEXT"
+            />
+          <MAIL_BCC
+            TYPE="TEXT"
+            />
+          <MAIL_CC
+            TYPE="TEXT"
+            />
+          <MAIL_EXPAND_TEXT
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </MAIL_EXPAND_TEXT>
+          <MAIL_FROM
+            TYPE="TEXT"
+            />
+          <MAIL_SMTP
+            TYPE="TEXT"
+            />
+          <MAIL_SUBJECT
+            TYPE="TEXT"
+            />
+          <MAIL_TEXT
+            TYPE="TEXT"
+            />
+          <MAIL_TEXT_FILENAME
+            TYPE="TEXT"
+            />
+          <MAIL_TO
+            TYPE="TEXT"
+            />
+          <WU_ENABLE_DEBUG_LOOP
+            DEFAULT="N"
+            TYPE="TEXT"
+            />
+        </INPUT>
+      </Mail.sendMail>
+    </workingunits>
+  </config>
+</DPF>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <DPF4VIEW.ReadSectionsAndAnalyzeRli
+        CODEPAGE="ISO-8859-1"
+        COMMAND="%DPFSRV%/scripts/dpf4view/readsectionsandanalyzerli.pl -parfile %PARFILENAME%"
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGNAME=""
+        LOGSTDOUT="Y"
+        NAME="Read Sections And Analyze Rli"
+        NODENAMES=""
+        PROJECT="DPF4VIEW"
+        THREADS="1"
+        TIMEOUT=""
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-readsectionsandanalyzerli.xml,v 1.1 2012/03/13 14:53:44 sek Exp $"
+        >
+        <DEFAULTS/>
+        <INPUT>
+          <CurrRliFileName
+            DESCRIPTION="name of rli file to read sections from"
+            MANDATORY="true"
+            TYPE="TEXT"
+            />
+        </INPUT>
+        <OUTPUT/>
+      </DPF4VIEW.ReadSectionsAndAnalyzeRli>
+    </workingunits>
+  </config>
+</DPF>

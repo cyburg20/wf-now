@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <send_error_message_axalant
+        NAME="dpf4c - Send error message to axalant"
+        VERSION="$Id: wu-send_error_message_axalant.xml,v 1.2 2005/04/18 12:21:43 wolfi Exp $"
+        PROJECT="DPF4CONVERT"
+        TYPE="WUSystemCall"
+        LOGNAME="dpf4c-send_error_message_axalant"
+        LOGSTDOUT="Y"
+        LOGLEVEL="LOG_INFO"
+        THREADS="1"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/send_error_message_axalant.pl -parfile %PARFILENAME%">
+        <DEFAULTS
+          WU_ENABLE_DEBUG_LOOP="N"
+          />
+        <INPUT
+          />
+        <OUTPUT
+          />
+      </send_error_message_axalant>
+    </workingunits>
+  </config>
+</DPF>

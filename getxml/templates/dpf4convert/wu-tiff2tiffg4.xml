@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <tiff2tiffg4
+        NAME="dpf4c - Convert TIFF to TIFF G4"
+        VERSION="$Id: wu-tiff2tiffg4.xml,v 1.3 2015/05/07 07:58:15 kig Exp $"
+        PROJECT="DPF4CONVERT"
+        TYPE="WUSystemCall"
+        LOGNAME="dpf4c-tiff2tiffg4"
+        LOGSTDOUT="Y"
+        LOGLEVEL="LOG_INFO"
+        THREADS="1"
+        TRACEIGNOREEXITCODE="N"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/tiff2tiffg4.pl -parfile %PARFILENAME%">
+        <DEFAULTS
+          WU_ENABLE_DEBUG_LOOP="N"
+          DPF4C_MODIFY_RESOLUTION_DPI="400"
+          TIFF2TIFFG4_ALLOW_TILED="Y"
+          />
+        <INPUT
+          CURRFILENAME="*"
+          CURRFILETYPE="tif"
+          DPF4C_MODIFY_RESOLUTION_DPI="400"
+          TIFF2TIFFG4_ALLOW_TILED="Y|N"
+          />
+        <OUTPUT
+          CURRFILENAME="*"
+          CURRFILETYPE="tif"
+          />
+      </tiff2tiffg4>
+    </workingunits>
+  </config>
+</DPF>

@@ -1,0 +1,44 @@
+<DPF>
+  <config>
+    <workflows>
+      <restore_currfilename_and_currfiletype
+        NAME="DPF 4 Convert - process for restore currfilename and currfiltype"
+        VERSION="$Id: wf-restore_currfilename_and_currfiletype.xml,v 1.2 2006/07/24 13:42:27 ludwig Exp $"
+        PROJECT="DPF4CONVERT"
+        COMMENT="dpf4convert - Restore currfilename and currfiletype"
+        DPFINT-Type="WorkflowDescription"
+        DPFINT-Changes="0"
+        >
+        <MAIN
+          BEGIN="check_if_only_one_destformat"
+          ERROR="END"
+          />
+        <check_if_only_one_destformat
+          TYPE="IF-THEN-ELSE"
+          PROPERTY="DPF4C_COMMON_DEST_FORMAT"
+          OPERATOR="contains"
+          VALUE=","
+          THEN="check_if_filled_property"
+          ELSE="END"
+          />
+        <check_if_filled_property
+          TYPE="IF-THEN-ELSE"
+          PROPERTY="CURRFILENAME_SAVE"
+          OPERATOR="ne"
+          VALUE=""
+          THEN="restore_currfilename_and_currfiletype"
+          ELSE="END"
+          />
+       <restore_currfilename_and_currfiletype
+          TYPE="MODIFY"
+          NEXT="END"
+        >
+          <SET
+          CURRFILENAME="%CURRFILENAME_SAVE%"
+          CURRFILETYPE="%CURRFILETYPE_SAVE%"
+          />
+        </restore_currfilename_and_currfiletype>
+      </restore_currfilename_and_currfiletype>
+    </workflows>
+  </config>
+</DPF>

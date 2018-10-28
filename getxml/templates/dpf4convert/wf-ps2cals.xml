@@ -1,0 +1,27 @@
+<DPF>
+  <config>
+    <workflows>
+      <ps2cals
+        NAME="DPF 4 Convert - PostScript to CALS"
+        VERSION="$Id: wf-ps2cals.xml,v 1.3 2006/08/15 10:03:23 ludwig Exp $"
+        PROJECT="DPF4CONVERT"
+        COMMENT="dpf4convert - Convert process PostScript to CALS"
+        DPFINT-Type="WorkflowDescription"
+        DPFINT-Changes="0"
+        >
+        <MAIN
+          BEGIN="ps2tiff"
+          ERROR="END"
+          />
+        <ps2tiff
+          USE="ps2tiff"
+          NEXT="tiff2cals"
+          />
+        <tiff2cals
+          NAME="tiff2cals"
+          NEXT="END"
+          />
+      </ps2cals>
+    </workflows>
+  </config>
+</DPF>

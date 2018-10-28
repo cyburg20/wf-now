@@ -1,0 +1,33 @@
+<DPF>
+  <config>
+    <workingunits>
+      <checkin_pfsclient
+        NAME="dpf4c - Check in files using pfsclient."
+        VERSION="$Id: wu-checkin_pfsclient.xml,v 1.1 2006/03/20 15:23:36 ludwig Exp $"
+        PROJECT="DPF4CONVERT"
+        TYPE="WUSystemCall"
+        LOGNAME="dpf4c-checkin_pfsclient"
+        LOGSTDOUT="Y"
+        LOGLEVEL="LOG_INFO"
+        THREADS="1"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/checkin_pfsclient.pl -parfile %PARFILENAME%">
+        <DEFAULTS
+           DPF4C_CONNECTION_HOST=""
+           REMOTE_BASE_PATH="GRALPLOTHOME"
+           DPF4C_PROPERTYUPDATE_PROVIDE_FILES="N"
+          />
+         <INPUT
+          CURRFILENAME="file"
+          TARGETFILE="*"
+          DPF4C_CONNECTION_HOST="*"
+          REMOTE_BASE_PATH="GRALPLOTLIB|GRALPLOTHOME"
+          APPL_SYSTEM_JOBID="*"
+          DPF4C_PROPERTYUPDATE_PROVIDE_FILES="Y|N"
+          />
+	<OUTPUT
+          ERR_REASON="*"
+          />
+      </checkin_pfsclient>
+    </workingunits>
+  </config>
+</DPF>

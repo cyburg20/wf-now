@@ -1,0 +1,27 @@
+<DPF>
+  <config>
+    <workflows>
+      <cgm2cals
+        NAME="DPF 4 Convert - CGM to CALS"
+        VERSION="$Id: wf-cgm2cals.xml,v 1.3 2006/08/15 10:03:22 ludwig Exp $"
+        PROJECT="DPF4CONVERT"
+        COMMENT="dpf4convert - Convert process CGM to CALS"
+        DPFINT-Type="WorkflowDescription"
+        DPFINT-Changes="0"
+        >
+        <MAIN
+          BEGIN="cgm2tiff"
+          ERROR="END"
+          />
+        <cgm2tiff
+          USE="cgm2tiff"
+          NEXT="tiff2cals"
+          />
+        <tiff2cals
+          NAME="tiff2cals"
+          NEXT="END"
+          />
+      </cgm2cals>
+    </workflows>
+  </config>
+</DPF>

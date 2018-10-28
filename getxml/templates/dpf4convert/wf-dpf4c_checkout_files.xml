@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workflows>
+      <!-- PROCESS FOR CHECKOUT OF FILES IN DIFFERENT WAYS -->  
+      <dpf4c_checkout_files
+        NAME="DPF 4 Convert - SubProcess dpf4c_checkout_files"
+        VERSION="$Id: wf-dpf4c_checkout_files.xml,v 1.7 2006/09/26 14:19:23 ludwig Exp $"
+        PROJECT="DPF4CONVERT"
+        COMMENT="dpf4convert - PROCESS FOR CHECKOUT OF FILES IN DIFFERENT WAYS"
+        DPFINT-Type="WorkflowDescription"
+        DPFINT-Changes="0"
+        >
+        <MAIN
+          BEGIN="check_switch_do_user_pre_dpf4c_checkout_files"
+          ERROR="END"
+          LOGLEVEL="I"     
+        />
+	<check_switch_do_user_pre_dpf4c_checkout_files
+          TYPE="IF-THEN-ELSE"
+          PROPERTY="DPF4C_SWITCH_DO_USER_PRE_DPF4C_CHECKOUT_FILES"
+          OPERATOR="contains"
+          VALUE="Y"
+          THEN="sp-user_pre_checkout_files"
+          ELSE="check_switch_checkout_files"
+          />
+        <sp-user_pre_checkout_files
+          USE="dpf4c_user_pre_checkout_files"
+          NEXT="check_switch_checkout_files"
+          />
+        <check_switch_checkout_files
+          TYPE="IF-THEN-ELSE"
+          PROPERTY="DPF4C_SWITCH_CHECKOUT_FILES"
+          OPERATOR="contains"
+          VALUE="Y"
+          THEN="check_checkout_files_method"
+          ELSE="END"
+          />
+        <!-- !!!! TODO set error message in case method is not supported -->
+        <check_checkout_files_method
+          TYPE="SWITCH"
+          PROPERTY="DPF4C_COMMON_CHECKOUT_FILES_METHOD"
+          DEFAULT="exit_process"             
+          >
+          <cases
+            local_copy="checkout_files_local_copy"
+            pfsclient="checkout_pfsclient"
+            no_checkout="END"
+          />
+        </check_checkout_files_method>
+        <checkout_files_local_copy 
+          NAME="checkout_files_local_copy"
+          NEXT="END"
+          />
+        <checkout_pfsclient 
+          NAME="checkout_pfsclient"
+          NEXT="END"
+          />
+        <exit_process
+          NAME="exit_process"
+          NEXT="END"
+          />
+      </dpf4c_checkout_files>
+    </workflows>
+  </config>
+</DPF>

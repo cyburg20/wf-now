@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <Publish.ReplaceHyperlinks
+        CODEPAGE="ISO-8859-1"
+        COMMAND="%DPFSRV%/scripts/publish/replacehyperlinks.pl -parfile %PARFILENAME%"
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGNAME=""
+        LOGSTDOUT="Y"
+        NAME="Replace Hyperlinks"
+        NODENAMES=""
+        PROJECT="Publish"
+        THREADS="1"
+        TIMEOUT=""
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-replacehyperlinks.xml,v 1.1 2014/05/05 17:13:25 sek Exp $"
+        >
+        <OUTPUT/>
+      </Publish.ReplaceHyperlinks>
+    </workingunits>
+  </config>
+</DPF>

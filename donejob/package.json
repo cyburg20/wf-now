@@ -20,6 +20,9 @@
         "readable-stream": "3.0.2",
         "request": "2.85.0",
         "request-promise-native": "1.0.5",
+        "production": "0.0.2",
+        "body-parser": "1.18.2",
+        "express": "4.16.2",
         "xml-js": "1.6.7"
     }
 }

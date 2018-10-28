@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workflows>
+      <multiconvert_merge_modify
+        NAME="DPF 4 Convert - Process multiconvert_merge_modify"
+        VERSION="$Id: wf-multiconvert_merge_modify.xml,v 1.2 2012/12/21 14:58:59 kig Exp $"
+        PROJECT="DPF4CONVERT"
+        COMMENT="dpf4convert - PROCESS FOR DPF4CONVERT"
+        DPFINT-Type="WorkflowDescription"
+        DPFINT-Changes="0"
+        >
+        <MAIN
+          BEGIN="sp-read_ini_file"
+          ERROR="END"
+          LOGLEVEL="I"     
+          />
+        <sp-read_ini_file
+          NAME="dpf4c_read_ini_file"
+          NEXT="multiconvert"
+          />
+        <multiconvert
+          NAME="multiconvert"
+          NEXT="convertwiz_merge_files"
+          >
+          <DEFAULTS
+            SubProcess="dpf4convert"
+            />
+          </multiconvert>
+        <convertwiz_merge_files
+          USE="convertwiz_merge_files"
+          NEXT="sp-modify"
+          />
+        <sp-modify
+          USE="dpf4c_modify"
+          NEXT="checkin"
+          />
+        <checkin
+          NAME="checkin"
+          NEXT="sendback"
+          />
+        <sendback
+          NAME="sendback"
+          NEXT="END"
+          />
+      </multiconvert_merge_modify>
+    </workflows>
+  </config>
+</DPF>

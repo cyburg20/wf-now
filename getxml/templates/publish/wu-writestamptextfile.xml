@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <Publish.WriteStampTextFile
+        CODEPAGE="ISO-8859-1"
+        COMMAND="%DPFSRV%/scripts/publish/writestamptextfile.pl -parfile %PARFILENAME%"
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGNAME=""
+        LOGSTDOUT="Y"
+        NAME="Write Stamp Text File"
+        NODENAMES=""
+        PROJECT="Publish"
+        THREADS="1"
+        TIMEOUT=""
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-writestamptextfile.xml,v 1.3 2016/05/10 09:15:28 sek Exp $"
+        >
+        <DEFAULTS
+          TargetFileNameWu="%JobDir%/%WFPOSITION%.txt"
+          TargetFileParam="CurrFileName"
+          />
+        <INPUT>
+          <IniFileParamList
+            MANDATORY="true"
+            TYPE="TEXT"
+            />
+          <SectionName
+            MANDATORY="true"
+            TYPE="TEXT"
+            />
+          <TargetFileNameWu
+            DEFAULT="%JobDir%/%WFPOSITION%.txt"
+            TYPE="TEXT"
+            />
+          <TargetFileParam
+            DEFAULT="CurrFileName"
+            TYPE="TEXT"
+            />
+        </INPUT>
+        <OUTPUT/>
+      </Publish.WriteStampTextFile>
+    </workingunits>
+  </config>
+</DPF>

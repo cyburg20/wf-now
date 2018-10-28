@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workflows>
+      <DPF4VIEW.version_dpf4v
+        COMMENT="dpf4view - Give dpf4view processes the possiblility to have explicitly set version, build and customer build number"
+        DPFINT-Customer="0"
+        DPFINT-Interactive="0"
+        DPFINT-Type="WorkflowDescription"
+        NAME="DPF 4 View - Set version of dpf for all processes contained in folder dpf4view which can use this process."
+        PROJECT="DPF4VIEW"
+        VERSION="$Id: wf-version_dpf4v.xml,v 1.1 2011/07/08 12:53:01 kig Exp $"
+        >
+        <DEFAULTS/>
+        <END
+          COMMENT=""
+          NAME="END"
+          POSX="300"
+          POSY="200"
+          TYPE="STOP"
+          />
+        <MAIN
+          BEGIN="check_if_version_already_set"
+          ERROR="END"
+          />
+        <MAPPING/>
+        <check_if_version_already_set
+          COMMENT=""
+          ELSE="set_versions"
+          OPERATOR="exists"
+          POSX="100"
+          POSY="200"
+          PROPERTY="VERSION"
+          THEN="END"
+          TYPE="IF-THEN-ELSE"
+          VALUE=""
+          >
+          <CONNECTIONS
+            ELSE="DIRECT"
+            THEN="DIRECT"
+            />
+        </check_if_version_already_set>
+        <set_versions
+          COMMENT=""
+          NEXT="END"
+          POSX="100"
+          POSY="400"
+          TYPE="MODIFY"
+          >
+          <CONNECTIONS
+            NEXT="DIRECT"
+            />
+          <SET
+            VERSION="1.3.0"
+            VERSION_BUILD="1"
+            VERSION_CUSTOMER_BUILD="1"
+            VERSION_PRODUCER="DPF4Convert"
+            />
+        </set_versions>
+      </DPF4VIEW.version_dpf4v>
+    </workflows>
+  </config>
+</DPF>

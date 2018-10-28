@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <Test.konverter
+        CODEPAGE="ISO-8859-1"
+        COMMAND="%PLSTOOLS%/appkonv/bin_%PLS_OSFULLNAME%/konverter.exe %CurrFileName% -logfile %JOBDIR%/job.log -v -cfg %KonverterConfigFile%"
+        DEFAULTS=""
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="Y"
+        LOGLEVEL="LOG_INFO"
+        LOGSTDOUT="Y"
+        NAME="Konverter"
+        PROJECT="Test"
+        THREADS="1"
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-konverter.xml,v 1.2 2008/08/27 14:05:58 stefan Exp $"
+        >
+        <DEFAULTS
+          KonverterConfigFile="%DPFSRV%/conf/test/appkonv-PDF.cfg"
+          />
+        <INPUT>
+          <KonverterConfigFile
+            DEFAULT="%DPFSRV%/conf/test/appkonv-PDF.cfg"
+            TYPE="TEXT"
+            />
+        </INPUT>
+      </Test.konverter>
+    </workingunits>
+  </config>
+</DPF>

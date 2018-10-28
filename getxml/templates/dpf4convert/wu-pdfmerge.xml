@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <pdfmerge
+        NAME="dpf4c - Merge PDF-Files"
+        VERSION="$Id: wu-pdfmerge.xml,v 1.6 2012/11/14 13:29:36 kig Exp $"
+        PROJECT="DPF4CONVERT"
+        TYPE="WUSystemCall"
+        LOGNAME="dpf4c-pdfmerge"
+        LOGSTDOUT="Y"
+        LOGLEVEL="I"
+        THREADS="5"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/pdfmerge.pl -parfile %PARFILENAME%">
+        <DEFAULTS
+          WU_ENABLE_DEBUG_LOOP="N"
+          TAKE_NO_BOOKMARKS="N"
+          ENABLE_PDFEXPAND="N"
+          DPF4C_CREATE_SIGNATURE_PAGE="N"
+          DPF4C_SIGNATURE_SIG_FILENAME=""
+          DPF4C_SIGNATURE_SIG_POSITION="first"
+          />
+        <INPUT
+          CURRFILENAME="*"
+          CURRFILETYPE="pdf"
+          TAKE_NO_BOOKMARKS="Y|!N!"
+          ENABLE_PDFEXPAND="Y|!N!"
+          DPF4C_CREATE_SIGNATURE_PAGE="Y|!N!"
+          DPF4C_SIGNATURE_SIG_FILENAME="file"
+          DPF4C_SIGNATURE_SIG_POSITION="!first!|last|pagenumber"
+          />
+        <OUTPUT
+          CURRFILENAME="*"
+          CURRFILETYPE="pdf"
+          />
+      </pdfmerge>
+    </workingunits>
+  </config>
+</DPF>

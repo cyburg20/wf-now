@@ -1,0 +1,35 @@
+<DPF>
+  <config>
+    <workflows>
+      <pdf_convert
+        NAME="DPF 4 Convert - pdf convert"
+        VERSION="$Id: wf-pdf_convert.xml,v 1.3 2007/07/06 15:59:32 ludwig Exp $"
+        PROJECT="DPF4CONVERT"
+        COMMENT="dpf4convert - pdf convert"
+        DPFINT-Type="WorkflowDescription"
+        DPFINT-Changes="0"
+        >
+        <MAIN
+          BEGIN="pdf2ps"
+          ERROR="END"
+          />
+        <pdf2ps
+          NAME="pdf2ps"
+          NEXT="set_parameters"
+          />
+        <set_parameters
+          TYPE="MODIFY"
+          NEXT="ps2pdfg"
+        >
+          <SET
+          DESTINATION_FORMAT_QUALITY="pdfa"
+          />
+        </set_parameters>
+        <ps2pdfg
+          USE="ps2pdfg"
+          NEXT="END"
+          />
+      </pdf_convert>
+    </workflows>
+  </config>
+</DPF>

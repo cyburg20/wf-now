@@ -1,0 +1,48 @@
+<DPF>
+  <config>
+    <workflows>
+      <autocad2file
+        NAME="DPF 4 Convert - CAD AutoCad"
+        VERSION="$Id: wf-autocad2file.xml,v 1.3 2008/07/25 14:51:29 kig Exp $"
+        PROJECT="DPF4CONVERT"
+        COMMENT="dpf4convert - Convert process CAD AutoCad file"
+        DPFINT-Type="WorkflowDescription"
+        DPFINT-Changes="0"
+        >
+        <MAIN
+          BEGIN="check_use_xml_conv_bin"
+          ERROR="END"
+          />
+        <check_use_xml_conv_bin
+          TYPE="IF-THEN-ELSE"
+          PROPERTY="AUTOCAD_USE_XML_CONV_BIN"
+          OPERATOR="contains"
+          VALUE="N"
+          THEN="dwg2"
+          ELSE="autocad2file"
+          />
+        <autocad2file
+          NAME="autocad2file"
+          NEXT="END"
+          />
+        <dwg2 
+          TYPE="SWITCH"
+          PROPERTY="DPF4C_COMMON_DEST_FORMAT"
+          DEFAULT="dwg2pdf"             
+          >
+          <cases
+            dwg="dwg2dwg"
+          />
+        </dwg2>
+        <dwg2pdf
+          USE="dwg2pdf"
+          NEXT="END"
+          />
+        <dwg2dwg
+          USE="dwg2dwg"
+          NEXT="END"
+          />
+      </autocad2file>
+    </workflows>
+  </config>
+</DPF>

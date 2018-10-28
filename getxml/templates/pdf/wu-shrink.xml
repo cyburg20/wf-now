@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <Pdf.shrink
+        CODEPAGE="ISO-8859-1"
+        COMMAND="%DPFSRV%/scripts/pdf/shrink.pl -parfile %PARFILENAME%"
+        DPFINT-FileLinks="doc://:/%DPFSRV%/scripts/pdf/shrink.pl"
+        DPFINT-Icon="doc://:/pdf.shrink.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGNAME=""
+        LOGSTDOUT="Y"
+        NAME="Shrink a PDF file to insert white borders"
+        NODENAMES=""
+        PROJECT="Pdf"
+        THREADS="1"
+        TIMEOUT=""
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-shrink.xml,v 1.5 2012/06/11 17:02:06 sek Exp $"
+        >
+        <DEFAULTS
+          ChangeFormat="N"
+          DPFINT-Icon="doc://:/defaults.gif"
+          MarginLeft="0 cm"
+          MarginLower="0 cm"
+          MarginRight="0 cm"
+          MarginUpper="0 cm"
+          PdfPraeTolerance="0"
+          WU_ENABLE_DEBUG_LOOP="N"
+          />
+        <INPUT
+          DPFINT-Icon="doc://:/wu-input.gif"
+          WU_ENABLE_DEBUG_LOOP="*"
+          >
+          <CURRFILENAME
+            DESCRIPTION="PDF file to shrink"
+            MANDATORY="true"
+            TYPE="TEXT"
+            />
+          <ChangeFormat
+            DEFAULT="N"
+            DESCRIPTION="if Y, resize pdf by margin, default: do not resize"
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </ChangeFormat>
+          <CurrFileName
+            DESCRIPTION="PDF file to shrink"
+            MANDATORY="true"
+            TYPE="TEXT"
+            />
+          <MarginLeft
+            DEFAULT="0 cm"
+            TYPE="TEXT"
+            />
+          <MarginLower
+            DEFAULT="0 cm"
+            TYPE="TEXT"
+            />
+          <MarginRight
+            DEFAULT="0 cm"
+            TYPE="TEXT"
+            />
+          <MarginUpper
+            DEFAULT="0 cm"
+            TYPE="TEXT"
+            />
+          <PdfPraeTolerance
+            DEFAULT="0"
+            DESCRIPTION="tolerance for pdfprae page format in %"
+            TYPE="TEXT"
+            />
+          <ShrinkOnlyFirstPage
+            DESCRIPTION="if Y, only shrink first page of PDF, default: shrink all pages"
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </ShrinkOnlyFirstPage>
+          <WU_ENABLE_DEBUG_LOOP
+            DEFAULT="N"
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </WU_ENABLE_DEBUG_LOOP>
+        </INPUT>
+        <OUTPUT/>
+      </Pdf.shrink>
+    </workingunits>
+  </config>
+</DPF>

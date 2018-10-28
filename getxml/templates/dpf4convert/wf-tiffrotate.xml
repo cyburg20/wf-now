@@ -1,0 +1,23 @@
+<DPF>
+  <config>
+    <workflows>
+      <tiffrotate
+        NAME="DPF 4 Convert - tiffrotate"
+        VERSION="$Id: wf-tiffrotate.xml,v 1.5 2004/09/23 09:30:05 stefan Exp $"
+        PROJECT="DPF4CONVERT"
+        COMMENT="dpf4convert - Rotate TIFF"
+        DPFINT-Type="WorkflowDescription"
+        DPFINT-Changes="0"
+        >
+        <MAIN
+          BEGIN="tiffrotate"
+          ERROR="END"
+          />
+        <tiffrotate
+          NAME="tiffrotate"
+          NEXT="END"
+          />
+      </tiffrotate>
+    </workflows>
+  </config>
+</DPF>

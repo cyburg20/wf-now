@@ -1,0 +1,49 @@
+<DPF>
+  <config>
+    <workflows>
+      <pdfcheck
+        NAME="DPF 4 Convert - pdfcheck"
+        VERSION="$Id: wf-pdfcheck.xml,v 1.2 2006/06/29 15:38:51 ludwig Exp $"
+        PROJECT="DPF4CONVERT"
+        COMMENT="dpf4convert - Check pdf"
+        DPFINT-Type="WorkflowDescription"
+        DPFINT-Changes="0"
+        >
+        <MAIN
+          BEGIN="sp-pdfcheck_settings"
+          ERROR="END"
+          />
+        <sp-pdfcheck_settings
+          USE="pdfcheck_settings"
+          NEXT="check_switch_pdfcheck"
+          />
+        <check_switch_pdfcheck
+          TYPE="IF-THEN-ELSE"
+          PROPERTY="ENABLE_PDF_CHECK"
+          OPERATOR="contains"
+          VALUE="Y"
+          THEN="check_switch_pdfauthorize_activated"
+          ELSE="END"
+          />
+        <check_switch_pdfauthorize_activated
+          TYPE="IF-THEN-ELSE"
+          PROPERTY="DPF4C_AUTHORIZE_ACTIVATE"
+          OPERATOR="contains"
+          VALUE="Y"
+          THEN="pdfauthorize"
+          ELSE="pdfchecker_first"
+          />
+        <pdfauthorize
+          NAME="pdfauthorize"
+          NEXT="pdfchecker_first"
+          />
+        <pdfchecker_first
+          NAME="pdfchecker"
+          NEXT="END"
+          />
+      </pdfcheck>
+    </workflows>
+  </config>
+</DPF>
+
+

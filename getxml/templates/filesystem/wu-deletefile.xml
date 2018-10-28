@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <FileSystem.deleteFile
+        CODEPAGE="ISO-8859-1"
+        COMMAND="%DPFSRV%/scripts/filesystem/deletefile.pl -parfile %PARFILENAME%"
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGSTDOUT="Y"
+        NAME="Delete File on Disk"
+        NODENAMES=""
+        PROJECT="FileSystem"
+        THREADS="1"
+        TIMEOUT=""
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-deletefile.xml,v 1.2 2010/10/28 13:05:44 stefan Exp $"
+        >
+        <DEFAULTS/>
+        <INPUT>
+          <DeleteFiles
+            DESCRIPTION="list of parameters with file names"
+            TYPE="TEXT"
+            />
+        </INPUT>
+        <OUTPUT/>
+      </FileSystem.deleteFile>
+    </workingunits>
+  </config>
+</DPF>

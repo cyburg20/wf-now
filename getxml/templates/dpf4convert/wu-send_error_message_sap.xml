@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <send_error_message_sap
+        CODEPAGE="ISO-8859-1"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/send_error_message_sap.pl -parfile %PARFILENAME%"
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        LOGLEVEL="LOG_INFO"
+        LOGNAME="dpf4c-send_error_message_sap"
+        LOGSTDOUT="Y"
+        NAME="dpf4c - Send error message to sap by file and sapcli"
+        NODENAMES=""
+        PROJECT="DPF4CONVERT"
+        THREADS="1"
+        TIMEOUT=""
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-send_error_message_sap.xml,v 1.12 2015/09/17 07:18:54 tobias Exp $"
+        >
+        <DEFAULTS
+          CADRFC_DIR="%PLSSV%/sapserv/bin_%PLS_OSFULLNAME%"
+          SAPRFC_INI_FILE="%PLSSV%/sapserv/conf/saprfc.ini"
+          SEND_SAPCLI_MESSAGE_TO_USER="N"
+          USE_JSAPCLI="N"
+          WU_ENABLE_DEBUG_LOOP="N"
+          />
+        <INPUT>
+          <CADRFC_DIR
+            DEFAULT="%PLSSV%/sapserv/bin_%PLS_OSFULLNAME%"
+            TYPE="TEXT"
+            />
+          <SAPRFC_INI_FILE
+            DEFAULT="%PLSSV%/sapserv/conf/saprfc.ini"
+            TYPE="TEXT"
+            />
+          <SEND_SAPCLI_MESSAGE_TO_USER
+            DEFAULT="N"
+            TYPE="TEXT"
+            />
+          <USE_JSAPCLI
+            DEFAULT="N"
+            TYPE="TEXT"
+            />
+          <WU_ENABLE_DEBUG_LOOP
+            DEFAULT="N"
+            TYPE="TEXT"
+            />
+        </INPUT>
+        <OUTPUT/>
+      </send_error_message_sap>
+    </workingunits>
+  </config>
+</DPF>

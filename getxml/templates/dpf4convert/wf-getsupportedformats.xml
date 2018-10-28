@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workflows>
+      <!-- PROCESS FOR APPLICATION CONVERSIONS -->  
+      <getsupportedformats
+        NAME="DPF - SubProcess getsupportedformats"
+        VERSION="$Id: wf-getsupportedformats.xml,v 1.1 2004/11/19 15:48:19 ludwig Exp $"
+        PROJECT="BCXDC_RFC_SERVER"
+        COMMENT="dpf - PROCESS FOR REQUEST ALL SUPPORTED FORMATS"
+        DPFINT-Type="WorkflowDescription"
+        DPFINT-Changes="0"
+        >
+        <MAIN
+          BEGIN="get_supported_formats"
+          ERROR="END"
+          LOGLEVEL="I"     
+        />
+        <get_supported_formats 
+          NAME="get_supported_formats"
+          NEXT="sendback"
+          />
+        <sendback
+          NAME="sendback"
+          NEXT="END"
+          />
+      </getsupportedformats>
+    </workflows>
+  </config>
+</DPF>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <PDF2HTML.DoConvert
+        COMMAND="%DPFSRV%/scripts/pdf2html/doconvert.pl -parfile %PARFILENAME%"
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGSTDOUT="Y"
+        Logname="DoConvert"
+        NAME="IntraPDF DoConvert"
+        PROJECT="PDF2HTML"
+        Status="Running"
+        THREADS="1"
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-doconvert.xml,v 1.4 2007/09/14 05:37:04 tobias Exp $"
+        >
+        <DEFAULTS
+          BOOKMARKS_BKG="#FFFFFF"
+          BOOKMARKS_FONT="&quot;Geneva,Arial,Helvetica,sans-serif&quot;"
+          BOOKMARKS_FONTCOLOR="#000000"
+          FONTSIZE="10"
+          FRAMES_BKG="#FFFFFF"
+          FRAMES_LINK_COLOR_ACTIVE="#FF0000"
+          FRAMES_LINK_COLOR_NORMAL="#3300FF"
+          FRAMES_LINK_COLOR_VISITED="#CC00FF"
+          IMG="jpg"
+          POLL_PAUSE="5"
+          ZOOM="1.2"
+          />
+        <INPUT>
+          <BOOKMARKS_BKG
+            DEFAULT="#FFFFFF"
+            DESCRIPTION="background color of bookmarks"
+            TYPE="TEXT"
+            />
+          <BOOKMARKS_FONT
+            DEFAULT="&quot;Geneva,Arial,Helvetica,sans-serif&quot;"
+            DESCRIPTION="font of bookmarks"
+            TYPE="TEXT"
+            />
+          <BOOKMARKS_FONTCOLOR
+            DEFAULT="#000000"
+            DESCRIPTION="font color of bookmarks"
+            TYPE="TEXT"
+            />
+          <CONV_DIR
+            DESCRIPTION="dir for Conversion Results ending w/ &apos;/&apos; (def. is &apos;%JobDir%\&apos;)"
+            TYPE="TEXT"
+            />
+          <EXECUTABLE
+            DESCRIPTION="(dir/name) the executable file of the converter"
+            TYPE="TEXT"
+            />
+          <FONTSIZE
+            DEFAULT="10"
+            DESCRIPTION="resize text to 50%..150% of its original size"
+            TYPE="TEXT"
+            />
+          <FRAMES_BKG
+            DEFAULT="#FFFFFF"
+            DESCRIPTION="background color frames"
+            TYPE="TEXT"
+            />
+          <FRAMES_LINK_COLOR_ACTIVE
+            DEFAULT="#FF0000"
+            DESCRIPTION="color for active links in frames"
+            TYPE="TEXT"
+            />
+          <FRAMES_LINK_COLOR_NORMAL
+            DEFAULT="#3300FF"
+            DESCRIPTION="normal link color for frames"
+            TYPE="TEXT"
+            />
+          <FRAMES_LINK_COLOR_VISITED
+            DEFAULT="#CC00FF"
+            DESCRIPTION="color for visited links in frames"
+            TYPE="TEXT"
+            />
+          <GRSC
+            DESCRIPTION="flag for grayscale images"
+            TYPE="CHECK"
+            />
+          <IMG
+            DEFAULT="jpg"
+            DESCRIPTION="type of image extraction"
+            TYPE="COMBO"
+            >
+            <RANGE
+              VALUE1="gif"
+              VALUE2="jpg"
+              VALUE3="png"
+              />
+          </IMG>
+          <NOJS
+            DESCRIPTION="flag to disable creation for js"
+            TYPE="CHECK"
+            />
+          <POLL_PAUSE
+            DEFAULT="5"
+            DESCRIPTION="# seconds for sleep in Reporter Thread"
+            TYPE="TEXT"
+            />
+          <TITLE
+            DESCRIPTION="the document&apos;s  title; see intrapdf&apos;s macros in help"
+            TYPE="TEXT"
+            />
+          <ZOOM
+            DEFAULT="1.2"
+            DESCRIPTION="zoom everything value*100"
+            TYPE="TEXT"
+            />
+        </INPUT>
+      </PDF2HTML.DoConvert>
+    </workingunits>
+  </config>
+</DPF>

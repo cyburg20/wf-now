@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workflows>
+      <DPF4CONVERT.catproduct2file
+        COMMENT=""
+        DPFINT-Customer="0"
+        DPFINT-Interactive="0"
+        DPFINT-Type="WorkflowDescription"
+        NAME="Catproduct2file - Convert Catia Part or Product"
+        PROJECT="DPF4CONVERT"
+        VERSION="$Id: wf-catproduct2file.xml,v 1.2 2012/02/08 15:15:44 kig Exp $"
+        >
+        <CENIT.catproduct2file1
+          COMMENT=""
+          ERROR="END"
+          NAME="CENIT.catproduct2file"
+          NEXT="DPF4CONVERT.handle_cat_output1"
+          POSX="300"
+          POSY="200"
+          TYPE="WU"
+          >
+          <CONNECTIONS
+            ERROR="DIRECT"
+            NEXT="DIRECT"
+            />
+          <DEFAULTS/>
+          <MAPPING/>
+        </CENIT.catproduct2file1>
+        <DEFAULTS/>
+        <DPF4CONVERT.handle_cat_output1
+          COMMENT=""
+          ERROR="END"
+          NAME="DPF4CONVERT.handle_cat_output"
+          NEXT="END"
+          POSX="500"
+          POSY="200"
+          TYPE="WU"
+          >
+          <CONNECTIONS
+            ERROR="DIRECT"
+            NEXT="DIRECT"
+            />
+          <DEFAULTS/>
+          <MAPPING/>
+        </DPF4CONVERT.handle_cat_output1>
+        <END
+          COMMENT=""
+          NAME="END"
+          POSX="200"
+          POSY="100"
+          TYPE="STOP"
+          />
+        <MAIN
+          BEGIN="CENIT.catproduct2file1"
+          NAME=""
+          />
+        <MAPPING/>
+      </DPF4CONVERT.catproduct2file>
+    </workflows>
+  </config>
+</DPF>

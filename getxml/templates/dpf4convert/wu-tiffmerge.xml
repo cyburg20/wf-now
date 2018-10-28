@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <tiffmerge
+        NAME="dpf4c - Merge TIFF-Files"
+        VERSION="$Id: wu-tiffmerge.xml,v 1.4 2004/05/14 11:37:00 ludwig Exp $"
+        PROJECT="DPF4CONVERT"
+        TYPE="WUSystemCall"
+        LOGNAME="dpf4c-tiffmerge"
+        LOGSTDOUT="Y"
+        LOGLEVEL="I"
+        THREADS="1"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/tiffmerge.pl -parfile %PARFILENAME%">
+        <DEFAULTS
+          WU_ENABLE_DEBUG_LOOP="N"
+          KEEP_SOURCEFILES="Y"
+          />
+        <INPUT
+          PARFILENAME="*"
+          CURRFILENAME="*"
+          JOBID="*"
+          LOGLEVEL=""
+          CURRFILETYPE="tif"
+          />
+        <OUTPUT
+          CURRFILENAME="*"
+          CURRFILETYPE="tif"
+          />
+      </tiffmerge>
+    </workingunits>
+  </config>
+</DPF>

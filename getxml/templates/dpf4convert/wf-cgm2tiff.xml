@@ -1,0 +1,23 @@
+<DPF>
+  <config>
+    <workflows>
+      <cgm2tiff
+        NAME="DPF 4 Convert - cgm2tiff"
+        VERSION="$Id: wf-cgm2tiff.xml,v 1.5 2004/09/23 09:30:04 stefan Exp $"
+        PROJECT="DPF4CONVERT"
+        COMMENT="dpf4convert - Convert process CGM to TIFF"
+        DPFINT-Type="WorkflowDescription"
+        DPFINT-Changes="0"
+        >
+        <MAIN
+          BEGIN="cgm2tiff"
+          ERROR="END"
+          />
+        <cgm2tiff
+          NAME="cgm2tiff"
+          NEXT="END"
+          />
+      </cgm2tiff>
+    </workflows>
+  </config>
+</DPF>

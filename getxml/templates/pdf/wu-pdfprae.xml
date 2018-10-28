@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <Pdf.pdfprae
+        COMMAND="%DPFSRV%/scripts/pdf/pdfprae.pl -parfile %PARFILENAME%"
+        DPFINT-FileLinks="doc://:/%DPFSRV%/scripts/pdf/pdfprae.pl"
+        DPFINT-Icon="doc://:/pdf.pdfprae.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGNAME="pdfprae"
+        LOGSTDOUT="Y"
+        NAME="pdfprae"
+        PROJECT="Pdf"
+        Status="Running"
+        THREADS="4"
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-pdfprae.xml,v 1.5 2007/08/07 13:33:03 stefan Exp $"
+        >
+        <INPUT
+          DPFINT-Icon="doc://:/wu-input.gif"
+          />
+      </Pdf.pdfprae>
+    </workingunits>
+  </config>
+</DPF>

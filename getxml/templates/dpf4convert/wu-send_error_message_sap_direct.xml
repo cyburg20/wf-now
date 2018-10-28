@@ -1,0 +1,23 @@
+<DPF>
+  <config>
+    <workingunits>
+      <send_error_message_sap_direct
+        NAME="dpf4c - Send error message to PLM-System SAP direct."
+        VERSION="$Id: wu-send_error_message_sap_direct.xml,v 1.4 2009/06/26 15:14:06 kig Exp $"
+        PROJECT="DPF4CONVERT"
+        TYPE="WUSystemCall"
+        LOGNAME="dpf4c-send_error_message_sap_direct"
+        LOGSTDOUT="Y"
+        LOGLEVEL="LOG_INFO"
+        THREADS="1"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/send_error_message_sap_direct.pl -parfile %PARFILENAME%">
+        <DEFAULTS
+          USE_JSAPCLI="Y"
+          CADRFC_DIRECTORY="%PLSSV%/sapserv/bin_%PLS_OSFULLNAME%"
+          SAPRFC_FILE="%PLSSV%/sapserv/conf/saprfc.ini"
+          CHECK_DPF4C_COMMON_OUTFILES_FOR_SEND_OK_AND_ERROR="N"
+          />
+      </send_error_message_sap_direct>
+    </workingunits>
+  </config>
+</DPF>

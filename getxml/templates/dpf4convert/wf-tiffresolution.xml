@@ -1,0 +1,23 @@
+<DPF>
+  <config>
+    <workflows>
+      <tiffresolution
+        NAME="DPF 4 Convert - tiffresolution"
+        VERSION="$Id: wf-tiffresolution.xml,v 1.1 2005/01/13 13:39:16 ludwig Exp $"
+        PROJECT="DPF4CONVERT"
+        COMMENT="dpf4convert - Change resolution of TIFF"
+        DPFINT-Type="WorkflowDescription"
+        DPFINT-Changes="0"
+        >
+        <MAIN
+          BEGIN="tiffresolution"
+          ERROR="END"
+          />
+        <tiffresolution
+          NAME="tiffresolution"
+          NEXT="END"
+          />
+      </tiffresolution>
+    </workflows>
+  </config>
+</DPF>

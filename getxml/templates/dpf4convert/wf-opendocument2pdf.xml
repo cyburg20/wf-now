@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workflows>
+      <DPF4CONVERT.OpenDocument2PDF
+        COMMENT="Convert an OpenDocument to PDF"
+        DPFINT-Customer="0"
+        DPFINT-Interactive="0"
+        DPFINT-Type="WorkflowDescription"
+        NAME="Open Document2 PDF"
+        PROJECT="DPF4CONVERT"
+        VERSION="$Id: wf-opendocument2pdf.xml,v 1.1 2012/12/18 10:32:09 kig Exp $"
+        >
+        <DEFAULTS/>
+        <DPF4CONVERT.OpenDocument2PDF1
+          COMMENT=""
+          ERROR="END"
+          NAME="DPF4CONVERT.OpenDocument2PDF"
+          NEXT="END"
+          POSX="200"
+          POSY="100"
+          TYPE="WU"
+          >
+          <CONNECTIONS
+            ERROR="DIRECT"
+            NEXT="DIRECT"
+            />
+          <DEFAULTS/>
+          <MAPPING/>
+        </DPF4CONVERT.OpenDocument2PDF1>
+        <END
+          COMMENT=""
+          NAME="END"
+          POSX="300"
+          POSY="100"
+          TYPE="STOP"
+          />
+        <MAIN
+          BEGIN="DPF4CONVERT.OpenDocument2PDF1"
+          NAME=""
+          />
+        <MAPPING/>
+      </DPF4CONVERT.OpenDocument2PDF>
+    </workflows>
+  </config>
+</DPF>

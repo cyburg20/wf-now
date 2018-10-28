@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <Test.getBaseName
+        COMMAND="%DPFSRV%/scripts/test/getbasename.pl -parfile %PARFILENAME%"
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGNAME=""
+        LOGSTDOUT="Y"
+        NAME="getBaseName"
+        PROJECT="Test"
+        Status="Running"
+        THREADS="10"
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-getbasename.xml,v 1.4 2007/03/28 10:39:38 ch Exp $"
+        >
+        <DEFAULTS/>
+        <INPUT>
+          <CURRFILENAME
+            TYPE="TEXT"
+            />
+          <JOBDIR
+            TYPE="TEXT"
+            />
+        </INPUT>
+      </Test.getBaseName>
+    </workingunits>
+  </config>
+</DPF>

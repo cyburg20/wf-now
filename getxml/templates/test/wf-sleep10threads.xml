@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workflows>
+      <Test.sleep10threads
+        COMMENT="small sleep workflow"
+        DPFINT-Changes="0"
+        DPFINT-Icon="doc://:/wf.gif"
+        DPFINT-Type="WorkflowDescription"
+        NAME="Sleep 10 threads"
+        PROJECT="Test"
+        VERSION="$Id: wf-sleep10threads.xml,v 1.3 2006/11/10 20:24:04 stefan Exp $"
+        >
+        <DEFAULTS
+          DPFINT-Icon="doc://:/defaults.gif"
+          />
+        <MAIN
+          BEGIN="sleep"
+          ERROR="END"
+          />
+        <sleep
+          NAME="Test.sleep10threads"
+          NEXT="END"
+          />
+      </Test.sleep10threads>
+    </workflows>
+  </config>
+</DPF>

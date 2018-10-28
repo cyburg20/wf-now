@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <Sap.checkoutWithRli
+        CODEPAGE="UTF8"
+        COMMAND="%DPFSRV%/scripts/sap/checkoutwithrli.pl -parfile %PARFILENAME%"
+        DPFINT-FileLinks="doc://:/%DPFSRV%/scripts/sap/checkoutwithrli.pl"
+        DPFINT-Icon="doc://:/sap.checkoutwithrli.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGNAME=""
+        LOGSTDOUT="Y"
+        NAME="Checkout files from SAP with RLI"
+        NODENAMES=""
+        PROJECT="Sap"
+        THREADS="5"
+        TIMEOUT=""
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-checkoutwithrli.xml,v 1.9 2015/09/17 07:33:49 tobias Exp $"
+        >
+        <DEFAULTS
+          USE_JSAPCLI="N"
+          />
+        <INPUT
+          DPFINT-Icon="doc://:/wu-input.gif"
+          WU_ENABLE_DEBUG_LOOP="*"
+          >
+          <CAD_NETADDRESS
+            TYPE="TEXT"
+            />
+          <CHECKOUT_FILENAME
+            TYPE="TEXT"
+            />
+          <CurrRliFileName
+            TYPE="TEXT"
+            />
+          <FilterOperator
+            DESCRIPTION="optional operator to compare value(s), default: eq (all perl operators are allowed)"
+            TYPE="TEXT"
+            />
+          <FilterOperator2
+            DESCRIPTION="second optional operator to compare value(s), default: eq (all perl operators are allowed)"
+            TYPE="TEXT"
+            />
+          <FilterValue
+            DESCRIPTION="colon separated values to work on these specific RLI lines only"
+            TYPE="TEXT"
+            />
+          <FilterValue2
+            DESCRIPTION="second set of colon separated values to work on these specific RLI lines only"
+            TYPE="TEXT"
+            />
+          <IGNORE_MISSING_SAP_DOCUMENTS
+            DESCRIPTION="Ignore missing sap documents"
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </IGNORE_MISSING_SAP_DOCUMENTS>
+          <JOBDIR
+            TYPE="TEXT"
+            />
+          <RlicFilter
+            DESCRIPTION="name of RLI column to use to filter specific RLI lines only"
+            TYPE="TEXT"
+            />
+          <RlicFilter2
+            DESCRIPTION="name of second RLI column to use to filter specific RLI lines only"
+            TYPE="TEXT"
+            />
+          <SAPCHECKOUT_MAP_EXTENSIONS
+            TYPE="TEXT"
+            />
+          <SapCheckoutRetry
+            DESCRIPTION="Number of trys that will be made to checkout all files (default: 1)"
+            TYPE="TEXT"
+            />
+          <SapCheckoutRetrySleep
+            DESCRIPTION="Time between two checkout iterations (default: 10s)"
+            TYPE="TEXT"
+            />
+          <TESTDIRDUMMYFILES
+            TYPE="TEXT"
+            />
+          <USECHECKOUTDUMMY
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </USECHECKOUTDUMMY>
+          <USE_JSAPCLI
+            DEFAULT="N"
+            TYPE="TEXT"
+            />
+          <WFNAME
+            TYPE="TEXT"
+            />
+          <WU_ENABLE_DEBUG_LOOP
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </WU_ENABLE_DEBUG_LOOP>
+        </INPUT>
+        <OUTPUT/>
+      </Sap.checkoutWithRli>
+    </workingunits>
+  </config>
+</DPF>

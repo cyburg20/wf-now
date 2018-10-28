@@ -1,0 +1,23 @@
+<DPF>
+  <config>
+    <workflows>
+      <tiff2tiffg4
+        NAME="DPF 4 Convert - TIFF to TIFF G4"
+        VERSION="$Id: wf-tiff2tiffg4.xml,v 1.3 2010/10/26 08:59:00 kig Exp $"
+        PROJECT="DPF4CONVERT"
+        COMMENT="dpf4convert - Convert process TIFF to TIFF G4"
+        DPFINT-Type="WorkflowDescription"
+        DPFINT-Changes="0"
+        >
+        <MAIN
+          BEGIN="tiff2tiffg4"
+          ERROR="END"
+          />
+        <tiff2tiffg4
+          NAME="tiff2tiffg4"
+          NEXT="END"
+          />
+      </tiff2tiffg4>
+    </workflows>
+  </config>
+</DPF>

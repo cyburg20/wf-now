@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workflows>
+      <Test.misssubwf
+        DPFINT-Changes="0"
+        DPFINT-Icon="doc://:/wf.gif"
+        DPFINT-Type="WorkflowDescription"
+        NAME="Miss first test workflow"
+        COMMENT="small miss in second pos to call a sub workflow"
+        PROJECT="Test"
+        VERSION="$Id: wf-misssubwf.xml,v 1.3 2006/11/10 20:24:04 stefan Exp $"
+        >
+        <DEFAULTS
+          DPFINT-Icon="doc://:/defaults.gif"
+          />
+        <MAIN
+          BEGIN="firstwu"
+          ERROR="END"
+          />
+        <firstwu
+          NAME="Test.exit0"
+          NEXT="secondwu"
+          />
+        <secondwu
+          NEXT="thirdwu"
+          USE="Test.super-subwf"
+          />
+        <thirdwu
+          NAME="Test.exit0"
+          NEXT="END"
+          />
+      </Test.misssubwf>
+    </workflows>
+  </config>
+</DPF>

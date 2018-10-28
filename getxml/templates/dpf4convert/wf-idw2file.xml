@@ -1,0 +1,39 @@
+<DPF>
+  <config>
+    <workflows>
+      <idw2file
+        NAME="DPF 4 Convert - CAD Inventor IDW to different destination formats"
+        VERSION="$Id: wf-idw2file.xml,v 1.2 2006/11/24 17:05:48 ludwig Exp $"
+        PROJECT="DPF4CONVERT"
+        COMMENT="dpf4convert - Convert process CAD Inventor IDW to PDF"
+        DPFINT-Type="WorkflowDescription"
+        DPFINT-Changes="0"
+        >
+        <MAIN
+          BEGIN="check_use_xml_conv_bin"
+          ERROR="END"
+          />
+        <check_use_xml_conv_bin
+          TYPE="IF-THEN-ELSE"
+          PROPERTY="IDW2PS_USE_XML_CONV_BIN"
+          OPERATOR="contains"
+          VALUE="Y"
+          THEN="idw2file"
+          ELSE="idw2ps"
+          />
+        <idw2file
+          NAME="idw2file"
+          NEXT="END"
+          />
+        <idw2ps
+          NAME="idw2ps"
+          NEXT="ps2pdfg"
+          />
+        <ps2pdfg
+          USE="ps2pdfg"
+          NEXT="END"
+          />
+      </idw2file>
+    </workflows>
+  </config>
+</DPF>

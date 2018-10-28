@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <NetDome.writeHeader
+        CODEPAGE="ISO-8859-1"
+        COMMAND="%DPFSRV%/scripts/netdome/writeheader.pl -parfile %PARFILENAME%"
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGNAME=""
+        LOGSTDOUT="Y"
+        NAME="Write a PLOSSYS Header file with all given DPF Properties"
+        NODENAMES=""
+        PROJECT="NetDome"
+        THREADS="5"
+        TIMEOUT=""
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-writeheader.xml,v 1.4 2011/03/07 09:32:45 stefan Exp $"
+        >
+        <DEFAULTS
+          DeleteOldHeader="N"
+          />
+        <INPUT>
+          <CURRFILENAME
+            TYPE="TEXT"
+            />
+          <CURRHEDFILENAME
+            TYPE="TEXT"
+            />
+          <DeleteOldHeader
+            DEFAULT="N"
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </DeleteOldHeader>
+          <HeaderItems
+            DESCRIPTION="list of DPF parameters to be written into header (default all parameters)"
+            TYPE="TEXT"
+            />
+          <JOBDIR
+            TYPE="TEXT"
+            />
+          <PLS_PLOTTER
+            TYPE="TEXT"
+            />
+        </INPUT>
+        <OUTPUT/>
+      </NetDome.writeHeader>
+    </workingunits>
+  </config>
+</DPF>

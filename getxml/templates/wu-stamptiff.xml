@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <stamptiff
+        NAME="Stamp TIFF"
+        VERSION="$Id: wu-stamptiff.xml,v 1.5 2003/04/08 07:07:57 stefan Exp $"
+        PROJECT="Brueckner"
+        TYPE="WUSystemCall"
+        LOGNAME="stamptiff"
+        LOGLEVEL="LOG_INFO"
+        LOGSTDOUT="N"
+        THREADS="1"
+        IGNOREEXITCODE="N"
+        COMMAND="%DPFSRV%/scripts/stamptiff.pl -parfile %PARFILENAME%">
+        <DEFAULTS
+          WU_ENABLE_DEBUG_LOOP="N"
+          TIFFSTAMP_STPFILE="%DPFSRV%/conf/stamptiff.stp"
+          TIFFSTAMP_DBFILE="%DPFSRV%/conf/stamptiff.db"
+          />
+        <ENVIRONMENTS
+          />
+        <INPUT
+          CURRFILENAME="*"
+          PLS_STAMP_0="*"
+          PLS_STAMP_9="*"
+          />
+        <OUTPUT
+          CURRFILENAME="*"
+          />
+      </stamptiff>
+    </workingunits>
+  </config>
+</DPF>

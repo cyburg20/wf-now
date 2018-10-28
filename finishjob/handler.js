@@ -7,10 +7,9 @@ const  Pool = require ('pg-pool');
 
 const handler = async (context) => {
     let job = context.job;
-    let workFlow = context.workFlow;
+    let jobFlow = context.jobFlow;
+    let parameters = context.parameters;
 console.error('before the query', job);
-
-
     const pool = new Pool({
         database: 'dpf',
         host: '10.128.2.247',
@@ -21,21 +20,25 @@ console.error('before the query', job);
         min: 10, // set min pool size to 4
         idleTimeoutMillis: 10000, // close idle clients after 1 second
         connectionTimeoutMillis: 10000,
-    });
-   
+    });   
     pool.on('Error', (err) => {
         console.error('there was an error in finishjob', error);
         pool.connect();
     });
-
     const res = await pool.query('SELECT * FROM processmanager.finishjob($1, $2, $3, $4)', [job.id, job.exitstatus, job.ts2delete, job.ts2forget])
     console.error('this is the job.id', job.id);
             if (!res.rows){
                 console.error('there was an Error completing the job', error);
             }
             pool.end();
-    return {workFlow};
-}
+    return {job, jobFlow, parameters};
+};
 
-
-module.exports = handler;
+module.exports = (event, context) => {
+    console.error('this is module exports', context);
+    handler(event.body).then((result) => {
+      context.status(200).succeed(result);
+    }).catch((error) => {
+      context.status(500).fail(error);
+    });
+  }

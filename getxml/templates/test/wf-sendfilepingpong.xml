@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workflows>
+      <Test.sendFilePingPong
+        COMMENT="test process to send a given file back to dpfclient"
+        DPFINT-Customer="0"
+        DPFINT-Interactive="0"
+        DPFINT-Type="WorkflowDescription"
+        NAME="Send File Ping Pong (send input file back)"
+        PROJECT="Test"
+        VERSION="$Id: wf-sendfilepingpong.xml,v 1.1 2008/04/24 16:00:17 stefan Exp $"
+        >
+        <DEFAULTS/>
+        <MAIN
+          BEGIN="ifFileGiven"
+          NAME=""
+          />
+        <errorNoFileGiven
+          COMMENT=""
+          ERROR="END"
+          NAME="error"
+          NEXT="END"
+          POSX="200"
+          POSY="300"
+          TYPE="WU"
+          >
+          <DEFAULTS/>
+          <MAPPING
+            ERR_REASON="No input file given!"
+            />
+        </errorNoFileGiven>
+        <ifFileGiven
+          COMMENT=""
+          ELSE="errorNoFileGiven"
+          OPERATOR="is file"
+          POSX="200"
+          POSY="100"
+          PROPERTY="CurrFileName"
+          THEN="ifTargetGiven"
+          TYPE="IF-THEN-ELSE"
+          VALUE=""
+          >
+          <CONNECTIONS
+            ELSE="VERTICAL"
+            THEN="VERTICAL"
+            />
+        </ifFileGiven>
+        <ifTargetGiven
+          COMMENT=""
+          ELSE="useTargetFromSource"
+          OPERATOR="exists"
+          POSX="400"
+          POSY="100"
+          PROPERTY="TargetFileName"
+          THEN="sendBack"
+          TYPE="IF-THEN-ELSE"
+          VALUE=""
+          >
+          <CONNECTIONS
+            ELSE="VERTICAL"
+            THEN="VERTICAL"
+            />
+        </ifTargetGiven>
+        <sendBack
+          COMMENT=""
+          ERROR="END"
+          NAME="sendback"
+          NEXT="END"
+          POSX="600"
+          POSY="300"
+          TYPE="WU"
+          >
+          <DEFAULTS/>
+          <MAPPING/>
+        </sendBack>
+        <useTargetFromSource
+          COMMENT=""
+          NEXT="sendBack"
+          POSX="400"
+          POSY="300"
+          TYPE="MODIFY"
+          >
+          <CONNECTIONS
+            NEXT="VERTICAL"
+            />
+          <SET
+            TargetFileName="%SourceFileName%"
+            />
+        </useTargetFromSource>
+      </Test.sendFilePingPong>
+    </workflows>
+  </config>
+</DPF>

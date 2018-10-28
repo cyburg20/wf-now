@@ -1,0 +1,27 @@
+<DPF>
+  <config>
+    <workflows>
+      <pdf2tiff
+        NAME="DPF 4 Convert - PDF to TIFF"
+        VERSION="$Id: wf-pdf2tiff.xml,v 1.6 2016/10/07 14:30:01 kig Exp $"
+        PROJECT="DPF4CONVERT"
+        COMMENT="dpf4convert - Convert process PDF to TIFF"
+        DPFINT-Type="WorkflowDescription"
+        DPFINT-Changes="0"
+        >
+        <MAIN
+          BEGIN="pdf2tiff"
+          ERROR="END"
+          />
+        <pdf2tiff
+          NAME="pdf2tiff"
+          NEXT="END"
+          >
+        <MAPPING
+          TARGETFILENAME=""
+          />
+        </pdf2tiff>
+      </pdf2tiff>
+    </workflows>
+  </config>
+</DPF>

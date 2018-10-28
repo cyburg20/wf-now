@@ -1,0 +1,21 @@
+<DPF>
+  <config>
+    <workingunits>
+      <checkout_files_local_directory
+        NAME="dpf4c - Check out files by local directory."
+        VERSION="$Id: wu-checkout_files_local_directory.xml,v 1.4 2004/05/14 11:36:59 ludwig Exp $"
+        PROJECT="DPF4CONVERT"
+        TYPE="WUSystemCall"
+        LOGNAME="dpf4c-checkout_files_local_directory"
+        LOGSTDOUT="Y"
+        LOGLEVEL="LOG_INFO"
+        THREADS="1"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/checkout_files_local_directory.pl -parfile %PARFILENAME%">
+        <DEFAULTS
+           SAP_NOTIFY_LEVEL="I"
+           SAP_MESSAGE="default notification from DPF"
+          />
+      </checkout_files_local_directory>
+    </workingunits>
+  </config>
+</DPF>

@@ -1,0 +1,27 @@
+<DPF>
+  <config>
+    <workflows>
+      <gxps2pdf
+        NAME="DPF 4 Convert - XPS to PDF using gxps"
+        VERSION="$Id: wf-gxps2pdf.xml,v 2.3 2016/11/08 13:25:20 kig Exp $"
+        PROJECT="DPF4CONVERT"
+        COMMENT="dpf4convert - Convert process XPS to PDF using gxps"
+        DPFINT-Type="WorkflowDescription"
+        DPFINT-Changes="0"
+        >
+        <MAIN
+          BEGIN="gxps2pdf"
+          ERROR="END"
+          />
+        <gxps2pdf
+          NAME="gxps2pdf"
+          NEXT="END"
+          >
+          <MAPPING
+             TARGETFILENAME=""
+            />
+        </gxps2pdf>
+      </gxps2pdf>
+    </workflows>
+  </config>
+</DPF>

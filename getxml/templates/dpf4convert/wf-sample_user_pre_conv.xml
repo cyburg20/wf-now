@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workflows>
+      <DPF4CONVERT.sample_user_pre_conv
+        COMMENT=""
+        DPFINT-Customer="0"
+        DPFINT-Interactive="0"
+        DPFINT-Type="WorkflowDescription"
+        NAME="Sample User Pre Conv"
+        PROJECT="DPF4CONVERT"
+        VERSION="$Id: wf-sample_user_pre_conv.xml,v 1.1 2014/07/24 12:30:46 kig Exp $"
+        >
+        <DEFAULTS/>
+        <DPF4CONVERT.sample_html_to_pdf1
+          COMMENT=""
+          ERROR="END"
+          NAME="DPF4CONVERT.sample_html_to_pdf"
+          NEXT="END"
+          POSX="500"
+          POSY="200"
+          TYPE="WU"
+          >
+          <CONNECTIONS
+            ERROR="DIRECT"
+            NEXT="DIRECT"
+            />
+          <DEFAULTS/>
+          <MAPPING/>
+        </DPF4CONVERT.sample_html_to_pdf1>
+        <END
+          COMMENT=""
+          NAME="END"
+          POSX="500"
+          POSY="500"
+          TYPE="STOP"
+          />
+        <MAIN
+          BEGIN="check_currfiletype"
+          NAME=""
+          />
+        <MAPPING/>
+        <check_currfiletype
+          COMMENT=""
+          ELSE="END"
+          OPERATOR="begins with"
+          POSX="200"
+          POSY="100"
+          PROPERTY="CURRFILETYPE"
+          THEN="DPF4CONVERT.sample_html_to_pdf1"
+          TYPE="IF-THEN-ELSE"
+          VALUE="htm"
+          >
+          <CONNECTIONS
+            ELSE="DIRECT"
+            THEN="VERTICAL"
+            />
+        </check_currfiletype>
+      </DPF4CONVERT.sample_user_pre_conv>
+    </workflows>
+  </config>
+</DPF>

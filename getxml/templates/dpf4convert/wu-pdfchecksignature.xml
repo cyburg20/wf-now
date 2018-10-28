@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <DPF4CONVERT.pdfchecksignature
+        CODEPAGE="UTF8"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/pdfchecksignature.pl -parfile %PARFILENAME%"
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGNAME=""
+        LOGSTDOUT="Y"
+        NAME="Pdfchecksignature - Check signatures of a PDF file"
+        NODENAMES=""
+        PROJECT="DPF4CONVERT"
+        THREADS="1"
+        TIMEOUT=""
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-pdfchecksignature.xml,v 1.2 2012/12/03 14:17:35 kig Exp $"
+        >
+        <DEFAULTS
+          ENABLE_AUTHORIZATION_CHECK="N"
+          />
+        <INPUT>
+          <CURRFILENAME
+            MANDATORY="true"
+            TYPE="TEXT"
+            />
+          <DPF4C_COMMON_TIMEOUT
+            TYPE="TEXT"
+            />
+          <ENABLE_AUTHORIZATION_CHECK
+            DEFAULT="N"
+            TYPE="TEXT"
+            />
+          <JOBDIR
+            MANDATORY="true"
+            TYPE="TEXT"
+            />
+        </INPUT>
+        <OUTPUT/>
+      </DPF4CONVERT.pdfchecksignature>
+    </workingunits>
+  </config>
+</DPF>

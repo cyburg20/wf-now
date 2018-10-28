@@ -1,0 +1,52 @@
+<DPF>
+  <config>
+    <workflows>
+      <proe2file
+        NAME="DPF 4 Convert - CAD ProE to specified dest formats"
+        VERSION="$Id: wf-proe2file.xml,v 1.6 2006/11/17 17:06:39 ludwig Exp $"
+        PROJECT="DPF4CONVERT"
+        COMMENT="dpf4convert - Convert process CAD ProE to specified dest formats"
+        DPFINT-Type="WorkflowDescription"
+        DPFINT-Changes="0"
+        >
+        <MAIN
+          BEGIN="proe2file"
+          ERROR="END"
+          />
+        <proe2file
+          NAME="proe2file"
+          NEXT="check_currfiletype"
+          />
+        <check_currfiletype
+          TYPE="SWITCH"
+          PROPERTY="CURRFILETYPE"
+          DEFAULT="disable_modification"
+          >
+          <cases
+            hp="hpgl2pdf"
+            ps="ps2pdfg"
+            stl="disable_modification"
+            jt="disable_modification"
+          />
+        </check_currfiletype>
+        <hpgl2pdf
+          USE="hpgl2pdf"
+          NEXT="END"
+          />
+        <ps2pdfg
+          USE="ps2pdfg"
+          NEXT="END"
+          />
+        <disable_modification
+          TYPE="MODIFY"
+          NEXT="END"
+        >
+          <SET
+          DPF4C_SWITCH_MODIFY="N"
+          DPF4C_SWITCH_CREATE_DESTFORMATS="N"
+          />
+        </disable_modification>
+      </proe2file>
+    </workflows>
+  </config>
+</DPF>

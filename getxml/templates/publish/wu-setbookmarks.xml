@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <Publish.setBookmarks
+        CODEPAGE="UTF8"
+        COMMAND="%DPFSRV%/scripts/publish/setbookmarks.pl -parfile %PARFILENAME%"
+        DPFINT-FileLinks="doc://:/%DPFSRV%/scripts/publish/setbookmarks.pl"
+        DPFINT-Icon="doc://:/publish.setbookmarks.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGNAME=""
+        LOGSTDOUT="Y"
+        NAME="Set PDF bookmarks with a given bookmark file"
+        NODENAMES=""
+        PROJECT="Publish"
+        THREADS="1"
+        TIMEOUT=""
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-setbookmarks.xml,v 1.8 2011/01/14 14:23:38 sek Exp $"
+        >
+        <DEFAULTS
+          CreateClosedBookmarks="N"
+          DeleteOldBookmarks="Y"
+          WuEnableDebugLoop="N"
+          />
+        <INPUT>
+          <BookMarkFileName
+            TYPE="TEXT"
+            />
+          <CreateClosedBookmarks
+            DEFAULT="N"
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </CreateClosedBookmarks>
+          <CurrFileName
+            TYPE="TEXT"
+            />
+          <DeleteOldBookmarks
+            DEFAULT="Y"
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </DeleteOldBookmarks>
+          <DestFileName
+            TYPE="TEXT"
+            />
+          <WuEnableDebugLoop
+            DEFAULT="N"
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </WuEnableDebugLoop>
+        </INPUT>
+        <OUTPUT/>
+      </Publish.setBookmarks>
+    </workingunits>
+  </config>
+</DPF>

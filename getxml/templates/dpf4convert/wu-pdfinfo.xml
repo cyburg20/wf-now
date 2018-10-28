@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <DPF4CONVERT.pdfinfo
+        CODEPAGE="UTF8"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/pdfinfo.pl -parfile %PARFILENAME%"
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGNAME=""
+        LOGSTDOUT="Y"
+        NAME="Pdfinfo - Get Information about a PDF-file"
+        NODENAMES=""
+        PROJECT="DPF4CONVERT"
+        THREADS="1"
+        TIMEOUT=""
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-pdfinfo.xml,v 1.3 2013/01/15 15:11:17 kig Exp $"
+        >
+        <DEFAULTS
+          ENABLE_PDFUNPROTECT="N"
+          PDFINFO_GET_METADATA="N"
+          PDFINFO_DO_REPAIR="Y"
+          />
+        <INPUT>
+          <ALCSERVER
+            TYPE="TEXT"
+            />
+          <ALC_SERVER
+            TYPE="TEXT"
+            />
+          <CURRFILENAME
+            MANDATORY="true"
+            TYPE="TEXT"
+            />
+          <DPF4C_AUTHORIZE_OPENPW
+            TYPE="TEXT"
+            />
+          <DPF4C_COMMON_TIMEOUT
+            TYPE="TEXT"
+            />
+          <ENABLE_PDFUNPROTECT
+            TYPE="TEXT"
+            />
+          <JOBDIR
+            MANDATORY="true"
+            TYPE="TEXT"
+            />
+          <PDFINFO_GET_METADATA
+            TYPE="TEXT"
+            />
+          <PDFINFO_DO_REPAIR
+            TYPE="TEXT"
+            />
+          <WFPOSITION
+            MANDATORY="true"
+            TYPE="TEXT"
+            />
+        </INPUT>
+        <OUTPUT/>
+      </DPF4CONVERT.pdfinfo>
+    </workingunits>
+  </config>
+</DPF>

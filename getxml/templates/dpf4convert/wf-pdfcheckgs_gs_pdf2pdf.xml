@@ -1,0 +1,68 @@
+<DPF>
+  <config>
+    <workflows>
+      <pdfcheckgs_gs_pdf2pdf
+        NAME="DPF 4 Convert - pdfcheckgs_gs_pdf2pdf"
+        VERSION="$Id: wf-pdfcheckgs_gs_pdf2pdf.xml,v 1.2 2007/05/10 10:01:46 ludwig Exp $"
+        PROJECT="DPF4CONVERT"
+        COMMENT="dpf4convert - Check pdf file with Ghostscript. In error case try to repair with Ghostscript."
+        DPFINT-Type="WorkflowDescription"
+        >
+        <MAIN
+          BEGIN="check_switch_pdfadjust_gs_pdf2pdf"
+          ERROR="END"
+          />
+        <check_switch_pdfadjust_gs_pdf2pdf
+          TYPE="IF-THEN-ELSE"
+          PROPERTY="ENABLE_PDF_CHECK_GS"
+          OPERATOR="contains"
+          VALUE="Y"
+          THEN="pdfcheckgs_first"
+          ELSE="END"
+          />
+        <pdfcheckgs_first
+          NAME="pdfcheckgs"
+          NEXT="check_pdfcheck_checks_gs_error"
+          />
+        <check_pdfcheck_checks_gs_error
+          TYPE="IF-THEN-ELSE"
+          PROPERTY="PDFCHECK_CHECKS_GS_ERROR"
+          OPERATOR="contains"
+          VALUE="Y"
+          THEN="END"
+          ELSE="gs_pdf2pdf"
+          />
+        <gs_pdf2pdf
+          USE="gs_pdf2pdf"
+          NEXT="pdfcheckgs_after_gs_pdf2pdf"
+          />
+        <pdfcheckgs_after_gs_pdf2pdf
+          NAME="pdfcheckgs"
+          NEXT="check_pdfcheck_checks_gs_error_repaired"
+          />
+        <check_pdfcheck_checks_gs_error_repaired
+          TYPE="IF-THEN-ELSE"
+          PROPERTY="PDFCHECK_CHECKS_GS_ERROR"
+          OPERATOR="contains"
+          VALUE="Y"
+          THEN="error_repair_with_gs_failed"
+          ELSE="END"
+          />
+        <error_repair_with_gs_failed
+          TYPE="MODIFY"
+          NEXT="exit_process"
+        >
+          <SET
+          ERR_REASON="Error: Repair of file -%CURRFILENAME%- with Ghostscript failed!"
+          ERR_WFNAME="DPF4C_PDFADJUST"
+          ERR_WFPOSITION="check_pdfcheck_checks_gs_error_repaired"
+          />
+        </error_repair_with_gs_failed>
+        <exit_process
+          NAME="exit_process"
+          NEXT="END"
+          />
+      </pdfcheckgs_gs_pdf2pdf>
+    </workflows>
+  </config>
+</DPF>

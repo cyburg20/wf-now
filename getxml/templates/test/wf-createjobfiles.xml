@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workflows>
+      <Test.createJobFiles
+        COMMENT="create one job with a given count of files in it
+Use DPF parameter FileCount, default is 100"
+        DPFINT-Customer="0"
+        DPFINT-Interactive="0"
+        DPFINT-Type="WorkflowDescription"
+        NAME="Create Job Files"
+        PROJECT="Test"
+        VERSION="$Id: wf-createjobfiles.xml,v 1.5 2008/04/08 16:13:04 stefan Exp $"
+        >
+        <DEFAULTS
+          FileCount="100"
+          />
+        <END
+          COMMENT=""
+          NAME="END"
+          POSX="400"
+          POSY="100"
+          TYPE="STOP"
+          />
+        <MAIN
+          BEGIN="setMessage"
+          NAME=""
+          />
+        <createJobFiles
+          COMMENT=""
+          ERROR="END"
+          NAME="Test.createJobFiles"
+          NEXT="setFinish"
+          POSX="300"
+          POSY="100"
+          TYPE="WU"
+          >
+          <CONNECTIONS
+            ERROR="DIRECT"
+            NEXT="VERTICAL"
+            />
+          <DEFAULTS/>
+          <MAPPING/>
+        </createJobFiles>
+        <setFinish
+          COMMENT=""
+          NEXT="END"
+          POSX="500"
+          POSY="100"
+          TYPE="MODIFY"
+          >
+          <SET
+            DpfJobMessage="%FileCount% files created."
+            />
+        </setFinish>
+        <setMessage
+          COMMENT=""
+          NEXT="createJobFiles"
+          POSX="100"
+          POSY="100"
+          TYPE="MODIFY"
+          >
+          <CONNECTIONS
+            NEXT="DIRECT"
+            />
+          <SET
+            DpfJobMessage="Creating %FileCount% files..."
+            />
+        </setMessage>
+      </Test.createJobFiles>
+    </workflows>
+  </config>
+</DPF>

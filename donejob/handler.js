@@ -7,8 +7,8 @@ const { Pool } = require('pg');
 
 const  handler = async (context) => {
     let job = context.job;
-    let workFlow = context.workFlow;
-   
+    let jobFlow = context.jobFlow;
+    let parameters  = context.parameters;  
 
     const pool = new Pool({
         database: 'dpf',
@@ -24,12 +24,19 @@ const  handler = async (context) => {
    
     pool.on('Error', (err) => {
         console.error('there is an error in getting job', err);
-    });           
+    });          
   
     const res = await pool.query('SELECT * FROM processmanager.donejob($1) ', [job.id] );
       pool.end();
-      return workFlow;  
+      return {job, jobFlow, parameters};  
 
-}
+};
 
-module.exports = handler;
+module.exports = (event, context) => {
+    console.error('this is module exports', context);
+    handler(event.body).then((result) => {
+      context.status(200).succeed(result);
+    }).catch((error) => {
+      context.status(500).fail(error);
+    });
+  }

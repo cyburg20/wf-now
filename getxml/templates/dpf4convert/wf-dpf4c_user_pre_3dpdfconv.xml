@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workflows>
+      <DPF4CONVERT.dpf4c_user_pre_3dpdfconv
+        COMMENT="Convert 3D-PDF - USER EXIT PROCESS BEFORE CONVERSION TO 3D-PDF"
+        DPFINT-Customer="0"
+        DPFINT-Interactive="0"
+        DPFINT-Type="WorkflowDescription"
+        NAME="CONVERT 3D-PDF - SubProcess dpf4c_user_pre_3dpdfconv"
+        PROJECT="DPF4CONVERT"
+        VERSION="$Id: wf-dpf4c_user_pre_3dpdfconv.xml,v 1.1 2011/10/26 07:24:12 kig Exp $"
+        >
+        <DEFAULTS/>
+        <END
+          COMMENT=""
+          NAME="END"
+          POSX="900"
+          POSY="200"
+          TYPE="STOP"
+          />
+        <MAIN
+          BEGIN="END"
+          ERROR="END"
+          LOGLEVEL="I"
+          />
+        <MAPPING/>
+      </DPF4CONVERT.dpf4c_user_pre_3dpdfconv>
+    </workflows>
+  </config>
+</DPF>

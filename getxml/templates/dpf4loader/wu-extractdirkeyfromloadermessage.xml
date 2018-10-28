@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <DPF4LOADER.ExtractDIRKeyFromLoaderMessage
+        CODEPAGE="ISO-8859-1"
+        COMMAND="%DPFSRV%/scripts/dpf4loader/extractdirkeyfromloadermessage.pl -parfile %PARFILENAME%"
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGNAME=""
+        LOGSTDOUT="Y"
+        NAME="Extract DIR Key From Loader Message"
+        NODENAMES=""
+        PROJECT="DPF4LOADER"
+        THREADS="1"
+        TIMEOUT=""
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-extractdirkeyfromloadermessage.xml,v 1.1 2013/12/12 07:50:10 tobias Exp $"
+        >
+        <DEFAULTS
+          DPFL_LOADERMESSAGE="%SapcliResultText%"
+          />
+        <INPUT>
+          <DPFL_LOADERMESSAGE
+            DEFAULT="%SapcliResultText%"
+            DESCRIPTION="The loader message"
+            TYPE="TEXT"
+            />
+        </INPUT>
+        <OUTPUT/>
+      </DPF4LOADER.ExtractDIRKeyFromLoaderMessage>
+    </workingunits>
+  </config>
+</DPF>

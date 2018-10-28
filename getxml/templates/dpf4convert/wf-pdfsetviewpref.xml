@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workflows>
+      <DPF4CONVERT.pdfsetviewpref
+        COMMENT="The DPF-process PDFSETVIEWPREF sets viewing preferences in a PDF-file (OpenAction, PageMode, ViewerPreferences)
+"
+        DPFINT-Customer="0"
+        DPFINT-Interactive="0"
+        DPFINT-Type="WorkflowDescription"
+        NAME="Pdfsetviewpref - set view preferences in a PDF file"
+        PROJECT="DPF4CONVERT"
+        VERSION="$Id: wf-pdfsetviewpref.xml,v 1.1 2009/09/03 14:41:41 kig Exp $"
+        >
+        <DEFAULTS/>
+        <DPF4CONVERT.pdfsetviewpref1
+          COMMENT=""
+          ERROR="END"
+          NAME="DPF4CONVERT.pdfsetviewpref"
+          NEXT="END"
+          POSX="400"
+          POSY="300"
+          TYPE="WU"
+          >
+          <CONNECTIONS
+            ERROR="DIRECT"
+            NEXT="DIRECT"
+            />
+          <DEFAULTS/>
+          <MAPPING/>
+        </DPF4CONVERT.pdfsetviewpref1>
+        <END
+          COMMENT=""
+          NAME="END"
+          POSX="600"
+          POSY="300"
+          TYPE="STOP"
+          />
+        <IF-THEN-ELSE1
+          COMMENT=""
+          ELSE="END"
+          OPERATOR="eq"
+          POSX="400"
+          POSY="100"
+          PROPERTY="ENABLE_PDFVIEW"
+          THEN="DPF4CONVERT.pdfsetviewpref1"
+          TYPE="IF-THEN-ELSE"
+          VALUE="Y"
+          >
+          <CONNECTIONS
+            ELSE="VERTICAL"
+            THEN="DIRECT"
+            />
+        </IF-THEN-ELSE1>
+        <MAIN
+          BEGIN="IF-THEN-ELSE1"
+          NAME=""
+          />
+        <MAPPING/>
+      </DPF4CONVERT.pdfsetviewpref>
+    </workflows>
+  </config>
+</DPF>

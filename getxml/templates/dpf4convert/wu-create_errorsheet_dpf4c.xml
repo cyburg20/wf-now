@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <create_errorsheet_dpf4c
+        NAME="Create error sheet"
+        VERSION="$Id: wu-create_errorsheet_dpf4c.xml,v 1.2 2013/05/16 07:44:58 kig Exp $"
+        PROJECT="DPF4CONVERT"
+        TYPE="WUSystemCall"
+        LOGNAME="create_errorsheet_dpf4c"
+        LOGLEVEL="LOG_INFO"
+        LOGSTDOUT="N"
+        THREADS="1"
+        IGNOREEXITCODE="N"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/create_errorsheet_dpf4c.pl -parfile %PARFILENAME%">
+        <DEFAULTS
+          WU_ENABLE_DEBUG_LOOP="N"
+          ERRSHEET_TEMPLATE="%DPFSRV%/conf/dpf4convert/create_errorsheet_dpf4c.pdf"
+          />
+        <ENVIRONMENTS
+          />
+        <INPUT
+          CURRFILENAME="*"
+          />
+        <OUTPUT
+          CURRFILENAME="*"
+          />
+      </create_errorsheet_dpf4c>
+    </workingunits>
+  </config>
+</DPF>

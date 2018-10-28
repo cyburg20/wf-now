@@ -1,0 +1,35 @@
+<DPF>
+  <config>
+    <workflows>
+      <pdfraster
+        NAME="DPF 4 Convert - pdfraster"
+        VERSION="$Id: wf-pdfraster.xml,v 1.4 2009/11/06 14:31:28 kig Exp $"
+        PROJECT="DPF4CONVERT"
+        COMMENT="dpf4convert - Convert process PDF to PDF in Rasterformat"
+        DPFINT-Type="WorkflowDescription"
+        DPFINT-Changes="0"
+        >
+        <MAIN
+          BEGIN="pdf2tiff"
+          ERROR="END"
+          />
+        <pdf2tiff
+          NAME="pdf2tiff"
+          NEXT="tiff2pdf"
+          />
+        <tiff2pdf
+          NAME="tiff2pdf"
+          NEXT="set_wf_pdfraster_parameters_end"
+          />
+        <set_wf_pdfraster_parameters_end
+          TYPE="MODIFY"
+          NEXT="END"
+        >
+          <SET
+          PDF_CHECK_ADJUST_FILE_MODIFIED="Y"
+          />
+        </set_wf_pdfraster_parameters_end>
+      </pdfraster>
+    </workflows>
+  </config>
+</DPF>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <DPF4CONVERT.msg2struct
+        COMMAND="%DPFSRV%/scripts/dpf4convert/msg2struct.pl -parfile %PARFILENAME%"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGSTDOUT="Y"
+        NAME="msg2struct"
+        PROJECT="DPF4CONVERT"
+        THREADS="1"
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-msg2struct.xml,v 1.1 2008/10/13 11:54:39 dh Exp $"
+        />
+    </workingunits>
+  </config>
+</DPF>

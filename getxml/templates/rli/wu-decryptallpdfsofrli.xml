@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <Rli.DecryptAllPdfsOfRli
+        CODEPAGE="ISO-8859-1"
+        COMMAND="%DPFSRV%/scripts/rli/decryptallpdfsofrli.pl -parfile %PARFILENAME%"
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGNAME=""
+        LOGSTDOUT="Y"
+        NAME="Decrypt all Pdfs of Rli"
+        NODENAMES=""
+        PROJECT="Rli"
+        THREADS="2"
+        TIMEOUT=""
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-decryptallpdfsofrli.xml,v 1.5 2010/10/28 15:57:05 stefan Exp $"
+        >
+        <DEFAULTS
+          Decryptall="Y"
+          IgnoreErrors="N"
+          WuEnableDebugLoop="N"
+          />
+        <INPUT>
+          <CurrRliFileName
+            DESCRIPTION="the input rli file"
+            MANDATORY="true"
+            TYPE="TEXT"
+            />
+          <Decryptall
+            DEFAULT="Y"
+            DESCRIPTION="Set to &quot;N&quot; if you do not want to decrypt print protected files. If property was not set, the value of DPF4C_AUTHORIZE_DECRYPT_ALL will be used. Default &quot;Y&quot; will be used, if DPF4C_AUTHORIZE_DECRYPT_ALL was not set either."
+            MANDATORY="true"
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </Decryptall>
+          <FilterOperator
+            DESCRIPTION="optional operator to compare value(s), default: eq"
+            TYPE="TEXT"
+            />
+          <FilterOperator2
+            DESCRIPTION="second optional operator to compare value(s), default: eq"
+            TYPE="TEXT"
+            />
+          <FilterValue
+            DESCRIPTION="value to search for in filter"
+            TYPE="TEXT"
+            />
+          <FilterValue2
+            DESCRIPTION="second set of colon separated values to work on these specific RLI lines only"
+            TYPE="TEXT"
+            />
+          <IgnoreErrors
+            DEFAULT="N"
+            DESCRIPTION="if true, ignore errors while decrypting, see also output parameter NumErrors"
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </IgnoreErrors>
+          <RlicFilter
+            DESCRIPTION="name of RLI column for filter"
+            TYPE="TEXT"
+            />
+          <RlicFilter2
+            DESCRIPTION="name of second RLI column to use to filter specific RLI lines only"
+            TYPE="TEXT"
+            />
+          <WuEnableDebugLoop
+            DEFAULT="N"
+            MANDATORY="true"
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </WuEnableDebugLoop>
+        </INPUT>
+        <OUTPUT/>
+      </Rli.DecryptAllPdfsOfRli>
+    </workingunits>
+  </config>
+</DPF>

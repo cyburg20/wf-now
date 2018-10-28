@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <CdRobot.getDriveType
+        COMMAND="%DPFSRV%/scripts/cdrobot/getdrivetype.pl -parfile %PARFILENAME%"
+        DPFINT-FileLinks="doc://:/%DPFSRV%/scripts/cdrobot/getdrivetype.pl"
+        DPFINT-Icon="doc://:/wu.gif"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGNAME=""
+        LOGSTDOUT="Y"
+        NAME="Get drive type"
+        PROJECT="CdRobot"
+        THREADS="1"
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-getdrivetype.xml,v 1.5 2007/03/01 09:12:40 stefan Exp $"
+        >
+        <DEFAULTS
+          DPFINT-Icon="doc://:/defaults.gif"
+          INPUTPATH=""
+          NET_USE_FILE=""
+          WU_ENABLE_DEBUG_LOOP="N"
+          />
+        <INPUT
+          DPFINT-Icon="doc://:/wu-input.gif"
+          INPUTPATH="*"
+          NET_USE_FILE="*"
+          WU_ENABLE_DEBUG_LOOP="*"
+          />
+        <OUTPUT
+          DPFINT-Icon="doc://:/wu-output.gif"
+          DRIVE_HOST="*"
+          DRIVE_SHARE="*"
+          DRIVE_TYPE="LOCAL|REMOTE|SAMBA|NOVELL"
+          />
+      </CdRobot.getDriveType>
+    </workingunits>
+  </config>
+</DPF>

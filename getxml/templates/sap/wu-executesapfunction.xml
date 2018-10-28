@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <Sap.executeSapFunction
+        CODEPAGE="ISO-8859-1"
+        COMMAND="%DPFSRV%/scripts/sap/executesapfunction.pl -parfile %PARFILENAME%"
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGSTDOUT="Y"
+        NAME="Execute Sap Function"
+        NODENAMES=""
+        PROJECT="Sap"
+        THREADS="1"
+        TIMEOUT=""
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-executesapfunction.xml,v 1.6 2015/09/17 07:33:49 tobias Exp $"
+        >
+        <DEFAULTS
+          AbortOnWildCardInDokNr="N"
+          CAD_USERFCT="/SEAL/BAS_CR_USR_RFC_FCT"
+          ContinueDespiteSapCliErrors="N"
+          USE_JSAPCLI="N"
+          UseSapcliMock="N"
+          />
+        <INPUT>
+          <AbortOnWildCardInDokNr
+            DEFAULT="N"
+            DESCRIPTION="abort on &apos;*&apos; as dokument number"
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </AbortOnWildCardInDokNr>
+          <CADRFC
+            DESCRIPTION="set environment CADRFC for sapcli"
+            TYPE="TEXT"
+            />
+          <CAD_NETADDRESS
+            DESCRIPTION="Hostname for registered hosts in sap system"
+            TYPE="TEXT"
+            />
+          <CAD_USERFCT
+            DEFAULT="/SEAL/BAS_CR_USR_RFC_FCT"
+            DESCRIPTION="SAP user function"
+            TYPE="TEXT"
+            />
+          <ContinueDespiteSapCliErrors
+            DEFAULT="N"
+            DESCRIPTION="exit wu with exitcode 0 despite sap cli error(s) and write ExecuteSapFunctionErrorStatus"
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </ContinueDespiteSapCliErrors>
+          <FunctionCall
+            DESCRIPTION="function call to send"
+            MANDATORY="true"
+            TYPE="TEXT"
+            />
+          <FunctionCallList
+            DESCRIPTION="blank separated list of properties containing additionals function calls to send"
+            TYPE="TEXT"
+            />
+          <RFC_INI
+            DESCRIPTION="set environment RFC_INI for sapcli"
+            TYPE="TEXT"
+            />
+          <SAPCLI_EXIT_ON_ERROR
+            DESCRIPTION="set environment SAPCLI_EXIT_ON_ERROR with given value from DPF parameter (uses tools/testfiles/dpfalice/sap/sapcli.bat + pl)"
+            TYPE="TEXT"
+            />
+          <SAPLANGU
+            DESCRIPTION="SAP login language"
+            MANDATORY="true"
+            TYPE="TEXT"
+            />
+          <SAPMANDANT
+            DESCRIPTION="SAP login mandant"
+            MANDATORY="true"
+            TYPE="TEXT"
+            />
+          <SAPSYSTEM
+            DESCRIPTION="SAP login system"
+            MANDATORY="true"
+            TYPE="TEXT"
+            />
+          <SapcliMockFind
+            DESCRIPTION="ONLY FOR TESTING: should mock find anything or not"
+            TYPE="TEXT"
+            />
+          <USE_JSAPCLI
+            DEFAULT="N"
+            TYPE="TEXT"
+            />
+          <UseSapcliMock
+            DEFAULT="N"
+            DESCRIPTION="ONLY FOR TESTING: sapcli mock testing"
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </UseSapcliMock>
+        </INPUT>
+        <OUTPUT/>
+      </Sap.executeSapFunction>
+    </workingunits>
+  </config>
+</DPF>

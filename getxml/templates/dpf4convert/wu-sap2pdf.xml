@@ -1,0 +1,31 @@
+<DPF>
+  <config>
+    <workingunits>
+      <sap2pdf
+        VERSION="$Id: wu-sap2pdf.xml,v 1.1 2008/06/30 09:33:13 dei Exp $"
+        PROJECT="DPF4CONVERT"
+        TYPE="WUSystemCall"
+        LOGNAME="dpf4c-sap2pdf"
+        LOGLEVEL="LOG_INFO"
+        THREADS="1"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/sap2pdf.pl -parfile %PARFILENAME%">
+        <DEFAULTS
+          />
+        <INPUT
+          PARFILENAME="*"
+          CURRFILENAME="*"
+          JOBID="*"
+          LOGLEVEL=""
+          CURRFILETYPE="otf"
+          />
+	<OUTPUT
+          CURRHEDFILENAME="*"
+          CURRMETFILENAME="*"
+          CURRXMLFILENAME=""
+          CURRFILENAME="*"
+          CURRFILETYPE="pdf"
+          />
+      </sap2pdf>
+    </workingunits>
+  </config>
+</DPF>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <Rli.replaceLines
+        CODEPAGE="UTF8"
+        COMMAND="%DPFSRV%/scripts/rli/replacelines.pl -parfile %PARFILENAME%"
+        DPFINT-FileLinks="doc://:/%DPFSRV%/scripts/rli/replacelines.pl"
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGNAME=""
+        LOGSTDOUT="Y"
+        NAME="Replace RLI lines"
+        NODENAMES=""
+        PROJECT="Rli"
+        THREADS="5"
+        TIMEOUT=""
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-replacelines.xml,v 1.8 2010/10/28 15:57:07 stefan Exp $"
+        >
+        <INPUT
+          DPFINT-Icon="doc://:/wu-input.gif"
+          >
+          <CurrRliFileName
+            TYPE="TEXT"
+            />
+          <FilterValue
+            TYPE="TEXT"
+            />
+          <InitialValue
+            TYPE="TEXT"
+            />
+          <Range
+            TYPE="TEXT"
+            />
+          <RemoveDuplicates
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </RemoveDuplicates>
+          <RliColumnData
+            TYPE="TEXT"
+            />
+          <RlicFilter
+            TYPE="TEXT"
+            />
+        </INPUT>
+        <OUTPUT/>
+      </Rli.replaceLines>
+    </workingunits>
+  </config>
+</DPF>

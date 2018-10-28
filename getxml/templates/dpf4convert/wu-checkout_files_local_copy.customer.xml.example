@@ -1,0 +1,20 @@
+<DPF>
+<!-- $Id: wu-checkout_files_local_copy.customer.xml.example,v 1.1 2005/08/23 13:39:04 ludwig Exp $ -->
+  <config>
+    <workingunits>
+      <checkout_files_local_copy>
+        <DEFAULTS
+          PLMCHECKOUTDIRNAME="SAP_WORKDIR"
+          PLMCHECKOUTDIRREPLACEFROM=""
+          PLMCHECKOUTDIRREPLACETO=""
+          PLMCHECKOUTDESTAPPEND="out"
+          PLMCHECKOUTDIRNAME_SECOND="SAP_WORKDIR"
+          PLMCHECKOUTDIRREPLACEFROM_SECOND="out"
+          PLMCHECKOUTDIRREPLACETO_SECOND="in"
+          PLMCHECKOUTDESTAPPEND_SECOND="in"
+          />
+      </checkout_files_local_copy>
+    </workingunits>
+  </config>
+</DPF>
+

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workflows>
+      <!-- USER EXIT PROCESS FOR CHECKOUT OF FILES IN DIFFERENT WAYS -->  
+      <dpf4c_user_pre_checkout_files
+        NAME="DPF 4 Convert - SubProcess dpf4c_user_pre_checkout_files"
+        VERSION="$Id: wf-dpf4c_user_pre_checkout_files.xml,v 1.4 2006/09/26 14:27:09 ludwig Exp $"
+        PROJECT="DPF4CONVERT"
+        COMMENT="dpf4convert - USER EXIT PROCESS FOR CHECKOUT OF FILES IN DIFFERENT WAYS"
+        DPFINT-Type="WorkflowDescription"
+        DPFINT-Changes="0"
+        >
+        <MAIN
+          BEGIN="END"
+          ERROR="END"
+          LOGLEVEL="I"     
+        />
+      </dpf4c_user_pre_checkout_files>
+    </workflows>
+  </config>
+</DPF>

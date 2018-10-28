@@ -1,0 +1,24 @@
+<DPF>
+  <config>
+    <workingunits>
+      <customer_specific
+        NAME="dpf4c - Customer specific dummy file."
+        VERSION="$Id: wu-customer_specific.xml,v 1.6 2006/08/15 16:40:35 ludwig Exp $"
+        PROJECT="DPF4CONVERT"
+        TYPE="WUSystemCall"
+        LOGNAME="dpf4c-customer_specific"
+        LOGSTDOUT="Y"
+        LOGLEVEL="LOG_INFO"
+        THREADS="1"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/customer_specific.pl -parfile %PARFILENAME%">
+    	<DEFAULTS
+          WU_ENABLE_DEBUG_LOOP="N"
+          />
+        <INPUT
+          />
+        <OUTPUT
+          />
+      </customer_specific>
+    </workingunits>
+  </config>
+</DPF>

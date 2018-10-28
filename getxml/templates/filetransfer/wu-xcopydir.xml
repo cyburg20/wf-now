@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <FileTransfer.xcopyDir
+        CODEPAGE="ISO-8859-1"
+        COMMAND="%DPFSRV%/scripts/filetransfer/xcopydir.pl -parfile %PARFILENAME%"
+        DEFAULTS=""
+        DPFINT-FileLinks="doc://:/xcopy"
+        DPFINT-Icon="doc://:/filetransfer.xcopydir.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGNAME=""
+        LOGSTDOUT="Y"
+        NAME="XCopy Directory"
+        NODENAMES=""
+        PROJECT="FileTransfer"
+        THREADS="1"
+        TIMEOUT=""
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-xcopydir.xml,v 1.7 2008/11/13 16:26:43 stefan Exp $"
+        >
+        <OUTPUT
+          DPFINT-Icon="doc://:/wu-output.gif"
+          />
+      </FileTransfer.xcopyDir>
+    </workingunits>
+  </config>
+</DPF>

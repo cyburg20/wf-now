@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <FileTransfer.copyFiles
+        CODEPAGE="UTF8"
+        COMMAND="%DPFSRV%/scripts/filetransfer/copyfiles.pl -parfile %PARFILENAME%"
+        DPFINT-FileLinks="doc://:/%DPFSRV%/scripts/filetransfer/copyfiles.pl"
+        DPFINT-Icon="doc://:/filetransfer.copyfiles.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGNAME=""
+        LOGSTDOUT="Y"
+        NAME="Copy files"
+        NODENAMES=""
+        PROJECT="FileTransfer"
+        THREADS="5"
+        TIMEOUT=""
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-copyfiles.xml,v 1.13 2013/09/11 11:18:31 sek Exp $"
+        >
+        <DEFAULTS
+          COPY_DEBUG="N"
+          COPY_RETRY="1"
+          COPY_RETRY_SLEEP="1"
+          IgnoreMissingFiles="N"
+          WU_ENABLE_DEBUG_LOOP="N"
+          />
+        <INPUT
+          COPY_RETRY="*"
+          COPY_SOURCE_PROPERTIES="*"
+          COPY_TARGETDIR="*"
+          COPY_TARGET_PROPERTIES="*"
+          DPFINT-Icon="doc://:/wu-input.gif"
+          WU_ENABLE_DEBUG_LOOP="*"
+          >
+          <COPY_DEBUG
+            DEFAULT="N"
+            DESCRIPTION="Y if COPY debug mode"
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </COPY_DEBUG>
+          <COPY_HOSTNAME
+            DESCRIPTION="the host name of the COPY server"
+            TYPE="TEXT"
+            />
+          <COPY_PASSWORD
+            DESCRIPTION="the password of the user name"
+            TYPE="TEXT"
+            />
+          <COPY_RETRY
+            DEFAULT="1"
+            DESCRIPTION="number of tries to copy the file(s)"
+            TYPE="TEXT"
+            />
+          <COPY_RETRY_SLEEP
+            DEFAULT="1"
+            DESCRIPTION="time in seconds to sleep between retries"
+            TYPE="TEXT"
+            />
+          <COPY_SOURCE_PROPERTIES
+            DESCRIPTION="a list of property names which contain the source file names to copy"
+            TYPE="TEXT"
+            />
+          <COPY_TARGETDIR
+            DESCRIPTION="an optional target directory at the COPY server to change into before copying the files"
+            TYPE="TEXT"
+            />
+          <COPY_TARGET_PROPERTIES
+            DESCRIPTION="a list of property names which contain the target file names at the COPY server"
+            TYPE="TEXT"
+            />
+          <COPY_USERNAME
+            DESCRIPTION="the user name to log on in the COPY server"
+            TYPE="TEXT"
+            />
+          <CURRFILENAME
+            DESCRIPTION="the source file if property COPY_SOURCE_PROPERTIES is empty"
+            TYPE="TEXT"
+            />
+          <IgnoreMissingFiles
+            DEFAULT="N"
+            DESCRIPTION="do not abort on missing source files"
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </IgnoreMissingFiles>
+          <JOBDIR
+            DESCRIPTION="our job dir"
+            TYPE="TEXT"
+            />
+          <WU_ENABLE_DEBUG_LOOP
+            DEFAULT="N"
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </WU_ENABLE_DEBUG_LOOP>
+        </INPUT>
+        <OUTPUT/>
+      </FileTransfer.copyFiles>
+    </workingunits>
+  </config>
+</DPF>

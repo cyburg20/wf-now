@@ -1,0 +1,42 @@
+<DPF>
+  <config>
+    <workflows>
+      <save_currfilename_and_currfiletype
+        NAME="DPF 4 Convert - process for save currfilename and currfiletype"
+        VERSION="$Id: wf-save_currfilename_and_currfiletype.xml,v 1.1 2006/04/20 13:33:19 ludwig Exp $"
+        PROJECT="DPF4CONVERT"
+        COMMENT="dpf4convert - Save currfilename and currfiletype"
+        DPFINT-Type="WorkflowDescription"
+        DPFINT-Changes="0"
+        >
+        <MAIN
+          BEGIN="check_reusable_format_to_save"
+          ERROR="END"
+          />
+        <check_reusable_format_to_save
+          TYPE="SWITCH"
+          PROPERTY="CURRFILETYPE"
+          DEFAULT="END"
+          >
+          <cases
+            pdf="save_currfilename_and_currfiletype"
+            tif="save_currfilename_and_currfiletype"
+            tiff="save_currfilename_and_currfiletype"
+            ps="save_currfilename_and_currfiletype"
+            hpgl="save_currfilename_and_currfiletype"
+            hp="save_currfilename_and_currfiletype"
+          />
+        </check_reusable_format_to_save>
+       <save_currfilename_and_currfiletype
+          TYPE="MODIFY"
+          NEXT="END"
+        >
+          <SET
+          CURRFILENAME_SAVE="%CURRFILENAME%"
+          CURRFILETYPE_SAVE="%CURRFILETYPE%"
+          />
+        </save_currfilename_and_currfiletype>
+      </save_currfilename_and_currfiletype>
+    </workflows>
+  </config>
+</DPF>

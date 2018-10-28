@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workflows>
+      <DPF4CONVERT.dvscheckadjust
+        COMMENT="dpf4convert - Dpf4Convert checkadjust process for a PDF- or TIFF-file for dvscheck checkin."
+        DPFINT-Customer="0"
+        DPFINT-Interactive="1"
+        DPFINT-Type="WorkflowDescription"
+        NAME="dvscheckadjust"
+        PROJECT="DPF4CONVERT"
+        VERSION="$Id: wf-dvscheckadjust.xml,v 1.16 2011/06/21 14:38:20 kig Exp $"
+        >
+        <DEFAULTS/>
+        <DPF4CONVERT.dvsfilecheckmain1
+          COMMENT=""
+          ERROR="END"
+          NEXT="END"
+          POSX="300"
+          POSY="300"
+          TYPE="SWF"
+          USE="DPF4CONVERT.dvsfilecheckmain"
+          >
+          <CONNECTIONS
+            ERROR="DIRECT"
+            NEXT="DIRECT"
+            />
+          <DEFAULTS/>
+          <MAPPING/>
+        </DPF4CONVERT.dvsfilecheckmain1>
+        <END
+          COMMENT=""
+          NAME="END"
+          POSX="1300"
+          POSY="200"
+          TYPE="STOP"
+          />
+        <MAIN
+          BEGIN="enable_adapt"
+          />
+        <MAPPING/>
+        <enable_adapt
+          COMMENT=""
+          NEXT="DPF4CONVERT.dvsfilecheckmain1"
+          POSX="300"
+          POSY="100"
+          TYPE="MODIFY"
+          >
+          <CONNECTIONS
+            NEXT="DIRECT"
+            />
+          <SET
+            DPF4C_CUSTOM_CONFIG="dpf4convert::dvscheckadjust"
+            DVS_FILECHECK_PROCESS="dvscheckadjust"
+            />
+        </enable_adapt>
+      </DPF4CONVERT.dvscheckadjust>
+    </workflows>
+  </config>
+</DPF>

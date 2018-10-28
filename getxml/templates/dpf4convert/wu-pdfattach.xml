@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <DPF4CONVERT.pdfattach
+        CODEPAGE="UTF8"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/pdfattach.pl -parfile %PARFILENAME%"
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGNAME=""
+        LOGSTDOUT="Y"
+        NAME="Pdfattach - Attach file(s) to a PDF-file"
+        NODENAMES=""
+        PROJECT="DPF4CONVERT"
+        THREADS="1"
+        TIMEOUT=""
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-pdfattach.xml,v 1.2 2016/02/22 18:26:45 sek Exp $"
+        >
+        <INPUT>
+          <CURRASSOCFILENAME1
+            TYPE="TEXT"
+            />
+          <CURRFILENAME
+            MANDATORY="true"
+            TYPE="TEXT"
+            />
+          <DPF4C_COMMON_TIMEOUT
+            TYPE="TEXT"
+            />
+          <DPF4C_WU_TARGETDIR
+            TYPE="TEXT"
+            />
+          <ListFile
+            TYPE="TEXT"
+            />
+        </INPUT>
+        <OUTPUT/>
+      </DPF4CONVERT.pdfattach>
+    </workingunits>
+  </config>
+</DPF>

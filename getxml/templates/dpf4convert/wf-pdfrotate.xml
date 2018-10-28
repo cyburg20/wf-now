@@ -1,0 +1,23 @@
+<DPF>
+  <config>
+    <workflows>
+      <pdfrotate
+        NAME="DPF 4 Convert - pdfrotate"
+        VERSION="$Id: wf-pdfrotate.xml,v 1.5 2004/09/23 09:30:04 stefan Exp $"
+        PROJECT="DPF4CONVERT"
+        COMMENT="dpf4convert - Rotate PDF"
+        DPFINT-Type="WorkflowDescription"
+        DPFINT-Changes="0"
+        >
+        <MAIN
+          BEGIN="pdfrotate"
+          ERROR="END"
+          />
+        <pdfrotate
+          NAME="pdfrotate"
+          NEXT="END"
+          />
+      </pdfrotate>
+    </workflows>
+  </config>
+</DPF>

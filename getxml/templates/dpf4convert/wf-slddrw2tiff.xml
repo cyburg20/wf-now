@@ -1,0 +1,31 @@
+<DPF>
+  <config>
+    <workflows>
+      <slddrw2tiff
+        NAME="DPF 4 Convert - CAD SolidWorks DRW to TIFF"
+        VERSION="$Id: wf-slddrw2tiff.xml,v 1.7 2006/08/15 10:03:23 ludwig Exp $"
+        PROJECT="DPF4CONVERT"
+        COMMENT="dpf4convert - Convert process CAD SolidWorks DRW to TIFF"
+        DPFINT-Type="WorkflowDescription"
+        DPFINT-Changes="0"
+        >
+        <MAIN
+          BEGIN="property_update_office"
+          ERROR="END"
+          />
+         <property_update_office 
+          NAME="property_update_office"
+          NEXT="slddrw2ps"
+          />
+        <slddrw2ps
+          NAME="slddrw2ps"
+          NEXT="ps2tiff"
+          />
+        <ps2tiff
+          NAME="ps2tiff"
+          NEXT="END"
+          />
+      </slddrw2tiff>
+    </workflows>
+  </config>
+</DPF>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workflows>
+      <CONVERTWIZ.convertwiz_appkonv_tif_checkin
+        COMMENT=""
+        DPFINT-Type="WorkflowDescription"
+        NAME="convertwiz_appkonv_tif_checkin"
+        PROJECT="CONVERTWIZ"
+        VERSION="$Id: wf-convertwiz_appkonv_tif_checkin.xml,v 1.1 2007/11/26 15:16:28 dh Exp $"
+        >
+        <CONVERTWIZ.convertwiz_appkon_tif1
+          COMMENT=""
+          ERROR="END"
+          NEXT="FileTransfer.copyFiles1"
+          POSX="100"
+          POSY="100"
+          TYPE="SWF"
+          USE="CONVERTWIZ.convertwiz_appkon_tif"
+          >
+          <CONNECTIONS
+            NEXT="DIRECT"
+            />
+          <DEFAULTS/>
+          <MAPPING/>
+        </CONVERTWIZ.convertwiz_appkon_tif1>
+        <DEFAULTS/>
+        <FileTransfer.copyFiles1
+          COMMENT=""
+          ERROR="END"
+          NAME="FileTransfer.copyFiles"
+          NEXT="END"
+          POSX="300"
+          POSY="100"
+          TYPE="WU"
+          >
+          <DEFAULTS/>
+          <MAPPING
+            COPY_SOURCE_PROPERTIES="CURRFILENAME"
+            COPY_TARGETDIR="%PARENTJOBDIR%"
+            COPY_TARGET_PROPERTIES="TARGETFILENAME"
+            />
+        </FileTransfer.copyFiles1>
+        <MAIN
+          BEGIN="CONVERTWIZ.convertwiz_appkon_tif1"
+          NAME=""
+          />
+      </CONVERTWIZ.convertwiz_appkonv_tif_checkin>
+    </workflows>
+  </config>
+</DPF>

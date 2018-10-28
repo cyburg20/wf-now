@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workflows>
+      <DPF4CONVERT.dvscheck
+        COMMENT="dpf4convert - Dpf4Convert check process for a PDF- or TIFF-file for dvscheck checkin."
+        DPFINT-Customer="0"
+        DPFINT-Interactive="1"
+        DPFINT-Type="WorkflowDescription"
+        NAME="dvscheck"
+        PROJECT="DPF4CONVERT"
+        VERSION="$Id: wf-dvscheck.xml,v 1.14 2011/06/21 14:38:20 kig Exp $"
+        >
+        <DEFAULTS/>
+        <DPF4CONVERT.dvsfilecheckmain1
+          COMMENT=""
+          ERROR="END"
+          NEXT="END"
+          POSX="300"
+          POSY="300"
+          TYPE="SWF"
+          USE="DPF4CONVERT.dvsfilecheckmain"
+          >
+          <CONNECTIONS
+            ERROR="DIRECT"
+            NEXT="DIRECT"
+            />
+          <DEFAULTS/>
+          <MAPPING/>
+        </DPF4CONVERT.dvsfilecheckmain1>
+        <END
+          COMMENT=""
+          NAME="END"
+          POSX="1300"
+          POSY="200"
+          TYPE="STOP"
+          />
+        <MAIN
+          BEGIN="enable_adapt"
+          />
+        <MAPPING/>
+        <enable_adapt
+          COMMENT=""
+          NEXT="DPF4CONVERT.dvsfilecheckmain1"
+          POSX="300"
+          POSY="100"
+          TYPE="MODIFY"
+          >
+          <CONNECTIONS
+            NEXT="DIRECT"
+            />
+          <SET
+            DPF4C_CUSTOM_CONFIG="dpf4convert::dvscheck"
+            DVS_FILECHECK_PROCESS="dvscheck"
+            PDFADAPT_STATES_REQUEST_ADJUST="NEVER"
+            PDFADAPT_STATES_REQUEST_CONVERT="NEVER"
+            TIFFADAPT_STATES_REQUEST_ADAPT="NEVER"
+            />
+        </enable_adapt>
+      </DPF4CONVERT.dvscheck>
+    </workflows>
+  </config>
+</DPF>

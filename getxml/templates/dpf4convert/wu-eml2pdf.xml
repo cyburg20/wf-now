@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <DPF4CONVERT.eml2pdf
+        CODEPAGE="UTF8"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/eml2pdf.pl -parfile %PARFILENAME%"
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGNAME=""
+        LOGSTDOUT="Y"
+        NAME="Eml2pdf - Convert EML to PDF via HTML"
+        NODENAMES=""
+        PROJECT="DPF4CONVERT"
+        THREADS="4"
+        TIMEOUT=""
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-eml2pdf.xml,v 1.1 2017/06/13 05:50:57 kig Exp $"
+        >
+        <OUTPUT/>
+      </DPF4CONVERT.eml2pdf>
+    </workingunits>
+  </config>
+</DPF>

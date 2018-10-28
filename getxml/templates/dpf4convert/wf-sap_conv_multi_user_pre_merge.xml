@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workflows>
+      <!-- USER EXIT PROCESS MODIFICATIONS --> 
+      <sap_conv_multi_user_pre_merge
+        NAME="DPF 4 Convert - SubProcess sap_conv_multi_user_pre_merge"
+        VERSION="$Id: wf-sap_conv_multi_user_pre_merge.xml,v 1.1 2009/02/24 09:51:53 kig Exp $"
+        PROJECT="DPF4CONVERT"
+        COMMENT="dpf4convert - USER EXIT PROCESS MODIFICATIONS"
+        DPFINT-Type="WorkflowDescription"
+        DPFINT-Changes="0"
+        >
+        <MAIN
+          BEGIN="END"
+          ERROR="END"
+          LOGLEVEL="I"     
+        />
+      </sap_conv_multi_user_pre_merge>
+    </workflows>
+  </config>
+</DPF>

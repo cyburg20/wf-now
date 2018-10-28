@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workflows>
+      <DPF4CONVERT.msg2struct
+        COMMENT=""
+        DPFINT-Type="WorkflowDescription"
+        NAME="msg2struct"
+        PROJECT="DPF4CONVERT"
+        VERSION="$Id: wf-msg2struct.xml,v 1.1 2008/10/13 11:54:39 dh Exp $"
+        >
+        <DEFAULTS/>
+        <DPF4CONVERT.msg2struct1
+          COMMENT=""
+          ERROR="END"
+          NAME="DPF4CONVERT.msg2struct"
+          NEXT="END"
+          POSX="200"
+          POSY="300"
+          TYPE="WU"
+          >
+          <DEFAULTS/>
+          <MAPPING/>
+        </DPF4CONVERT.msg2struct1>
+        <MAIN
+          BEGIN="DPF4CONVERT.msg2struct1"
+          NAME=""
+          />
+      </DPF4CONVERT.msg2struct>
+    </workflows>
+  </config>
+</DPF>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <String.CalculateValue
+        CODEPAGE="ISO-8859-1"
+        COMMAND="%DPFSRV%/scripts/string/calculatevalue.pl -parfile %PARFILENAME%"
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGNAME=""
+        LOGSTDOUT="Y"
+        NAME="Calculate Value"
+        NODENAMES=""
+        PROJECT="String"
+        THREADS="1"
+        TIMEOUT=""
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-calculatevalue.xml,v 1.1 2016/05/12 16:07:08 sek Exp $"
+        >
+        <DEFAULTS
+          OutputParam="%InputParam%"
+          />
+        <INPUT>
+          <Input
+            TYPE="TEXT"
+            />
+          <InputParam
+            TYPE="TEXT"
+            />
+          <OutputParam
+            DEFAULT="%InputParam%"
+            TYPE="TEXT"
+            />
+        </INPUT>
+        <OUTPUT/>
+      </String.CalculateValue>
+    </workingunits>
+  </config>
+</DPF>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <bcxdc.buildrli
+        CODEPAGE="ISO-8859-1"
+        COMMAND="%DPFSRV%/scripts/bcxdc/buildrli.pl -parfile %PARFILENAME%"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGSTDOUT="Y"
+        NAME="Buildrli"
+        PROJECT="bcxdc"
+        THREADS="1"
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-buildrli.xml,v 1.1 2009/08/03 15:19:27 dh Exp $"
+        />
+    </workingunits>
+  </config>
+</DPF>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <Test.hangEndless
+        COMMAND="%DPFSRV%/scripts/test/hang.pl -parfile %PARFILENAME%"
+        DEFAULTS=""
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGSTDOUT="Y"
+        NAME="Hang Endless"
+        PROJECT="Test"
+        Status="Running"
+        THREADS="1"
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-hangendless.xml,v 1.2 2008/04/08 16:13:05 stefan Exp $"
+        />
+    </workingunits>
+  </config>
+</DPF>

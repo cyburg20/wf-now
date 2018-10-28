@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workflows>
+      <Test.misslast
+        DPFINT-Changes="0"
+        DPFINT-Icon="doc://:/wf.gif"
+        DPFINT-Type="WorkflowDescription"
+        NAME="Miss last test workflow"
+        COMMENT="small miss in last wu of a workflow"
+        PROJECT="Test"
+        VERSION="$Id: wf-misslast.xml,v 1.5 2006/11/10 20:24:04 stefan Exp $"
+        >
+        <DEFAULTS
+          DPFINT-Icon="doc://:/defaults.gif"
+          />
+        <MAIN
+          BEGIN="firstwu"
+          ERROR="END"
+          />
+        <firstwu
+          NAME="Test.exit0"
+          NEXT="secondwu"
+          />
+        <secondwu
+          NAME="Test.exit0"
+          NEXT="thirdwu"
+          />
+        <thirdwu
+          NAME="Test.miss"
+          NEXT="END"
+          />
+      </Test.misslast>
+    </workflows>
+  </config>
+</DPF>

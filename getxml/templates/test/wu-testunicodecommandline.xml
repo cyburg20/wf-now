@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DPF>
+  <config>
+    <workingunits>
+      <Test.testUnicodeCommandLine
+        CODEPAGE="ISO-8859-1"
+        COMMAND="testunicode.exe -test %INPUT%"
+        DEFAULTS=""
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGSTDOUT="Y"
+        NAME="Test Unicode Command Line"
+        NODENAMES=""
+        PROJECT="Test"
+        THREADS="1"
+        TIMEOUT=""
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-testunicodecommandline.xml,v 1.2 2008/11/07 17:39:39 stefan Exp $"
+        >
+        <DEFAULTS/>
+        <ENVIRONMENTS
+          UnicodeValue="äöüß€éáç©®Γειάσας"
+          />
+        <INPUT>
+          <INPUT
+            DESCRIPTION="input string to test on command line"
+            TYPE="TEXT"
+            />
+        </INPUT>
+        <OUTPUT/>
+      </Test.testUnicodeCommandLine>
+    </workingunits>
+  </config>
+</DPF>

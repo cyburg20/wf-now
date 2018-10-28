@@ -1,0 +1,23 @@
+<DPF>
+  <config>
+    <workflows>
+      <hpgl2tiff
+        NAME="DPF 4 Convert - HPGL to TIFF"
+        VERSION="$Id: wf-hpgl2tiff.xml,v 1.6 2006/08/15 10:03:22 ludwig Exp $"
+        PROJECT="DPF4CONVERT"
+        COMMENT="dpf4convert - Convert process HPGL to TIFF"
+        DPFINT-Type="WorkflowDescription"
+        DPFINT-Changes="0"
+        >
+        <MAIN
+          BEGIN="hpgl2tiff"
+          ERROR="END"
+          />
+        <hpgl2tiff
+          NAME="hpgl2tiff"
+          NEXT="END"
+          />
+      </hpgl2tiff>
+    </workflows>
+  </config>
+</DPF>

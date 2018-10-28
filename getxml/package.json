@@ -16,6 +16,10 @@
         "promise": "8.0.1",
         "readable-stream": "3.0.2",
         "request": "2.85.0",
-        "xml-js": "1.6.7"
+        "xml-js": "1.6.7",
+        "production": "0.0.2",
+        "body-parser": "1.18.2",
+        "express": "4.16.2",
+        "request-promise-native": "1.0.5"
     }
 }

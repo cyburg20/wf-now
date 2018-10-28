@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <Net.searchLDAP
+        NAME="Search values in LDAP Server"
+        VERSION="$Id: wu-searchldap.xml,v 1.3 2007/03/01 09:12:43 stefan Exp $"
+        PROJECT="Net"
+        TYPE="WUSystemCall"
+        LOGNAME=""
+        LOGLEVEL="LOG_INFO"
+        LOGSTDOUT="Y"
+        THREADS="1"
+        IGNOREEXITCODE="N"
+	    COMMAND="%DPFSRV%/scripts/net/searchldap.pl -parfile %PARFILENAME%">
+       <DEFAULTS
+          />
+        <INPUT
+	  LDAP_HOSTNAME="*"
+	  LDAP_PORT="*"
+	  LDAP_BASEDN="*"
+      LDAP_SCOPE="*"
+      LDAP_SEARCHSTRING="*"
+      LDAP_ATTRIBUTES="*"
+          />
+      </Net.searchLDAP>
+    </workingunits>
+  </config>
+</DPF>

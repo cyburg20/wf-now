@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workflows>
+      <DPF4CONVERT.ConvIniUserPreCheckout
+        COMMENT=""
+        DPFINT-Customer="1"
+        DPFINT-Interactive="0"
+        DPFINT-Type="WorkflowDescription"
+        NAME="ConvIniUserPreCheckout"
+        OrigIdentifier="WorkflowDPF4CONVERT.ConvIniUserPreCheckout"
+        PROJECT="DPF4CONVERT"
+        VERSION="$Id: wf-conviniuserprecheckout.xml,v 1.1 2014/05/20 08:26:58 kig Exp $"
+        >
+        <DEFAULTS
+          DPF4CONVERT.ConvIniUserPreCheckout="DPF4CONVERT.ConvIniUserPreCheckout"
+          />
+        <END
+          COMMENT=""
+          NAME="END"
+          POSX="200"
+          POSY="100"
+          TYPE="STOP"
+          />
+        <MAIN
+          BEGIN="END"
+          NAME=""
+          />
+        <MAPPING/>
+      </DPF4CONVERT.ConvIniUserPreCheckout>
+    </workflows>
+  </config>
+</DPF>

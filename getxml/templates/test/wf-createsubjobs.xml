@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workflows>
+      <Test.createSubJobs
+        COMMENT="test process to create sub jobs"
+        DPFINT-Customer="0"
+        DPFINT-Interactive="0"
+        DPFINT-Type="WorkflowDescription"
+        NAME="Create Sub Jobs"
+        PROJECT="Test"
+        VERSION="$Id: wf-createsubjobs.xml,v 1.2 2008/04/08 16:31:15 stefan Exp $"
+        >
+        <DEFAULTS
+          NUM_OF_JOBS="10"
+          SUB_WFNAME="test.ok"
+          />
+        <MAIN
+          BEGIN="init"
+          NAME=""
+          />
+        <createSubJobs
+          COMMENT=""
+          ERROR="END"
+          NAME="Test.callJobs"
+          NEXT="setFinish"
+          POSX="300"
+          POSY="100"
+          TYPE="WU"
+          >
+          <CONNECTIONS
+            NEXT="DIRECT"
+            />
+          <DEFAULTS/>
+          <MAPPING/>
+        </createSubJobs>
+        <init
+          COMMENT=""
+          NEXT="createSubJobs"
+          POSX="100"
+          POSY="100"
+          TYPE="MODIFY"
+          >
+          <CONNECTIONS
+            NEXT="DIRECT"
+            />
+          <SET
+            DpfDebugSubJobs="Y"
+            DpfJobMessage="Creating %NUM_OF_JOBS% sub jobs..."
+            />
+        </init>
+        <setFinish
+          COMMENT=""
+          NEXT="END"
+          POSX="500"
+          POSY="100"
+          TYPE="MODIFY"
+          >
+          <SET
+            DpfJobMessage="%NUM_OF_JOBS% sub jobs created."
+            />
+        </setFinish>
+      </Test.createSubJobs>
+    </workflows>
+  </config>
+</DPF>

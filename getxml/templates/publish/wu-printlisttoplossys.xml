@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <Publish.printListToPlossys
+        COMMAND="%DPFSRV%/scripts/publish/printlisttoplossys.pl -parfile %PARFILENAME%"
+        DPFINT-FileLinks="doc://:/%DPFSRV%/scripts/publish/printlisttoplossys.pl"
+        DPFINT-Icon="doc://:/publish.printlisttoplossys.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGNAME=""
+        LOGSTDOUT="Y"
+        NAME="Print list to PLOSSYS netDome"
+        PROJECT="Publish"
+        Status="Running"
+        THREADS="1"
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-printlisttoplossys.xml,v 1.4 2007/03/28 10:39:38 ch Exp $"
+        >
+        <DEFAULTS/>
+        <INPUT
+          DPFINT-Icon="doc://:/wu-input.gif"
+          >
+          <CURRRLIFILENAME
+            TYPE="TEXT"
+            />
+          <FILTER_HEADER_ITEMS
+            TYPE="TEXT"
+            />
+          <RLIC_CURRFILENAME
+            TYPE="TEXT"
+            />
+        </INPUT>
+      </Publish.printListToPlossys>
+    </workingunits>
+  </config>
+</DPF>

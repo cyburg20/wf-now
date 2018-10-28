@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workflows>
+      <!-- PROCESS FOR APPLICATION CONVERSIONS -->  
+      <send_error_message_sap_file_direct
+        NAME="DPF - SubProcess send_error_message_sap_file_direct"
+        VERSION="$Id: wf-send_error_message_sap_file_direct.xml,v 1.2 2006/07/24 13:43:05 ludwig Exp $"
+        PROJECT="BCXDC_RFC_SERVER"
+        COMMENT="dpf - PROCESS FOR GET JOBSTATE FILE AND SEND IT TO SAP USING JSAPCLI"
+        DPFINT-Type="WorkflowDescription"
+        DPFINT-Changes="0"
+        >
+        <MAIN
+          BEGIN="check_execute_get_jobstate"
+          ERROR="END"
+          LOGLEVEL="I"     
+        />
+        <check_execute_get_jobstate
+          TYPE="IF-THEN-ELSE"
+          PROPERTY="ERROR_ACTIVATE_GET_JOBSTATE"
+          OPERATOR="is"
+          VALUE="Y"
+          THEN="get_jobstate"
+          ELSE="send_error_message_sap_direct"
+          />
+        <get_jobstate
+          NAME="get_jobstate"
+          NEXT="send_error_message_sap_direct"
+          />
+        <send_error_message_sap_direct
+          NAME="send_error_message_sap_direct"
+          NEXT="END"
+          />
+      </send_error_message_sap_file_direct>
+    </workflows>
+  </config>
+</DPF>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workflows>
+      <!-- MAIN PROCESS DPF4CONVERT GATE -->  
+      <dpf4convert_gate
+        NAME="DPF 4 Convert - Main Process dpf4convert_gate"
+        VERSION="$Id: wf-dpf4convert_gate.xml,v 1.6 2004/11/02 07:56:11 wolfi Exp $"
+        PROJECT="DPF4CONVERT"
+        COMMENT="dpf4convert_gate - MAIN PROCESS FOR DPF4CONVERT GATE"
+        DPFINT-Type="WorkflowDescription"
+        DPFINT-Changes="0"
+        DPFINT-Interactive="1"
+        >
+        <MAIN
+          BEGIN="read_hed"
+          ERROR="sp-dpf4c_error"
+          LOGLEVEL="I"     
+          />
+        <read_hed 
+          NAME="read_hed"
+          NEXT="dpf4c_read_ini_file"
+          />
+        <dpf4c_read_ini_file 
+          NAME="dpf4c_read_ini_file"
+          NEXT="dpf4convert"
+          />
+        <dpf4convert
+          USE="dpf4convert"
+          NEXT="END"
+          />
+        <sp-dpf4c_error
+          USE="dpf4c_error"
+          NEXT="END"
+          />
+      </dpf4convert_gate>
+    </workflows>
+  </config>
+</DPF>

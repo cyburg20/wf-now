@@ -1,0 +1,68 @@
+<DPF>
+  <config>
+    <workflows>
+      <batch_gui_pdfcheckadjust
+        NAME="DPF 4 Convert - batch_gui_pdfcheckadjust"
+        VERSION="$Id: wf-batch_gui_pdfcheckadjust.xml,v 1.6 2009/02/06 12:23:01 kig Exp $"
+        PROJECT="DPF4CONVERT"
+        COMMENT="dpf4convert - Pdfcheckadjust process for separate pdfgui with sendback of files."
+        DPFINT-Type="WorkflowDescription"
+        DPFINT-Changes="0"
+        >
+        <MAIN
+          BEGIN="sp-version_dpf4c"
+          ERROR="checkin"
+          />
+        <sp-version_dpf4c
+          USE="version_dpf4c"
+          NEXT="set_process_properties"
+          />
+        <set_process_properties
+          TYPE="MODIFY"
+          NEXT="pdfcheck"
+        >
+          <SET
+          ENABLE_PDF_CHECK="Y"
+          ENABLE_REMOVE_SECURITY="N"
+          PDFCHK_PROTOCOL_SEND_BACK="ALWAYS"
+          PDFCHK_ERROR_LEVEL="IGNORE"
+          VERSION="2.0.4.0"
+          VERSION_PRODUCER="PDF Longlife Suite - DPF Process"
+          />
+        </set_process_properties>
+        <pdfcheck
+          USE="pdfcheck"
+          NEXT="pdfadjust"
+          />
+        <pdfadjust
+          USE="pdfadjust"
+          NEXT="check_sendback_pdf_file"
+          />
+        <check_sendback_pdf_file
+          TYPE="IF-THEN-ELSE"
+          PROPERTY="PDF_CHECK_ADJUST_FILE_MODIFIED"
+          OPERATOR="contains"
+          VALUE="Y"
+          THEN="checkin"
+          ELSE="set_process_properties_checkin"
+          />
+        <set_process_properties_checkin
+          TYPE="MODIFY"
+          NEXT="checkin"
+        >
+          <SET
+            SWITCH_CHECKIN_CURRFILENAME="N"
+          />
+        </set_process_properties_checkin>
+        <checkin
+          NAME="checkin"
+          NEXT="sendback"
+          />
+        <sendback
+          NAME="sendback"
+          NEXT="END"
+          />
+      </batch_gui_pdfcheckadjust>
+    </workflows>
+  </config>
+</DPF>

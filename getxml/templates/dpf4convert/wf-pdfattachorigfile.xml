@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workflows>
+      <DPF4CONVERT.pdfattachorigfile
+        COMMENT="The DPF-process PDFATTACHORIGFILE attaches an original file to a PDF-file"
+        DPFINT-Customer="0"
+        DPFINT-Interactive="0"
+        DPFINT-Type="WorkflowDescription"
+        NAME="Pdfattachorigfile - attach an original file to a PDF file"
+        PROJECT="DPF4CONVERT"
+        VERSION="$Id: wf-pdfattachorigfile.xml,v 1.1 2016/02/04 16:29:49 kig Exp $"
+        >
+        <DEFAULTS/>
+        <DPF4CONVERT.pdfattach1
+          COMMENT=""
+          ERROR="END"
+          NEXT="END"
+          POSX="100"
+          POSY="500"
+          TYPE="SWF"
+          USE="DPF4CONVERT.pdfattach"
+          >
+          <CONNECTIONS
+            ERROR="DIRECT"
+            NEXT="DIRECT"
+            />
+          <DEFAULTS/>
+          <MAPPING/>
+        </DPF4CONVERT.pdfattach1>
+        <END
+          COMMENT=""
+          NAME="END"
+          POSX="200"
+          POSY="100"
+          TYPE="STOP"
+          />
+        <MAIN
+          BEGIN="check_attach_infile"
+          NAME=""
+          />
+        <MAPPING/>
+        <check_attach_infile
+          COMMENT=""
+          ELSE="END"
+          OPERATOR="eq"
+          POSX="100"
+          POSY="100"
+          PROPERTY="ENABLE_PDFATTACH_ORIGFILE"
+          THEN="prepare_attach_orig"
+          TYPE="IF-THEN-ELSE"
+          VALUE="Y"
+          >
+          <CONNECTIONS
+            ELSE="DIRECT"
+            THEN="DIRECT"
+            />
+        </check_attach_infile>
+        <prepare_attach_orig
+          COMMENT=""
+          NEXT="DPF4CONVERT.pdfattach1"
+          POSX="100"
+          POSY="300"
+          TYPE="MODIFY"
+          >
+          <CONNECTIONS
+            NEXT="DIRECT"
+            />
+          <SET
+            CURRASSOCFILENAME1="%ORIGFILESAVED%"
+            CURRASSOCFILENAME2=""
+            />
+        </prepare_attach_orig>
+      </DPF4CONVERT.pdfattachorigfile>
+    </workflows>
+  </config>
+</DPF>

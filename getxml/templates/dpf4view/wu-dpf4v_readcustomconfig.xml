@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <DPF4VIEW.dpf4v_readcustomconfig
+        CODEPAGE="UTF8"
+        COMMAND="%DPFSRV%/scripts/dpf4view/dpf4v_readcustomconfig.pl -parfile %PARFILENAME%"
+        DEFAULTS=""
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGSTDOUT="Y"
+        NAME="Dpf4v_readcustomconfig"
+        NODENAMES=""
+        PROJECT="DPF4VIEW"
+        THREADS="1"
+        TIMEOUT=""
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-dpf4v_readcustomconfig.xml,v 1.1 2012/03/02 15:16:23 dei Exp $"
+        >
+        <OUTPUT/>
+      </DPF4VIEW.dpf4v_readcustomconfig>
+    </workingunits>
+  </config>
+</DPF>

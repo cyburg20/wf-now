@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <compress_files
+        CODEPAGE="UTF8"
+        NAME="dpf4c - Compress files from configured dpf parameters"
+        VERSION="$Id: wu-compress_files.xml,v 1.2 2017/01/18 06:33:47 kig Exp $"
+        PROJECT="DPF4CONVERT"
+        TYPE="WUSystemCall"
+        LOGNAME="dpf4c-compress_files"
+        LOGSTDOUT="Y"
+        LOGLEVEL="LOG_INFO"
+        THREADS="1"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/compress_files.pl -parfile %PARFILENAME%">
+        <DEFAULTS
+          WU_ENABLE_DEBUG_LOOP="N"
+          DPF4C_COMMON_COMPRESS_FILES_YN="N"
+          DPF4C_COMMON_COMPRESS_FILES_TARGET_FORMAT="zip"
+          DPF4C_COMMON_COMPRESS_FILES_USED_DPF_PARAMETERS="CURRFILENAME"
+          />
+        <INPUT
+          CURRFILETYPE="*"
+          />
+        <OUTPUT
+          CURRFILETYPE="zip"
+          />
+      </compress_files>
+    </workingunits>
+  </config>
+</DPF>

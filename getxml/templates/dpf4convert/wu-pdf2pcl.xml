@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <pdf2pcl
+        NAME="dpf4c - Convert PDF to PCL"
+        VERSION="$Id: wu-pdf2pcl.xml,v 1.2 2005/04/13 11:44:45 ludwig Exp $"
+        PROJECT="DPF4CONVERT"
+        TYPE="WUSystemCall"
+        LOGNAME="dpf4c-pdf2pcl"
+        LOGSTDOUT="Y"
+        LOGLEVEL="LOG_INFO"
+        THREADS="1"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/pdf2pcl.pl -parfile %PARFILENAME%">
+        <DEFAULTS
+          WU_ENABLE_DEBUG_LOOP="N"
+          DPF4C_OUTPUT_DEVICE_TYPE=""
+          DPF4C_OUTPUT_SWITCH_ADD_PJL_COMMANDS="N"
+          DPF4C_OUTPUT_PRINT_MODE="simplex"
+          DPF4C_OUTPUT_DRAWER_IN=""
+          DPF4C_OUTPUT_PAPER_SIZE=""
+          />
+        <INPUT
+          PARFILENAME="*"
+          CURRFILENAME="*"
+          JOBID="*"
+          CURRFILETYPE="pdf"
+          />
+        <OUTPUT
+          CURRFILENAME="*"
+          CURRFILETYPE="pcl"
+          />
+      </pdf2pcl>
+    </workingunits>
+  </config>
+</DPF>

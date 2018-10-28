@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <DPF4CONVERT.setcadmodelspace
+        NAME="dpf4c - set DPF4C_CAD_MODEL_SPACE"
+        VERSION="$Id: wu-setcadmodelspace.xml,v 1.1 2008/06/02 12:09:23 kig Exp $"
+        PROJECT="DPF4CONVERT"
+        TYPE="WUSystemCall"
+        LOGNAME="dpf4c-setcadmodelspace"
+        LOGSTDOUT="Y"
+        LOGLEVEL="LOG_INFO"
+        DPFINT-Type="StationDescription"
+        THREADS="1"
+        IGNOREEXITCODE="N"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/setcadmodelspace.pl -parfile %PARFILENAME%"
+        >
+        <INPUT
+          CURRFILETYPE="string"
+          />
+        <OUTPUT
+          DPF4C_CAD_MODEL_SPACE="2D|3D"
+          />
+        </DPF4CONVERT.setcadmodelspace>
+    </workingunits>
+  </config>
+</DPF>

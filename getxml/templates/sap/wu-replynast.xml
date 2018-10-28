@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <Sap.replyNAST
+        CODEPAGE="ISO-8859-1"
+        COMMAND="%DPFSRV%/scripts/sap/replynast.pl -parfile %PARFILENAME%"
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGSTDOUT="Y"
+        NAME="Reply NAST"
+        NODENAMES=""
+        PROJECT="Sap"
+        THREADS="1"
+        TIMEOUT=""
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-replynast.xml,v 1.3 2015/09/17 07:33:49 tobias Exp $"
+        >
+        <DEFAULTS
+          USE_JSAPCLI="N"
+          />
+        <INPUT>
+          <NastKey
+            TYPE="TEXT"
+            />
+          <NastMessage
+            TYPE="TEXT"
+            />
+          <NastStatus
+            TYPE="TEXT"
+            />
+          <SAPLANGU
+            TYPE="TEXT"
+            />
+          <SAPMANDANT
+            TYPE="TEXT"
+            />
+          <SAPSYSTEM
+            TYPE="TEXT"
+            />
+          <USE_JSAPCLI
+            DEFAULT="N"
+            TYPE="TEXT"
+            />
+        </INPUT>
+        <OUTPUT/>
+      </Sap.replyNAST>
+    </workingunits>
+  </config>
+</DPF>

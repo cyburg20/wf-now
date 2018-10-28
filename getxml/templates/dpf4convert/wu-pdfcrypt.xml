@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <pdfcrypt
+        NAME="dpf4c - Decrypt/Crypt PDF with pdfcrypt"
+        VERSION="$Id: wu-pdfcrypt.xml,v 1.4 2011/01/04 14:55:40 kig Exp $"
+        PROJECT="DPF4CONVERT"
+        TYPE="WUSystemCall"
+        LOGNAME="dpf4c-pdfcrypt"
+        LOGSTDOUT="Y"
+        LOGLEVEL="LOG_INFO"
+        THREADS="1"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/pdfcrypt.pl -parfile %PARFILENAME%">
+        <DEFAULTS
+          WU_ENABLE_DEBUG_LOOP="N"
+          DPF4C_DO_CRYPT="N"
+          DPF4C_CRYPT_OPEN_PW=""
+          DPF4C_CRYPT_CHANGE_PW=""
+          DPF4C_DECRYPT="N"
+          DPF4C_DECRYPTALL="N"
+          DPF4C_CRYPT_USER_PW=""
+          DPF4C_CRYPT_OWNER_PW=""
+          DPF4C_CRYPT_PRINT="N"
+          DPF4C_CRYPT_CHANGE="N"
+          DPF4C_CRYPT_COPY_TEXT="Y"
+          DPF4C_CRYPT_ADDNOTES="Y"
+          DPF4C_CRYPT_FILLFIELDS="N"
+          DPF4C_CRYPT_BRAILLE="Y"
+          DPF4C_CRYPT_ASSEMBLE="Y"
+          DPF4C_CRYPT_LOWRES="N"
+          DPF4C_CRYPT_ENCRYTION128="N"
+          />
+        <INPUT
+          CURRFILENAME="*"
+          CURRFILETYPE="pdf"
+          />
+        <OUTPUT
+          CURRFILENAME="*"
+          CURRFILETYPE="pdf"
+          />
+      </pdfcrypt>
+    </workingunits>
+  </config>
+</DPF>

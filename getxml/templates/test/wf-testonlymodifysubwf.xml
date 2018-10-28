@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workflows>
+      <Test.TestOnlyModifySubWF
+        DPFINT-Changes="0"
+        DPFINT-Icon="doc://:/wf.gif"
+        DPFINT-Type="WorkflowDescription"
+        NAME="Test OnlyModify sub workflow"
+        PROJECT="Test"
+        VERSION="$Id: wf-testonlymodifysubwf.xml,v 1.3 2006/11/10 20:24:03 stefan Exp $"
+        COMMENT="test an OnlyModify sub workflow"
+        >
+        <DEFAULTS
+          DPFINT-Icon="doc://:/defaults.gif"
+          />
+        <MAIN
+          BEGIN="TheFirstWU"
+          ERROR="END"
+          />
+        <TheFirstWU
+          NAME="Test.exit0"
+          NEXT="TheSecondWU"
+          />
+        <TheSecondWU
+          NEXT="TheThirdWU"
+          USE="Test.OnlyModify"
+          />
+        <TheThirdWU
+          NAME="Test.exit0"
+          NEXT="END"
+          />
+      </Test.TestOnlyModifySubWF>
+    </workflows>
+  </config>
+</DPF>

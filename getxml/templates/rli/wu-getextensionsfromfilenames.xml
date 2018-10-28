@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <Rli.getExtensionsFromFileNames
+        CODEPAGE="ISO-8859-1"
+        COMMAND="%DPFSRV%/scripts/rli/getextensionsfromfilenames.pl -parfile %PARFILENAME%"
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGSTDOUT="Y"
+        NAME="Get Extensions From File Names"
+        NODENAMES=""
+        PROJECT="Rli"
+        THREADS="4"
+        TIMEOUT=""
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-getextensionsfromfilenames.xml,v 1.2 2010/10/28 15:57:06 stefan Exp $"
+        >
+        <INPUT>
+          <CurrRliFileName
+            TYPE="TEXT"
+            />
+        </INPUT>
+        <OUTPUT/>
+      </Rli.getExtensionsFromFileNames>
+    </workingunits>
+  </config>
+</DPF>

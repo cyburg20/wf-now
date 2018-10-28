@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <Test.latin1
+        COMMAND="%DPFSRV%/scripts/test/latin1.pl -parfile %PARFILENAME%"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGNAME=""
+        LOGSTDOUT="Y"
+        CODEPAGE="ISO-8859-1"
+        NAME="Latin-1 WU"
+        PROJECT="Test"
+        THREADS="5"
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-latin1.xml,v 1.1 2008/07/18 11:59:15 stefan Exp $"
+        >
+        <DEFAULTS
+          DefaultGerman="Hallöchen"
+          WU_ENABLE_DEBUG_LOOP="N"
+          />
+        <ENVIRONMENTS
+          HERE_YOU_COULD_SET_EXTRA_ENV_VARS="to a value"
+          />
+        <INPUT
+          CURRFILENAME="*"
+          DPFINT-Icon="doc://:/wu-input.gif"
+          WU_ENABLE_DEBUG_LOOP="*"
+          />
+        <OUTPUT
+          DPFINT-Icon="doc://:/wu-output.gif"
+          ERR_REASON="*"
+          EXAMPLE_OUTPUT="*"
+          />
+      </Test.latin1>
+    </workingunits>
+  </config>
+</DPF>

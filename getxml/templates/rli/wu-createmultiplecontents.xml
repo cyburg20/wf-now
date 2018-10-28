@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <Rli.createMultipleContents
+        CODEPAGE="ISO-8859-1"
+        COMMAND="%DPFSRV%/scripts/rli/createmultiplecontents.pl -parfile %PARFILENAME%"
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGSTDOUT="Y"
+        NAME="Create Multiple Contents"
+        NODENAMES=""
+        PROJECT="Rli"
+        THREADS="2"
+        TIMEOUT=""
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-createmultiplecontents.xml,v 1.5 2010/12/17 10:15:49 sek Exp $"
+        >
+        <INPUT>
+          <BOOKMARK_DEPTH_OFFSET
+            DEFAULT="0"
+            TYPE="TEXT"
+            />
+          <CREATETOCPDF_BACKGROUND_PDF
+            TYPE="TEXT"
+            />
+          <CREATETOCPDF_CONFIG
+            TYPE="TEXT"
+            />
+          <CREATETOCPDF_FILLDUPLEX
+            TYPE="TEXT"
+            />
+          <CREATETOCPDF_HEADLINE_TEXT
+            TYPE="TEXT"
+            />
+          <CREATETOCPDF_INPUT_TEXT_ENCODING
+            DEFAULT=""
+            TYPE="TEXT"
+            />
+          <CREATETOCPDF_NOTICE_TEXT
+            TYPE="TEXT"
+            />
+          <CREATETOCPDF_POST_OFFSET
+            TYPE="TEXT"
+            />
+          <CREATETOCPDF_PRE_OFFSET
+            TYPE="TEXT"
+            />
+          <CREATETOCPDF_SIMPLE_PAGE_ENUMERATION
+            DEFAULT="N"
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </CREATETOCPDF_SIMPLE_PAGE_ENUMERATION>
+          <CREATETOCPDF_TARGET_TOC_PROPERTY
+            TYPE="TEXT"
+            />
+          <CREATETOCPDF_TITLE_TEXT
+            DEFAULT="%TOC_TITLE%"
+            TYPE="TEXT"
+            />
+          <CREATETOCPDF_TITLE_UNDER_TEXT
+            TYPE="TEXT"
+            />
+          <CREATETOCPDF_WANT_TOC_BOOKMARK
+            DEFAULT="Y"
+            DESCRIPTION="turn on or off the TOC&apos;s additional bookmark"
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </CREATETOCPDF_WANT_TOC_BOOKMARK>
+          <CURRRLIFILENAME
+            TYPE="TEXT"
+            />
+          <CreateTocPdfBorderBottom
+            TYPE="TEXT"
+            />
+          <CreateTocPdfBorderLeft
+            TYPE="TEXT"
+            />
+          <CreateTocPdfBorderTop
+            TYPE="TEXT"
+            />
+          <CreateTocPdfBorderTopFirstPage
+            TYPE="TEXT"
+            />
+          <CreateTocPdfBorderTopRight
+            TYPE="TEXT"
+            />
+          <FilterOperator
+            DESCRIPTION="optional operator to compare value(s), default: eq"
+            TYPE="TEXT"
+            />
+          <FilterOperator2
+            DESCRIPTION="second optional operator to compare value(s), default: eq"
+            TYPE="TEXT"
+            />
+          <FilterValue
+            DESCRIPTION="colon separated values to work on these specific RLI lines only"
+            TYPE="TEXT"
+            />
+          <FilterValue2
+            DESCRIPTION="second set of colon separated values to work on these specific RLI lines only"
+            TYPE="TEXT"
+            />
+          <ImageList
+            DESCRIPTION="optional list of images for all pages"
+            TYPE="TEXT"
+            />
+          <ImageListFirstPage
+            DESCRIPTION="optional list of images only for first page"
+            TYPE="TEXT"
+            />
+          <JOBDIR
+            TYPE="TEXT"
+            />
+          <LabelList
+            DESCRIPTION="optional list of label texts for all pages"
+            TYPE="TEXT"
+            />
+          <LabelListFirstPage
+            DESCRIPTION="optional list of label texts only for first page"
+            TYPE="TEXT"
+            />
+          <RLIC_BMTARGETPAGE
+            TYPE="TEXT"
+            />
+          <RLIC_CHAPTERDEPTH
+            TYPE="TEXT"
+            />
+          <RLIC_CHAPTERNAME1
+            TYPE="TEXT"
+            />
+          <RLIC_CHAPTERNAME2
+            TYPE="TEXT"
+            />
+          <RLIC_ExternalLinkFileName
+            TYPE="TEXT"
+            />
+          <RLIC_PageNumber
+            TYPE="TEXT"
+            />
+          <RlicBookMarkFileName
+            DESCRIPTION="name of rli column to write bookmark file"
+            TYPE="TEXT"
+            />
+          <RlicCurrFileName
+            DESCRIPTION="name of rli column to write created toc pdf"
+            TYPE="TEXT"
+            />
+          <RlicFilter
+            DESCRIPTION="name of RLI column to use to filter specific RLI lines only"
+            TYPE="TEXT"
+            />
+          <RlicFilter2
+            DESCRIPTION="name of second RLI column to use to filter specific RLI lines only"
+            TYPE="TEXT"
+            />
+          <RlicPageCount
+            DESCRIPTION="name of rli column to write number of created pages"
+            TYPE="TEXT"
+            />
+          <SPRACHMERKMAL
+            TYPE="TEXT"
+            />
+          <SubFilterOperator
+            DESCRIPTION="for each toc: optional operator to compare value(s), default: eq"
+            TYPE="TEXT"
+            />
+          <SubFilterOperator2
+            DESCRIPTION="for each toc: second optional operator to compare value(s), default: eq"
+            TYPE="TEXT"
+            />
+          <SubFilterValue
+            DESCRIPTION="for each toc: colon separated values to work on these specific RLI lines only"
+            TYPE="TEXT"
+            />
+          <SubFilterValue2
+            DESCRIPTION="for each toc: second set of colon separated values to work on these specific RLI lines only"
+            TYPE="TEXT"
+            />
+          <SubRlicFilter
+            DESCRIPTION="for each toc: name of RLI column to use to filter specific RLI lines only"
+            TYPE="TEXT"
+            />
+          <SubRlicFilter2
+            DESCRIPTION="for each toc: name of second RLI column to use to filter specific RLI lines only"
+            TYPE="TEXT"
+            />
+          <TOC_TITLE
+            TYPE="TEXT"
+            />
+          <WU_ENABLE_DEBUG_LOOP
+            DEFAULT="N"
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </WU_ENABLE_DEBUG_LOOP>
+        </INPUT>
+        <OUTPUT/>
+      </Rli.createMultipleContents>
+    </workingunits>
+  </config>
+</DPF>

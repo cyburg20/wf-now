@@ -1,0 +1,60 @@
+<DPF>
+  <config>
+    <workflows>
+      <pdfcheckmerge_raster
+        NAME="DPF 4 Convert - pdfcheckmerge_raster"
+        VERSION="$Id: wf-pdfcheckmerge_raster.xml,v 1.1 2007/03/30 11:39:37 ludwig Exp $"
+        PROJECT="DPF4CONVERT"
+        COMMENT="dpf4convert - Check pdf with pdfmerge. In error case raster the pdf file"
+        DPFINT-Type="WorkflowDescription"
+        >
+        <MAIN
+          BEGIN="pdfcheckmerge_first"
+          ERROR="END"
+          />
+        <pdfcheckmerge_first
+          NAME="pdfcheckmerge"
+          NEXT="check_pdfcheck_checks_merge_error"
+          />
+        <check_pdfcheck_checks_merge_error
+          TYPE="IF-THEN-ELSE"
+          PROPERTY="PDFCHECK_CHECKS_MERGE_ERROR"
+          OPERATOR="contains"
+          VALUE="Y"
+          THEN="pdfraster"
+          ELSE="END"
+          />
+        <pdfraster
+          USE="pdfraster"
+          NEXT="pdfcheckmerge_after_pdfraster"
+          />
+        <pdfcheckmerge_after_pdfraster
+          NAME="pdfcheckmerge"
+          NEXT="check_pdfcheck_checks_merge_error_repaired"
+          />
+        <check_pdfcheck_checks_merge_error_repaired
+          TYPE="IF-THEN-ELSE"
+          PROPERTY="PDFCHECK_CHECKS_MERGE_ERROR"
+          OPERATOR="contains"
+          VALUE="Y"
+          THEN="error_repair_with_pdfraster_failed"
+          ELSE="END"
+          />
+        <error_repair_with_pdfraster_failed
+          TYPE="MODIFY"
+          NEXT="exit_process"
+        >
+          <SET
+          ERR_REASON="Error: Repair of file -%CURRFILENAME%- with pdfraster failed!"
+          ERR_WFNAME="DPF4C_PDFADJUST"
+          ERR_WFPOSITION="check_pdfcheck_checks_merge_error_repaired"
+          />
+        </error_repair_with_pdfraster_failed>
+        <exit_process
+          NAME="exit_process"
+          NEXT="END"
+          />
+      </pdfcheckmerge_raster>
+    </workflows>
+  </config>
+</DPF>

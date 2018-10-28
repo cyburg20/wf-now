@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <pdf_convert2pdfa_settings
+        NAME="dpf4c - check how to do a simple conversion of PDF to PDF/A"
+        VERSION="$Id: wu-pdf_convert2pdfa_settings.xml,v 1.1 2009/02/06 11:35:40 kig Exp $"
+        PROJECT="DPF4CONVERT"
+        TYPE="WUSystemCall"
+        LOGNAME="dpf4c-pdf_convert2pdfa_settings"
+        LOGSTDOUT="Y"
+        LOGLEVEL="LOG_INFO"
+        DPFINT-Type="StationDescription"
+        THREADS="1"
+        IGNOREEXITCODE="N"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/pdf_convert2pdfa_settings.pl -parfile %PARFILENAME%"
+        >
+        <DEFAULTS
+          DPF4C_PDF2PDFA_CONVERSIONTYPE="usepdf2ps"
+          />
+        <INPUT
+          CURRFILENAME="file"
+          />
+        <OUTPUT
+          CURRFILENAME="*"
+          CURRFILETYPE="pdf"
+          DPF4C_PDF2PDFA_CONVERSIONTYPE="usegs|usepdf2ps"
+          />
+        </pdf_convert2pdfa_settings>
+    </workingunits>
+  </config>
+</DPF>

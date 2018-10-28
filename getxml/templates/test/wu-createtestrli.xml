@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <Test.createTestRli
+        COMMAND="%DPFSRV%/scripts/test/createtestrli.pl -parfile %PARFILENAME%"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGSTDOUT="Y"
+        NAME="Create Test RLI"
+        PROJECT="Test"
+        THREADS="1"
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-createtestrli.xml,v 1.1 2008/08/20 07:06:09 stefan Exp $"
+        />
+    </workingunits>
+  </config>
+</DPF>

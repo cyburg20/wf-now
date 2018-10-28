@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <HTML.DeployWebContent
+        COMMAND="%DPFSRV%/scripts/html/deploywebcontent.pl -parfile %PARFILENAME%"
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGSTDOUT="Y"
+        NAME="DeployWebContent"
+        PROJECT="HTML"
+        Status="Running"
+        THREADS="1"
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-deploywebcontent.xml,v 1.3 2007/09/14 05:32:21 tobias Exp $"
+        >
+        <DEFAULTS/>
+        <INPUT>
+          <WEBCONTENT_DEPLOY_DIR
+            DESCRIPTION="destination for copy (mandatory"
+            MANDATORY="true"
+            TYPE="TEXT"
+            />
+          <WEBCONTENT_SOURCE_DIR
+            DESCRIPTION="source directory; default is $JobDir"
+            TYPE="TEXT"
+            />
+        </INPUT>
+      </HTML.DeployWebContent>
+    </workingunits>
+  </config>
+</DPF>

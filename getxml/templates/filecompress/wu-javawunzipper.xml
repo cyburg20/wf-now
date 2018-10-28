@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <FileCompress.javawunzipper
+        CODEPAGE="ISO-8859-1"
+        CLASSNAME="de.sealsystems.worker.Unzipper"
+	    DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGNAME=""
+        LOGSTDOUT="Y"
+        NAME="My First Java Wu"
+        NODENAMES=""
+        PROJECT="FileCompress"
+        THREADS="10"
+        TIMEOUT=""
+        TYPE="WUJavaCall"
+        VERSION="$Id: wu-javawunzipper.xml,v 1.1 2017/01/26 09:46:30 hw Exp $"
+        >
+		<DEFAULTS
+        WU_TEST_PARAM="WU_DEFAULT"
+        />
+      </FileCompress.javawunzipper>
+	</workingunits>
+  </config>
+</DPF>

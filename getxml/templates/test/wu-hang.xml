@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <Test.hang
+        COMMAND="%DPFSRV%/scripts/test/hang.pl -parfile %PARFILENAME%"
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGNAME=""
+        LOGSTDOUT="Y"
+        NAME="Hang (Timeout 60s)"
+        PROJECT="Test"
+        Status="Running"
+        THREADS="1"
+        TIMEOUT="60"
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-hang.xml,v 1.5 2008/04/08 16:13:05 stefan Exp $"
+        >
+        <ENVIRONMENTS
+          HERE_YOU_COULD_SET_EXTRA_ENV_VARS="to a value"
+          />
+        <OUTPUT
+          DPFINT-Icon="doc://:/wu-output.gif"
+          ERR_REASON="*"
+          EXAMPLE_OUTPUT="*"
+          />
+      </Test.hang>
+    </workingunits>
+  </config>
+</DPF>

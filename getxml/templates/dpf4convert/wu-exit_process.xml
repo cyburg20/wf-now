@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <exit_process
+        NAME="dpf4c - exit process"
+        VERSION="$Id: wu-exit_process.xml,v 1.2 2005/04/18 12:21:43 wolfi Exp $"
+        PROJECT="DPF4CONVERT"
+        TYPE="WUSystemCall"
+        LOGNAME="dpf4c-exit_process"
+        LOGSTDOUT="Y"
+        LOGLEVEL="LOG_INFO"
+        THREADS="1"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/exit_process.pl -parfile %PARFILENAME%">
+      </exit_process>
+    </workingunits>
+  </config>
+</DPF>

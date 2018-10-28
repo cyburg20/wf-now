@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <FileSystem.ReadMultipleIniFiles
+        CODEPAGE="UTF8"
+        COMMAND="%DPFSRV%/scripts/filesystem/readmultipleinifiles.pl -parfile %PARFILENAME%"
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGSTDOUT="Y"
+        NAME="Read Multiple Ini Files"
+        NODENAMES=""
+        PROJECT="FileSystem"
+        THREADS="1"
+        TIMEOUT=""
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-readmultipleinifiles.xml,v 1.12 2016/02/15 17:40:05 sek Exp $"
+        >
+        <DEFAULTS
+          ForceIniValues="N"
+          OverwriteDefaultValues="N"
+          />
+        <INPUT>
+          <ForceIniValues
+            DEFAULT="N"
+            DESCRIPTION="overwrite existing DPF parameters"
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </ForceIniValues>
+          <IniFileList
+            DESCRIPTION="list of property names separated by white space, each property contains an ini file path"
+            MANDATORY="true"
+            TYPE="TEXT"
+            />
+          <OverwriteDefaultValues
+            DEFAULT="N"
+            DESCRIPTION="if ForceIniValues is N, overwrite existing DPF parameters that were not already set before calling this wu"
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </OverwriteDefaultValues>
+          <SectionNames
+            DESCRIPTION="Colon (&quot;,&quot;) separated list of sections to read from Ini file; use &quot;ALL&quot; to read all sections"
+            TYPE="TEXT"
+            />
+        </INPUT>
+        <OUTPUT/>
+      </FileSystem.ReadMultipleIniFiles>
+    </workingunits>
+  </config>
+</DPF>

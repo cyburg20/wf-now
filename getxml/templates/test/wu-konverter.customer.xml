@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <Test.konverter
+        VERSION="$Id: wu-konverter.customer.xml,v 1.1 2008/08/27 14:05:58 stefan Exp $"
+        >
+        <ENVIRONMENTS
+          AK_REPLACE_EXE_CONVERT_ARGS="Y"
+          />
+      </Test.konverter>
+    </workingunits>
+  </config>
+</DPF>

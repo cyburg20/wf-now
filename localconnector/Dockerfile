@@ -1,10 +1,14 @@
 FROM node:10.11.0-alpine
 
 
+
+
 WORKDIR /code
 
 
-# enable production mode
+
+# Turn down the verbosity to default level.
+
 ENV NODE_ENV=production
 
 # Wrapper/boot-strapper

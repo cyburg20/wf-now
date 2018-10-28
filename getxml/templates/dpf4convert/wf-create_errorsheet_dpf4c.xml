@@ -1,0 +1,43 @@
+<DPF>
+  <config>
+    <workflows>
+      <create_errorsheet_dpf4c
+        NAME="DPF 4 Convert - create_errorsheet_dpf4c"
+        VERSION="$Id: wf-create_errorsheet_dpf4c.xml,v 1.2 2006/07/28 12:44:48 ludwig Exp $"
+        PROJECT="DPF4CONVERT"
+        COMMENT="dpf4convert - Stamp PDF"
+        DPFINT-Type="WorkflowDescription"
+        DPFINT-Changes="0"
+        >
+        <MAIN
+          BEGIN="create_errorsheet_dpf4c"
+          ERROR="END"
+          />
+        <create_errorsheet_dpf4c
+          NAME="create_errorsheet_dpf4c"
+          NEXT="check_switch_create_destformats"
+          />
+        <check_switch_create_destformats
+          TYPE="IF-THEN-ELSE"
+          PROPERTY="DPF4C_COMMON_DEST_FORMAT"
+          OPERATOR="exists"
+          VALUE=""
+          THEN="dpf4c_create_destformats"
+          ELSE="END"
+          />
+        <dpf4c_create_destformats 
+          USE="dpf4c_create_destformats"
+          NEXT="checkin"
+          />
+        <checkin
+          NAME="checkin"
+          NEXT="sendback"
+          />
+        <sendback
+          NAME="sendback"
+          NEXT="END"
+          />
+      </create_errorsheet_dpf4c>
+    </workflows>
+  </config>
+</DPF>

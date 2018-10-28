@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <Netdome.rli2SetHeader
+        CODEPAGE="ISO-8859-1"
+        COMMAND="%DPFSRV%/scripts/netdome/rli2setheader.pl -parfile %PARFILENAME%"
+        DEFAULTS=""
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGSTDOUT="Y"
+        NAME="Rli To Set Header"
+        NODENAMES=""
+        PROJECT="Netdome"
+        THREADS="1"
+        TIMEOUT=""
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-rli2setheader.xml,v 1.1 2011/01/21 14:45:57 sek Exp $"
+        >
+        <DEFAULTS
+          MemberHeaderFileBase="MemberHeader"
+          PLS_SET_NAME="JOBID"
+          RlicMemberName="PLS_PLOTID"
+          SetHeaderFileBase="SetHeader"
+          WriteMemberHeaders="N"
+          WuEnableDebugLoop="N"
+          />
+        <INPUT>
+          <CurrRliFileName
+            DESCRIPTION="the input rli-file"
+            MANDATORY="true"
+            TYPE="TEXT"
+            />
+          <FilterOperator
+            DESCRIPTION="optional operator to compare value(s), default: eq"
+            TYPE="TEXT"
+            />
+          <FilterOperator2
+            DESCRIPTION="second optional operator to compare value(s), default: eq"
+            TYPE="TEXT"
+            />
+          <FilterPrefix
+            DESCRIPTION="rlifilter prefix, if none was passed to the rlifilter object. if a prefix was defined either way, it must be inserted before rlifilter property names: &lt;Prefix&gt;RlicFilter"
+            TYPE="TEXT"
+            />
+          <FilterValue
+            DESCRIPTION="value to search for in filter"
+            TYPE="TEXT"
+            />
+          <FilterValue2
+            DESCRIPTION="second set of colon separated values to work on these specific RLI lines only"
+            TYPE="TEXT"
+            />
+          <MemberHeaderFileBase
+            DEFAULT="MemberHeader"
+            DESCRIPTION="base name (without path, counter and extension) of the MemberHeader files"
+            TYPE="TEXT"
+            />
+          <PLS_SET_NAME
+            DEFAULT="JOBID"
+            DESCRIPTION="name of the header set. will be included into each output file"
+            TYPE="TEXT"
+            />
+          <RlicFilter
+            DESCRIPTION="name of RLI column for filter"
+            TYPE="TEXT"
+            />
+          <RlicFilter2
+            DESCRIPTION="name of second RLI column to use to filter specific RLI lines only"
+            TYPE="TEXT"
+            />
+          <RlicMemberName
+            DEFAULT="PLS_PLOTID"
+            DESCRIPTION="RLI column to get MemberHeader names (=ids) from"
+            TYPE="TEXT"
+            />
+          <SetHeaderColumns
+            DESCRIPTION="colon seperated list of dpf params that will be included into SetHeader file"
+            TYPE="TEXT"
+            />
+          <SetHeaderFileBase
+            DEFAULT="SetHeader"
+            DESCRIPTION="base name (without path and extension) of the SetHeader file"
+            TYPE="TEXT"
+            />
+          <SetMemberColumns
+            DESCRIPTION="colon seperated list of RLI columns whose values will be included into MemberHeader files (only relevant if WriteMemberHeaders = Y)"
+            TYPE="TEXT"
+            />
+          <WriteMemberHeaders
+            DEFAULT="N"
+            DESCRIPTION="Y write MemberHeader files"
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </WriteMemberHeaders>
+          <WuEnableDebugLoop
+            DEFAULT="N"
+            MANDATORY="true"
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </WuEnableDebugLoop>
+        </INPUT>
+        <OUTPUT/>
+      </Netdome.rli2SetHeader>
+    </workingunits>
+  </config>
+</DPF>

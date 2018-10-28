@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <tiffscale
+        NAME="dpf4c - Scale TIFF"
+        VERSION="$Id: wu-tiffscale.xml,v 1.5 2006/08/03 11:35:33 ludwig Exp $"
+        PROJECT="DPF4CONVERT"
+        TYPE="WUSystemCall"
+        LOGNAME="dpf4c-tiffscale"
+        LOGSTDOUT="Y"
+        LOGLEVEL="LOG_INFO"
+        THREADS="1"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/tiffscale.pl -parfile %PARFILENAME%"
+        >
+        <DEFAULTS
+          WU_ENABLE_DEBUG_LOOP="N"
+          DPF4C_MODIFY_SCALE_FACTOR="1.0"
+          DPF4C_MODIFY_SCALE="N"
+          />
+        <INPUT
+          CURRFILENAME="*"
+          CURRFILETYPE="tif"
+          DPF4C_MODIFY_SCALE="Y|!N!"
+          DPF4C_MODIFY_SCALE_FACTOR="number"
+          DPF4C_COMMON_TIMEOUT="number"
+          />
+        <OUTPUT
+          CURRFILENAME="*"
+          CURRFILETYPE="tif"
+          />
+      </tiffscale>
+    </workingunits>
+  </config>
+</DPF>

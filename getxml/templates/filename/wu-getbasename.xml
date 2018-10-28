@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <FileName.GetBaseName
+        CODEPAGE="ISO-8859-1"
+        COMMAND="%DPFSRV%/scripts/filename/getbasename.pl -parfile %PARFILENAME%"
+        DEFAULTS=""
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGSTDOUT="Y"
+        NAME="Get Base Name"
+        NODENAMES=""
+        PROJECT="FileName"
+        THREADS="1"
+        TIMEOUT=""
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-getbasename.xml,v 1.2 2010/02/08 18:02:26 sek Exp $"
+        >
+        <DEFAULTS
+          BASENAME_PART_TARGET_PROPERTY="BASENAME_PART"
+          BASENAME_SOURCE_PROPERTY="%CURRFILENAME%"
+          BASENAME_TARGET_PROPERTY="BASENAME"
+          EXTENSION_PART_TARGET_PROPERTY="EXTENSION_PART"
+          EXTENSION_TARGET_PROPERTY="EXTENSION"
+          WantCompleteBaseName="Y"
+          />
+        <INPUT>
+          <BASENAME_PART_TARGET_PROPERTY
+            DEFAULT="BASENAME_PART"
+            DESCRIPTION="basename without extension of the source file path will be written to this property"
+            TYPE="TEXT"
+            />
+          <BASENAME_SOURCE_PROPERTY
+            DEFAULT="%CURRFILENAME%"
+            DESCRIPTION="name of a property with a file path as content (default: CURRFILENAME)"
+            TYPE="TEXT"
+            />
+          <BASENAME_TARGET_PROPERTY
+            DEFAULT="BASENAME"
+            DESCRIPTION="basename of the source file path will be written to this property (default: BASENAME)"
+            TYPE="TEXT"
+            />
+          <EXTENSION_PART_TARGET_PROPERTY
+            DEFAULT="EXTENSION_PART"
+            DESCRIPTION="extension of the source file path will be written to this property"
+            TYPE="TEXT"
+            />
+          <WantCompleteBaseName
+            DEFAULT="Y"
+            DESCRIPTION="set to N for a complete extension"
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </WantCompleteBaseName>
+        </INPUT>
+        <OUTPUT/>
+      </FileName.GetBaseName>
+    </workingunits>
+  </config>
+</DPF>

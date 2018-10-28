@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <Rli.getPageNumbers
+        CODEPAGE="UTF8"
+        COMMAND="%DPFSRV%/scripts/rli/getpagenumbers.pl -parfile %PARFILENAME%"
+        DEFAULTS=""
+        DPFINT-FileLinks="doc://:/%DPFSRV%/scripts/rli/getpagenumbers.pl"
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGNAME=""
+        LOGSTDOUT="Y"
+        NAME="Get page numbers from all files from RLI file"
+        NODENAMES=""
+        PROJECT="Rli"
+        THREADS="5"
+        TIMEOUT=""
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-getpagenumbers.xml,v 1.11 2009/06/23 13:57:05 sek Exp $"
+        >
+        <DEFAULTS
+          RlicFileName="CurrFileName"
+          />
+        <INPUT
+          DPFINT-Icon="doc://:/wu-input.gif"
+          >
+          <CurrRliFileName
+            TYPE="TEXT"
+            />
+          <FilterOperator
+            DESCRIPTION="optional operator to compare value(s), default: eq"
+            TYPE="TEXT"
+            />
+          <FilterOperator2
+            DESCRIPTION="second optional operator to compare value(s), default: eq"
+            TYPE="TEXT"
+            />
+          <FilterValue
+            DESCRIPTION="value to search for in filter"
+            TYPE="TEXT"
+            />
+          <FilterValue2
+            DESCRIPTION="second set of colon separated values to work on these specific RLI lines only"
+            TYPE="TEXT"
+            />
+          <RlicFileName
+            DEFAULT="CurrFileName"
+            TYPE="TEXT"
+            />
+          <RlicFilter
+            DESCRIPTION="name of RLI column for filter"
+            TYPE="TEXT"
+            />
+          <RlicFilter2
+            DESCRIPTION="name of second RLI column to use to filter specific RLI lines only"
+            TYPE="TEXT"
+            />
+          <RlicResetPageNumber
+            DESCRIPTION="Use this optional property to create different pagenumber rli column &quot;SplittedFirstPage&quot; for stamping."
+            TYPE="TEXT"
+            />
+        </INPUT>
+        <OUTPUT/>
+      </Rli.getPageNumbers>
+    </workingunits>
+  </config>
+</DPF>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <Rli.pdf2tiff
+        CODEPAGE="ISO-8859-1"
+        COMMAND="%DPFSRV%/scripts/rli/pdf2tiff.pl -parfile %PARFILENAME%"
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGSTDOUT="Y"
+        NAME="PDF to TIFF"
+        NODENAMES=""
+        PROJECT="Rli"
+        THREADS="2"
+        TIMEOUT=""
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-pdf2tiff.xml,v 1.5 2010/10/28 15:57:07 stefan Exp $"
+        >
+        <INPUT>
+          <CurrRliFileName
+            TYPE="TEXT"
+            />
+          <FilterOperator
+            DESCRIPTION="optional operator to compare value(s), default: eq"
+            TYPE="TEXT"
+            />
+          <FilterOperator2
+            DESCRIPTION="second optional operator to compare value(s), default: eq"
+            TYPE="TEXT"
+            />
+          <FilterValue
+            TYPE="TEXT"
+            />
+          <FilterValue2
+            DESCRIPTION="second set of colon separated values to work on these specific RLI lines only"
+            TYPE="TEXT"
+            />
+          <FirstPage
+            DESCRIPTION="first page to convert"
+            TYPE="TEXT"
+            />
+          <IgnoreErrors
+            DEFAULT="N"
+            DESCRIPTION="ignore errors, just set NumErrors output parameter"
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </IgnoreErrors>
+          <LastPaged
+            DESCRIPTION="last page to convert"
+            TYPE="TEXT"
+            />
+          <Resolution
+            DEFAULT="300"
+            DESCRIPTION="TIFF resolution in DPI"
+            TYPE="TEXT"
+            />
+          <RlicFilter
+            TYPE="TEXT"
+            />
+          <RlicFilter2
+            DESCRIPTION="name of second RLI column to use to filter specific RLI lines only"
+            TYPE="TEXT"
+            />
+        </INPUT>
+        <OUTPUT/>
+      </Rli.pdf2tiff>
+    </workingunits>
+  </config>
+</DPF>

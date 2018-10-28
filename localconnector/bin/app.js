@@ -16,11 +16,11 @@ const rabbitconnect = require('../lib/rabbitconnect');
 try  {
  const pool = dbconnect();
  const regId = await register(pool);
-// const {conn, channel}  =  await rabbitconnect();
+ const {conn, channel}  =  await rabbitconnect();
 
  while(true){
            //publish to rabbitmq  
- await watch({pool, regId});
+ await watch({pool, regId , channel});
      
                         
  

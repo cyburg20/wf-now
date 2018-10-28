@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <CdRobot.unixCreateCdImage
+        COMMAND="rsh %RSH_HOSTNAME% -l %RSH_USERNAME% mkisofs -volid \&quot;%MKISO_VOLUME_ID%\&quot; -J -L -max -r -o \&quot;%IMAGEFILE%\&quot; \&quot;%ROOTDIR%\&quot;"
+        DPFINT-FileLinks="doc://:/rsh"
+        DPFINT-Icon="doc://:/wu.gif"
+        LOGLEVEL="LOG_INFO"
+        LOGNAME=""
+        LOGSTDOUT="Y"
+        NAME="Unix Create CD Image"
+        PROJECT="CdRobot"
+        THREADS="3"
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-unixcreatecdimage.xml,v 1.4 2007/02/13 23:58:29 stefan Exp $"
+        >
+        <DEFAULTS
+          DPFINT-Icon="doc://:/defaults.gif"
+          IMAGEFILE=""
+          ROOTDIR=""
+          WU_ENABLE_DEBUG_LOOP="N"
+          />
+        <INPUT
+          DPFINT-Icon="doc://:/wu-input.gif"
+          IMAGEFILE="*"
+          ROOTDIR="*"
+          WU_ENABLE_DEBUG_LOOP="*"
+          />
+        <OUTPUT
+          DPFINT-Icon="doc://:/wu-output.gif"
+          />
+      </CdRobot.unixCreateCdImage>
+    </workingunits>
+  </config>
+</DPF>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <CdRobot.clientNetUse
+        COMMAND="%DPFSRV%/scripts/cdrobot/clientnetuse.pl -parfile %PARFILENAME%"
+        DPFINT-FileLinks="doc://:/%DPFSRV%/scripts/cdrobot/clientnetuse.pl"
+        DPFINT-Icon="doc://:/wu.gif"
+        IGNOREEXITCODE="Y"
+        LOGLEVEL="LOG_INFO"
+        LOGNAME=""
+        LOGSTDOUT="Y"
+        NAME="Retrieve all network drives of client"
+        PROJECT="CdRobot"
+        THREADS="3"
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-clientnetuse.xml,v 1.4 2007/03/01 09:12:40 stefan Exp $"
+        >
+        <DEFAULTS
+          DPFINT-Icon="doc://:/defaults.gif"
+          SEPPSTARTER=""
+          />
+        <INPUT
+          DPFINT-Icon="doc://:/wu-input.gif"
+          SEPPSTARTER="cmd"
+          />
+        <OUTPUT
+          DPFINT-Icon="doc://:/wu-output.gif"
+          NET_USE_FILE="txt"
+          />
+      </CdRobot.clientNetUse>
+    </workingunits>
+  </config>
+</DPF>

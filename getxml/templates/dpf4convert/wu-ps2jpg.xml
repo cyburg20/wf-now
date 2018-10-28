@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <ps2jpg
+        COMMAND="%DPFSRV%/scripts/dpf4convert/ps2jpg.pl -parfile %PARFILENAME%"
+        DPFINT-FileLinks="doc://:/%DPFSRV%/scripts/dpf4convert/ps2jpg.pl"
+        DPFINT-Icon="doc://:/wu.gif"
+        LOGLEVEL="LOG_INFO"
+        LOGNAME="dpf4c-ps2jpg"
+        LOGSTDOUT="Y"
+        NAME="dpf4c - Convert PS to JPG"
+        PROJECT="DPF4CONVERT"
+        THREADS="1"
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-ps2jpg.xml,v 1.1 2007/06/21 15:37:12 ludwig Exp $"
+        >
+        <DEFAULTS
+          CURRFILENAME=""
+          CURRFILETYPE=""
+          DPF4C_PS2JPG_DESTINATION_PIXEL_SIZE=""
+          DPF4C_PS2JPG_DEVICE="jpeg"
+          DPF4C_PS2JPG_QUALITY="75"
+          DPF4C_PS2JPG_DPI="300"
+          DPFINT-Icon="doc://:/defaults.gif"
+          JOBID=""
+          PARFILENAME=""
+          WU_ENABLE_DEBUG_LOOP="N"
+          />
+        <INPUT
+          CURRFILENAME="*"
+          CURRFILETYPE="ps"
+          DPF4C_PS2JPG_DESTINATION_PIXEL_SIZE="100x120"
+          DPF4C_PS2JPG_DEVICE="jpeg|jpeggray"
+          DPF4C_PS2JPG_QUALITY="0-100"
+          DPF4C_PS2JPG_DPI="300"
+          DPFINT-Icon="doc://:/wu-input.gif"
+          JOBID="*"
+          PARFILENAME="*"
+          WU_ENABLE_DEBUG_LOOP="*"
+          />
+        <OUTPUT
+          CURRFILENAME="*"
+          CURRFILETYPE="jpg"
+          DPFINT-Icon="doc://:/wu-output.gif"
+          />
+      </ps2jpg>
+    </workingunits>
+  </config>
+</DPF>

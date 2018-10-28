@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <compress
+        NAME="Compress"
+        VERSION="$Id: wu-compress.xml,v 1.3 2003/04/08 07:07:57 stefan Exp $"
+        PROJECT="Brueckner"
+        TYPE="WUSystemCall"
+        LOGNAME="compress"
+        LOGLEVEL="LOG_INFO"
+        LOGSTDOUT="N"
+        THREADS="1"
+        IGNOREEXITCODE="N"
+        COMMAND="%DPFSRV%/scripts/compress.pl -parfile %PARFILENAME%">
+        <DEFAULTS
+          WU_ENABLE_DEBUG_LOOP="N"
+          />
+      </compress>
+    </workingunits>
+  </config>
+</DPF>
+

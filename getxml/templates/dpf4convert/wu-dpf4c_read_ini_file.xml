@@ -1,0 +1,20 @@
+<DPF>
+  <config>
+    <workingunits>
+      <dpf4c_read_ini_file
+        NAME="dpf4c - Read dpf4convert.ini file."
+        VERSION="$Id: wu-dpf4c_read_ini_file.xml,v 1.5 2009/02/03 15:53:29 kig Exp $"
+        PROJECT="DPF4CONVERT"
+        TYPE="WUSystemCall"
+        LOGNAME="dpf4c-dpf4c_read_ini_file"
+        LOGSTDOUT="Y"
+        LOGLEVEL="LOG_INFO"
+        THREADS="5"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/dpf4c_read_ini_file.pl -parfile %PARFILENAME%">
+        <DEFAULTS
+          DPF4C_INI_FILE="%DPFSRV%/conf/dpf4convert/dpf4convert.ini"
+          />
+      </dpf4c_read_ini_file>
+    </workingunits>
+  </config>
+</DPF>

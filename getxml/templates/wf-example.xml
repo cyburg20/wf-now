@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <Stringtable>
+      <DE
+        STRING="eine Zeichenkette"
+        FLAG="eine Checkbox"
+        FILE="eine Datei"
+        >
+        <HELP
+          STRING="beliebige Eingabe"
+          FLAG="ja oder nein"
+          FILE="mit Dateiauswahl"
+          />
+        <DPF>
+          <example
+            WORKFLOW_NAME="Beispiel Workflow"
+            WORKFLOW_COMMENT="ein einfacher Beispielworkflow"
+            WORKFLOW_LOCATION="läuft auf dem DPF Server"
+            />
+        </DPF>
+      </DE>
+    </Stringtable>
+    <workflows>
+      <example
+        NAME="Example Workflow"
+        VERSION="$Id: wf-example.xml,v 1.5 2004/09/29 10:19:28 ludwig Exp $"
+        PROJECT="EXAMPLE"
+        COMMENT="small example workflow"
+        DPFINT-Type="WorkflowDescription"
+        DPFINT-Changes="0"
+        >
+        <UserInterface
+          ORDER="FILE STRING FLAG"
+          >
+          <STRING
+            RANGE="59"
+            TYPE="Edit"
+            DEFAULT="default name"
+            />
+          <FLAG
+            RANGE="Y|N"
+            TYPE="Check"
+            DEFAULT="Y"
+            />
+          <FILE
+            TYPE = "File"
+            RANGE = "JPG (*.jpg)|All (*.*)"
+            DEFAULT = ""
+            />
+          <HIDDEN
+            RANGE=""
+            TYPE="Hidden"
+            DEFAULT="hidden value"
+            />
+        </UserInterface>
+        <MAIN
+          BEGIN="example"
+          ERROR="END"
+          />
+        <example
+          NAME="example"
+          NEXT="END"
+          />
+      </example>
+    </workflows>
+  </config>
+</DPF>

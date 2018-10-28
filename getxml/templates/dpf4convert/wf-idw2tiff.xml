@@ -1,0 +1,27 @@
+<DPF>
+  <config>
+    <workflows>
+      <idw2tiff
+        NAME="DPF 4 Convert - CAD Inventor IDW to TIFF"
+        VERSION="$Id: wf-idw2tiff.xml,v 1.7 2006/08/15 10:03:22 ludwig Exp $"
+        PROJECT="DPF4CONVERT"
+        COMMENT="dpf4convert - Convert process CAD Inventor IDW to TIFF"
+        DPFINT-Type="WorkflowDescription"
+        DPFINT-Changes="0"
+        >
+        <MAIN
+          BEGIN="idw2ps"
+          ERROR="END"
+          />
+        <idw2ps
+          USE="idw2pdf"
+          NEXT="pdf2tiff"
+          />
+        <pdf2tiff
+          NAME="pdf2tiff"
+          NEXT="END"
+          />
+      </idw2tiff>
+    </workflows>
+  </config>
+</DPF>

@@ -1,0 +1,60 @@
+<DPF>
+  <config>
+    <workingunits>
+      <se_2d_2file
+        NAME="dpf4c - Convert CAD SolidEdge 2D-format to other format."
+        VERSION="$Id: wu-se_2d_2file.xml,v 1.1 2008/06/02 12:13:18 kig Exp $"
+        PROJECT="DPF4CONVERT"
+        TYPE="WUSystemCall"
+        LOGNAME="dpf4c-se_2d_2file"
+        LOGSTDOUT="Y"
+        LOGLEVEL="LOG_INFO"
+        THREADS="1"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/se_2d_2file.pl -parfile %PARFILENAME%">
+        <DEFAULTS
+          DESTINATION_FORMAT_QUALITY=""
+          DPF4C_PROPERTYUPDATE_ENABLE="N"
+          DPF4C_PROPERTYUPDATE_PROVIDE_FILES="N"
+          DPF4C_SEDFT2FILE_NOCONV2QUITSE="0"
+          DPF4C_SEDFT2FILE_USE_SEALSERVICE="N"
+          CAD_SE_ACTIVATE_ROTATION_EACH_PAGE_IF_PORTRAIT="N"
+          CAD_SE_COLORTYPE="col"
+          CAD_SE_FILE_SEACADINI="%PLSROOT%server\cad\solidedge\SEACAD.INI"
+          CAD_SE_IGNORESHEET=""
+          CAD_SE_PROPUPDATE_EMPTY_VALUE_IS_ERROR="N"
+          CAD_SE_START_APP_VISIBLE="N"
+          CAD_SE_SWITCH_USE_SEACADINI_FILE="N"
+          CAD_SE_USE_SEPPEXECUTE_FOR_TIMEOUT="N"
+          CAD_SE_USE_SEPPSTARTER="N"
+          SET_DPF4C_COMMON_MULTIPAGE="Y"
+          />
+        <INPUT
+          PARFILENAME="*"
+          CURRFILENAME="*"
+          CURRFILETYPE="dft"
+          DESTINATION_FORMAT_QUALITY="|pdfa"
+          DPF4C_PROPERTYUPDATE_ENABLE="N"
+          DPF4C_PROPERTYUPDATE_PROVIDE_FILES="Y|N"
+          DPF4C_SEDFT2FILE_NOCONV2QUITSE="0"
+          DPF4C_SEDFT2FILE_USE_SEALSERVICE="Y|N"
+          CAD_SE_ACTIVATE_ROTATION_EACH_PAGE_IF_PORTRAIT="Y|N"
+          CAD_SE_COLORTYPE="col|bw"
+          CAD_SE_FILE_SEACADINI="%PLSROOT%server\cad\solidedge\SEACAD.INI"
+          CAD_SE_IGNORESHEET=""
+          CAD_SE_PROPUPDATE_EMPTY_VALUE_IS_ERROR="N"
+          CAD_SE_START_APP_VISIBLE="Y|!N!"
+          CAD_SE_SWITCH_USE_SEACADINI_FILE="N"
+          CAD_SE_USE_SEPPEXECUTE_FOR_TIMEOUT="Y|!N!"
+          CAD_SE_USE_SEPPSTARTER="Y|!N!"
+          SET_DPF4C_COMMON_MULTIPAGE="Y"
+          />
+        <OUTPUT
+          CURRFILENAME="*"
+          CURRFILETYPE="*"
+          DPF4C_PROPERTYUPDATE_OUTFILE1="file|"
+          DPF4C_PROPERTYUPDATE_PROVIDE_FILES="Y"
+          />
+      </se_2d_2file>
+    </workingunits>
+  </config>
+</DPF>

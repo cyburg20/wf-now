@@ -1,0 +1,27 @@
+<DPF>
+  <config>
+    <workflows>
+      <dwg2pdf
+        NAME="DPF 4 Convert - CAD AutoCad DWG to PDF"
+        VERSION="$Id: wf-dwg2pdf.xml,v 1.6 2006/08/15 10:03:22 ludwig Exp $"
+        PROJECT="DPF4CONVERT"
+        COMMENT="dpf4convert - Convert process CAD AutoCad DWG to PDF"
+        DPFINT-Type="WorkflowDescription"
+        DPFINT-Changes="0"
+        >
+        <MAIN
+          BEGIN="dwg2hpgl"
+          ERROR="END"
+          />
+        <dwg2hpgl
+          NAME="dwg2hpgl"
+          NEXT="hpgl2pdf"
+          />
+        <hpgl2pdf
+          NAME="hpgl2pdf"
+          NEXT="END"
+          />
+      </dwg2pdf>
+    </workflows>
+  </config>
+</DPF>

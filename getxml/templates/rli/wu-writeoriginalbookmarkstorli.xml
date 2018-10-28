@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <Rli.WriteOriginalBookmarksToRli
+        CODEPAGE="ISO-8859-1"
+        COMMAND="%DPFSRV%/scripts/rli/writeoriginalbookmarkstorli.pl -parfile %PARFILENAME%"
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGNAME=""
+        LOGSTDOUT="Y"
+        NAME="Write Original Bookmarks To Rli"
+        NODENAMES=""
+        PROJECT="Rli"
+        THREADS="1"
+        TIMEOUT=""
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-writeoriginalbookmarkstorli.xml,v 1.1 2012/11/27 16:47:46 sek Exp $"
+        >
+        <DEFAULTS
+          RlicCurrFileName="CurrFileName"
+          RlicPageOffset="PageOffset"
+          WuEnableDebugLoop="N"
+          />
+        <INPUT>
+          <CurrRliFileName
+            DESCRIPTION="the input rli-file"
+            MANDATORY="true"
+            TYPE="TEXT"
+            />
+          <DestFileName
+            DESCRIPTION="the target rli-file"
+            TYPE="TEXT"
+            />
+          <FilterOperator
+            DESCRIPTION="optional operator to compare value(s), default: eq"
+            TYPE="TEXT"
+            />
+          <FilterOperator2
+            DESCRIPTION="second optional operator to compare value(s), default: eq"
+            TYPE="TEXT"
+            />
+          <FilterPrefix
+            DESCRIPTION="rlifilter prefix, if none was passed to the rlifilter object. if a prefix was defined either way, it must be inserted before rlifilter property names: &lt;Prefix&gt;RlicFilter"
+            TYPE="TEXT"
+            />
+          <FilterValue
+            DESCRIPTION="value to search for in filter"
+            TYPE="TEXT"
+            />
+          <FilterValue2
+            DESCRIPTION="second set of colon separated values to work on these specific RLI lines only"
+            TYPE="TEXT"
+            />
+          <RlicCurrFileName
+            DEFAULT="CurrFileName"
+            DESCRIPTION="name of the RLI column to read files from"
+            TYPE="TEXT"
+            />
+          <RlicFilter
+            DESCRIPTION="name of RLI column for filter"
+            TYPE="TEXT"
+            />
+          <RlicFilter2
+            DESCRIPTION="name of second RLI column to use to filter specific RLI lines only"
+            TYPE="TEXT"
+            />
+          <RlicPageOffset
+            DEFAULT="PageOffset"
+            DESCRIPTION="rli column for bookmarks to jump to specific coordinates and with a specific zoom factor"
+            TYPE="TEXT"
+            />
+          <WuEnableDebugLoop
+            DEFAULT="N"
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </WuEnableDebugLoop>
+        </INPUT>
+        <OUTPUT/>
+      </Rli.WriteOriginalBookmarksToRli>
+    </workingunits>
+  </config>
+</DPF>

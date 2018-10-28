@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <FileCompress.extractZip
+        CODEPAGE="ISO-8859-1"
+        COMMAND="%DPFSRV%/scripts/filecompress/extractzip.pl -parfile %PARFILENAME%"
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGNAME=""
+        LOGSTDOUT="Y"
+        NAME="Extract Zip Archive"
+        NODENAMES=""
+        PROJECT="FileCompress"
+        THREADS="5"
+        TIMEOUT=""
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-extractzip.xml,v 1.7 2012/01/19 12:01:55 sek Exp $"
+        >
+        <DEFAULTS
+          DeleteZip="N"
+          MakeUniqueNames="N"
+          />
+        <INPUT>
+          <CurrDirName
+            DESCRIPTION="all zip files in this directory (and its subdirectories) will be extracted"
+            TYPE="TEXT"
+            />
+          <CurrFileName
+            DESCRIPTION="input zip file"
+            TYPE="TEXT"
+            />
+          <DeleteZip
+            DEFAULT="N"
+            DESCRIPTION="set to Y to delete zip file(s) after extraction, default N"
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </DeleteZip>
+          <ExtractionTargetDir
+            DESCRIPTION="directory to extract files to, per default CurrDirName or CurrFileName (without extension) will be used"
+            TYPE="TEXT"
+            />
+          <MakeUniqueNames
+            DEFAULT="N"
+            DESCRIPTION="make file names unique, rename if file already exists"
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </MakeUniqueNames>
+          <ValidFileTypes
+            DESCRIPTION="if set, only files with these blank separated extensions will be extracted"
+            TYPE="TEXT"
+            />
+        </INPUT>
+        <OUTPUT/>
+      </FileCompress.extractZip>
+    </workingunits>
+  </config>
+</DPF>

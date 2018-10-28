@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workflows>
+      <ps2tiff_cp
+        COMMENT="dpf4convert - Convert process PostScript to TIFF and copy"
+        DPFINT-Type="WorkflowDescription"
+        NAME="DPF 4 Convert - ps2tiff_cp"
+        PROJECT="DPF4CONVERT"
+        VERSION="$Id: wf-ps2tiff_cp.xml,v 1.2 2010/11/15 16:18:48 kig Exp $"
+        >
+        <DEFAULTS/>
+        <DPF4CONVERT.copy_currfilename1
+          COMMENT=""
+          ERROR="END"
+          NAME="DPF4CONVERT.copy_currfilename"
+          NEXT="END"
+          POSX="300"
+          POSY="200"
+          TYPE="WU"
+          >
+          <CONNECTIONS
+            ERROR="DIRECT"
+            NEXT="DIRECT"
+            />
+          <DEFAULTS/>
+          <MAPPING/>
+        </DPF4CONVERT.copy_currfilename1>
+        <END
+          COMMENT=""
+          NAME="END"
+          POSX="500"
+          POSY="200"
+          TYPE="STOP"
+          />
+        <MAIN
+          BEGIN="ps2tiff"
+          ERROR="END"
+          />
+        <MAPPING/>
+        <ps2tiff
+          COMMENT=""
+          ERROR="END"
+          NAME="ps2tiff"
+          NEXT="DPF4CONVERT.copy_currfilename1"
+          POSX="100"
+          POSY="200"
+          TYPE="WU"
+          >
+          <CONNECTIONS
+            ERROR="DIRECT"
+            NEXT="DIRECT"
+            />
+          <DEFAULTS/>
+          <MAPPING/>
+        </ps2tiff>
+      </ps2tiff_cp>
+    </workflows>
+  </config>
+</DPF>

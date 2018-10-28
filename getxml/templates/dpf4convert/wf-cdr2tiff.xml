@@ -1,0 +1,27 @@
+<DPF>
+  <config>
+    <workflows>
+      <cdr2tiff
+        NAME="DPF 4 Convert - CorelDraw to TIFF"
+        VERSION="$Id: wf-cdr2tiff.xml,v 1.6 2006/08/15 10:03:22 ludwig Exp $"
+        PROJECT="DPF4CONVERT"
+        COMMENT="dpf4convert - Convert process CorelDraw to TIFF"
+        DPFINT-Type="WorkflowDescription"
+        DPFINT-Changes="0"
+        >
+        <MAIN
+          BEGIN="office2ps"
+          ERROR="END"
+          />
+        <office2ps
+          NAME="office2ps"
+          NEXT="ps2tiff"
+          />
+        <ps2tiff
+          NAME="ps2tiff"
+          NEXT="END"
+          />
+      </cdr2tiff>
+    </workflows>
+  </config>
+</DPF>

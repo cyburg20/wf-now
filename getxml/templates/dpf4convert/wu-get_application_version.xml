@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <get_application_version
+        NAME="dpf4c - Get application version string from file"
+        VERSION="$Id: wu-get_application_version.xml,v 1.1 2007/01/26 14:22:53 ludwig Exp $"
+        PROJECT="DPF4CONVERT"
+        TYPE="WUSystemCall"
+        LOGNAME="dpf4c-get_application_version"
+        LOGSTDOUT="Y"
+        LOGLEVEL="LOG_INFO"
+        THREADS="1"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/get_application_version.pl -parfile %PARFILENAME%">
+        <DEFAULTS
+          />
+        <INPUT
+          CURRFILENAME="*"
+          />
+        <OUTPUT
+          APPLICATION_VERSION_STRING="*"
+          APPLICATION_VERSION_STRING_NO_SPACES="*"
+          />
+      </get_application_version>
+    </workingunits>
+  </config>
+</DPF>

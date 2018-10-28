@@ -1,0 +1,23 @@
+<DPF>
+  <config>
+    <workflows>
+      <pdfsplit
+        NAME="DPF 4 Convert - pdfsplit"
+        VERSION="$Id: wf-pdfsplit.xml,v 1.2 2004/09/23 09:30:05 stefan Exp $"
+        PROJECT="DPF4CONVERT"
+        COMMENT="dpf4convert - Split PDF"
+        DPFINT-Type="WorkflowDescription"
+        DPFINT-Changes="0"
+        >
+        <MAIN
+          BEGIN="pdfsplit"
+          ERROR="END"
+          />
+        <pdfsplit
+          NAME="pdfsplit"
+          NEXT="END"
+          />
+      </pdfsplit>
+    </workflows>
+  </config>
+</DPF>

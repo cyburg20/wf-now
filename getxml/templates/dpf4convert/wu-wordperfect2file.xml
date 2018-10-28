@@ -1,0 +1,29 @@
+<DPF>
+  <config>
+    <workingunits>
+      <wordperfect2file
+        NAME="dpf4c - Convert Word perfect document to PDF or Postscript."
+        VERSION="$Id: wu-wordperfect2file.xml,v 1.4 2006/10/17 10:16:30 ludwig Exp $"
+        PROJECT="DPF4CONVERT"
+        TYPE="WUSystemCall"
+        LOGNAME="dpf4c-wordperfect2file"
+        LOGSTDOUT="Y"
+        LOGLEVEL="LOG_INFO"
+        THREADS="1"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/wordperfect2file.pl -parfile %PARFILENAME%">
+        <DEFAULTS
+          WU_ENABLE_DEBUG_LOOP="N"
+          WORDPERFECT2FILE_USE_PRINTER_CONVERSION="N"
+          WORDPERFECT2FILE_PRINTER_CONVERSION_OUTPUT_FILE="%PLSROOT%/data/tmp/wordperfectconversion.ps"
+          />
+        <INPUT
+          CURRFILETYPE="wpd"
+          WORDPERFECT2FILE_USE_PRINTER_CONVERSION="Y|!N!"
+          WORDPERFECT2FILE_PRINTER_CONVERSION_OUTPUT_FILE="file"
+          />
+        <OUTPUT
+          />
+      </wordperfect2file>
+    </workingunits>
+  </config>
+</DPF>

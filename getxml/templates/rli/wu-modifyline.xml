@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <Rli.modifyLine
+        CODEPAGE="UTF8"
+        COMMAND="%DPFSRV%/scripts/rli/modifyline.pl  -parfile %PARFILENAME%"
+        DPFINT-FileLinks="doc://:/%DPFSRV%/scripts/rli/appendline.pl"
+        DPFINT-Icon="doc://:/rli.appendline.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGNAME=""
+        LOGSTDOUT="Y"
+        NAME="Modify Line of RLI"
+        NODENAMES=""
+        PROJECT="Rli"
+        THREADS="5"
+        TIMEOUT=""
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-modifyline.xml,v 1.2 2010/10/28 15:57:07 stefan Exp $"
+        >
+        <DEFAULTS
+          InitialValue="1"
+          ModifyLineAtIndex="0"
+          Range="2"
+          RliColumnData="RliColumnData"
+          />
+        <INPUT>
+          <CurrRliFileName
+            DESCRIPTION="the input rli-file"
+            MANDATORY="true"
+            TYPE="TEXT"
+            />
+          <DestFileName
+            DESCRIPTION="the target rli-file"
+            TYPE="TEXT"
+            />
+          <InitialValue
+            DEFAULT="1"
+            DESCRIPTION="the start-value for the propertiescounting; if given range must also be given"
+            TYPE="TEXT"
+            />
+          <JOBDIR
+            DESCRIPTION="our job dir for temp files"
+            TYPE="TEXT"
+            />
+          <ModifyLineAtIndex
+            DEFAULT="0"
+            DESCRIPTION="modify rli line at index, counted from 0"
+            TYPE="TEXT"
+            />
+          <Range
+            DEFAULT="2"
+            DESCRIPTION="the number of digits for the prorperties to change in the rli line"
+            TYPE="TEXT"
+            />
+          <RliColumnData
+            DEFAULT="RliColumnData"
+            DESCRIPTION="the name for the properties which have to be set for the columnnames, default: RliColumnData"
+            TYPE="TEXT"
+            />
+          <WuEnableDebugLoop
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </WuEnableDebugLoop>
+        </INPUT>
+        <OUTPUT/>
+      </Rli.modifyLine>
+    </workingunits>
+  </config>
+</DPF>

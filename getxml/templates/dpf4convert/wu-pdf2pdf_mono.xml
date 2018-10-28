@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <pdf2pdf_mono
+        NAME="dpf4c - Convert pdf to mono pdf."
+        VERSION="$Id: wu-pdf2pdf_mono.xml,v 1.1 2004/12/07 12:38:34 ludwig Exp $"
+        PROJECT="DPF4CONVERT"
+        TYPE="WUSystemCall"
+        LOGNAME="dpf4c-pdf2pdf_mono"
+        LOGSTDOUT="Y"
+        LOGLEVEL="LOG_INFO"
+        THREADS="1"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/pdf2pdf_mono.pl -parfile %PARFILENAME%">
+        <DEFAULTS
+          WU_ENABLE_DEBUG_LOOP="N"
+          />
+        <INPUT
+          CURRFILETYPE="pdf"
+          />
+        <OUTPUT
+          CURRFILETYPE="pdf"
+          />
+      </pdf2pdf_mono>
+    </workingunits>
+  </config>
+</DPF>

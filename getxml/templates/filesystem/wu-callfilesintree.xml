@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <FileSystem.callFilesInTree
+        COMMAND="%DPFSRV%/scripts/filesystem/callfilesintree.pl -parfile %PARFILENAME%"
+        COMMENT="Create new sub job for each file in the given directory"
+        DPFINT-FileLinks="doc://:/%DPFSRV%/scripts/filesystem/callfilesintree.pl"
+        DPFINT-Icon="doc://:/wu.gif"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGNAME=""
+        LOGSTDOUT="N"
+        NAME="Call files in tree"
+        PROJECT="FileSystem"
+        THREADS="1"
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-callfilesintree.xml,v 1.4 2007/03/01 09:12:43 stefan Exp $"
+        >
+        <DEFAULTS
+          DPFINT-Icon="doc://:/defaults.gif"
+          SUB_WORKFLOW="processfile"
+          WU_ENABLE_DEBUG_LOOP="N"
+          />
+        <INPUT
+          DPFINT-Icon="doc://:/wu-input.gif"
+          SUB_WORKFLOW="*"
+          WU_ENABLE_DEBUG_LOOP="*"
+          />
+        <OUTPUT
+          DPFINT-Icon="doc://:/wu-output.gif"
+          />
+      </FileSystem.callFilesInTree>
+    </workingunits>
+  </config>
+</DPF>

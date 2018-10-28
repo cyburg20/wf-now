@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <appkonv
+        NAME="convertwiz- Convert files using appkonv konverter configuration"
+        VERSION="$Id: wu-appkonv.xml,v 1.5 2008/10/13 13:57:19 dh Exp $"
+        PROJECT="CONVERTWIZ"
+        TYPE="WUSystemCall"
+        LOGNAME="convertwiz-appkonv"
+        LOGSTDOUT="Y"
+        LOGLEVEL="LOG_INFO"
+        THREADS="3"
+        TRACEIGNOREEXITCODE="N"
+        COMMAND="%DPFSRV%/scripts/convertwiz/appkonv.pl -parfile %PARFILENAME%">
+        <DEFAULTS
+          WU_ENABLE_DEBUG_LOOP="N"
+          DPF4C_COMMON_TIMEOUT="10"
+          AK_WORD_PRINT_MARKUPS="never"
+          AK_SECTION=""
+          DPF4C_PROPERTYUPDATE_PROVIDE_FILES="N"
+          APPKONV_CONFIG_DIR_DEFAULT="%PLSROOT%server\dpf\conf\dpf4convertwiz\appkonv"
+          APPKONV_CONFIG_FILE="PDF.cfg"
+          />
+        <INPUT
+          CURRFILENAME="*"
+          CURRFILETYPE="*"
+          DPF4C_COMMON_TIMEOUT="10"
+          AK_WORD_PRINT_MARKUPS="never|always|auto"
+          AK_SECTION=""
+          DPF4C_PROPERTYUPDATE_PROVIDE_FILES="N"
+          APPKONV_CONFIG_DIR_DEFAULT="directory"
+          APPKONV_CONFIG_FILE="filename"
+          />
+        <OUTPUT
+          CURRFILENAME="*"
+          CURRFILETYPE="ps"
+          DPF4C_COMMON_OUTFILEps="*"
+          ERR_REASON="*"
+          DPF4C_PROPERTYUPDATE_OUTFILE1="*"
+          />
+      </appkonv>
+    </workingunits>
+  </config>
+</DPF>

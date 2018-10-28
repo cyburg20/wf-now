@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <cgm2pdfgxc
+        NAME="dpf4c - Convert CGM to PDF using gXconvert"
+        VERSION="$Id: wu-cgm2pdfgxc.xml,v 1.1 2010/09/24 14:12:49 kig Exp $"
+        PROJECT="DPF4CONVERT"
+        TYPE="WUSystemCall"
+        LOGNAME="dpf4c-cgm2pdfgxc"
+        LOGSTDOUT="Y"
+        LOGLEVEL="LOG_INFO"
+        THREADS="1"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/cgm2pdfgxc.pl -parfile %PARFILENAME%">
+        <DEFAULTS
+          DPF4C_MODIFY_ROTATE=""
+          DPF4C_MODIFY_ROTATION=""
+          CGM2PDF_GXC_ADD_PARAMS=""
+          CGM2PDF_GXC_DEVICE=""
+          />
+        <INPUT
+          CURRFILENAME="file"
+          CURRFILETYPE="hp"
+          DPF4C_MODIFY_ROTATE="Y|N"
+          DPF4C_MODIFY_ROTATION="number"
+          DPF4C_COMMON_TIMEOUT="number"
+          CGM2PDF_GXC_ADD_PARAMS="string"
+          CGM2PDF_GXC_DEVICE="number"
+          />
+        <OUTPUT
+          CURRFILENAME="file"
+          CURRFILETYPE="pdf"
+          DPF4C_COMMON_OUTFILEpdf="file"
+          ERR_REASON="text"
+          />
+      </cgm2pdfgxc>
+    </workingunits>
+  </config>
+</DPF>

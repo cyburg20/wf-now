@@ -1,0 +1,23 @@
+<DPF>
+  <config>
+    <workflows>
+      <ps2tiff
+        NAME="DPF 4 Convert - PostScript to TIFF"
+        VERSION="$Id: wf-ps2tiff.xml,v 1.8 2006/08/15 10:03:23 ludwig Exp $"
+        PROJECT="DPF4CONVERT"
+        COMMENT="dpf4convert - Convert process PostScript to TIFF"
+        DPFINT-Type="WorkflowDescription"
+        DPFINT-Changes="0"
+        >
+        <MAIN
+          BEGIN="ps2tiff"
+          ERROR="END"
+          />
+        <ps2tiff
+          NAME="ps2tiff"
+          NEXT="END"
+          />
+      </ps2tiff>
+    </workflows>
+  </config>
+</DPF>

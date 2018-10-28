@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <CdRobot.clientCreateCdImage
+        COMMAND="%DPFSRV%/scripts/cdrobot/clientcreatecdimage.pl -parfile %PARFILENAME%"
+        DPFINT-FileLinks="doc://:/%DPFSRV%/scripts/cdrobot/clientcreatecdimage.pl"
+        DPFINT-Icon="doc://:/wu.gif"
+        LOGLEVEL="LOG_INFO"
+        LOGNAME=""
+        LOGSTDOUT="Y"
+        NAME="Client Create CD Image"
+        PROJECT="CdRobot"
+        THREADS="3"
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-clientcreatecdimage.xml,v 1.6 2007/03/01 09:12:40 stefan Exp $"
+        oldCOMMAND="%SEPPSTARTER% -s -o TCP/IP mkisofs -volid &quot;%MKISO_VOLUME_ID%&quot; -iso-level 4 -r -v -joliet-long -o &quot;%IMAGEFILE%&quot; &quot;%ROOTDIR%&quot;"
+        >
+        <DEFAULTS
+          DPFINT-Icon="doc://:/defaults.gif"
+          IMAGEFILE=""
+          ROOTDIR=""
+          WU_ENABLE_DEBUG_LOOP="N"
+          />
+        <INPUT
+          DPFINT-Icon="doc://:/wu-input.gif"
+          IMAGEFILE="*"
+          ROOTDIR="*"
+          WU_ENABLE_DEBUG_LOOP="*"
+          />
+        <OUTPUT
+          DPFINT-Icon="doc://:/wu-output.gif"
+          />
+      </CdRobot.clientCreateCdImage>
+    </workingunits>
+  </config>
+</DPF>

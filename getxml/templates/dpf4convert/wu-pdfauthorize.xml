@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <pdfauthorize
+        CODEPAGE="ISO-8859-1"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/pdfauthorize.pl -parfile %PARFILENAME%"
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        LOGLEVEL="LOG_INFO"
+        LOGNAME="dpf4c-pdfauthorize"
+        LOGSTDOUT="Y"
+        NAME="dpf4c - Add, change or remove encryption in a PDF"
+        NODENAMES=""
+        PROJECT="DPF4CONVERT"
+        THREADS="1"
+        TIMEOUT=""
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-pdfauthorize.xml,v 1.9 2017/03/01 13:42:26 kig Exp $"
+        >
+        <DEFAULTS
+          DPF4C_AUTHORIZE_ACTIVATE="N"
+          DPF4C_AUTHORIZE_ADDNOTES="Y"
+          DPF4C_AUTHORIZE_ASSEMBLE="Y"
+          DPF4C_AUTHORIZE_BRAILLE="Y"
+          DPF4C_AUTHORIZE_CHANGE="N"
+          DPF4C_AUTHORIZE_COPY_TEXT="Y"
+          DPF4C_AUTHORIZE_DECRYPT="N"
+          DPF4C_AUTHORIZE_DECRYPT_ALL="N"
+          DPF4C_AUTHORIZE_ENCRYPTION128="N"
+          DPF4C_AUTHORIZE_FILLFIELDS="N"
+          DPF4C_AUTHORIZE_KEEP_FILENAME="N"
+          DPF4C_AUTHORIZE_LOWRES="N"
+          DPF4C_AUTHORIZE_PRINT="N"
+          DPF4C_AUTHORIZE_OPEN_PW=""
+          DPF4C_AUTHORIZE_CHANGE_PW=""
+          DPF4C_AUTHORIZE_USER_PW=""
+          DPF4C_AUTHORIZE_OWNER_PW=""
+          WU_ENABLE_DEBUG_LOOP="N"
+          />
+        <INPUT
+          CURRFILENAME="*"
+          CURRFILETYPE="pdf"
+          DPF4C_AUTHORIZE_ACTIVATE="Y|N"
+          DPF4C_AUTHORIZE_ADDNOTES="Y|N"
+          DPF4C_AUTHORIZE_ASSEMBLE="Y|N"
+          DPF4C_AUTHORIZE_BRAILLE="Y|N"
+          DPF4C_AUTHORIZE_CHANGE="Y|N"
+          DPF4C_AUTHORIZE_CHANGE_PW=""
+          DPF4C_AUTHORIZE_COPY_TEXT="Y|N"
+          DPF4C_AUTHORIZE_DECRYPT="Y|N"
+          DPF4C_AUTHORIZE_DECRYPT_ALL="Y|N"
+          DPF4C_AUTHORIZE_ENCRYPTION128="Y|N"
+          DPF4C_AUTHORIZE_FILLFIELDS="Y|N"
+          DPF4C_AUTHORIZE_KEEP_FILENAME="Y|N"
+          DPF4C_AUTHORIZE_LOWRES="Y|N"
+          DPF4C_AUTHORIZE_OPEN_PW=""
+          DPF4C_AUTHORIZE_OWNER_PW=""
+          DPF4C_AUTHORIZE_PRINT="Y|N"
+          DPF4C_AUTHORIZE_USER_PW=""
+          >
+          <CURRFILENAME
+            DESCRIPTION="Pdf-file to de-/ compress."
+            MANDATORY="true"
+            TYPE="TEXT"
+            />
+          <CURRFILETYPE
+            DESCRIPTION="Current file type."
+            TYPE="TEXT"
+            />
+          <DPF4C_AUTHORIZE_ACTIVATE
+            DEFAULT="N"
+            DESCRIPTION="Switch to de/ -activate the functionality in this working unit."
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </DPF4C_AUTHORIZE_ACTIVATE>
+          <DPF4C_AUTHORIZE_ADDNOTES
+            DEFAULT="Y"
+            DESCRIPTION="Allows adding/changing text notes and forms."
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </DPF4C_AUTHORIZE_ADDNOTES>
+          <DPF4C_AUTHORIZE_ASSEMBLE
+            DEFAULT="Y"
+            DESCRIPTION="Allows assembling PDF (insert/delete pages)."
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </DPF4C_AUTHORIZE_ASSEMBLE>
+          <DPF4C_AUTHORIZE_BRAILLE
+            DEFAULT="Y"
+            DESCRIPTION="Allows extracting text for braille devices."
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </DPF4C_AUTHORIZE_BRAILLE>
+          <DPF4C_AUTHORIZE_CHANGE
+            DEFAULT="N"
+            DESCRIPTION="Allows changing."
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </DPF4C_AUTHORIZE_CHANGE>
+          <DPF4C_AUTHORIZE_CHANGE_PW
+            DESCRIPTION="This password is used to change security in the input PDF."
+            TYPE="TEXT"
+            />
+          <DPF4C_AUTHORIZE_COPY_TEXT
+            DEFAULT="Y"
+            DESCRIPTION="Allows copying text/graphis from document."
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </DPF4C_AUTHORIZE_COPY_TEXT>
+          <DPF4C_AUTHORIZE_DECRYPT
+            DEFAULT="N"
+            DESCRIPTION="Decodes the PDF file (default: encrypt)."
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </DPF4C_AUTHORIZE_DECRYPT>
+          <DPF4C_AUTHORIZE_DECRYPT_ALL
+            DEFAULT="N"
+            DESCRIPTION="Decodes the PDF file, even if print protected."
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </DPF4C_AUTHORIZE_DECRYPT_ALL>
+          <DPF4C_AUTHORIZE_ENCRYPTION128
+            DEFAULT="N"
+            DESCRIPTION="Enable 128bit encryption (Acrobat 5) (default 40bit) switched on automatically for new security settings."
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </DPF4C_AUTHORIZE_ENCRYPTION128>
+          <DPF4C_AUTHORIZE_FILLFIELDS
+            DEFAULT="N"
+            DESCRIPTION="Allows filling out interactive form fields."
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </DPF4C_AUTHORIZE_FILLFIELDS>
+          <DPF4C_AUTHORIZE_KEEP_FILENAME
+            DEFAULT="N"
+            DESCRIPTION="Do not change Pdf-file name. Per default .pdf is appended."
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </DPF4C_AUTHORIZE_KEEP_FILENAME>
+          <DPF4C_AUTHORIZE_LOWRES
+            DEFAULT="N"
+            DESCRIPTION="Allows printing in low resolution."
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </DPF4C_AUTHORIZE_LOWRES>
+          <DPF4C_AUTHORIZE_OPEN_PW
+            DESCRIPTION="This password is used to read an encrypted input PDF."
+            TYPE="TEXT"
+            />
+          <DPF4C_AUTHORIZE_OWNER_PW
+            DESCRIPTION="Main password (used to prevent changing the security)."
+            TYPE="TEXT"
+            />
+          <DPF4C_AUTHORIZE_PRINT
+            DEFAULT="N"
+            DESCRIPTION="Allows printing."
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </DPF4C_AUTHORIZE_PRINT>
+          <DPF4C_AUTHORIZE_USER_PW
+            DESCRIPTION="User password (used to prevent opening the PDF)."
+            TYPE="TEXT"
+            />
+          <DPF4C_COMMON_TIMEOUT
+            DESCRIPTION="Timeout time for conversion."
+            TYPE="TEXT"
+            />
+          <WU_ENABLE_DEBUG_LOOP
+            DEFAULT="N"
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </WU_ENABLE_DEBUG_LOOP>
+        </INPUT>
+        <OUTPUT
+          CURRFILENAME="*"
+          CURRFILETYPE="pdf"
+          />
+      </pdfauthorize>
+    </workingunits>
+  </config>
+</DPF>

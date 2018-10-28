@@ -1,0 +1,23 @@
+<DPF>
+  <config>
+    <workflows>
+      <pdfcrypt
+        NAME="DPF 4 Convert - pdfcrypt"
+        VERSION="$Id: wf-pdfcrypt.xml,v 1.3 2011/01/04 14:55:40 kig Exp $"
+        PROJECT="DPF4CONVERT"
+        COMMENT="dpf4convert - Decrypt/Crypt PDF with WU pdfcrypt"
+        DPFINT-Type="WorkflowDescription"
+        DPFINT-Changes="0"
+        >
+        <MAIN
+          BEGIN="pdfcrypt"
+          ERROR="END"
+          />
+        <pdfcrypt
+          NAME="pdfcrypt"
+          NEXT="END"
+          />
+      </pdfcrypt>
+    </workflows>
+  </config>
+</DPF>

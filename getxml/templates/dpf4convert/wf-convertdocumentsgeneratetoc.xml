@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workflows>
+      <DPF4CONVERT.ConvertDocumentsGenerateToc
+        COMMENT=""
+        DPFINT-Type="WorkflowDescription"
+        NAME="ConvertDocumentsGenerateToc"
+        PROJECT="DPF4CONVERT"
+        VERSION="$Id: wf-convertdocumentsgeneratetoc.xml,v 1.1 2010/01/13 10:59:21 dh Exp $"
+        >
+        <DEFAULTS/>
+        <END
+          COMMENT=""
+          NAME="END"
+          POSX="200"
+          POSY="100"
+          TYPE="STOP"
+          />
+        <MAIN
+          BEGIN="getPageNumbersFromRli"
+          NAME=""
+          />
+        <MAPPING/>
+        <appendSkipStampColumn
+          COMMENT="Set rli column to skip stamp on pages."
+          ERROR="END"
+          NAME="Rli.appendColumn"
+          NEXT="createContents"
+          POSX="500"
+          POSY="800"
+          TYPE="WU"
+          >
+          <CONNECTIONS
+            ERROR="DIRECT"
+            NEXT="DIRECT"
+            />
+          <DEFAULTS
+            APPENDCOLUMNS="SKIP_STAMP"
+            />
+          <MAPPING/>
+        </appendSkipStampColumn>
+        <appendTocTypeColumn
+          COMMENT="Add new column TOCTYPE for the TOC."
+          ERROR="END"
+          NAME="Rli.appendColumn"
+          NEXT="fillTocTypeColumn"
+          POSX="500"
+          POSY="400"
+          TYPE="WU"
+          >
+          <CONNECTIONS
+            ERROR="DIRECT"
+            NEXT="DIRECT"
+            />
+          <DEFAULTS
+            APPENDCOLUMNS="TOCTYPE"
+            />
+          <MAPPING/>
+        </appendTocTypeColumn>
+        <createContents
+          COMMENT="Create TOC and bookmark metadata"
+          ERROR="END"
+          NAME="Publish.createContents"
+          NEXT="prependTocToRli"
+          POSX="500"
+          POSY="1000"
+          TYPE="WU"
+          >
+          <CONNECTIONS
+            ERROR="DIRECT"
+            NEXT="DIRECT"
+            />
+          <DEFAULTS
+            CREATETOCPDF_PAGE_OFFSET="1"
+            CREATETOCPDF_PRE_OFFSET="%COVER_PAGECOUNT%"
+            CREATETOCPDF_SIMPLE_PAGE_ENUMERATION="Y"
+            NAME="DEFAULTS"
+            TOC_TITLE="Content"
+            />
+          <MAPPING/>
+        </createContents>
+        <fillTocTypeColumn
+          COMMENT="Set rli column TOCTYPE to *text bookmark hyperlink* for generating the TOC.
+
+"
+          ERROR="END"
+          NAME="Rli.replaceLines"
+          NEXT="appendSkipStampColumn"
+          POSX="500"
+          POSY="600"
+          TYPE="WU"
+          >
+          <CONNECTIONS
+            ERROR="DIRECT"
+            NEXT="DIRECT"
+            />
+          <DEFAULTS
+            COLUMN01="TOCTYPE=text bookmark hyperlink"
+            FILTER_VALUE="pdf"
+            RLICOLUMNDATA="COLUMN"
+            RLIC_FILTER="CURRFILETYPE"
+            />
+          <MAPPING/>
+        </fillTocTypeColumn>
+        <getPageNumbersFromRli
+          COMMENT="get pagenumbers from PDF documents"
+          ERROR="END"
+          NAME="Rli.getPageNumbers"
+          NEXT="appendTocTypeColumn"
+          POSX="500"
+          POSY="200"
+          TYPE="WU"
+          >
+          <CONNECTIONS
+            ERROR="DIRECT"
+            NEXT="DIRECT"
+            />
+          <DEFAULTS/>
+          <MAPPING/>
+        </getPageNumbersFromRli>
+        <prependTocToRli
+          COMMENT="Insert TOC on the beginning of the rli."
+          ERROR="END"
+          NAME="Rli.appendLine"
+          NEXT="END"
+          POSX="500"
+          POSY="1200"
+          TYPE="WU"
+          >
+          <CONNECTIONS
+            ERROR="DIRECT"
+            NEXT="DIRECT"
+            />
+          <DEFAULTS
+            PREPEND_RLI_LINE="Y"
+            RLICOLUMNDATA01="CURRFILENAME=%TOC%"
+            RLICOLUMNDATA02="CURRFILETYPE=pdf"
+            RLICOLUMNDATA03="SKIP_STAMP=X"
+            RLICOLUMNDATA04="PAGECOUNT=%TOC_PAGENUM%"
+            RLICOLUMNDATA="RLICOLUMNDATA"
+            />
+          <MAPPING/>
+        </prependTocToRli>
+      </DPF4CONVERT.ConvertDocumentsGenerateToc>
+    </workflows>
+  </config>
+</DPF>

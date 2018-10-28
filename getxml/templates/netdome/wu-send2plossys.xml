@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <Netdome.send2plossys
+        CODEPAGE="ISO-8859-1"
+        COMMAND="%DPFSRV%/scripts/netdome/send2plossys.pl -parfile %PARFILENAME%"
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        ENVIRONMENTS=""
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGNAME="netdome.send2plossys"
+        LOGSTDOUT="Y"
+        NAME="Send Header To Plossys"
+        NODENAMES=""
+        PROJECT="Netdome"
+        THREADS="3"
+        TIMEOUT=""
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-send2plossys.xml,v 1.3 2011/03/07 09:32:17 stefan Exp $"
+        >
+        <DEFAULTS
+          KnetHost="%COMPUTERNAME%"
+          KnetPort="7125"
+          ReadOnlyHeader="N"
+          WU_ENABLE_DEBUG_LOOP="N"
+          />
+        <INPUT
+          CURRFILENAME="*"
+          DPFINT-Icon="doc://:/wu-input.gif"
+          WU_ENABLE_DEBUG_LOOP="*"
+          >
+          <CurrFileName
+            DESCRIPTION="either a header file or a non-header file; in the second case a matching header file will be sent too or created"
+            MANDATORY="true"
+            TYPE="TEXT"
+            />
+          <KnetHost
+            DEFAULT="%COMPUTERNAME%"
+            DESCRIPTION="plossys knet host"
+            TYPE="TEXT"
+            />
+          <KnetPort
+            DEFAULT="7125"
+            DESCRIPTION="plossys knet port"
+            TYPE="TEXT"
+            />
+          <PlsGateDir
+            DESCRIPTION="plossys gate directory"
+            TYPE="TEXT"
+            />
+          <PlsPlotter
+            DESCRIPTION="plotter to use (only valid if ReadOnlyHeader=N)"
+            TYPE="TEXT"
+            />
+          <ReadOnlyHeader
+            DEFAULT="N"
+            DESCRIPTION="do not change the used header file"
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </ReadOnlyHeader>
+          <WU_ENABLE_DEBUG_LOOP
+            DEFAULT="N"
+            TYPE="TEXT"
+            />
+        </INPUT>
+        <OUTPUT
+          DPFINT-Icon="doc://:/wu-output.gif"
+          />
+      </Netdome.send2plossys>
+    </workingunits>
+  </config>
+</DPF>

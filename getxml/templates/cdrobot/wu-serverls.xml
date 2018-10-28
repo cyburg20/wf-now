@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <CdRobot.serverLs
+        COMMAND="%DPFSRV%/scripts/cdrobot/serverls.pl -parfile %PARFILENAME%"
+        DPFINT-FileLinks="doc://:/%DPFSRV%/scripts/cdrobot/serverls.pl"
+        DPFINT-Icon="doc://:/wu.gif"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGNAME=""
+        LOGSTDOUT="Y"
+        NAME="List a directory at server side"
+        PROJECT="CdRobot"
+        THREADS="3"
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-serverls.xml,v 1.4 2007/03/01 09:12:40 stefan Exp $"
+        >
+        <DEFAULTS
+          DIRECTORY=""
+          DPFINT-Icon="doc://:/defaults.gif"
+          />
+        <INPUT
+          DIRECTORY="*"
+          DPFINT-Icon="doc://:/wu-input.gif"
+          />
+        <OUTPUT
+          DPFINT-Icon="doc://:/wu-output.gif"
+          />
+      </CdRobot.serverLs>
+    </workingunits>
+  </config>
+</DPF>

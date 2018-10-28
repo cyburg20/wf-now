@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <DPF4CONVERT.ascii2pdf
+        CODEPAGE="ISO-8859-1"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/ascii2pdf.pl -parfile %PARFILENAME%"
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGNAME=""
+        LOGSTDOUT="Y"
+        NAME="dpf4c - Convert Ascii to PDF"
+        NODENAMES=""
+        PROJECT="DPF4CONVERT"
+        THREADS="1"
+        TIMEOUT=""
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-ascii2pdf.xml,v 1.5 2013/12/18 09:39:59 kig Exp $"
+        >
+        <DEFAULTS
+          ASCII2PDF_CHARS_PER_INCH="10"
+          ASCII2PDF_CHAR_HEIGHT="12"
+          ASCII2PDF_CONFIG_FILE="%PLSTOOLS%/convcfg/ascii2pdf/default.cfg"
+          ASCII2PDF_DB_FILE="%PLSTOOLS%/convcfg/ascii2pdf/default.db"
+          ASCII2PDF_FONT="courier"
+          ASCII2PDF_LINES_PER_INCH="6"
+          ASCII2PDF_LOG_FILE="stdout"
+          ASCII2PDF_LOG_LEVEL="RUN"
+          ASCII2PDF_ORIENTATION="portrait"
+          ASCII2PDF_PAGEFORMAT="A4"
+          />
+        <INPUT>
+          <ASCII2PDF_CHARS_PER_INCH
+            DESCRIPTION="number of characters per inch"
+            TYPE="TEXT"
+            />
+          <ASCII2PDF_CHAR_HEIGHT
+            DESCRIPTION="character height per point"
+            TYPE="TEXT"
+            />
+          <ASCII2PDF_CONFIG_FILE
+            DESCRIPTION="configuration file containing layouts for the page formats"
+            TYPE="TEXT"
+            />
+          <ASCII2PDF_DB_FILE
+            DESCRIPTION="configuration file for PDF creation"
+            TYPE="TEXT"
+            />
+          <ASCII2PDF_FONT
+            DESCRIPTION="font of the pdf"
+            TYPE="TEXT"
+            />
+          <ASCII2PDF_LINES_PER_INCH
+            DESCRIPTION="number of lines per inch"
+            TYPE="TEXT"
+            />
+          <ASCII2PDF_LINES_PER_PAGE
+            DESCRIPTION="number of lines per page"
+            TYPE="TEXT"
+            />
+          <ASCII2PDF_LOG_FILE
+            DESCRIPTION="path of the file to log into"
+            TYPE="TEXT"
+            />
+          <ASCII2PDF_LOG_LEVEL
+            DESCRIPTION="used log level (NONE, ERROR, WARNING, RUN, INFO, DEBUG und TRACE)"
+            TYPE="TEXT"
+            />
+          <ASCII2PDF_ORIENTATION
+            DESCRIPTION="page orientation of the pdf (portrait or landscape)"
+            TYPE="TEXT"
+            />
+          <ASCII2PDF_PAGEFORMAT
+            DESCRIPTION="page format of the pdf file"
+            TYPE="TEXT"
+            />
+          <CurrFileName
+            DESCRIPTION="name of the input text file"
+            MANDATORY="true"
+            TYPE="TEXT"
+            />
+          <JobDir
+            DESCRIPTION="our job dir for temp files"
+            TYPE="TEXT"
+            />
+          <TargetFileName
+            DESCRIPTION="name of the created output pdf"
+            TYPE="TEXT"
+            />
+        </INPUT>
+        <OUTPUT/>
+      </DPF4CONVERT.ascii2pdf>
+    </workingunits>
+  </config>
+</DPF>

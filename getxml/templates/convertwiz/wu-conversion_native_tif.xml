@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <CONVERTWIZ.conversion_native_tif
+        COMMAND="%DPFSRV%/scripts/convertwiz/conversion_native_tif.pl -parfile %PARFILENAME%"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGSTDOUT="Y"
+        NAME="conversion_native_tif"
+        PROJECT="CONVERTWIZ"
+        THREADS="3"
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-conversion_native_tif.xml,v 1.2 2008/10/13 13:57:19 dh Exp $"
+        />
+    </workingunits>
+  </config>
+</DPF>

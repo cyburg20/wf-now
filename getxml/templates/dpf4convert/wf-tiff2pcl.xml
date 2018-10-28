@@ -1,0 +1,27 @@
+<DPF>
+  <config>
+    <workflows>
+      <tiff2pcl
+        NAME="DPF 4 Convert - TIFF to PCL"
+        VERSION="$Id: wf-tiff2pcl.xml,v 1.2 2006/08/15 10:03:23 ludwig Exp $"
+        PROJECT="DPF4CONVERT"
+        COMMENT="dpf4convert - Convert process TIFF to PCL"
+        DPFINT-Type="WorkflowDescription"
+        DPFINT-Changes="0"
+        >
+        <MAIN
+          BEGIN="tiff2pdf"
+          ERROR="END"
+          />
+        <tiff2pdf
+          NAME="tiff2pdf"
+          NEXT="pdf2pcl"
+          />
+        <pdf2pcl
+          NAME="pdf2pcl"
+          NEXT="END"
+          />
+      </tiff2pcl>
+    </workflows>
+  </config>
+</DPF>

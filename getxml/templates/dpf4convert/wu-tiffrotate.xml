@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <tiffrotate
+        NAME="dpf4c - Rotate TIFF"
+        VERSION="$Id: wu-tiffrotate.xml,v 1.6 2005/10/18 10:19:02 ludwig Exp $"
+        PROJECT="DPF4CONVERT"
+        TYPE="WUSystemCall"
+        LOGNAME="dpf4c-tiffrotate"
+        LOGSTDOUT="Y"
+        LOGLEVEL="LOG_INFO"
+        THREADS="1"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/tiffrotate.pl -parfile %PARFILENAME%"
+        >
+	<DEFAULTS
+          WU_ENABLE_DEBUG_LOOP="N"
+          DPF4C_MODIFY_ROTATION=""
+          DPF4C_TIFFROTATE_DB_FILE=""
+          DPF4C_TIFFROTATE_EXT=""
+          />
+        <INPUT
+          CURRFILENAME="*"
+          CURRFILETYPE="tif"
+          />
+        <OUTPUT
+          CURRFILENAME="*"
+          CURRFILETYPE="tif"
+          />
+      </tiffrotate>
+    </workingunits>
+  </config>
+</DPF>

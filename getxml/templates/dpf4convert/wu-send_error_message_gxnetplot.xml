@@ -1,0 +1,29 @@
+<DPF>
+  <config>
+    <workingunits>
+      <send_error_message_gxnetplot
+        NAME="dpf4c - In error case give more informations to gxnetplot by sending job.dat using pfsclient."
+        VERSION="$Id: wu-send_error_message_gxnetplot.xml,v 1.1 2006/03/20 15:23:36 ludwig Exp $"
+        PROJECT="DPF4CONVERT"
+        TYPE="WUSystemCall"
+        LOGNAME="dpf4c-send_error_message_gxnetplot"
+        LOGSTDOUT="Y"
+        LOGLEVEL="LOG_INFO"
+        THREADS="1"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/send_error_message_gxnetplot.pl -parfile %PARFILENAME%">
+        <DEFAULTS
+           DPF4C_CONNECTION_HOST=""
+           REMOTE_BASE_PATH="GRALPLOTHOME"
+          />
+       <INPUT
+          DPF4C_CONNECTION_HOST="*"
+          REMOTE_BASE_PATH="GRALPLOTLIB|GRALPLOTHOME"
+          APPL_SYSTEM_JOBID="*"
+          />
+	<OUTPUT
+          ERR_REASON="*"
+          />
+      </send_error_message_gxnetplot>
+    </workingunits>
+  </config>
+</DPF>

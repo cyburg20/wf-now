@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <dwg2hpgl
+        NAME="dpf4c - Convert CAD AutoCAD dwg and dxf to hpgl or dwg. If configured do property update."
+        VERSION="$Id: wu-dwg2hpgl.xml,v 1.23 2007/03/12 17:24:41 ludwig Exp $"
+        PROJECT="DPF4CONVERT"
+        TYPE="WUSystemCall"
+        LOGNAME="dpf4c-dwg2hpgl"
+        LOGSTDOUT="Y"
+        LOGLEVEL="LOG_INFO"
+        THREADS="1"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/dwg2hpgl.pl -parfile %PARFILENAME%">
+        <DEFAULTS
+          AUTOCAD_STANDARD_DWG_FILE="%PLSROOT%tools/testfiles/dwg/autocad_dina0_l.dwg"
+          DPF4C_DWG2HPGL_CFG_FILE="%PLSROOT%tools/convcfg/dwg2hpgl/default.cfg"
+          DPF4C_DWG2HPGL_PAR_FILE="%PLSROOT%tools/convcfg/dwg2hpgl/default.par"
+          DPF4C_DWG2HPGL_PROPERTY_UPDATE_PROVIDE_FILE_SAVE_DRAWING_VALUE="3"
+          DPF4C_DWG2HPGL_DPAR_FILE="%PLSROOT%tools/convcfg/dwg2hpgl/default.dpar"
+          DPF4C_DWG2HPGL_HED_FILE="%PLSROOT%tools/convcfg/dwg2hpgl/default.hed"
+          DPF4C_DWG2HPGL_EXT=""
+          DPF4C_EXPECTED_NUMBER_OF_SHEETS="99"
+          DPF4C_PROPERTYUPDATE_ENABLE="N"
+          DPF4C_PROPERTYUPDATE_FILE=""
+          DPF4C_PROPERTYUPDATE_PROVIDE_FILES="N"
+          DPF4C_PROPERTYUPDATE_MAPPINGFILE_DWG="%PLSROOT%server/dpf/conf/dpf4convert/Dwg2hpglPropertyMappingFile.txt"
+          DPF4C_MODIFY_ROTATION_HPGL="180"
+          DWG_COMMON_DEST_COLOR="color"
+          DWG_NO_HPGL="N"
+          DWG2HPGL_CHECK_WORKDIRECTOR_RUNNING="N"
+          DWG2HPGL_FORMATNAME=""
+          DWG2HPGL_PLOTSTYLE=""
+          DWG2HPGL_PLOTSTYLE_CADACAD=""
+          DWG2HPGL_RESTART_WORKDIRECTOR_IF_ERROR="N"
+          DWG2HPGL_STATE_DRAFT=""
+          SET_DPF4C_COMMON_MULTIPAGE="Y"
+          WD_ERROR_CODE_SEVERITY="000=I;001=W;002=E;003=E;004=E;005=E;006=E;007=E;008=W;009=E;010=W;011=W;020=E;050=E;051=E;052=E;053=W;054=E;060=E;061=E;065=E;090=I;091=I;092=I;093=I;094=I;095=I;100=I;101=W;102=W;103=I;104=E;110=E;120=W;121=E;130=E;131=E;132=E;133=E;134=E;135=E;140=E;142=E;143=E;144=W;145=I;146=I;147=I;150=E"
+          />
+        <INPUT
+          AUTOCAD_STANDARD_DWG_FILE="file"
+          CURRFILENAME="file"
+          CURRFILETYPE="dwg|dxf"
+          DPF4C_COMMON_TIMEOUT="number"
+          DPF4C_DWG2HPGL_CFG_FILE="file"
+          DPF4C_DWG2HPGL_PAR_FILE="file"
+          DPF4C_DWG2HPGL_PROPERTY_UPDATE_PROVIDE_FILE_SAVE_DRAWING_VALUE="0|1|2|3"
+          DPF4C_DWG2HPGL_DPAR_FILE="file"
+          DPF4C_DWG2HPGL_HED_FILE="file"
+          DPF4C_DWG2HPGL_EXT="string"
+          DPF4C_EXPECTED_NUMBER_OF_SHEETS="number"
+          DPF4C_PROPERTYUPDATE_ENABLE="Y|!N!"
+          DPF4C_PROPERTYUPDATE_FILE="file"
+          DPF4C_PROPERTYUPDATE_PROVIDE_FILES="Y|!N!"
+          DPF4C_PROPERTYUPDATE_MAPPINGFILE_DWG="file"
+          DPF4C_MODIFY_ROTATION_HPGL="angle"
+          DWG_COMMON_DEST_COLOR="black|"
+          DWG_NO_HPGL="Y|!N!"
+          DWG2HPGL_CHECK_WORKDIRECTOR_RUNNING="Y|!N!"
+          DWG2HPGL_FORMATNAME="name"
+          DWG2HPGL_PLOTSTYLE="string"
+          DWG2HPGL_PLOTSTYLE_CADACAD="string"
+          DWG2HPGL_RESTART_WORKDIRECTOR_IF_ERROR="Y|!N!"
+          DWG2HPGL_STATE_DRAFT="text"
+          PARFILENAME="*"
+          SET_DPF4C_COMMON_MULTIPAGE="!Y!|N"
+          WD_ERROR_CODE_SEVERITY="text"
+          />
+        <OUTPUT
+          CURRFILENAME="file"
+          CURRFILETYPE="hp, pdf,dwg"
+          DPF4C_COMMON_OUTFILEhp="file"
+          DPF4C_COMMON_DEST_COLOR="black|"
+          ERR_REASON="text"
+          DPF4C_PROPERTYUPDATE_OUTFILE1="file"
+          />
+      </dwg2hpgl>
+    </workingunits>
+  </config>
+</DPF>
+
+
+

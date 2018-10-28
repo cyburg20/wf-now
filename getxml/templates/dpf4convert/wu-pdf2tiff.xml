@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <pdf2tiff
+        CODEPAGE="ISO-8859-1"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/pdf2tiff.pl -parfile %PARFILENAME%"
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        LOGLEVEL="LOG_INFO"
+        LOGNAME="dpf4c-pdf2tiff"
+        LOGSTDOUT="Y"
+        NAME="dpf4c - Convert PDF to TIFF"
+        NODENAMES=""
+        PROJECT="DPF4CONVERT"
+        THREADS="1"
+        TIMEOUT=""
+        TRACEIGNOREEXITCODE="N"
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-pdf2tiff.xml,v 1.11 2016/03/22 13:27:08 kig Exp $"
+        >
+        <DEFAULTS
+          DPF4C_COMMON_DEST_COLOR="COLOR"
+          DPF4C_COMMON_MULTIPAGE="Y"
+          DPF4C_MODIFY_RESOLUTION_DPI=""
+          DPF4C_WU_TARGETDIR="%JobDir%"
+          PDF2TIFF_COLORTYPE="BW"
+          PDF2TIFF_LOG_FILE="%JobDir%/pdf2tiff.log"
+          PDF2TIFF_LOG_LEVEL="TRACE"
+          PDF2TIFF_MAXSTRIPSIZE="0"
+          PDF2TIFF_USE_BLACK_WHITE_MAPPING="N"
+          WU_ENABLE_DEBUG_LOOP="N"
+          />
+        <INPUT
+          CURRFILENAME="*"
+          CURRFILETYPE="pdf"
+          DPF4C_COMMON_TIMEOUT="number"
+          >
+          <CurrFileName
+            DESCRIPTION="name of the input PDF file"
+            MANDATORY="true"
+            TYPE="TEXT"
+            />
+          <DPF4C_COMMON_DEST_COLOR
+            DESCRIPTION="color type of TIFF-file, one of BLACK , COL .  If set to BLACK, PDF2TIFF_COLORTYPE is set to BW"
+            TYPE="TEXT"
+            />
+          <DPF4C_COMMON_MULTIPAGE
+            DESCRIPTION="single TIFF-file or one TIFF-file for every page"
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </DPF4C_COMMON_MULTIPAGE>
+          <DPF4C_MODIFY_RESOLUTION_DPI
+            DESCRIPTION="resolution of TIFF-file, default 400"
+            TYPE="TEXT"
+            />
+          <DPF4C_WU_TARGETDIR
+            DESCRIPTION="our job directory for target files, default from JobDir"
+            TYPE="TEXT"
+            />
+          <PDF2TIFF_ATA_IMGDESCR
+            DESCRIPTION="image description for ATA-compliant TIFF-file"
+            TYPE="TEXT"
+            />
+          <PDF2TIFF_BUFFERSPACE
+            DESCRIPTION="bufferspace for GS-device"
+            TYPE="TEXT"
+            />
+          <PDF2TIFF_COLORTYPE
+            DESCRIPTION="color type of GS-TIFF-device, one of  BW, GRAY , RGB and CMYK"
+            TYPE="TEXT"
+            />
+          <PDF2TIFF_COMPRESSION
+            DESCRIPTION="compression mode of TIFF-file, one of NONE , PACK , LZW , G4 ( default ) for colortype BW  NONE , PACK , LZW ( default ) for colortype GRAY, RGB and CMYK, JPG for colortype RGB"
+            TYPE="TEXT"
+            />
+          <PDF2TIFF_LOG_FILE
+            DESCRIPTION="path of the file to log into"
+            TYPE="TEXT"
+            />
+          <PDF2TIFF_LOG_LEVEL
+            DESCRIPTION="used log level (NONE, ERROR, WARNING, RUN, INFO, DEBUG und TRACE)"
+            TYPE="TEXT"
+            />
+          <PDF2TIFF_MAXSTRIPSIZE
+            DESCRIPTION="maximal strip size of TIFF-file, non-negative integer, 0 for single strip"
+            TYPE="TEXT"
+            />
+          <PDF2TIFF_QUALITY
+            DESCRIPTION="quality level for JPG-compression"
+            TYPE="TEXT"
+            />
+          <PDF2TIFF_TIFFTYPE
+            DESCRIPTION="create ATA-compliant TIFF-file (ata) or a usual TIFF-file (default)"
+            TYPE="TEXT"
+            />
+          <PDF2TIFF_USE_BLACK_WHITE_MAPPING
+            DESCRIPTION="map all non white colors to black"
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </PDF2TIFF_USE_BLACK_WHITE_MAPPING>
+          <TargetFileName
+            DESCRIPTION="name of the TIFF-file to create. Default from CurrFileName."
+            TYPE="TEXT"
+            />
+          <WU_ENABLE_DEBUG_LOOP
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </WU_ENABLE_DEBUG_LOOP>
+        </INPUT>
+        <OUTPUT
+          CURRFILENAME="*"
+          CURRFILETYPE="tif"
+          />
+      </pdf2tiff>
+    </workingunits>
+  </config>
+</DPF>

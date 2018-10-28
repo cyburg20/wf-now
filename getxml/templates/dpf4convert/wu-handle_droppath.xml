@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <DPF4CONVERT.handle_droppath
+        CODEPAGE="UTF8"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/handle_droppath.pl -parfile %PARFILENAME%"
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGNAME=""
+        LOGSTDOUT="Y"
+        NAME="Handle Droppath"
+        NODENAMES=""
+        PROJECT="DPF4CONVERT"
+        THREADS="4"
+        TIMEOUT=""
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-handle_droppath.xml,v 1.1 2016/08/22 12:08:15 kig Exp $"
+        >
+        <DEFAULTS/>
+        <INPUT>
+          <DPF4C_RESULTFILE_DROPPATH
+            DESCRIPTION="Destination file or directory name"
+            MANDATORY="true"
+            TYPE="TEXT"
+            />
+        </INPUT>
+        <OUTPUT/>
+      </DPF4CONVERT.handle_droppath>
+    </workingunits>
+  </config>
+</DPF>

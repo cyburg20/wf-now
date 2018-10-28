@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <Sap.replyStatusOfDocumentsInRli
+        CODEPAGE="ISO-8859-1"
+        COMMAND="%DPFSRV%/scripts/sap/replystatusofdocumentsinrli.pl -parfile %PARFILENAME%"
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGNAME=""
+        LOGSTDOUT="Y"
+        NAME="Reply Status Of Documents In Rli"
+        NODENAMES=""
+        PROJECT="Sap"
+        THREADS="1"
+        TIMEOUT=""
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-replystatusofdocumentsinrli.xml,v 1.2 2015/09/17 07:33:49 tobias Exp $"
+        >
+        <DEFAULTS
+          USE_JSAPCLI="N"
+          />
+        <INPUT>
+          <CurrRliFileName
+            MANDATORY="true"
+            TYPE="TEXT"
+            />
+          <FilterOperator
+            DESCRIPTION="optional operator to compare value(s), default: eq"
+            TYPE="TEXT"
+            />
+          <FilterOperator2
+            DESCRIPTION="second optional operator to compare value(s), default: eq"
+            TYPE="TEXT"
+            />
+          <FilterValue
+            DESCRIPTION="value to search for in filter"
+            TYPE="TEXT"
+            />
+          <FilterValue2
+            DESCRIPTION="second set of colon separated values to work on these specific RLI lines only"
+            TYPE="TEXT"
+            />
+          <RlicFilter
+            DESCRIPTION="name of RLI column for filter"
+            TYPE="TEXT"
+            />
+          <RlicFilter2
+            DESCRIPTION="name of second RLI column to use to filter specific RLI lines only"
+            TYPE="TEXT"
+            />
+          <SAPMANDANT
+            MANDATORY="true"
+            TYPE="TEXT"
+            />
+          <SAPSYSTEM
+            MANDATORY="true"
+            TYPE="TEXT"
+            />
+          <USE_JSAPCLI
+            DEFAULT="N"
+            TYPE="TEXT"
+            />
+        </INPUT>
+        <OUTPUT/>
+      </Sap.replyStatusOfDocumentsInRli>
+    </workingunits>
+  </config>
+</DPF>

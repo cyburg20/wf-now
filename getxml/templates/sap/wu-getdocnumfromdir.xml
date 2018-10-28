@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <Sap.GetDocNumFromDir
+        CODEPAGE="ISO-8859-1"
+        COMMAND="%DPFSRV%/scripts/sap/getdocnumfromdir.pl -parfile %PARFILENAME%"
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGNAME=""
+        LOGSTDOUT="Y"
+        NAME="Get Doc Num From Dir"
+        NODENAMES=""
+        PROJECT="Sap"
+        THREADS="1"
+        TIMEOUT=""
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-getdocnumfromdir.xml,v 1.1 2017/09/05 13:56:39 sek Exp $"
+        >
+        <DEFAULTS/>
+        <INPUT>
+          <DmsTargetDocumentPart2
+            DESCRIPTION="input property"
+            MANDATORY="true"
+            TYPE="TEXT"
+            />
+        </INPUT>
+        <OUTPUT/>
+      </Sap.GetDocNumFromDir>
+    </workingunits>
+  </config>
+</DPF>

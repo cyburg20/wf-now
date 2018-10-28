@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <Sap.checkOutUrl
+        COMMAND="%DPFSRV%/scripts/sap/checkouturl.pl -parfile %PARFILENAME%"
+        DEFAULTS=""
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGSTDOUT="Y"
+        NAME="Check Out Url"
+        PROJECT="Sap"
+        Status="Running"
+        THREADS="1"
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-checkouturl.xml,v 1.1 2008/01/18 09:00:24 sek Exp $"
+        >
+        <DEFAULTS
+          EquationOperator="eq"
+          IGNORE_MISSING_DOCUMENTS="N"
+          USEDOWNLOADDUMMY="N"
+          />
+        <INPUT>
+          <EquationOperator
+            DEFAULT="eq"
+            TYPE="COMBO"
+            >
+            <RANGE
+              VALUE1="eq"
+              VALUE2="ne"
+              />
+          </EquationOperator>
+          <FilterValue
+            TYPE="TEXT"
+            />
+          <IGNORE_MISSING_DOCUMENTS
+            DEFAULT="N"
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </IGNORE_MISSING_DOCUMENTS>
+          <RlicFilter
+            TYPE="TEXT"
+            />
+          <USEDOWNLOADDUMMY
+            DEFAULT="N"
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </USEDOWNLOADDUMMY>
+        </INPUT>
+      </Sap.checkOutUrl>
+    </workingunits>
+  </config>
+</DPF>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <Examples.simple
+        COMMAND="%DPFSRV%/scripts/examples/simple.pl -parfile %PARFILENAME%"
+        DPFINT-FileLinks="doc://:/%DPFSRV%/scripts/examples/simple.pl"
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="Y"
+        INTERNALNAME="Examples.simple"
+        LOGLEVEL="LOG_INFO"
+        LOGNAME=""
+        LOGSTDOUT="Y"
+        NAME="Example how to simple wu Perl Module"
+        PROJECT="Examples"
+        Status="Running"
+        THREADS="1"
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-simple.xml,v 1.3 2007/03/01 09:12:43 stefan Exp $"
+        >
+        <DEFAULTS
+          CURRFILENAME=""
+          DPFINT-Icon="doc://:/defaults.gif"
+          NAME="DEFAULTS"
+          WU_ENABLE_DEBUG_LOOP="N"
+          />
+        <INPUT
+          CURRFILENAME="*"
+          DPFINT-Icon="doc://:/wu-input.gif"
+          NAME="INPUT"
+          WU_ENABLE_DEBUG_LOOP="*"
+          >
+          <CURRFILENAME
+            TYPE="TEXT"
+            />
+          <WU_ENABLE_DEBUG_LOOP
+            DEFAULT="N"
+            TYPE="TEXT"
+            />
+        </INPUT>
+        <OUTPUT
+          DPFINT-Icon="doc://:/wu-output.gif"
+          ERR_REASON="*"
+          NAME="OUTPUT"
+          zzzNeu2=""
+          />
+      </Examples.simple>
+    </workingunits>
+  </config>
+</DPF>

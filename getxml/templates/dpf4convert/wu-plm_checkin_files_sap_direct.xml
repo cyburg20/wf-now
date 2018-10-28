@@ -1,0 +1,24 @@
+<DPF>
+  <config>
+    <workingunits>
+      <plm_checkin_files_sap_direct
+        NAME="dpf4c - Checkin files to PLM-System SAP direct."
+        VERSION="$Id: wu-plm_checkin_files_sap_direct.xml,v 1.7 2009/06/26 15:10:24 kig Exp $"
+        PROJECT="DPF4CONVERT"
+        TYPE="WUSystemCall"
+        LOGNAME="dpf4c-plm_checkin_files_sap_direct"
+        LOGSTDOUT="Y"
+        LOGLEVEL="LOG_INFO"
+        THREADS="1"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/plm_checkin_files_sap_direct.pl -parfile %PARFILENAME%">
+        <DEFAULTS
+          USE_JSAPCLI="Y"
+          CADRFC_DIRECTORY="%PLSSV%/sapserv/bin_%PLS_OSFULLNAME%"
+          SAPRFC_FILE="%PLSSV%/sapserv/conf/saprfc.ini"
+          CHECKIN_SAP_FORCE_CHECKIN="N"
+          CHECKIN_SAP_DIRECT_SAPCLI_DATACARRIER=""
+          />
+      </plm_checkin_files_sap_direct>
+    </workingunits>
+  </config>
+</DPF>

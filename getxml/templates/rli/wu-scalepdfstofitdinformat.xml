@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <Rli.scalePdfsToFitDinFormat
+        CODEPAGE="ISO-8859-1"
+        COMMAND="%DPFSRV%/scripts/rli/scalepdfstofitdinformat.pl -parfile %PARFILENAME%"
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGSTDOUT="Y"
+        NAME="Scale PDF&apos;s to fit DIN format"
+        NODENAMES=""
+        PROJECT="Rli"
+        THREADS="3"
+        TIMEOUT=""
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-scalepdfstofitdinformat.xml,v 1.7 2011/01/13 13:51:10 stefan Exp $"
+        >
+        <DEFAULTS
+          DinScaleAutoAddWhiteBorder="N"
+          DinScaleAutoRotateDrawings="N"
+          DinScaleAutoRotateSmallPages="N"
+          DinScaleHandleRollFormat="Y"
+          IgnoreErrors="N"
+          />
+        <INPUT>
+          <CurrRliFileName
+            DESCRIPTION="the rli input file"
+            TYPE="TEXT"
+            />
+          <DinScaleAbsTolerance
+            DESCRIPTION="absolute tolerance to scale down to matching DIN format, default: 2 mm"
+            TYPE="TEXT"
+            />
+          <DinScaleAutoAddWhiteBorder
+            DEFAULT="N"
+            DESCRIPTION="auto fill white border to fit DIN format"
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </DinScaleAutoAddWhiteBorder>
+          <DinScaleAutoRotateDrawings
+            DEFAULT="N"
+            DESCRIPTION="autorotate DIN_A3 and bigger to landscape"
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </DinScaleAutoRotateDrawings>
+          <DinScaleAutoRotateSmallPages
+            DEFAULT="N"
+            DESCRIPTION="autorotate DIN_A4 and smaller to portrait"
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </DinScaleAutoRotateSmallPages>
+          <DinScaleHandleRollFormat
+            DEFAULT="Y"
+            DESCRIPTION="if Y (default), handle files with ratio 1.5 : 1 or more as DIN roll format, look for smaller size only"
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </DinScaleHandleRollFormat>
+          <FilterOperator
+            DESCRIPTION="optional operator to compare value(s), default: eq"
+            TYPE="TEXT"
+            />
+          <FilterOperator2
+            DESCRIPTION="second optional operator to compare value(s), default: eq"
+            TYPE="TEXT"
+            />
+          <FilterValue
+            DESCRIPTION="optional filter values"
+            TYPE="TEXT"
+            />
+          <FilterValue2
+            DESCRIPTION="second set of colon separated values to work on these specific RLI lines only"
+            TYPE="TEXT"
+            />
+          <IgnoreErrors
+            DEFAULT="N"
+            DESCRIPTION="if Y, ignore errors while scaling, just write RLI column ERR_REASON"
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </IgnoreErrors>
+          <PdfPraeTolerance
+            TYPE="TEXT"
+            />
+          <RlicCurrFileName
+            DESCRIPTION="optional RLI column name for input file names, default: CURRFILENAME"
+            TYPE="TEXT"
+            />
+          <RlicFilter
+            DESCRIPTION="optional RLI column name for selecting specific lines"
+            TYPE="TEXT"
+            />
+          <RlicFilter2
+            DESCRIPTION="name of second RLI column to use to filter specific RLI lines only"
+            TYPE="TEXT"
+            />
+        </INPUT>
+        <OUTPUT/>
+      </Rli.scalePdfsToFitDinFormat>
+    </workingunits>
+  </config>
+</DPF>

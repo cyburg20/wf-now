@@ -1,0 +1,34 @@
+<DPF>
+  <config>
+    <workingunits>
+      <checkout_pfsclient
+        NAME="dpf4c - Check out files using pfsclient."
+        VERSION="$Id: wu-checkout_pfsclient.xml,v 1.1 2006/03/20 15:23:36 ludwig Exp $"
+        PROJECT="DPF4CONVERT"
+        TYPE="WUSystemCall"
+        LOGNAME="dpf4c-checkout_pfsclient"
+        LOGSTDOUT="Y"
+        LOGLEVEL="LOG_INFO"
+        THREADS="1"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/checkout_pfsclient.pl -parfile %PARFILENAME%">
+        <DEFAULTS
+           DPF4C_CONNECTION_HOST=""
+           APPL_IN_FILE=""
+           APPL_ASSOC_FILE_LIST=""
+           REMOTE_BASE_PATH="GRALPLOTHOME"
+          />
+        <INPUT
+          DPF4C_CONNECTION_HOST="*"
+          APPL_IN_FILE="*"
+          APPL_ASSOC_FILE_LIST="*"
+          REMOTE_BASE_PATH="GRALPLOTLIB|GRALPLOTHOME"
+          />
+	<OUTPUT
+          CURRFILENAME="*"
+          CURRFILETYPE="*"
+          ERR_REASON="*"
+          />
+      </checkout_pfsclient>
+    </workingunits>
+  </config>
+</DPF>

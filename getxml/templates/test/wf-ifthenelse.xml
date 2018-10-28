@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workflows>
+      <Test.IfThenElse
+        COMMENT=""
+        DPFINT-Changes="0"
+        DPFINT-Icon="doc://:/wf.gif"
+        DPFINT-Type="WorkflowDescription"
+        NAME="Only IF-THEN-ELSE"
+        PROJECT="Test"
+        VERSION="$Id: wf-ifthenelse.xml,v 1.4 2006/11/10 20:24:03 stefan Exp $"
+        >
+        <DEFAULTS
+          DPFINT-Icon="doc://:/defaults.gif"
+          />
+        <DoAnotherThing
+          NAME="Test.exit0"
+          NEXT="END"
+          />
+        <DoSomething
+          NAME="Test.exit0"
+          NEXT="SecondIf"
+          />
+        <FirstIf
+          ELSE="SecondIf"
+          OPERATOR="=="
+          PROPERTY="DO_SOMETHING"
+          THEN="DoSomething"
+          TYPE="IF-THEN-ELSE"
+          VALUE="Y"
+          />
+        <MAIN
+          BEGIN="FirstIf"
+          ERROR="END"
+          />
+        <SecondIf
+          ELSE="END"
+          OPERATOR="=="
+          PROPERTY="DO_ANOTHER_THING"
+          THEN="DoAnotherThing"
+          TYPE="IF-THEN-ELSE"
+          VALUE="Y"
+          />
+      </Test.IfThenElse>
+    </workflows>
+  </config>
+</DPF>

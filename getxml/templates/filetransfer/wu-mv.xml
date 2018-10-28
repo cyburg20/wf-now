@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <FileTransfer.mv
+        CODEPAGE="ISO-8859-1"
+        COMMAND="mv &quot;%SOURCE%&quot; &quot;%TARGET%&quot;"
+        DEFAULTS=""
+        DPFINT-FileLinks="doc://:/mv"
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        LOGLEVEL="LOG_INFO"
+        LOGNAME=""
+        LOGSTDOUT="Y"
+        NAME="Move File"
+        NODENAMES=""
+        PROJECT="FileTransfer"
+        THREADS="5"
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-mv.xml,v 1.4 2008/09/02 11:20:08 sek Exp $"
+        >
+        <DEFAULTS/>
+        <INPUT
+          DPFINT-Icon="doc://:/wu-input.gif"
+          TARDIR="*"
+          TARFILENAME="*"
+          WU_ENABLE_DEBUG_LOOP="*"
+          >
+          <SOURCE
+            DESCRIPTION="file to move"
+            MANDATORY="true"
+            TYPE="TEXT"
+            />
+          <TARGET
+            DESCRIPTION="move destination"
+            MANDATORY="true"
+            TYPE="TEXT"
+            />
+        </INPUT>
+      </FileTransfer.mv>
+    </workingunits>
+  </config>
+</DPF>

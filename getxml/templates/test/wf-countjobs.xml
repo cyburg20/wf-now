@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workflows>
+      <Test.countJobs
+        DPFINT-Changes="0"
+        DPFINT-Icon="doc://:/wf.gif"
+        DPFINT-Type="WorkflowDescription"
+        NAME="Error last test workflow"
+        PROJECT="Test"
+        VERSION="$Id: wf-countjobs.xml,v 1.3 2006/11/10 20:24:03 stefan Exp $"
+        COMMENT="Test workflow to count jobs for each WU thread"
+        >
+        <DEFAULTS
+          DPFINT-Icon="doc://:/defaults.gif"
+          />
+        <MAIN
+          BEGIN="firstwu"
+          ERROR="END"
+          />
+        <firstwu
+          NAME="Test.countJobs"
+          NEXT="END"
+          />
+      </Test.countJobs>
+    </workflows>
+  </config>
+</DPF>

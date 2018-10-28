@@ -1,0 +1,25 @@
+<DPF>
+  <config>
+    <workingunits>
+      <rlistsap
+        VERSION="$Id: wu-rlistsap.xml,v 1.6 2002/12/17 09:10:12 stefan Exp $"
+        PROJECT="DPF4PLM"
+        TYPE="WUSystemCall"
+        LOGNAME="dpfrlistsap"
+        LOGLEVEL="LOG_INFO"
+        THREADS="1"
+	COMMAND="%DPFSRV%/scripts/dpf4plm/rlistsap.pl -parfile %PARFILENAME%">
+	<DEFAULTS
+	  KNET_HOST="seppdos41"
+	  KNET_PORT="7317"
+          />
+        <INPUT
+	  CURRFILENAME="*"
+	  CURRFILETYPE="RLIST"
+          />
+        <OUTPUT
+	  />
+      </rlistsap>
+    </workingunits>
+  </config>
+</DPF>

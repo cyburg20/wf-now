@@ -1,0 +1,28 @@
+<DPF>
+  <config>
+    <workingunits>
+      <mergexml
+        VERSION="$Id: wu-mergexml.xml,v 1.5 2002/12/17 09:10:12 stefan Exp $"
+        PROJECT="DPF4PLM"
+        TYPE="WUSystemCall"
+        LOGNAME="dpfmergexml"
+        LOGLEVEL="LOG_INFO"
+        THREADS="1"
+	COMMAND="%DPFSRV%/scripts/dpf4plm/mergexml.pl -parfile %PARFILENAME%">
+	<DEFAULTS
+          COVER_DESCRIPTION="SAP Formular"
+          />
+        <INPUT
+	  CURRFILENAME="*"
+	  CURRFILETYPE="XML"
+	  CURRMETFILENAME="*"
+	  CURRHEDFILENAME="*"
+          />
+        <OUTPUT
+          CURRFILENAME="*"
+	  CURRFILETYPE="XML"
+	  />
+      </mergexml>
+    </workingunits>
+  </config>
+</DPF>

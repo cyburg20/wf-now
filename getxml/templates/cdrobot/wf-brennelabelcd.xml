@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workflows>
+      <BrenneLabelCD
+        COMMENT=""
+        DPFINT-Icon="doc://:/wf.gif"
+        DPFINT-Interactive="1"
+        DPFINT-Type="WorkflowDescription"
+        INTERNALNAME="BrenneLabelCD"
+        NAME="Brenne Verzeichnis auf CD nur mit Hintergrundbild"
+        PROJECT="CdRobot"
+        >
+        <DEFAULTS
+          DPFINT-Icon="doc://:/defaults.gif"
+          />
+        <END
+          COMMENT=""
+          NAME="END"
+          POSX="300"
+          POSY="200"
+          TYPE="STOP"
+          />
+        <MAIN
+          BEGIN="initEmptyCdLabel"
+          COMMENT="Brennt eine CD mit Label ohne Text"
+          DPFINT-Interactive="1"
+          ERROR="END"
+          PROJECT="CdRobot"
+          VERSION="$Id: wf-brennelabelcd.xml,v 1.7 2006/12/15 16:25:07 stefan Exp $"
+          />
+        <UserInterface
+          ORDER="TARROOTDIR CD_LABEL TOAST_NUM_COPIES MKISO_VOLUME_ID SIMULATE"
+          >
+        <CD_LABEL
+          TYPE = "File"
+          RANGE = "JPG (*.jpg)|PDF (*.pdf)|PNG (*.png)|TIFF (*.tif)|GIF (*.gif)|Alle (*.*)"
+          DEFAULT = ""
+          />
+        <SIMULATE
+          RANGE="Y|N"
+          TYPE="Check"
+          DEFAULT="N"
+          />
+        <DPF_SRV_GET_FILES
+          RANGE=""
+          TYPE="Hidden"
+          DEFAULT="CD_LABEL"
+          />
+        <PLS_USERNAME
+          RANGE=""
+          TYPE="Hidden"
+          DEFAULT="UNKNOWN"
+          />
+        <PLS_SRCNODE
+          RANGE=""
+          TYPE="Hidden"
+          DEFAULT="UNKNOWN"
+          />
+        <TOAST_NUM_COPIES
+          RANGE="1,25"
+          TYPE="Spin"
+          DEFAULT="1"
+          />
+        <TARROOTDIR
+          RANGE="59"
+          TYPE="Dir"
+          DEFAULT="Bitte Verzeichnis wählen"
+          />
+          <MKISO_VOLUME_ID
+            DEFAULT="SEAL"
+            RANGE="12"
+            TYPE="Edit"
+            />
+        </UserInterface>
+        <buildcd
+          COMMENT=""
+          ERROR="END"
+          NEXT="END"
+          POSX="100"
+          POSY="300"
+          TYPE="SWF"
+          USE="CdRobot.buildWithClientUI"
+          >
+          <CONNECTIONS
+            ERROR="DIRECT"
+            NEXT="DIRECT"
+            />
+          <DEFAULTS/>
+          <MAPPING/>
+        </buildcd>
+        <initEmptyCdLabel
+          COMMENT=""
+          NEXT="buildcd"
+          POSX="100"
+          POSY="100"
+          TYPE="MODIFY"
+          >
+          <CONNECTIONS
+            NEXT="DIRECT"
+            />
+          <SET
+            INIT_LABEL_BACKGROUND="N"
+            INIT_LABEL_LOGO="N"
+            INIT_LABEL_TEXT="N"
+            LABEL_BACKGROUND=""
+            LABEL_PDF_LOGO=""
+            LABEL_TEXT_LABELS="- - - - -"
+            LABEL_TEXT_PROPERTIES=""
+            />
+        </initEmptyCdLabel>
+      </BrenneLabelCD>
+    </workflows>
+  </config>
+</DPF>

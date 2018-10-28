@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <Rli.diff
+        CODEPAGE="UTF8"
+        COMMAND="%DPFSRV%/scripts/rli/diff.pl -parfile %PARFILENAME%"
+        DPFINT-Icon="doc://:/wu.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGSTDOUT="Y"
+        NAME="Diff two RLI files"
+        NODENAMES=""
+        PROJECT="Rli"
+        THREADS="5"
+        TIMEOUT=""
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-diff.xml,v 1.3 2010/10/28 15:57:06 stefan Exp $"
+        >
+        <INPUT>
+          <CurrRliFileName
+            DESCRIPTION="first RLI to compare"
+            MANDATORY="true"
+            TYPE="TEXT"
+            />
+          <SecondRliFileName
+            DESCRIPTION="second RLI to compare"
+            MANDATORY="true"
+            TYPE="TEXT"
+            />
+        </INPUT>
+        <OUTPUT/>
+      </Rli.diff>
+    </workingunits>
+  </config>
+</DPF>

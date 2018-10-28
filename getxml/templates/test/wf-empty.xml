@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workflows>
+      <Test.empty
+        DPFINT-Changes="0"
+        DPFINT-Icon="doc://:/wf.gif"
+        DPFINT-Type="WorkflowDescription"
+        NAME="Empty test workflow"
+        COMMENT="an empty workflow to be used as user exit"
+        PROJECT="Test"
+        VERSION="$Id: wf-empty.xml,v 1.3 2006/11/10 20:24:03 stefan Exp $"
+        >
+        <DEFAULTS
+          DPFINT-Icon="doc://:/defaults.gif"
+          />
+        <MAIN
+          BEGIN="END"
+          ERROR="END"
+          />
+      </Test.empty>
+    </workflows>
+  </config>
+</DPF>

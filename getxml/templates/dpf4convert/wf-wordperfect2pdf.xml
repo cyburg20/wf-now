@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workflows>
+      <wordperfect2pdf
+        NAME="DPF 4 Convert - Word Perfect document to PDF"
+        VERSION="$Id: wf-wordperfect2pdf.xml,v 1.2 2006/08/15 10:03:23 ludwig Exp $"
+        PROJECT="DPF4CONVERT"
+        COMMENT="dpf4convert - Convert process Word Perfect document to PDF"
+        DPFINT-Type="WorkflowDescription"
+        DPFINT-Changes="0"
+        >
+        <MAIN
+          BEGIN="wordperfect2file"
+          ERROR="END"
+          />
+        <wordperfect2file
+          NAME="wordperfect2file"
+          NEXT="check_convert_to_pdf"
+          />
+        <check_convert_to_pdf
+          TYPE="IF-THEN-ELSE"
+          PROPERTY="CURRFILETYPE"
+          OPERATOR="equals"
+          VALUE="ps"
+          THEN="ps2pdfg"
+          ELSE="END"
+          />
+        <ps2pdfg
+          USE="ps2pdfg"
+          NEXT="END"
+          />
+      </wordperfect2pdf>
+    </workflows>
+  </config>
+</DPF>

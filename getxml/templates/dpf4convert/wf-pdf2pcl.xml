@@ -1,0 +1,27 @@
+<DPF>
+  <config>
+    <workflows>
+      <pdf2pcl
+        NAME="DPF 4 Convert - PDF to PCL"
+        VERSION="$Id: wf-pdf2pcl.xml,v 1.3 2008/08/20 09:04:33 dh Exp $"
+        PROJECT="DPF4CONVERT"
+        COMMENT="dpf4convert - Convert process PDF to PCL"
+        DPFINT-Type="WorkflowDescription"
+        DPFINT-Changes="0"
+        >
+        <MAIN
+          BEGIN="pdf2ps"
+          ERROR="END"
+          />
+        <pdf2ps
+          NAME="pdf2ps"
+          NEXT="pdf2pcl"
+          />
+        <pdf2pcl
+          NAME="pdf2pcl"
+          NEXT="END"
+          />
+      </pdf2pcl>
+    </workflows>
+  </config>
+</DPF>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <tiff2pdf
+        NAME="dpf4c - Convert TIFF to PDF"
+        LICENSE="CITIFF"
+        VERSION="$Id: wu-tiff2pdf.xml,v 1.4 2017/02/08 12:46:29 thomas Exp $"
+        PROJECT="DPF4CONVERT"
+        TYPE="WUSystemCall"
+        LOGNAME="dpf4c-tiff2pdf"
+        LOGSTDOUT="Y"
+        LOGLEVEL="LOG_INFO"
+        THREADS="1"
+        TRACEIGNOREEXITCODE="N"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/tiff2pdf.pl -parfile %PARFILENAME%">
+        <DEFAULTS
+          />
+        <INPUT
+          CURRFILENAME="*"
+          CURRFILETYPE="tif"
+          DPF4C_COMMON_TIMEOUT="number"
+          DESTINATION_FORMAT_QUALITY="string"
+          />
+        <OUTPUT
+          CURRFILENAME="*"
+          CURRFILETYPE="pdf"
+          DPF4C_COMMON_OUTFILEpdf="file"
+          ERR_REASON="text"
+          />
+      </tiff2pdf>
+    </workingunits>
+  </config>
+</DPF>

@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <CdRobot.createCdLabel
+        CODEPAGE="ISO-8859-1"
+        COMMAND="%DPFSRV%/scripts/cdrobot/createcdlabel.pl -parfile %PARFILENAME%"
+        DPFINT-FileLinks="doc://:/%DPFSRV%/scripts/cdrobot/createcdlabel.pl"
+        DPFINT-Icon="doc://:/cdrobot.createcdlabel.gif"
+        DPFINT-Type="StationDescription"
+        IGNOREEXITCODE="N"
+        LOGLEVEL="LOG_INFO"
+        LOGNAME=""
+        LOGSTDOUT="Y"
+        NAME="Create CD label"
+        NODENAMES=""
+        PROJECT="CdRobot"
+        THREADS="1"
+        TIMEOUT=""
+        TYPE="WUSystemCall"
+        VERSION="$Id: wu-createcdlabel.xml,v 1.8 2012/08/28 11:49:56 sek Exp $"
+        >
+        <DEFAULTS
+          DPFINT-Icon="doc://:/defaults.gif"
+          LABEL_CIRCLE_TEXT_SIZE="8"
+          LABEL_CLIPPING="1.9 cm"
+          LABEL_GS_PARAMS="-sDEVICE=jpeg -r600 -dJPEGQ=100"
+          LABEL_PDF_LOGO_OFFSET_X="0 cm"
+          LABEL_PDF_LOGO_OFFSET_Y="3.0 cm"
+          LABEL_PDF_LOGO_SCALE="0.8"
+          LABEL_SIZE="4.433 in"
+          LABEL_TEXT_COLOR="#000000"
+          LABEL_TEXT_OFFSET_X="-1.0 cm"
+          LABEL_TEXT_OFFSET_Y="-2.9 cm"
+          LABEL_TEXT_SHADOW_OFFSET="0.5 pt"
+          LABEL_TEXT_SIZE="14"
+          WU_ENABLE_DEBUG_LOOP="N"
+          />
+        <INPUT
+          DPFINT-Icon="doc://:/wu-input.gif"
+          LABEL_GS_PARAMS="*"
+          WU_ENABLE_DEBUG_LOOP="*"
+          >
+          <DestFileName
+            TYPE="TEXT"
+            />
+          <IMAGE_LIST
+            TYPE="TEXT"
+            />
+          <LABEL_BACKGROUND
+            TYPE="TEXT"
+            />
+          <LABEL_CIRCLE_TEXT
+            TYPE="TEXT"
+            />
+          <LABEL_CIRCLE_TEXT_SIZE
+            DEFAULT="8"
+            TYPE="TEXT"
+            />
+          <LABEL_CLIPPING
+            DEFAULT="1.9 cm"
+            TYPE="TEXT"
+            />
+          <LABEL_GS_PARAMS
+            DEFAULT="-sDEVICE=jpeg -r600 -dJPEGQ=100"
+            TYPE="TEXT"
+            />
+          <LABEL_INNER_CIRCLE_TEXT
+            TYPE="TEXT"
+            />
+          <LABEL_LIST
+            TYPE="TEXT"
+            />
+          <LABEL_PDF_LOGO
+            TYPE="TEXT"
+            />
+          <LABEL_PDF_LOGO_OFFSET_X
+            DEFAULT="0 cm"
+            TYPE="TEXT"
+            />
+          <LABEL_PDF_LOGO_OFFSET_Y
+            DEFAULT="3.0 cm"
+            TYPE="TEXT"
+            />
+          <LABEL_PDF_LOGO_SCALE
+            DEFAULT="0.8"
+            TYPE="TEXT"
+            />
+          <LABEL_SIZE
+            DEFAULT="4.433 in"
+            TYPE="TEXT"
+            />
+          <LABEL_TEXT_COLOR
+            DEFAULT="#000000"
+            TYPE="TEXT"
+            />
+          <LABEL_TEXT_LABELS
+            TYPE="TEXT"
+            />
+          <LABEL_TEXT_OFFSET_X
+            DEFAULT="-1.0 cm"
+            TYPE="TEXT"
+            />
+          <LABEL_TEXT_OFFSET_Y
+            DEFAULT="-2.9 cm"
+            TYPE="TEXT"
+            />
+          <LABEL_TEXT_PROPERTIES
+            TYPE="TEXT"
+            />
+          <LABEL_TEXT_SHADOW
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </LABEL_TEXT_SHADOW>
+          <LABEL_TEXT_SHADOW_COLOR
+            TYPE="TEXT"
+            />
+          <LABEL_TEXT_SHADOW_OFFSET
+            DEFAULT="0.5 pt"
+            TYPE="TEXT"
+            />
+          <LABEL_TEXT_SIZE
+            DEFAULT="14"
+            TYPE="TEXT"
+            />
+          <PRINT_PDF
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </PRINT_PDF>
+          <WU_ENABLE_DEBUG_LOOP
+            DEFAULT="N"
+            TYPE="CHECK"
+            >
+            <RANGE
+              VALUE1="false=N"
+              VALUE2="true=Y"
+              />
+          </WU_ENABLE_DEBUG_LOOP>
+        </INPUT>
+        <OUTPUT/>
+      </CdRobot.createCdLabel>
+    </workingunits>
+  </config>
+</DPF>

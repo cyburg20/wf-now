@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workflows>
+      <DPF4CONVERT.pdfoptimize
+        COMMENT="The DPF-process PDFOPTIMIZE optimizes a PDF-file"
+        DPFINT-Customer="0"
+        DPFINT-Interactive="0"
+        DPFINT-Type="WorkflowDescription"
+        NAME="Pdfoptimize - optimize a PDF file"
+        PROJECT="DPF4CONVERT"
+        VERSION="$Id: wf-pdfoptimize.xml,v 1.1 2016/02/04 16:29:49 kig Exp $"
+        >
+        <DEFAULTS/>
+        <DPF4CONVERT.pdfoptimize1
+          COMMENT=""
+          ERROR="END"
+          NAME="pdfcompress"
+          NEXT="END"
+          POSX="100"
+          POSY="300"
+          TYPE="WU"
+          >
+          <CONNECTIONS
+            ERROR="DIRECT"
+            NEXT="DIRECT"
+            />
+          <DEFAULTS/>
+          <MAPPING/>
+        </DPF4CONVERT.pdfoptimize1>
+        <END
+          COMMENT=""
+          NAME="END"
+          POSX="200"
+          POSY="100"
+          TYPE="STOP"
+          />
+        <MAIN
+          BEGIN="check_optimize"
+          NAME=""
+          />
+        <MAPPING/>
+        <check_optimize
+          COMMENT=""
+          ELSE="END"
+          OPERATOR="eq"
+          POSX="100"
+          POSY="100"
+          PROPERTY="ENABLE_PDFOPTIMIZE"
+          THEN="DPF4CONVERT.pdfoptimize1"
+          TYPE="IF-THEN-ELSE"
+          VALUE="Y"
+          >
+          <CONNECTIONS
+            ELSE="DIRECT"
+            THEN="DIRECT"
+            />
+        </check_optimize>
+      </DPF4CONVERT.pdfoptimize>
+    </workflows>
+  </config>
+</DPF>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workflows>
+      <Test.testperlcommand
+        DPFINT-Changes="0"
+        DPFINT-Icon="doc://:/wf.gif"
+        DPFINT-Type="WorkflowDescription"
+        NAME="Test a working unit without a perl script"
+        COMMENT="Test a working unit with &apos;perl perlscript.pl&apos; in command line"
+        PROJECT="Test"
+        VERSION="$Id: wf-testperlcommand.xml,v 1.3 2006/11/10 20:24:04 stefan Exp $"
+        >
+        <DEFAULTS
+          DPFINT-Icon="doc://:/defaults.gif"
+          />
+        <MAIN
+          BEGIN="firstwu"
+          ERROR="END"
+          />
+        <firstwu
+          NAME="Test.exit0"
+          NEXT="secondwu"
+          />
+        <secondwu
+          NAME="Test.testperlcommand"
+          NEXT="thirdwu"
+          />
+        <thirdwu
+          NAME="Test.exit0"
+          NEXT="END"
+          />
+      </Test.testperlcommand>
+    </workflows>
+  </config>
+</DPF>

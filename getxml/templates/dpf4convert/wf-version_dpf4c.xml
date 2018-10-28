@@ -1,0 +1,39 @@
+<DPF>
+  <config>
+    <workflows>
+      <version_dpf4c
+        NAME="DPF 4 Convert - Set version of dpf for all processes contained in folder dpf4convert which can use this process."
+        VERSION="$Id: wf-version_dpf4c.xml,v 1.17 2017/02/21 13:50:17 kig Exp $"
+        PROJECT="DPF4CONVERT"
+        COMMENT="dpf4convert - Give dpf4convert processes the possiblility to have explicitly set version, build and customer build number"
+        DPFINT-Type="WorkflowDescription"
+        DPFINT-Changes="0"
+        >
+        <MAIN
+          BEGIN="check_if_version_already_set"
+          ERROR="END"
+          />
+        <check_if_version_already_set
+          TYPE="IF-THEN-ELSE"
+          PROPERTY="VERSION"
+          OPERATOR="exists"
+          VALUE=""
+          THEN="END"
+          ELSE="set_versions"
+          />
+        <set_versions
+          TYPE="MODIFY"
+          NEXT="END"
+        >
+          <SET
+          VERSION_PRODUCER="DPF4Convert"
+          VERSION="2.0.0"
+          VERSION_DPF4CONVERT="2.0.0"
+          VERSION_BUILD="1"
+          VERSION_CUSTOMER_BUILD="1"
+          />
+        </set_versions>
+      </version_dpf4c>
+    </workflows>
+  </config>
+</DPF>

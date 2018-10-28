@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DPF>
+  <config>
+    <workingunits>
+      <tiffresolution
+        NAME="dpf4c - Change resolution of TIFF file"
+        VERSION="$Id: wu-tiffresolution.xml,v 1.2 2005/04/18 12:21:43 wolfi Exp $"
+        PROJECT="DPF4CONVERT"
+        TYPE="WUSystemCall"
+        LOGNAME="dpf4c-tiffresolution"
+        LOGSTDOUT="Y"
+        LOGLEVEL="LOG_INFO"
+        THREADS="1"
+        COMMAND="%DPFSRV%/scripts/dpf4convert/tiffresolution.pl -parfile %PARFILENAME%"
+        >
+	<DEFAULTS
+          WU_ENABLE_DEBUG_LOOP="N"
+          DPF4C_MODIFY_RESOLUTION_DPI=""
+          DPF4C_TIFFRESOLUTION_DB_FILE="%PLSROOT%tools/convcfg/tiffrotate/default.db"
+          DPF4C_TIFFRESOLUTION_EXT=""
+          />
+        <INPUT
+          PARFILENAME="*"
+          CURRFILENAME="*"
+          CURRFILETYPE="tif"
+          />
+        <OUTPUT
+          CURRFILENAME="*"
+          CURRFILETYPE="tif"
+          />
+      </tiffresolution>
+    </workingunits>
+  </config>
+</DPF>

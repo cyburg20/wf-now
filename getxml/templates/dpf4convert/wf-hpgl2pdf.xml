@@ -1,0 +1,23 @@
+<DPF>
+  <config>
+    <workflows>
+      <hpgl2pdf
+        NAME="DPF 4 Convert - HPGL to PDF"
+        VERSION="$Id: wf-hpgl2pdf.xml,v 1.10 2007/03/21 13:45:06 ludwig Exp $"
+        PROJECT="DPF4CONVERT"
+        COMMENT="dpf4convert - Convert process HPGL to PDF"
+        DPFINT-Type="WorkflowDescription"
+        DPFINT-Changes="0"
+        >
+        <MAIN
+          BEGIN="hpgl2pdf"
+          ERROR="END"
+          />
+        <hpgl2pdf
+          NAME="hpgl2pdf"
+          NEXT="END"
+          />
+      </hpgl2pdf>
+    </workflows>
+  </config>
+</DPF>

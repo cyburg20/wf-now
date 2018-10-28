@@ -1,0 +1,23 @@
+<DPF>
+  <config>
+    <workflows>
+      <gif2pdf
+        NAME="DPF 4 Convert - GIF to PDF"
+        VERSION="$Id: wf-gif2pdf.xml,v 1.2 2009/02/17 13:26:27 kig Exp $"
+        PROJECT="DPF4CONVERT"
+        COMMENT="dpf4convert - Convert process GIF to PDF"
+        DPFINT-Type="WorkflowDescription"
+        DPFINT-Changes="0"
+        >
+        <MAIN
+          BEGIN="gif2pdf"
+          ERROR="END"
+          />
+        <gif2pdf
+          NAME="gif2pdf"
+          NEXT="END"
+          />
+      </gif2pdf>
+    </workflows>
+  </config>
+</DPF>

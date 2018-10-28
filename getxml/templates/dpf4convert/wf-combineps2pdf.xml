@@ -1,0 +1,23 @@
+<DPF>
+  <config>
+    <workflows>
+      <combineps2pdf
+        NAME="DPF 4 Convert - Combine and scale multiple ps files to a single multipage pdf file"
+        VERSION="$Id: wf-combineps2pdf.xml,v 1.1 2010/04/16 10:15:03 kig Exp $"
+        PROJECT="DPF4CONVERT"
+        COMMENT="dpf4convert - Combine and scale multiple ps files to a single multipage pdf file"
+        DPFINT-Type="WorkflowDescription"
+        DPFINT-Changes="0"
+        >
+        <MAIN
+          BEGIN="combineps2pdf"
+          ERROR="END"
+          />
+        <combineps2pdf
+          NAME="combineps2pdf"
+          NEXT="END"
+          />
+      </combineps2pdf>
+    </workflows>
+  </config>
+</DPF>
